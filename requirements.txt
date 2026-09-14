@@ -1,0 +1,8 @@
+# Instale com: pip3 install -r requirements.txt
+#
+# google-ads>=32 nao e capricho: as versoes anteriores EXIGEM o developer token e recusam a
+# chamada com "developer-token parameter is missing" -- e o token deixou de ser emitido em
+# 09/set/2026. Testado contra a API em 10/set/2026: a 31.0.0 falha sem token, a 32.0.0 passa.
+google-ads>=32
+google-auth-oauthlib
+protobuf

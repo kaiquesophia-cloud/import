@@ -1,0 +1,16 @@
+# Cadastro de contas — copie para contas.yaml e preencha com as suas.
+#
+# Serve para o agente resolver "roda o relatorio da <cliente>" sem voce ter que lembrar do
+# customer id. E o unico lugar do kit onde nome de cliente aparece.
+#
+# ⚠️ Se voce versionar este arquivo, esta publicando a carteira de clientes da sua agencia.
+#    O .gitignore ja barra o contas.yaml — mantenha assim.
+
+clientes:
+  - nome: "Minha conta"
+    customer_id: "1234567890"   # sem hifens
+    notas: "conta principal"
+
+  - nome: "Cliente exemplo"
+    customer_id: "0987654321"
+    notas: "loja em Sao Paulo | so relatorio, nao mexer em campanha"

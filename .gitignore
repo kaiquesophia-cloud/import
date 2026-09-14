@@ -1,0 +1,10 @@
+# nunca versione o que da acesso a conta de anuncios com cartao cadastrado
+.env
+google-ads.yaml
+contas.yaml
+perfil.json
+empresa_hub.json
+__pycache__/
+*.pyc
+.venv/
+saidas/
