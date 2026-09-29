@@ -62,7 +62,8 @@
     padding: 0 18mm; border-bottom: 1px solid var(--line);
     font-size: 8.5pt; color: var(--muted);
   }
-  .run-head .logo { height: 7mm; }
+  .run-head .logo { height: 10mm; background: var(--navy); border-radius: 6px; padding: 1.5mm 3mm; }
+  .run-head .logo:has(img[style*="none"]) { background: none; padding: 0; }
   .run-head .wordmark { font-size: 11pt; color: var(--navy); }
   .run-head .wordmark .mark { width: 20px; height: 20px; font-size: 9pt; border-radius: 5px; }
   .run-foot {
