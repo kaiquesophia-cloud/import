@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Gera proposta.pdf a partir de proposta.html (usa Chromium/Chrome headless).
+# Para usar os logos reais, salve-os como logos/seoamplify.png e logos/andaimaq.png antes de rodar.
+set -euo pipefail
+cd "$(dirname "$0")"
+CHROME="${CHROME:-$(command -v chromium || command -v chromium-browser || command -v google-chrome || echo /opt/pw-browsers/chromium-1194/chrome-linux/chrome)}"
+"$CHROME" --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
+  --virtual-time-budget=3000 --print-to-pdf="$PWD/proposta.pdf" "file://$PWD/proposta.html"
+echo "PDF gerado: $PWD/proposta.pdf"

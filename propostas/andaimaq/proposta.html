@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta Andaimaq</title>
+<style>
+  :root {
+    --navy: #0f2742;
+    --navy-2: #1b3a5c;
+    --accent: #f2a900;
+    --accent-soft: #fff4d6;
+    --ink: #1d2733;
+    --muted: #5d6b7a;
+    --line: #dfe5ec;
+    --bg-soft: #f5f7fa;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Liberation Sans", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #e9edf2;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto 12px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    padding: 20mm 18mm 22mm;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  @media print { body { background: #fff; } .page { margin: 0; } }
+
+  /* ---------- logos ---------- */
+  .logo { display: inline-flex; align-items: center; }
+  .logo img { display: block; max-height: 100%; max-width: 100%; object-fit: contain; }
+  .wordmark { display: none; align-items: center; gap: 8px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+  .wordmark .mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 8px; font-weight: 800; color: #fff;
+  }
+  .wm-seo .mark { background: linear-gradient(135deg, #1e6bff, #00b3c7); }
+  .wm-seo .t1 { color: inherit; }
+  .wm-seo .t2 { color: #00b3c7; }
+  .wm-and .mark { background: var(--accent); color: var(--navy); }
+  .wm-and .t2 { color: var(--accent); }
+
+  /* ---------- running header/footer ---------- */
+  .run-head {
+    position: absolute; top: 0; left: 0; right: 0; height: 14mm;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 18mm; border-bottom: 1px solid var(--line);
+    font-size: 8.5pt; color: var(--muted);
+  }
+  .run-head .logo { height: 7mm; }
+  .run-head .wordmark { font-size: 11pt; color: var(--navy); }
+  .run-head .wordmark .mark { width: 20px; height: 20px; font-size: 9pt; border-radius: 5px; }
+  .run-foot {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 12mm;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 18mm; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line);
+  }
+  .content { padding-top: 4mm; }
+
+  /* ---------- cover ---------- */
+  .cover { padding: 0; background: var(--navy); color: #fff; }
+  .cover-top { padding: 20mm 18mm 0; display: flex; justify-content: space-between; align-items: center; }
+  .cover .logo { height: 16mm; }
+  .cover .wordmark { font-size: 20pt; color: #fff; }
+  .cover .wordmark .mark { width: 40px; height: 40px; font-size: 16pt; }
+  .cover-x { font-size: 18pt; color: rgba(255,255,255,.45); font-weight: 300; }
+  .cover-body { padding: 48mm 18mm 0; }
+  .cover-kicker { color: var(--accent); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; font-size: 10pt; }
+  .cover h1 { font-size: 34pt; line-height: 1.08; margin: 6mm 0 6mm; letter-spacing: -0.02em; font-weight: 800; }
+  .cover h1 span { color: var(--accent); }
+  .cover-sub { font-size: 13pt; color: rgba(255,255,255,.8); max-width: 150mm; }
+  .cover-stripe {
+    position: absolute; left: 0; right: 0; bottom: 60mm; height: 6mm;
+    background: repeating-linear-gradient(-45deg, var(--accent) 0 12px, var(--navy) 12px 24px);
+    opacity: .9;
+  }
+  .cover-meta {
+    position: absolute; left: 18mm; right: 18mm; bottom: 20mm;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8mm;
+    border-top: 1px solid rgba(255,255,255,.2); padding-top: 6mm; font-size: 9.5pt;
+  }
+  .cover-meta b { display: block; color: var(--accent); font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1mm; }
+
+  /* ---------- typography ---------- */
+  h2 { font-size: 20pt; color: var(--navy); margin: 0 0 2mm; letter-spacing: -0.01em; }
+  h2 .num { color: var(--accent); margin-right: 3mm; }
+  .lead { color: var(--muted); font-size: 11pt; margin: 0 0 7mm; }
+  h3 { font-size: 12pt; color: var(--navy); margin: 5.5mm 0 2mm; }
+  p { margin: 0 0 3mm; }
+  ul { margin: 0 0 3mm; padding-left: 5mm; }
+  li { margin-bottom: 1.4mm; }
+  .small { font-size: 8.5pt; color: var(--muted); }
+
+  /* ---------- components ---------- */
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 2mm 0 6mm; }
+  .kpi { background: var(--bg-soft); border-radius: 8px; padding: 4mm; border-top: 3px solid var(--navy); }
+  .kpi .v { font-size: 20pt; font-weight: 800; color: var(--navy); line-height: 1.1; }
+  .kpi .l { font-size: 8.5pt; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  th { text-align: left; background: var(--navy); color: #fff; font-weight: 600; padding: 2.2mm 3mm; }
+  td { padding: 2mm 3mm; border-bottom: 1px solid var(--line); }
+  tr:nth-child(even) td { background: var(--bg-soft); }
+  td.r, th.r { text-align: right; }
+  .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 4mm 5mm; border-radius: 0 8px 8px 0; margin: 5mm 0; }
+  .callout b { color: var(--navy); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .card { border: 1px solid var(--line); border-radius: 10px; padding: 3.5mm 4.5mm; }
+  .card h4 { margin: 0 0 2mm; font-size: 10.5pt; color: var(--navy); display: flex; align-items: center; gap: 2.5mm; }
+  .card h4 .dot { width: 7mm; height: 7mm; border-radius: 6px; background: var(--navy); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 9pt; flex: none; }
+  .card ul { margin: 0; font-size: 9.5pt; }
+  .card li { margin-bottom: 1mm; }
+
+  .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .phase { background: var(--bg-soft); border-radius: 10px; padding: 4.5mm; position: relative; }
+  .phase .when { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); background: var(--navy); display: inline-block; padding: .8mm 2.5mm; border-radius: 4px; }
+  .phase h4 { margin: 2.5mm 0 1.5mm; color: var(--navy); font-size: 10.5pt; }
+  .phase ul { font-size: 9pt; margin: 0; padding-left: 4mm; }
+
+  .price { border: 2px solid var(--navy); border-radius: 12px; overflow: hidden; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 5mm 6mm; border-bottom: 1px solid var(--line); }
+  .price-row .name { font-weight: 700; color: var(--navy); font-size: 11.5pt; }
+  .price-row .desc { font-size: 9pt; color: var(--muted); }
+  .price-row .val { font-size: 16pt; font-weight: 800; color: var(--navy); white-space: nowrap; }
+  .price-row .val small { font-size: 9pt; font-weight: 400; color: var(--muted); }
+  .price-total { background: var(--navy); color: #fff; }
+  .price-total .name, .price-total .val { color: #fff; }
+  .price-total .val { color: var(--accent); font-size: 22pt; }
+  .price-total .desc { color: rgba(255,255,255,.7); }
+
+  .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; margin-top: 18mm; }
+  .sign div { border-top: 1px solid var(--ink); padding-top: 2mm; font-size: 9pt; }
+  .sign b { display: block; color: var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- Logos: coloque os arquivos em logos/seoamplify.png e logos/andaimaq.png.
+     Se o arquivo não existir, a página mostra uma marca tipográfica no lugar. -->
+<template id="logo-seo">
+  <span class="logo"><img src="logos/seoamplify.png" alt="SEO Amplify" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="wordmark wm-seo"><span class="mark">S</span><span><span class="t1">SEO</span><span class="t2">Amplify</span></span></span></span>
+</template>
+<template id="logo-and">
+  <span class="logo"><img src="logos/andaimaq.png" alt="Andaimaq Locações" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="wordmark wm-and"><span class="mark">A</span><span><span class="t1">Andai</span><span class="t2">maq</span></span></span></span>
+</template>
+
+<!-- ===================== CAPA ===================== -->
+<section class="page cover">
+  <div class="cover-top">
+    <span data-logo="seo"></span>
+    <span class="cover-x">×</span>
+    <span data-logo="and"></span>
+  </div>
+  <div class="cover-body">
+    <div class="cover-kicker">Proposta comercial</div>
+    <h1>Gestão de Google Ads<br>e <span>Tráfego Orgânico (SEO)</span></h1>
+    <p class="cover-sub">Plano para colocar a Andaimaq na frente de quem procura aluguel de andaimes e equipamentos para obra em São Paulo e Piracicaba — hoje no anúncio, e de forma crescente no resultado orgânico do Google.</p>
+  </div>
+  <div class="cover-stripe"></div>
+  <div class="cover-meta">
+    <div><b>Para</b>Andaimaq Locações<br>andaimaq.com.br</div>
+    <div><b>De</b>SEO Amplify<br>seoamplify.com.br</div>
+    <div><b>Data · Validade</b>29 de setembro de 2026<br>Válida por 15 dias</div>
+  </div>
+</section>
+
+<!-- ===================== DIAGNÓSTICO ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Proposta comercial · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">01</span>Onde a Andaimaq está hoje</h2>
+    <p class="lead">Leitura do site andaimaq.com.br no Google Brasil (dados Ubersuggest, agosto/2026).</p>
+
+    <div class="kpis">
+      <div class="kpi"><div class="v">18</div><div class="l">palavras-chave em que o site aparece</div></div>
+      <div class="kpi"><div class="v">39ª</div><div class="l">melhor posição — nenhuma na 1ª página</div></div>
+      <div class="kpi"><div class="v">2</div><div class="l">autoridade do domínio (escala 0–100)</div></div>
+      <div class="kpi"><div class="v">0</div><div class="l">anúncios pagos detectados no Google</div></div>
+    </div>
+
+    <p>O site já é <b>reconhecido pelo Google</b> para buscas com intenção direta de contratação — "aluguel de andaime preço", "locadora de andaime", "aluguel de andaime São Paulo". O problema é a posição: entre a <b>39ª e a 93ª</b>, ou seja, da 4ª página para trás, onde praticamente ninguém clica. E como não há anúncios rodando, essa demanda hoje vai inteira para a concorrência.</p>
+
+    <h3>Buscas que já existem e que a Andaimaq pode disputar</h3>
+    <table>
+      <thead><tr><th>Busca no Google</th><th class="r">Buscas/mês</th><th class="r">Posição atual</th><th class="r">Custo por clique*</th></tr></thead>
+      <tbody>
+        <tr><td>aluguel andaime</td><td class="r">6.600</td><td class="r">74ª</td><td class="r">R$ 10,66</td></tr>
+        <tr><td>andaime locação</td><td class="r">1.300</td><td class="r">61ª</td><td class="r">R$ 11,91</td></tr>
+        <tr><td>aluguel de andaime preço</td><td class="r">880</td><td class="r">43ª</td><td class="r">R$ 8,67</td></tr>
+        <tr><td>locadora de andaime</td><td class="r">480</td><td class="r">67ª</td><td class="r">R$ 10,29</td></tr>
+        <tr><td>aluguel de andaime valor</td><td class="r">480</td><td class="r">44ª</td><td class="r">R$ 10,61</td></tr>
+        <tr><td>aluguel de andaime são paulo</td><td class="r">390</td><td class="r">67ª</td><td class="r">R$ 14,63</td></tr>
+        <tr><td>preço locação de andaimes</td><td class="r">260</td><td class="r">42ª</td><td class="r">R$ 11,55</td></tr>
+        <tr><td>quanto custa aluguel de andaime</td><td class="r">210</td><td class="r">39ª</td><td class="r">R$ 9,67</td></tr>
+        <tr><td>aluguel de andaimes preço sp</td><td class="r">170</td><td class="r">48ª</td><td class="r">R$ 10,71</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">* Custo médio por clique estimado para anúncios no Google Ads. Volumes são médias mensais no Brasil.</p>
+
+    <div class="callout">
+      <b>O que isso significa:</b> só nessas 9 buscas são cerca de <b>10.700 pesquisas por mês</b> de quem quer alugar andaime. O Google Ads coloca a Andaimaq nelas <b>já no primeiro mês</b>; o SEO trabalha para conquistar essas posições de forma orgânica — clique sem custo por clique — ao longo dos meses seguintes. Os dois canais se complementam.
+    </div>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>2</span></footer>
+</section>
+
+<!-- ===================== TRÁFEGO PAGO ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Proposta comercial · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">02</span>Tráfego Pago — Gestão de Google Ads</h2>
+    <p class="lead">Anúncios na pesquisa do Google para quem está procurando, agora, alugar equipamento para obra.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot">1</span>Estrutura e implantação</h4>
+        <ul>
+          <li>Criação ou reestruturação da conta Google Ads</li>
+          <li>Campanhas de Rede de Pesquisa separadas por linha: andaimes, escoras metálicas, betoneiras, rompedores e compactadores</li>
+          <li>Segmentação geográfica por raio das unidades (São Paulo e Piracicaba)</li>
+          <li>Pesquisa de palavras-chave com volume e custo reais</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot">2</span>Anúncios</h4>
+        <ul>
+          <li>Anúncios responsivos com foco em orçamento, entrega na obra e preço</li>
+          <li>Extensões: telefone, WhatsApp, endereço, links para cada equipamento, destaques</li>
+          <li>Testes contínuos de títulos e descrições</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot">3</span>Rastreamento de resultado</h4>
+        <ul>
+          <li>Configuração de conversões: clique no WhatsApp, ligação e formulário de contato</li>
+          <li>Integração com Google Analytics 4 e Tag Manager</li>
+          <li>Cada real investido ligado a um contato gerado</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot">4</span>Otimização contínua</h4>
+        <ul>
+          <li>Revisão semanal dos termos pesquisados e negativação do que não gera cliente (ex.: "andaime usado à venda", "como montar andaime")</li>
+          <li>Ajuste de lances por horário, dia da semana, dispositivo e região</li>
+          <li>Controle diário do orçamento — sem gasto fora do combinado</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Verba de mídia (paga direto ao Google)</h3>
+    <p>A gestão não inclui o valor dos cliques. A verba é paga pela Andaimaq <b>diretamente ao Google</b>, no cartão ou boleto da própria empresa, e a conta fica <b>no nome da Andaimaq</b>.</p>
+    <table>
+      <thead><tr><th>Verba mensal sugerida</th><th class="r">Por dia (aprox.)</th><th class="r">Cliques estimados/mês**</th></tr></thead>
+      <tbody>
+        <tr><td>R$ 1.500 — início / teste</td><td class="r">R$ 50</td><td class="r">100 a 190</td></tr>
+        <tr><td>R$ 2.500 — recomendado</td><td class="r">R$ 83</td><td class="r">165 a 310</td></tr>
+        <tr><td>R$ 3.500 — expansão</td><td class="r">R$ 117</td><td class="r">235 a 440</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">** Estimativa com custo por clique de R$ 8 a R$ 15 observado no segmento. É referência, não garantia: o custo real depende da concorrência e é revisto com os dados do primeiro mês.</p>
+
+    <h3>Entregas mensais</h3>
+    <p>Relatório com investimento, cliques, contatos gerados e custo por contato · reunião mensal de resultados (online, 30 min) · suporte por WhatsApp em horário comercial.</p>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>3</span></footer>
+</section>
+
+<!-- ===================== TRÁFEGO ORGÂNICO ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Proposta comercial · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">03</span>Tráfego Orgânico — SEO</h2>
+    <p class="lead">Levar o site da 4ª página para a 1ª nas buscas que trazem cliente, gerando visitas sem custo por clique.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h4><span class="dot">1</span>SEO técnico</h4>
+        <ul>
+          <li>Auditoria completa do site: velocidade, versão mobile, indexação, erros e redirecionamentos</li>
+          <li>Correção de títulos, meta descrições e estrutura de cabeçalhos</li>
+          <li>Dados estruturados de empresa local (LocalBusiness)</li>
+          <li>Google Search Console configurado e monitorado</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot">2</span>Páginas que vendem</h4>
+        <ul>
+          <li>Otimização de uma página por equipamento: andaime tubular, fachadeiro, escoras, betoneira, rompedor, compactador</li>
+          <li>Páginas por região atendida (zonas de São Paulo, Piracicaba e região)</li>
+          <li>Chamadas claras para orçamento e WhatsApp em todas as páginas</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot">3</span>SEO local</h4>
+        <ul>
+          <li>Otimização do Perfil da Empresa no Google (Google Meu Negócio) das duas unidades</li>
+          <li>Postagens, fotos e categorias no perfil</li>
+          <li>Estratégia para aumentar avaliações de clientes</li>
+          <li>Padronização de nome, endereço e telefone em diretórios</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="dot">4</span>Conteúdo e autoridade</h4>
+        <ul>
+          <li>2 conteúdos otimizados por mês (ex.: "quanto custa alugar andaime", "NR-18: andaime seguro na obra")</li>
+          <li>Conquista de links de sites relevantes do setor e da região</li>
+          <li>Linkagem interna entre conteúdos e páginas de equipamento</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Entregas mensais</h3>
+    <ul>
+      <li>Relatório de posições das palavras-chave-alvo, visitas orgânicas e contatos vindos do Google</li>
+      <li>Lista do que foi feito no mês e do que será feito no próximo</li>
+    </ul>
+
+    <div class="callout">
+      <b>Prazo realista:</b> SEO é construção. Os primeiros movimentos de posição costumam aparecer entre o <b>2º e o 3º mês</b>, e resultados consistentes de 1ª página entre o <b>4º e o 6º mês</b>, conforme a concorrência de cada termo. Por isso trabalhamos junto com o Google Ads: o pago traz contatos desde já enquanto o orgânico amadurece.
+    </div>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>4</span></footer>
+</section>
+
+<!-- ===================== CRONOGRAMA + INVESTIMENTO ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Proposta comercial · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">04</span>Os primeiros 90 dias</h2>
+    <p class="lead">O que acontece em cada fase, nos dois canais.</p>
+
+    <div class="timeline">
+      <div class="phase">
+        <span class="when">Mês 1</span>
+        <h4>Implantação</h4>
+        <ul>
+          <li>Acessos, auditoria do site e da conta</li>
+          <li>Conversões e GA4 configurados</li>
+          <li>Campanhas criadas, revisadas com a Andaimaq e ativadas</li>
+          <li>Correções técnicas prioritárias de SEO</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="when">Mês 2</span>
+        <h4>Ajuste fino</h4>
+        <ul>
+          <li>Negativação e ajuste de lances com dados reais</li>
+          <li>Páginas de equipamento otimizadas</li>
+          <li>Perfil da Empresa no Google revisado</li>
+          <li>Primeiros conteúdos publicados</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="when">Mês 3</span>
+        <h4>Escala</h4>
+        <ul>
+          <li>Reforço nas campanhas com menor custo por contato</li>
+          <li>Páginas regionais no ar</li>
+          <li>Início da conquista de links</li>
+          <li>Revisão do plano do trimestre seguinte</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 style="margin-top:12mm"><span class="num">05</span>Investimento</h2>
+    <p class="lead">Valores mensais de gestão.</p>
+
+    <div class="price">
+      <div class="price-row">
+        <div><div class="name">Gestão de Tráfego Pago — Google Ads</div><div class="desc">Implantação, anúncios, rastreamento, otimização e relatório</div></div>
+        <div class="val">R$ 800 <small>/mês</small></div>
+      </div>
+      <div class="price-row">
+        <div><div class="name">Tráfego Orgânico — SEO</div><div class="desc">SEO técnico, páginas, SEO local, conteúdo e relatório</div></div>
+        <div class="val">R$ 800 <small>/mês</small></div>
+      </div>
+      <div class="price-row price-total">
+        <div><div class="name">Total — os dois serviços</div><div class="desc">+ verba de mídia paga direto ao Google (sugestão: R$ 2.500/mês)</div></div>
+        <div class="val">R$ 1.600 <small style="color:rgba(255,255,255,.7)">/mês</small></div>
+      </div>
+    </div>
+    <p class="small" style="margin-top:3mm">Os serviços podem ser contratados separadamente, pelo valor individual de cada um.</p>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>5</span></footer>
+</section>
+
+<!-- ===================== CONDIÇÕES + ACEITE ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Proposta comercial · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">06</span>Condições</h2>
+    <p class="lead">Como funciona a contratação.</p>
+
+    <h3>Pagamento</h3>
+    <ul>
+      <li>Mensalidade paga de forma antecipada, por Pix ou boleto, com vencimento no dia 10 de cada mês.</li>
+      <li>A primeira mensalidade é paga na assinatura e dá início à implantação.</li>
+      <li>A verba de mídia do Google Ads não passa pela SEO Amplify: é cobrada pelo Google direto da Andaimaq.</li>
+    </ul>
+
+    <h3>Prazo</h3>
+    <ul>
+      <li>Período mínimo de 6 meses, tempo necessário para o SEO gerar resultado consistente.</li>
+      <li>Após esse período, renovação mês a mês, com cancelamento mediante aviso prévio de 30 dias.</li>
+    </ul>
+
+    <h3>Transparência e propriedade</h3>
+    <ul>
+      <li>A conta do Google Ads, o Google Analytics, o Search Console e o Perfil da Empresa ficam em nome da Andaimaq. A SEO Amplify atua com acesso de gestor.</li>
+      <li>Nenhuma campanha é ativada nem tem verba alterada sem aprovação da Andaimaq.</li>
+      <li>Todo conteúdo produzido para o site pertence à Andaimaq.</li>
+    </ul>
+
+    <h3>O que precisamos da Andaimaq</h3>
+    <ul>
+      <li>Acesso ao site (painel ou hospedagem), à conta do Google Ads e ao Perfil da Empresa no Google.</li>
+      <li>Fotos dos equipamentos e das obras atendidas, lista de equipamentos e regiões de entrega.</li>
+      <li>Um contato para aprovar anúncios e conteúdos.</li>
+    </ul>
+
+    <div class="callout">
+      <b>Próximo passo:</b> com o aceite, agendamos uma reunião de 30 minutos para levantar os acessos e as prioridades. As campanhas podem estar no ar em até <b>7 dias úteis</b> após o recebimento dos acessos.
+    </div>
+
+    <h3 style="margin-top:8mm">Aceite da proposta</h3>
+    <p>Serviços contratados: &nbsp;☐ Tráfego Pago (Google Ads) &nbsp;&nbsp; ☐ Tráfego Orgânico (SEO) &nbsp;&nbsp; ☐ Ambos</p>
+    <div class="sign">
+      <div><b>Andaimaq Locações</b>Nome, cargo e data</div>
+      <div><b>SEO Amplify</b>seoamplify.com.br</div>
+    </div>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>6</span></footer>
+</section>
+
+<script>
+  document.querySelectorAll('[data-logo]').forEach(function (el) {
+    var tpl = document.getElementById('logo-' + el.getAttribute('data-logo'));
+    el.replaceWith(tpl.content.cloneNode(true));
+  });
+</script>
+</body>
+</html>
