@@ -13,22 +13,20 @@ Conteúdo da página: [`oficina-bmw.html`](oficina-bmw.html) (≈1.000 palavras,
 | Palavras secundárias | `oficina especializada bmw`, `mecânica bmw`, `revisão bmw`, `remap bmw 320i` |
 | H1 | `Oficina especializada em BMW em São Paulo` (já está no HTML; **o título da página no WordPress não pode virar um segundo H1**: no Elementor, Configurações da página → "Ocultar título" = Sim) |
 
-## Antes de publicar: substituir os placeholders
+## Antes de publicar
 
-| Placeholder | Onde aparece | Formato |
-|---|---|---|
-| `[WHATSAPP]` | 2 botões | só números com DDI: `5511999999999` |
-| `[HORÁRIO DE FUNCIONAMENTO]` | bloco final | ex.: `Seg a sex 8h–18h · Sáb 8h–12h` |
-| `[TELEFONE NO FORMATO +55-11-XXXXX-XXXX]` | dados estruturados | o mesmo número do Google Meu Negócio |
+| Item | Situação |
+|---|---|
+| WhatsApp nos 2 botões | ✅ `551199555296` (⚠️ só 8 dígitos depois do DDD: **teste o botão**. Se não abrir a conversa, falta o 9 da frente) |
+| Telefone nos dados estruturados | ✅ `+55-11-9955-5296` (mesma ressalva; tem de ser igual ao do Google Meu Negócio) |
+| `[HORÁRIO DE FUNCIONAMENTO]` no bloco final | ⏳ falta o dono informar |
 
-## Confirmar com o dono (o texto afirma isso)
+## Confirmado com o dono
 
-- [ ] Fazem **registro de bateria** e **reset/atualização do CBS** (intervalos de revisão no painel)?
-- [ ] Fazem **adaptação do câmbio** pelo scanner?
-- [ ] Atendem **M2/M3/M4 e Z4**? Se não, tirar da lista de modelos.
-- [ ] "Peças genuínas **ou de fornecedor original**": se usam só genuína BMW, simplificar a frase.
-
-Se alguma resposta for "não", apague a frase. Não deixe promessa que a oficina não cumpre.
+- [x] **Não** fazem registro de bateria: o card saiu e entrou "Ruídos na suspensão" no lugar
+- [x] Atendem **todos os modelos BMW** (lista mantida, texto ajustado)
+- [x] **Só peça genuína BMW**: texto, card e FAQ ajustados
+- [ ] **Adaptação do câmbio pelo scanner**: ainda sem resposta (card "Câmbio automático com trancos"). Se não fizerem, troque o final por "melhoram com a troca do fluido"
 
 ## Imagens (subir no WordPress com estes nomes e alts)
 
@@ -43,10 +41,8 @@ como prova para o cliente nem para o Google.
 
 ## Links internos
 
-A página já aponta para `/remap/`, `/inspecao-pre-compra/`, `/manutencao-preventiva/` e `/oficina-mini/`.
-**Essas páginas ainda não existem.** Até serem publicadas:
-- troque o `href` delas por `/servicos/` (ou remova o link e deixe só o texto); e
-- quando cada página nascer, volte aqui e restaure o link.
+Os links para `/remap/`, `/inspecao-pre-compra/` e `/manutencao-preventiva/` já apontam para `/servicos/`, e
+"MINI" está sem link. Quando cada página nascer, volte aqui e aponte para ela.
 
 E no sentido contrário, depois de publicar:
 - [ ] home → `/oficina-bmw/` (logo da BMW no bloco de marcas, âncora "Oficina BMW")
