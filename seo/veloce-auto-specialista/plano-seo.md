@@ -263,7 +263,7 @@ entre 60 e 120 dias. Não declarar sucesso antes de 90 dias de dados.
 Respondido pelo dono: endereço, marcas, remap (na oficina, sem preço), cautelar (não fazem) e WooCommerce
 (pode desativar). Falta:
 
-1. **BMW**: confirmar que atendem. É a maior busca de marca do plano.
+1. ~~BMW: confirmar que atendem.~~ Confirmado; página pronta em `paginas/oficina-bmw.html`.
 2. Quem tem acesso ao **Google Meu Negócio** e ao **Search Console** do domínio?
 3. **Telefone/WhatsApp e horário** oficiais (para o schema e para o NAP idêntico em todo lugar).
 4. **Fotos reais** de cada marca na oficina, principalmente Lamborghini e Porsche (prova social nas páginas de vitrine).

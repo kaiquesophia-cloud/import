@@ -1,0 +1,267 @@
+<!--
+  PÁGINA: /oficina-bmw/  —  Veloce Auto Specialista
+  Como usar: crie a página no WordPress com o slug "oficina-bmw", abra no Elementor,
+  arraste UM widget "HTML" e cole TUDO a partir de <style> até o fim do arquivo.
+  Campos de SEO (Yoast/Rank Math), placeholders e checklist: ver oficina-bmw.md
+-->
+<style>
+.vbmw{--ink:#111418;--soft:#4a5260;--line:#e3e6ea;--bg:#f6f7f9;--acc:#1c69d4;--ok:#1f8f4e;
+  font-family:inherit;color:var(--ink);line-height:1.65;font-size:17px}
+.vbmw *{box-sizing:border-box}
+.vbmw section{padding:56px 20px}
+.vbmw .wrap{max-width:1080px;margin:0 auto}
+.vbmw h1{font-size:clamp(30px,4.4vw,46px);line-height:1.15;margin:0 0 16px;color:#fff}
+.vbmw h2{font-size:clamp(24px,3vw,32px);line-height:1.25;margin:0 0 18px}
+.vbmw h3{font-size:19px;margin:0 0 6px}
+.vbmw p{margin:0 0 14px}
+.vbmw a{color:var(--acc)}
+.vbmw .hero{background:#0e1116;color:#d6dbe3;padding:80px 20px 72px}
+.vbmw .hero p{font-size:19px;max-width:720px}
+.vbmw .addr{font-size:15px;opacity:.85;margin-top:18px}
+.vbmw .btn{display:inline-block;background:#25d366;color:#08210f!important;font-weight:700;
+  padding:15px 26px;border-radius:8px;text-decoration:none;margin:10px 10px 0 0}
+.vbmw .btn.alt{background:transparent;color:#fff!important;border:1px solid #5b6472}
+.vbmw .alt-bg{background:var(--bg)}
+.vbmw .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.vbmw .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px}
+.vbmw .card p{color:var(--soft);font-size:16px;margin:0}
+.vbmw .models{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 14px;list-style:none}
+.vbmw .models li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px}
+.vbmw .steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.vbmw .steps li{counter-increment:s;position:relative;padding:0 0 18px 52px}
+.vbmw .steps li:before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
+  background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.vbmw details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:12px}
+.vbmw summary{font-weight:700;cursor:pointer}
+.vbmw details p{margin:12px 0 0;color:var(--soft)}
+.vbmw .cta{background:#0e1116;color:#d6dbe3}
+.vbmw .cta h2{color:#fff}
+.vbmw .map{width:100%;height:320px;border:0;border-radius:10px;margin-top:22px}
+@media (max-width:600px){.vbmw section{padding:44px 16px}.vbmw .btn{display:block;text-align:center;margin-right:0}}
+</style>
+
+<div class="vbmw">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <h1>Oficina especializada em BMW em São Paulo</h1>
+    <p>Mecânica BMW com padrão de concessionária e atendimento de oficina independente: diagnóstico
+      completo da eletrônica, peças genuínas e um relatório técnico do que foi feito em cada entrega.
+      Você aprova cada item antes de começarmos.</p>
+    <a class="btn" href="https://wa.me/[WHATSAPP]?text=Ol%C3%A1%2C%20tenho%20uma%20BMW%20e%20quero%20um%20or%C3%A7amento.%20Modelo%2Fano%3A%20" rel="nofollow">Falar com um especialista BMW no WhatsApp</a>
+    <a class="btn alt" href="#como-chegar">Como chegar</a>
+    <p class="addr">📍 Av. Casa Verde, 3010 – Casa Verde, Zona Norte de São Paulo</p>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section>
+  <div class="wrap">
+    <h2>Mecânica BMW com padrão de concessionária</h2>
+    <p>Uma BMW não aceita "achismo". O motor turbo, o câmbio automático e a quantidade de módulos
+      eletrônicos fazem com que um diagnóstico errado custe caro: troca-se a peça, o defeito volta e a conta
+      fica com você. A Veloce Auto Specialista nasceu justamente da insatisfação com o serviço genérico das
+      oficinas convencionais. Aqui, a sua BMW é tratada por quem trabalha só com carros premium.</p>
+    <div class="grid">
+      <div class="card"><h3>Diagnóstico de verdade</h3>
+        <p>Scanner profissional e leitura completa das centrais (ECU, câmbio, ABS, airbag, conforto) para
+          achar a causa do defeito, e não só apagar a luz do painel.</p></div>
+      <div class="card"><h3>Peças genuínas</h3>
+        <p>Trabalhamos com peças genuínas ou de fornecedor original de montadora. Você sabe a procedência de
+          tudo o que entra no carro.</p></div>
+      <div class="card"><h3>Relatório técnico na entrega</h3>
+        <p>Cada serviço sai com um relatório do que foi encontrado, do que foi trocado e do que precisa de
+          atenção nas próximas revisões.</p></div>
+      <div class="card"><h3>Orçamento sem surpresa</h3>
+        <p>Antes de mexer no carro, você recebe o orçamento detalhado e aprova item por item. Nada é feito sem
+          o seu "pode".</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODELOS -->
+<section class="alt-bg">
+  <div class="wrap">
+    <h2>Modelos BMW que atendemos</h2>
+    <p>Atendemos a linha BMW vendida no Brasil, dos compactos aos SUVs e esportivos M:</p>
+    <ul class="models">
+      <li>Série 1 (118i, 120i)</li><li>Série 2 / M2</li><li>Série 3 (320i, 328i, 330i, 330e)</li>
+      <li>M3 / M4</li><li>Série 4</li><li>Série 5 (530i, 530e, 540i)</li><li>X1</li><li>X2</li>
+      <li>X3 / X3 M</li><li>X4</li><li>X5</li><li>X6</li><li>Z4</li>
+    </ul>
+    <p>Também cuidamos de <a href="/oficina-mini/">MINI</a>, que compartilha motores e eletrônica com a
+      BMW, e de outras marcas premium na mesma oficina.</p>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section>
+  <div class="wrap">
+    <h2>Serviços para sua BMW</h2>
+    <div class="grid">
+      <div class="card"><h3>Revisão BMW</h3>
+        <p>Revisão preventiva conforme o plano da montadora (CBS): óleo e filtros com especificação BMW
+          Longlife, velas, fluido de freio e atualização dos intervalos no painel.
+          <a href="/manutencao-preventiva/">Ver manutenção preventiva</a>.</p></div>
+      <div class="card"><h3>Diagnóstico eletrônico</h3>
+        <p>Luz de motor, falha de câmbio, mensagens no painel, consumo de bateria parada: leitura completa
+          das centrais e teste dos componentes antes de qualquer troca.</p></div>
+      <div class="card"><h3>Manutenção corretiva</h3>
+        <p>Motor, arrefecimento, suspensão, freios, câmbio automático e direção, com garantia técnica do
+          serviço e peças genuínas.</p></div>
+      <div class="card"><h3>Remap BMW</h3>
+        <p>Reprogramação de motor (stage 1 e stage 2) feita aqui na oficina, com leitura da ECU antes e
+          depois. Muito procurado para 320i, 330i e X1. <a href="/remap/">Conheça o remap</a>.</p></div>
+      <div class="card"><h3>Inspeção pré-compra</h3>
+        <p>Vai comprar uma BMW usada? Avaliamos motor, câmbio, eletrônica e histórico de falhas antes do
+          negócio. <a href="/inspecao-pre-compra/">Ver inspeção pré-compra</a>.</p></div>
+      <div class="card"><h3>Performance e personalização</h3>
+        <p>Escapamento, rodas, freios e acertos técnicos pensados para não comprometer a confiabilidade
+          do carro.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMAS COMUNS -->
+<section class="alt-bg">
+  <div class="wrap">
+    <h2>Problemas comuns em BMW (e o que fazer)</h2>
+    <p>São os defeitos que mais chegam à oficina. Nenhum deles é motivo para pânico, desde que seja
+      tratado cedo e por quem conhece a marca.</p>
+    <div class="grid">
+      <div class="card"><h3>Vazamento de óleo</h3>
+        <p>As juntas da tampa de válvulas e do suporte do filtro de óleo ressecam com o calor. O óleo
+          pode escorrer para o escapamento ou para a correia: o cheiro de queimado é o primeiro aviso.</p></div>
+      <div class="card"><h3>Superaquecimento</h3>
+        <p>Bomba d'água elétrica e válvula termostática são pontos de atenção em vários motores BMW. Uma
+          mensagem de temperatura no painel exige parar e diagnosticar, não completar água e seguir.</p></div>
+      <div class="card"><h3>Corrente de comando</h3>
+        <p>Em alguns motores 2.0 turbo (como o N20 de 320i e X1 de gerações anteriores), um ruído metálico na
+          partida a frio pode indicar desgaste da corrente. Trocar cedo evita um dano grave ao motor.</p></div>
+      <div class="card"><h3>Câmbio automático com trancos</h3>
+        <p>O óleo do câmbio é vendido como "vitalício", mas trocas e engates duros costumam melhorar com a
+          troca do fluido e a adaptação do câmbio feita pelo scanner.</p></div>
+      <div class="card"><h3>Falhas de ignição</h3>
+        <p>Motor tremendo e luz de injeção piscando costumam ser bobinas ou velas. Na injeção direta, a
+          carbonização das válvulas também entra no diagnóstico.</p></div>
+      <div class="card"><h3>Bateria e elétrica</h3>
+        <p>A BMW precisa que a bateria nova seja registrada no sistema. Sem isso, o carregamento fica errado e
+          a bateria dura menos. Fazemos o registro na troca.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section>
+  <div class="wrap">
+    <h2>Como funciona o atendimento</h2>
+    <ol class="steps">
+      <li><strong>Contato pelo WhatsApp.</strong> Você manda o modelo, o ano e o sintoma (ou o serviço que precisa).</li>
+      <li><strong>Diagnóstico na oficina.</strong> Leitura completa das centrais e inspeção física.</li>
+      <li><strong>Orçamento detalhado.</strong> Peça por peça, mão de obra separada, você aprova item por item.</li>
+      <li><strong>Execução com peças genuínas.</strong> Se aparecer algo fora do orçamento, avisamos antes de fazer.</li>
+      <li><strong>Entrega com relatório técnico.</strong> O que foi feito, o que foi trocado e o que observar daqui em diante.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt-bg">
+  <div class="wrap">
+    <h2>Perguntas frequentes sobre oficina BMW</h2>
+    <details><summary>Fazer a revisão fora da concessionária faz perder a garantia?</summary>
+      <p>Se a sua BMW ainda está na garantia de fábrica, consulte as condições do manual de garantia. Nós
+        orientamos o que pode ser feito aqui sem colocar a garantia em risco. Fora da garantia, a revisão em
+        uma oficina especializada segue o mesmo plano da montadora, com peças genuínas e registro do serviço.</p></details>
+    <details><summary>Quanto custa a revisão de uma BMW?</summary>
+      <p>Depende do modelo, do motor e do que o sistema de revisão (CBS) do carro está pedindo. Por isso
+        passamos o orçamento detalhado antes de começar, e você aprova item por item. Mande o modelo e o
+        ano pelo WhatsApp que respondemos com uma estimativa.</p></details>
+    <details><summary>Vocês usam peças originais?</summary>
+      <p>Sim. Usamos peças genuínas BMW ou de fornecedores originais de montadora, e você sabe a procedência
+        de cada peça antes de aprovar o orçamento.</p></details>
+    <details><summary>Vocês atendem BMW antiga ou fora de linha?</summary>
+      <p>Sim. Atendemos modelos atuais e gerações anteriores. Fale com a gente pelo WhatsApp informando o modelo
+        e o ano para confirmarmos a disponibilidade de peças.</p></details>
+    <details><summary>Onde fica a oficina?</summary>
+      <p>Na Av. Casa Verde, 3010, bairro Casa Verde, Zona Norte de São Paulo, com acesso fácil por Santana,
+        Limão, Freguesia do Ó e pela Marginal Tietê.</p></details>
+  </div>
+</section>
+
+<!-- CTA + MAPA -->
+<section class="cta" id="como-chegar">
+  <div class="wrap">
+    <h2>Agende o diagnóstico da sua BMW</h2>
+    <p>Mande o modelo, o ano e o que está acontecendo. Um especialista responde pelo WhatsApp.</p>
+    <a class="btn" href="https://wa.me/[WHATSAPP]?text=Ol%C3%A1%2C%20tenho%20uma%20BMW%20e%20quero%20um%20or%C3%A7amento.%20Modelo%2Fano%3A%20" rel="nofollow">Chamar no WhatsApp</a>
+    <p class="addr">📍 Av. Casa Verde, 3010 – Casa Verde, São Paulo – SP, 02520-300<br>🕒 [HORÁRIO DE FUNCIONAMENTO]</p>
+    <iframe class="map" loading="lazy" title="Mapa da Veloce Auto Specialista"
+      src="https://www.google.com/maps?q=Av.+Casa+Verde,+3010+-+Casa+Verde,+S%C3%A3o+Paulo+-+SP,+02520-300&output=embed"></iframe>
+  </div>
+</section>
+
+</div>
+
+<!-- DADOS ESTRUTURADOS (o Google lê; o visitante não vê) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AutoRepair",
+      "@id": "https://veloceautospecialista.com.br/#oficina",
+      "name": "Veloce Auto Specialista",
+      "url": "https://veloceautospecialista.com.br/",
+      "telephone": "[TELEFONE NO FORMATO +55-11-XXXXX-XXXX]",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Casa Verde, 3010",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "02520-300",
+        "addressCountry": "BR"
+      },
+      "areaServed": ["São Paulo", "Zona Norte de São Paulo"],
+      "brand": [
+        {"@type": "Brand", "name": "BMW"}, {"@type": "Brand", "name": "MINI"},
+        {"@type": "Brand", "name": "Audi"}, {"@type": "Brand", "name": "Mercedes-Benz"},
+        {"@type": "Brand", "name": "Porsche"}, {"@type": "Brand", "name": "Land Rover"},
+        {"@type": "Brand", "name": "Jaguar"}, {"@type": "Brand", "name": "Volvo"},
+        {"@type": "Brand", "name": "Lamborghini"}
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Oficina especializada em BMW",
+      "serviceType": "Manutenção, diagnóstico e remap de veículos BMW",
+      "provider": {"@id": "https://veloceautospecialista.com.br/#oficina"},
+      "areaServed": "São Paulo",
+      "url": "https://veloceautospecialista.com.br/oficina-bmw/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Início", "item": "https://veloceautospecialista.com.br/"},
+        {"@type": "ListItem", "position": 2, "name": "Oficina BMW", "item": "https://veloceautospecialista.com.br/oficina-bmw/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Fazer a revisão fora da concessionária faz perder a garantia?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Se a sua BMW ainda está na garantia de fábrica, consulte as condições do manual de garantia. Nós orientamos o que pode ser feito aqui sem colocar a garantia em risco. Fora da garantia, a revisão em uma oficina especializada segue o mesmo plano da montadora, com peças genuínas e registro do serviço."}},
+        {"@type": "Question", "name": "Quanto custa a revisão de uma BMW?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Depende do modelo, do motor e do que o sistema de revisão (CBS) do carro está pedindo. Por isso passamos o orçamento detalhado antes de começar, e você aprova item por item. Mande o modelo e o ano pelo WhatsApp que respondemos com uma estimativa."}},
+        {"@type": "Question", "name": "Vocês usam peças originais?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Sim. Usamos peças genuínas BMW ou de fornecedores originais de montadora, e você sabe a procedência de cada peça antes de aprovar o orçamento."}},
+        {"@type": "Question", "name": "Vocês atendem BMW antiga ou fora de linha?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Sim. Atendemos modelos atuais e gerações anteriores. Fale com a gente pelo WhatsApp informando o modelo e o ano para confirmarmos a disponibilidade de peças."}},
+        {"@type": "Question", "name": "Onde fica a oficina?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Na Av. Casa Verde, 3010, bairro Casa Verde, Zona Norte de São Paulo, com acesso fácil por Santana, Limão, Freguesia do Ó e pela Marginal Tietê."}}
+      ]
+    }
+  ]
+}
+</script>
