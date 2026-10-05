@@ -93,8 +93,8 @@ mais Google Meu Negócio.
 | remap perde garantia | — | 90 | 13 | objeção |
 | remap bmw 320i | — | 90 | 36 | contratar (casa com a página BMW) |
 
-Esse é o mesmo padrão da GTorre: lá, quem mais traz tráfego é o conteúdo informativo
-(`/escora-para-lajes/`), não a página de aluguel. Aqui, o equivalente é o **"o que é remap"/"quanto custa"**.
+O volume maior está no conteúdo informativo (**"o que é remap"/"quanto custa"**), não na página de
+serviço. O blog atrai essa busca e passa o visitante para `/remap/`.
 
 ### 2.3 Região (Casa Verde / Zona Norte)
 
@@ -106,8 +106,7 @@ Esse é o mesmo padrão da GTorre: lá, quem mais traz tráfego é o conteúdo i
 | oficina mecânica santana | 10 | 90 | 13–23 |
 | oficina casa verde / freguesia do ó / "oficina bmw zona norte" / "land rover zona norte" | 0 | 0 | — |
 
-**Diferente da GTorre:** lá "aluguel de escoras **zona sul**" tinha busca. Aqui, marca + bairro dá **zero**
-no Ubersuggest. Quem procura "oficina bmw" já recebe o resultado pelo mapa, pela proximidade. Por isso:
+Marca + bairro dá **zero** no Ubersuggest. Quem procura "oficina bmw" já recebe o resultado pelo mapa, pela proximidade. Por isso:
 - **uma** página regional (`/oficina-importados-zona-norte/`), em vez de uma página por bairro;
 - o bairro entra **em todas as páginas** (title, H1 ou subtítulo, rodapé, schema, mapa): "Oficina BMW em
   São Paulo – Casa Verde, Zona Norte";
@@ -183,11 +182,9 @@ estrutura e a pré-compra checa a mecânica de um importado, e leva para `/inspe
 
 ### Uma página por intenção, não uma por variação
 
-A GTorre tem 8 páginas quase iguais para "aluguel de escoras / escoramento de laje / … preço / … SP"
-e duas cópias (`/escoramento-torre-copy/`, `/escoramento-torre-2/`). Nos dados do Ubersuggest, quem
-traz tráfego são só três delas; as outras dividem a força entre si (canibalização). **Na Veloce, não
-repita isso**: "oficina bmw", "mecânica bmw" e "oficina especializada em bmw" são a **mesma busca**
-para o Google. É uma página só, com as variações no H2 e no texto.
+"Oficina bmw", "mecânica bmw" e "oficina especializada em bmw" são a **mesma busca** para o Google.
+É uma página só, com as variações no H2 e no texto. Páginas quase iguais para cada variação dividem a
+força entre si (canibalização).
 
 ---
 
@@ -256,7 +253,7 @@ verificado, modelo do relatório (PDF de exemplo), preço/faixa, prazo, "vamos a
 | **4. Profundidade** | 13+ | `/oficina-lamborghini/`, `/oficina-bmw/revisao/`, `/oficina-land-rover/revisao/`, `/remap/stage-1-e-stage-2/`, `/remap/cambio/`, páginas de modelo (ex.: remap BMW 320i) |
 
 **Como medir:** as palavras-alvo foram registradas no projeto da Veloce no Ubersuggest (atualização
-semanal), igual ao projeto da GTorre. Avaliar posição a cada 30 dias; SEO local costuma mostrar efeito
+semanal). Avaliar posição a cada 30 dias; SEO local costuma mostrar efeito
 entre 60 e 120 dias. Não declarar sucesso antes de 90 dias de dados.
 
 ---
