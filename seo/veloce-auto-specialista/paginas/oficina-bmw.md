@@ -21,9 +21,10 @@ Conteúdo da página: [`oficina-bmw.html`](oficina-bmw.html) (≈1.000 palavras,
 
 | Item | Situação |
 |---|---|
-| WhatsApp nos 2 botões | ✅ `551199555296` (⚠️ só 8 dígitos depois do DDD: **teste o botão**. Se não abrir a conversa, falta o 9 da frente) |
-| Telefone nos dados estruturados | ✅ `+55-11-9955-5296` (mesma ressalva; tem de ser igual ao do Google Meu Negócio) |
-| `[HORÁRIO DE FUNCIONAMENTO]` no bloco final | ⏳ falta o dono informar |
+| WhatsApp nos 2 botões | ✅ `5511995552969` (o mesmo do site; o número passado no chat estava sem o último 9) |
+| Telefone e horário nos dados estruturados | ✅ `+55-11-99555-2969` · Seg–Sex 8h–18h, Sáb 8h–12h (tirados do rodapé do site) |
+| Horário no bloco final | ✅ `Seg–Sex 8h às 18h · Sáb 8h às 12h` |
+| Visual | ✅ cores e fontes do kit Elementor do site (laranja `#D16527`, fundo escuro, Chakra Petch/Mulish) |
 
 ## Confirmado com o dono
 

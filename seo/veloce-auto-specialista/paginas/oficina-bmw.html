@@ -1,43 +1,47 @@
 <!--
   PÁGINA: /oficina-bmw/  —  Veloce Auto Specialista
   Como usar: crie a página no WordPress com o slug "oficina-bmw", abra no Elementor,
-  arraste UM widget "HTML" e cole TUDO a partir de <style> até o fim do arquivo.
-  Campos de SEO (Yoast/Rank Math), placeholders e checklist: ver oficina-bmw.md
+  arraste UM widget "HTML" e cole TUDO a partir da tag style até o fim do arquivo.
+  (Já publicada como rascunho pelo seo/wp_publicar.py: página ID 461.)
 -->
 <style>
-.vbmw{--ink:#111418;--soft:#4a5260;--line:#e3e6ea;--bg:#f6f7f9;--acc:#1c69d4;--ok:#1f8f4e;
-  font-family:inherit;color:var(--ink);line-height:1.65;font-size:17px}
+/* Paleta e fontes do kit Elementor do site: laranja #D16527, escuros #121212/#161616/#242424, cinzas #EDEDED/#C6C6C6 */
+.vbmw{--acc:#D16527;--bg1:#121212;--bg2:#161616;--card:#242424;--line:#333;--txt:#C6C6C6;--head:#FFFFFF;
+  font-family:"Mulish",sans-serif;color:var(--txt);line-height:1.65;font-size:17px;background:var(--bg1)}
 .vbmw *{box-sizing:border-box}
-.vbmw section{padding:56px 20px}
-.vbmw .wrap{max-width:1080px;margin:0 auto}
-.vbmw h1{font-size:clamp(30px,4.4vw,46px);line-height:1.15;margin:0 0 16px;color:#fff}
-.vbmw h2{font-size:clamp(24px,3vw,32px);line-height:1.25;margin:0 0 18px}
-.vbmw h3{font-size:19px;margin:0 0 6px}
+.vbmw section{padding:64px 20px;background:var(--bg1)}
+.vbmw section.alt-bg{background:var(--bg2)}
+.vbmw .wrap{max-width:1140px;margin:0 auto}
+.vbmw h1,.vbmw h2,.vbmw h3{font-family:"Chakra Petch",sans-serif!important;color:var(--head)!important;margin:0 0 14px!important}
+.vbmw h1{font-size:clamp(30px,4.4vw,48px)!important;line-height:1.12!important}
+.vbmw h2{font-size:clamp(24px,3vw,34px)!important;line-height:1.2!important}
+.vbmw h3{font-size:19px!important;line-height:1.3!important;text-transform:none!important}
+.vbmw h2:after{content:"";display:block;width:56px;height:3px;background:var(--acc);margin-top:12px}
+.vbmw p,.vbmw li,.vbmw summary{color:var(--txt)!important}
 .vbmw p{margin:0 0 14px}
-.vbmw a{color:var(--acc)}
-.vbmw .hero{background:#0e1116;color:#d6dbe3;padding:80px 20px 72px}
-.vbmw .hero p{font-size:19px;max-width:720px}
-.vbmw .addr{font-size:15px;opacity:.85;margin-top:18px}
-.vbmw .btn{display:inline-block;background:#25d366;color:#08210f!important;font-weight:700;
-  padding:15px 26px;border-radius:8px;text-decoration:none;margin:10px 10px 0 0}
-.vbmw .btn.alt{background:transparent;color:#fff!important;border:1px solid #5b6472}
-.vbmw .alt-bg{background:var(--bg)}
+.vbmw strong{color:var(--head)!important}
+.vbmw a{color:var(--acc)!important}
+.vbmw .hero{padding:88px 20px 80px;background:linear-gradient(180deg,#161616,#121212)}
+.vbmw .hero p{font-size:19px;max-width:740px}
+.vbmw .addr{font-size:15px;margin-top:18px}
+.vbmw .btn{display:inline-block;background:var(--acc);color:#fff!important;font-family:"Chakra Petch",sans-serif;font-weight:700;
+  text-transform:uppercase;letter-spacing:.03em;padding:15px 26px;border-radius:4px;text-decoration:none;margin:10px 10px 0 0}
+.vbmw .btn.alt{background:transparent;border:1px solid var(--acc)}
 .vbmw .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.vbmw .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px}
-.vbmw .card p{color:var(--soft);font-size:16px;margin:0}
-.vbmw .models{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 14px;list-style:none}
-.vbmw .models li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px}
+.vbmw .card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:6px;padding:24px}
+.vbmw .card p{font-size:16px;margin:0}
+.vbmw .models{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 16px;list-style:none}
+.vbmw .models li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px;margin:0}
 .vbmw .steps{counter-reset:s;list-style:none;padding:0;margin:0}
-.vbmw .steps li{counter-increment:s;position:relative;padding:0 0 18px 52px}
+.vbmw .steps li{counter-increment:s;position:relative;padding:4px 0 20px 54px;margin:0}
 .vbmw .steps li:before{content:counter(s);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
-  background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
-.vbmw details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:12px}
-.vbmw summary{font-weight:700;cursor:pointer}
-.vbmw details p{margin:12px 0 0;color:var(--soft)}
-.vbmw .cta{background:#0e1116;color:#d6dbe3}
-.vbmw .cta h2{color:#fff}
-.vbmw .map{width:100%;height:320px;border:0;border-radius:10px;margin-top:22px}
-@media (max-width:600px){.vbmw section{padding:44px 16px}.vbmw .btn{display:block;text-align:center;margin-right:0}}
+  background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:"Chakra Petch",sans-serif}
+.vbmw details{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 20px;margin-bottom:12px}
+.vbmw summary{font-weight:700;cursor:pointer;color:var(--head)!important}
+.vbmw details p{margin:12px 0 0}
+.vbmw .cta{background:var(--bg2)}
+.vbmw .map{width:100%;height:320px;border:0;border-radius:6px;margin-top:22px}
+@media (max-width:600px){.vbmw section{padding:48px 16px}.vbmw .btn{display:block;text-align:center;margin-right:0}}
 </style>
 
 <div class="vbmw">
@@ -49,7 +53,7 @@
     <p>Mecânica BMW com padrão de concessionária e atendimento de oficina independente: diagnóstico
       completo da eletrônica, peças genuínas e um relatório técnico do que foi feito em cada entrega.
       Você aprova cada item antes de começarmos.</p>
-    <a class="btn" href="https://wa.me/551199555296?text=Ol%C3%A1%2C%20tenho%20uma%20BMW%20e%20quero%20um%20or%C3%A7amento.%20Modelo%2Fano%3A%20" rel="nofollow">Falar com um especialista BMW no WhatsApp</a>
+    <a class="btn" href="https://wa.me/5511995552969?text=Ol%C3%A1%2C%20tenho%20uma%20BMW%20e%20quero%20um%20or%C3%A7amento.%20Modelo%2Fano%3A%20" rel="nofollow">Falar com um especialista BMW no WhatsApp</a>
     <a class="btn alt" href="#como-chegar">Como chegar</a>
     <p class="addr">📍 Av. Casa Verde, 3010 – Casa Verde, Zona Norte de São Paulo</p>
   </div>
@@ -195,8 +199,8 @@
   <div class="wrap">
     <h2>Agende o diagnóstico da sua BMW</h2>
     <p>Mande o modelo, o ano e o que está acontecendo. Um especialista responde pelo WhatsApp.</p>
-    <a class="btn" href="https://wa.me/551199555296?text=Ol%C3%A1%2C%20tenho%20uma%20BMW%20e%20quero%20um%20or%C3%A7amento.%20Modelo%2Fano%3A%20" rel="nofollow">Chamar no WhatsApp</a>
-    <p class="addr">📍 Av. Casa Verde, 3010 – Casa Verde, São Paulo – SP, 02520-300<br>🕒 [HORÁRIO DE FUNCIONAMENTO]</p>
+    <a class="btn" href="https://wa.me/5511995552969?text=Ol%C3%A1%2C%20tenho%20uma%20BMW%20e%20quero%20um%20or%C3%A7amento.%20Modelo%2Fano%3A%20" rel="nofollow">Chamar no WhatsApp</a>
+    <p class="addr">📍 Av. Casa Verde, 3010 – Casa Verde, São Paulo – SP, 02520-300<br>🕒 Seg–Sex 8h às 18h · Sáb 8h às 12h</p>
     <iframe class="map" loading="lazy" title="Mapa da Veloce Auto Specialista"
       src="https://www.google.com/maps?q=Av.+Casa+Verde,+3010+-+Casa+Verde,+S%C3%A3o+Paulo+-+SP,+02520-300&output=embed"></iframe>
   </div>
@@ -214,7 +218,8 @@
       "@id": "https://veloceautospecialista.com.br/#oficina",
       "name": "Veloce Auto Specialista",
       "url": "https://veloceautospecialista.com.br/",
-      "telephone": "+55-11-9955-5296",
+      "telephone": "+55-11-99555-2969",
+      "openingHours": ["Mo-Fr 08:00-18:00", "Sa 08:00-12:00"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Casa Verde, 3010",
