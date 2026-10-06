@@ -180,6 +180,7 @@ def gerar(pg):
                '<section class="cta" id="como-chegar">', '  <div class="wrap">',
                f"    <h2>{pg['cta_h2']}</h2>", f"    <p>{pg['cta_p']}</p>",
                f'    <a class="btn" href="{html.escape(zap)}" rel="nofollow">Chamar no WhatsApp</a>',
+               '    <a class="btn alt" href="tel:+5511995552969">Ligar (11) 99555-2969</a>',
                f'    <p class="addr">📍 {ENDERECO}<br>🕒 {HORARIO}</p>',
                '    <iframe class="map" loading="lazy" title="Mapa da Veloce Auto Specialista"',
                '      src="https://www.google.com/maps?q=Av.+Casa+Verde,+3010+-+Casa+Verde,+S%C3%A3o+Paulo+-+SP,+02520-300&output=embed"></iframe>',

@@ -89,3 +89,24 @@ Elementor Pro + Premium Addons + Qi Addons carregando tudo em toda página).
 3. Bloco de marcas na home + links em `/servicos/`.
 4. Alt das imagens, og:image, `tel:`.
 5. `/contato/` com 301, limpeza de plugins e páginas, plugin de segurança.
+
+---
+
+## Execução (06/10/2026, autorizada pelo dono)
+
+| Item | Feito | Observação |
+|---|---|---|
+| 1. Imagens | ✅ 7 imagens em uso (7,9 MB) → WebP (0,95 MB), trocadas na home, Sobre e /pvads/ | Converter for Media instalado (converte uploads novos). A home mostra as novas quando o **cache de elementos do Elementor** vencer (até 24 h) |
+| 3. Links da home | ✅ 18 nomes de marca da faixa da home viram links para as páginas de marca; Serviços linka remap/pré-compra/preventiva e as 9 marcas | idem cache na home. Ferrari e Chevrolet aparecem na faixa, mas não estão na lista de marcas do dono |
+| 4. Alt das imagens | ✅ 44 imagens reais com alt | 9 placeholders vazios ficaram sem alt (não são usados) |
+| 4. og:image | ✅ 17 páginas com imagem de compartilhamento (WebP da oficina; MINI, Land Rover/Jaguar, Porsche e Remap com foto própria) | |
+| 4. Botão de ligar | ✅ `tel:` no rodapé (telefone e e-mail clicáveis) e botão "Ligar" nas 13 páginas de SEO | rodapé também sujeito ao cache de 24 h |
+| 5. /contato/ | ✅ página 383 renomeada para `/contato/`; menu já aponta para ela | `/elementor-383/` virou a página 502 que manda para `/contato/` por script; o 301 do Rank Math (módulo Redirecionamentos ligado) foi criado mas **ainda não responde** → conferir em Rank Math → Redirecionamentos |
+| 6. Lixeira | ✅ Shop, Cart, Checkout, My account, Sample Page, Elementor #23, rascunho #328 e post "Hello world!" | restauráveis por 30 dias |
+| 6. Plugins e segurança | ❌ bloqueado pelo controle de segurança do ambiente | fazer pelo painel (abaixo) |
+
+**Fazer pelo painel (Plugins):** desativar *All-in-One WP Migração e Backup* e *Duplicator Pro* (fica o UpdraftPlus);
+apagar *Hello Dolly*, *Akismet* e *All-in-One WP Migration Pro*; instalar e ativar *Disable XML-RPC* e
+*Stop User Enumeration*.
+
+Cópias do `_elementor_data` antes de cada alteração: `backup-elementor/`.
