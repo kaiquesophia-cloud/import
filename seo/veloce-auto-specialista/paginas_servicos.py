@@ -111,7 +111,7 @@ SERVICOS = [
             {"h2": "Por que fazer a inspeção antes de comprar", "p": [
                 "Um BMW, um Audi ou um Range Rover usado pode ser uma ótima compra ou uma dor de cabeça cara. A "
                 "diferença costuma estar em detalhes que não aparecem no test drive: falhas gravadas nas centrais, "
-                "vazamentos no início, câmbio com adaptação no limite, suspensão a ar cansada, manutenção atrasada.",
+                "vazamentos no início, câmbio com desgaste, suspensão a ar cansada, manutenção atrasada.",
                 "A inspeção pré-compra da Veloce é feita por quem trabalha só com carros premium. O valor de uma "
                 "inspeção é pequeno perto de um reparo de câmbio ou de motor descoberto depois da compra, e o relatório "
                 "também serve para negociar o preço quando há reparos a fazer.",
@@ -120,7 +120,7 @@ SERVICOS = [
                 "Leitura de todas as centrais eletrônicas e histórico de falhas",
                 "Coerência da quilometragem entre módulos",
                 "Motor: vazamentos, ruídos, partida a frio, arrefecimento",
-                "Câmbio automático: trocas, trancos e adaptações",
+                "Câmbio automático: trocas e trancos",
                 "Suspensão, buchas, amortecedores e suspensão a ar",
                 "Freios: discos, pastilhas e sensores",
                 "Pneus: desgaste irregular e data de fabricação",
@@ -142,7 +142,7 @@ SERVICOS = [
                  "indicar que o histórico foi apagado pouco antes da venda. Isso merece atenção."),
                 ("Quilometragem incoerente", "Diferenças entre a quilometragem do painel e a gravada em outros módulos "
                  "são um sinal de alerta importante."),
-                ("Câmbio no limite", "Trancos leves no test drive podem esconder adaptações no limite e um reparo caro "
+                ("Câmbio no limite", "Trancos leves no test drive podem esconder um câmbio desgastado e um reparo caro "
                  "pela frente."),
                 ("Manutenção atrasada", "Fluidos vencidos, velas e filtros fora do prazo: não impedem a compra, mas "
                  "entram na negociação do preço."),

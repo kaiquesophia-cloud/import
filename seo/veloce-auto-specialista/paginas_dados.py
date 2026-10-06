@@ -209,7 +209,7 @@ PAGINAS = [
          ("Corrente de comando", "Ruído metálico na partida a frio pode indicar desgaste da corrente ou do tensor, "
           "principalmente em motores mais antigos. É reparo para fazer logo, não para esperar."),
          ("Câmbio com trancos", "Nos câmbios automáticos 7G e 9G, trocas duras costumam melhorar com a troca do fluido "
-          "e a adaptação do câmbio. O diagnóstico vem antes de qualquer reparo maior."),
+          "no intervalo certo. O diagnóstico vem antes de qualquer reparo maior."),
          ("Arrefecimento", "Termostato, bomba d'água e conexões plásticas são pontos de atenção. Aviso de temperatura "
           "exige parar o carro."),
          ("Suspensão a ar (Airmatic)", "Carro baixando parado ou aviso de suspensão indicam vazamento. Tratar logo "
@@ -244,8 +244,8 @@ PAGINAS = [
             "fluido de freio e inspeção completa.",
             "Reprogramação de motor feita aqui na oficina, com leitura da ECU antes e depois. Muito procurada para "
             "A3, S3, A4 e Q3.",
-            ("Câmbio S tronic", "Troca de óleo do câmbio no intervalo correto, diagnóstico de trancos e adaptação pelo "
-             "scanner após o serviço.")),
+            ("Câmbio S tronic", "Troca de óleo do câmbio no intervalo correto e diagnóstico de trancos pela leitura "
+             "da central do câmbio.")),
         "Os defeitos que mais chegam à oficina nos Audi com motor TFSI. Nenhum é motivo para pânico se tratado cedo.",
         [("Consumo de óleo", "Algumas gerações do motor 2.0 TFSI (EA888) ficaram conhecidas por consumir óleo. Medir "
           "o consumo e revisar o sistema de respiro do motor vem antes de qualquer reparo grande."),
@@ -286,7 +286,7 @@ PAGINAS = [
             "para o seu motor, filtros, velas, fluido de freio e inspeção completa.",
             "Reprogramação de motor feita aqui na oficina, com leitura da ECU antes e depois e responsabilidade técnica, "
             "muito procurada para Macan e Cayenne.",
-            ("Câmbio PDK", "Troca de fluido no intervalo correto, diagnóstico de trancos e adaptação pelo scanner.")),
+            ("Câmbio PDK", "Troca de fluido no intervalo correto e diagnóstico de trancos pela leitura da central do câmbio.")),
         "Os pontos que mais pedem atenção nos Porsche. Prevenção sai muito mais barato que reparo.",
         [("Arrefecimento", "Em alguns Cayenne V8 de gerações anteriores, os tubos de arrefecimento sob o coletor são "
           "um ponto conhecido de vazamento. Nos modelos atuais, termostato e bomba d'água merecem atenção."),
@@ -334,8 +334,8 @@ PAGINAS = [
           "depois de rodar é o primeiro sinal."),
          ("Diesel e filtro de partículas", "Nas versões diesel, uso só urbano satura o filtro de partículas. Aviso no "
           "painel e perda de potência pedem diagnóstico logo."),
-         ("Câmbio com trancos", "Trocas duras no câmbio automático costumam melhorar com a troca do fluido e a "
-          "adaptação pelo scanner."),
+         ("Câmbio com trancos", "Trocas duras no câmbio automático costumam melhorar com a troca do fluido no "
+          "intervalo certo."),
          ("Avisos elétricos", "Bateria fraca gera avisos em vários sistemas ao mesmo tempo. O diagnóstico separa "
           "defeito real de tensão baixa."),
          ("Ruídos na suspensão", "Batidas e estalos em lombadas geralmente são buchas e bieletas. Revisar cedo "

@@ -29,13 +29,13 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
   rode `python3 seo/veloce-auto-specialista/gerar_paginas.py` e republique com
   `python3 seo/wp_publicar.py page --slug <slug> --title "<título>" --html <arquivo> --status publish`.
 
-## Confirmar com o dono (o texto afirma)
+## Confirmado com o dono
 
-- [ ] Ajuste do câmbio pelo scanner (cards "Câmbio com trancos" de várias marcas)
-- [ ] Atualização dos intervalos de revisão no painel (CBS/Service) (`/manutencao-preventiva/`, BMW)
-- [ ] Remap: o software original é guardado antes (backup) e pode ser regravado (`/remap/`)
-- [ ] Inspeção pré-compra inclui teste de rodagem; o vendedor leva o carro até a oficina
-- [ ] Versões diesel de Land Rover/Jaguar, Volvo Recharge e Lamborghini Aventador/Gallardo: atendem mesmo?
+- **Não** fazem ajuste/adaptação do câmbio pelo scanner: removido de BMW, Mercedes, Audi, Porsche, Jaguar e da
+  inspeção pré-compra (republicadas em 06/10/2026). Não volte a escrever isso.
+- Confirmados: reset do aviso de revisão no painel, backup do software original no remap, teste de rodagem na
+  inspeção pré-compra, diesel Land Rover/Jaguar, Volvo Recharge e Lamborghini Aventador/Gallardo.
+- Já confirmados antes: só peça genuína, sem registro de bateria, sem vistoria cautelar, remap sem preço publicado.
 
 ## Ajustes pendentes
 

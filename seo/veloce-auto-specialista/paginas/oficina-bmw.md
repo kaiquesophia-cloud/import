@@ -4,7 +4,7 @@ Conteúdo da página: [`oficina-bmw.html`](oficina-bmw.html) (≈1.000 palavras,
 
 **No WordPress:** página ID **461**, **publicada em 06/10/2026**: https://veloceautospecialista.com.br/oficina-bmw/
 (modelo "Elementor Largura total"; cabeçalho e rodapé do site, 1 H1, dados estruturados e WhatsApp conferidos no HTML ao vivo).
-Rank Math 1.0.279 instalado e ativo; **falta o assistente de configuração**. Depois dele, aplicar title, description e palavra-chave abaixo.
+Rank Math configurado; title, description e palavra-chave abaixo já aplicados.
 
 ## Campos de SEO (Yoast ou Rank Math)
 
@@ -31,7 +31,7 @@ Rank Math 1.0.279 instalado e ativo; **falta o assistente de configuração**. D
 - [x] **Não** fazem registro de bateria: o card saiu e entrou "Ruídos na suspensão" no lugar
 - [x] Atendem **todos os modelos BMW** (lista mantida, texto ajustado)
 - [x] **Só peça genuína BMW**: texto, card e FAQ ajustados
-- [ ] **Adaptação do câmbio pelo scanner**: ainda sem resposta (card "Câmbio automático com trancos"). Se não fizerem, troque o final por "melhoram com a troca do fluido"
+- [x] **Não** fazem adaptação do câmbio pelo scanner: card ajustado para "melhoram com a troca do fluido no intervalo certo"
 
 ## Imagens (subir no WordPress com estes nomes e alts)
 
