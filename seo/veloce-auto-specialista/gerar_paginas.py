@@ -74,7 +74,84 @@ CSS = """<style>
 .vlc .fotos figcaption{font-size:14px;color:var(--txt);margin-top:8px}
 .vlc .map{width:100%;height:320px;border:0;border-radius:6px;margin-top:22px}
 @media (max-width:600px){.vlc section{padding:48px 16px}.vlc .btn{display:block;text-align:center;margin-right:0}}
+/* ---------- efeitos e interatividade ---------- */
+.vlc .hero{position:relative;overflow:hidden;isolation:isolate;min-height:560px;display:flex;align-items:center}
+.vlc .hero .wrap{position:relative;z-index:2;width:100%}
+.vlc .hero-bg{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center;
+  transform:scale(1.08);animation:vlcZoom 18s ease-out forwards}
+.vlc .hero:before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(18,18,18,.96) 0%,rgba(18,18,18,.82) 45%,rgba(18,18,18,.35) 100%),
+             linear-gradient(0deg,#121212 0%,rgba(18,18,18,0) 35%)}
+.vlc .hero h1,.vlc .hero p,.vlc .hero .btn{animation:vlcUp .8s cubic-bezier(.2,.7,.2,1) both}
+.vlc .hero p{animation-delay:.12s}.vlc .hero .btn{animation-delay:.24s}.vlc .hero .addr{animation-delay:.32s}
+.vlc .kicker{display:inline-block;font-family:"Chakra Petch",sans-serif;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--acc)!important;border:1px solid rgba(209,101,39,.45);padding:6px 12px;border-radius:999px;margin-bottom:18px;
+  animation:vlcUp .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes vlcZoom{to{transform:scale(1)}}
+@keyframes vlcUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes vlcPulse{0%{box-shadow:0 0 0 0 rgba(209,101,39,.55)}70%{box-shadow:0 0 0 14px rgba(209,101,39,0)}100%{box-shadow:0 0 0 0 rgba(209,101,39,0)}}
+.vlc .btn{position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,background .25s}
+.vlc .btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(209,101,39,.35)}
+.vlc .btn:after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.28),transparent);transition:left .6s}
+.vlc .btn:hover:after{left:130%}
+.vlc .hero .btn:not(.alt){animation:vlcUp .8s .24s cubic-bezier(.2,.7,.2,1) both,vlcPulse 2.4s 1.6s infinite}
+.vlc .btn.alt:hover{background:rgba(209,101,39,.12)}
+.vlc .card{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s;position:relative}
+.vlc .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 0 1px rgba(209,101,39,.35);border-color:rgba(209,101,39,.5)}
+.vlc .card:before{content:"";position:absolute;left:0;top:-3px;height:3px;width:0;background:#fff;transition:width .45s}
+.vlc .card:hover:before{width:100%;background:linear-gradient(90deg,var(--acc),#f0a46c)}
+.vlc .chips li,.vlc .models li{transition:background .25s,border-color .25s,transform .25s}
+.vlc .chips li:hover,.vlc .models li:hover{background:var(--acc);border-color:var(--acc);transform:translateY(-2px)}
+.vlc .chips li:hover a,.vlc .chips li:hover{color:#fff!important}
+.vlc .fotos figure{overflow:hidden;border-radius:6px}
+.vlc .fotos img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.vlc .fotos figure:hover img{transform:scale(1.05)}
+.vlc tbody tr{transition:background .2s}.vlc tbody tr:hover{background:rgba(209,101,39,.08)}
+.vlc details{transition:border-color .3s,background .3s}
+.vlc details[open]{border-color:rgba(209,101,39,.55);background:#272727}
+.vlc summary{list-style:none;position:relative;padding-right:34px}
+.vlc summary::-webkit-details-marker{display:none}
+.vlc summary:after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;
+  border:1px solid var(--acc);color:var(--acc);display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;transition:transform .3s,background .3s,color .3s}
+.vlc details[open] summary:after{transform:translateY(-50%) rotate(45deg);background:var(--acc);color:#fff}
+.vlc details p{animation:vlcUp .35s ease both}
+.vlc .steps li:before{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.vlc h2:after{transition:width .7s cubic-bezier(.2,.7,.2,1)}
+/* aparecer ao rolar: só quando o script está ativo (sem script, tudo visível) */
+.vlc.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.vlc.js .rv.on{opacity:1;transform:none}
+.vlc.js h2.rv:after{width:0}.vlc.js h2.rv.on:after{width:56px}
+.vlc.js .steps li.rv:before{transform:scale(0)}.vlc.js .steps li.rv.on:before{transform:scale(1)}
+@media (max-width:600px){.vlc .hero{min-height:0}.vlc .hero:before{background:linear-gradient(0deg,rgba(18,18,18,.97) 30%,rgba(18,18,18,.75) 100%)}}
+@media (prefers-reduced-motion:reduce){.vlc *,.vlc *:before,.vlc *:after{animation:none!important;transition:none!important}
+  .vlc.js .rv{opacity:1;transform:none}.vlc .hero-bg{transform:none}}
 </style>"""
+
+
+JS = """<script>
+(function(){var r=document.querySelectorAll('.vlc');if(!r.length||!('IntersectionObserver' in window))return;
+r.forEach(function(root){root.classList.add('js');
+var els=root.querySelectorAll('section:not(.hero) h2, section:not(.hero) .wrap > p, .card, .chips, .check, .steps li, .tbl, details, .fotos figure, .map');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+els.forEach(function(el){var p=el.parentElement,i=Array.prototype.indexOf.call(p.children,el);
+el.classList.add('rv');el.style.transitionDelay=Math.min(i,6)*70+'ms';io.observe(el);});});})();
+</script>"""
+
+# Foto real no topo de cada página: (arquivo, alt, largura, altura)
+UP = "https://veloceautospecialista.com.br/wp-content/uploads/2026/10/"
+FOTO_PADRAO = ("oficina-veloce-carros-premium-zona-norte-sp.webp",
+               "Oficina Veloce com Porsche Cayenne e carros premium nos elevadores, na Zona Norte de São Paulo", 1448, 1086)
+FOTOS_HERO = {
+    "oficina-mini": ("mini-john-cooper-works-oficina-veloce.webp", "MINI John Cooper Works preto na oficina Veloce", 1448, 1086),
+    "oficina-land-rover": ("range-rover-evoque-oficina-veloce.webp", "Range Rover Evoque preto com o capô aberto na oficina Veloce", 1024, 1024),
+    "oficina-jaguar": ("range-rover-evoque-oficina-veloce.webp", "Range Rover Evoque preto com o capô aberto na oficina Veloce", 1024, 1024),
+    "oficina-porsche": ("porsche-911-dinamometro-veloce.webp", "Porsche 911 Carrera Cabriolet no dinamômetro da Veloce", 1200, 1600),
+    "remap": ("porsche-911-dinamometro-veloce.webp", "Porsche 911 Carrera Cabriolet no dinamômetro da Veloce", 1200, 1600),
+    "dinamometro": ("golf-gti-dinamometro-veloce.webp", "Volkswagen Golf GTI no dinamômetro da Veloce", 1200, 1600),
+    "manutencao-preventiva": ("mecanico-veloce-montagem-motor.webp", "Mecânico da Veloce montando um motor na bancada", 739, 1600),
+    "inspecao-pre-compra": ("mini-cooper-oficina-veloce-casa-verde.webp", "MINI Cooper na oficina Veloce Auto Specialista, na Casa Verde", 1200, 1600),
+}
 
 
 def wa(msg):
@@ -159,6 +236,7 @@ def schema(pg):
 
 def gerar(pg):
     zap = wa(pg["whatsapp_msg"])
+    foto = FOTOS_HERO.get(pg["slug"], FOTO_PADRAO)
     partes = [
         "<!--",
         f"  PÁGINA: /{pg['slug']}/  —  Veloce Auto Specialista (gerada por gerar_paginas.py; edite paginas_dados.py)",
@@ -170,7 +248,10 @@ def gerar(pg):
         '<div class="vlc">',
         "",
         '<section class="hero">',
+        f'  <img class="hero-bg" src="{UP}{foto[0]}" alt="{html.escape(foto[1])}" width="{foto[2]}" height="{foto[3]}" '
+        'fetchpriority="high" decoding="async">',
         '  <div class="wrap">',
+        f'    <span class="kicker">{pg.get("kicker", "Especialistas em carros premium · Zona Norte SP")}</span>',
         f"    <h1>{pg['h1']}</h1>",
         f"    <p>{texto(pg['lead'])}</p>",
         f'    <a class="btn" href="{html.escape(zap)}" rel="nofollow">{pg["botao"]}</a>',
@@ -195,6 +276,7 @@ def gerar(pg):
                '    <iframe class="map" loading="lazy" title="Mapa da Veloce Auto Specialista"',
                '      src="https://www.google.com/maps?q=Av.+Casa+Verde,+3010+-+Casa+Verde,+S%C3%A3o+Paulo+-+SP,+02520-300&output=embed"></iframe>',
                "  </div>", "</section>", "", "</div>", "",
+               JS,
                "<!-- DADOS ESTRUTURADOS (o Google lê; o visitante não vê) -->",
                '<script type="application/ld+json">',
                json.dumps(schema(pg), ensure_ascii=False, indent=2),
@@ -211,7 +293,7 @@ def checar(pg, out):
     if out.count("<h1") != 1:
         erros.append("H1 duplicado")
     corpo = out[out.index('<div class="vlc">'):out.index("<!-- DADOS")]
-    palavras = len(sem_tags(corpo).split())
+    palavras = len(sem_tags(re.sub(r"<script.*?</script>", "", corpo, flags=re.S)).split())
     if palavras < 700:
         erros.append(f"só {palavras} palavras")
     return palavras, erros
