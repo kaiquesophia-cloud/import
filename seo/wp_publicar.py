@@ -73,6 +73,8 @@ def page(a):
     content = f"<!-- wp:html -->\n{raw}\n<!-- /wp:html -->"
     existentes = _req("GET", f"pages?slug={a.slug}&status=any&context=edit")
     body = {"title": a.title, "slug": a.slug, "content": content, "status": a.status}
+    if a.template:
+        body["template"] = a.template
     if existentes:
         pid = existentes[0]["id"]
         r = _req("POST", f"pages/{pid}", body)
@@ -91,6 +93,8 @@ def main():
     s.add_argument("--title", required=True)
     s.add_argument("--html", required=True)
     s.add_argument("--status", default="draft", choices=["draft", "publish"])
+    s.add_argument("--template", default="elementor_header_footer",
+                   help='modelo da página; "elementor_header_footer" = Elementor largura total com cabeçalho e rodapé')
     s.set_defaults(fn=page)
     a = p.parse_args()
     a.fn(a)
