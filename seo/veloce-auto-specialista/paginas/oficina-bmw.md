@@ -2,9 +2,9 @@
 
 Conteúdo da página: [`oficina-bmw.html`](oficina-bmw.html) (≈1.000 palavras, dados estruturados incluídos).
 
-**No WordPress:** página ID **461**, slug `oficina-bmw`, modelo "Elementor Largura total", status **rascunho**
-(subida em 06/10/2026 pelo `seo/wp_publicar.py`). Prévia, logado: `https://veloceautospecialista.com.br/?page_id=461&preview=true`.
-⚠️ O site **não tem plugin de SEO**, então title e meta description ainda não podem ser configurados.
+**No WordPress:** página ID **461**, **publicada em 06/10/2026**: https://veloceautospecialista.com.br/oficina-bmw/
+(modelo "Elementor Largura total"; cabeçalho e rodapé do site, 1 H1, dados estruturados e WhatsApp conferidos no HTML ao vivo).
+Rank Math 1.0.279 instalado e ativo; **falta o assistente de configuração**. Depois dele, aplicar title, description e palavra-chave abaixo.
 
 ## Campos de SEO (Yoast ou Rank Math)
 
