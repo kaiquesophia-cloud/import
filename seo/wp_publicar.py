@@ -17,6 +17,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 
@@ -38,13 +39,20 @@ def _req(method, path, body=None):
         headers={"Authorization": f"Basic {token}", "Content-Type": "application/json",
                  "User-Agent": "veloce-seo/1.0"},
     )
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return json.load(r)
-    except urllib.error.HTTPError as e:
-        sys.exit(f"HTTP {e.code} em {method} {path}: {e.read().decode(errors='replace')[:500]}")
-    except urllib.error.URLError as e:
-        sys.exit(f"Sem conexão com {base}: {e.reason} (o domínio está liberado na rede do ambiente?)")
+    # Leitura (GET) é repetida em quedas de conexão; escrita não, para não duplicar nada.
+    tentativas = 4 if method == "GET" else 1
+    for i in range(tentativas):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            sys.exit(f"HTTP {e.code} em {method} {path}: {e.read().decode(errors='replace')[:500]}")
+        except (urllib.error.URLError, ConnectionError) as e:
+            if i + 1 < tentativas:
+                time.sleep(2 ** (i + 1))
+                continue
+            sys.exit(f"Sem conexão com {base}: {getattr(e, 'reason', e)} "
+                     f"(o domínio está liberado na rede do ambiente?)")
 
 
 def check(_):
