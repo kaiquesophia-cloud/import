@@ -211,7 +211,7 @@ def schema(pg):
         "@graph": [
             {
                 "@type": "AutoRepair",
-                "@id": f"{SITE}/#oficina",
+                "@id": f"{SITE}/#organization",
                 "name": "Veloce Auto Specialista",
                 "url": f"{SITE}/",
                 "telephone": TELEFONE,
@@ -223,7 +223,7 @@ def schema(pg):
                 "brand": [{"@type": "Brand", "name": m} for m in MARCAS],
             },
             {"@type": "Service", "name": pg["servico"], "serviceType": pg["servico_tipo"],
-             "provider": {"@id": f"{SITE}/#oficina"}, "areaServed": "São Paulo", "url": url},
+             "provider": {"@id": f"{SITE}/#organization"}, "areaServed": "São Paulo", "url": url},
             {"@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "Início", "item": f"{SITE}/"},
                 {"@type": "ListItem", "position": 2, "name": pg["breadcrumb"], "item": url}]},
