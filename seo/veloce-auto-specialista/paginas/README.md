@@ -15,7 +15,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 468 | [/oficina-jaguar/](https://veloceautospecialista.com.br/oficina-jaguar/) | oficina jaguar |
 | 469 | [/oficina-mini/](https://veloceautospecialista.com.br/oficina-mini/) | oficina mini cooper |
 | 470 | [/oficina-lamborghini/](https://veloceautospecialista.com.br/oficina-lamborghini/) | oficina lamborghini |
-| 471 | [/remap/](https://veloceautospecialista.com.br/remap/) | remap automotivo |
+| 471 | [/remap/](https://veloceautospecialista.com.br/remap/) | remap automotivo, dinamômetro para carros |
 | 472 | [/inspecao-pre-compra/](https://veloceautospecialista.com.br/inspecao-pre-compra/) | inspeção pré compra |
 | 473 | [/manutencao-preventiva/](https://veloceautospecialista.com.br/manutencao-preventiva/) | revisão carros importados |
 | 474 | [/oficina-importados-zona-norte/](https://veloceautospecialista.com.br/oficina-importados-zona-norte/) | oficina importados zona norte |
@@ -35,6 +35,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
   inspeção pré-compra (republicadas em 06/10/2026). Não volte a escrever isso.
 - Confirmados: reset do aviso de revisão no painel, backup do software original no remap, teste de rodagem na
   inspeção pré-compra, diesel Land Rover/Jaguar, Volvo Recharge e Lamborghini Aventador/Gallardo.
+- **A Veloce tem dinamômetro próprio** (confirmado 06/10/2026): está no /remap/ (seção com fotos + FAQ) e nos cards de remap de todas as marcas.
 - Já confirmados antes: só peça genuína, sem registro de bateria, sem vistoria cautelar, remap sem preço publicado.
 
 ## Ajustes pendentes

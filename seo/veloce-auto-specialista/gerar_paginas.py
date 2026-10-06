@@ -68,6 +68,10 @@ CSS = """<style>
 .vlc summary{font-weight:700;cursor:pointer;color:var(--head)!important}
 .vlc details p{margin:12px 0 0}
 .vlc .cta{background:var(--bg2)}
+.vlc .fotos{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:8px 0 16px}
+.vlc .fotos figure{margin:0}
+.vlc .fotos img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:6px;border:1px solid var(--line);display:block}
+.vlc .fotos figcaption{font-size:14px;color:var(--txt);margin-top:8px}
 .vlc .map{width:100%;height:320px;border:0;border-radius:6px;margin-top:22px}
 @media (max-width:600px){.vlc section{padding:48px 16px}.vlc .btn{display:block;text-align:center;margin-right:0}}
 </style>"""
@@ -107,6 +111,12 @@ def bloco(sec, i):
         for l in linhas:
             out.append("      <tr>" + "".join(f"<td>{texto(c)}</td>" for c in l) + "</tr>")
         out.append("    </tbody></table></div>")
+    if "fotos" in sec:
+        out.append('    <div class="fotos">')
+        for url, alt, w_, h_ in sec["fotos"]:
+            out.append(f'      <figure><img src="{url}" alt="{html.escape(alt)}" width="{w_}" height="{h_}" '
+                       f'loading="lazy" decoding="async"><figcaption>{html.escape(alt)}</figcaption></figure>')
+        out.append("    </div>")
     for p in sec.get("p_depois", []):
         out.append(f"    <p>{texto(p)}</p>")
     out += ["  </div>", "</section>", ""]

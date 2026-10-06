@@ -18,12 +18,12 @@ SERVICOS = [
     # ------------------------------------------------------------------ REMAP
     {
         "slug": "remap",
-        "title": "Remap Automotivo em São Paulo | Stage 1 e 2 | Veloce",
-        "description": "Remap automotivo em São Paulo feito na nossa oficina: stage 1 e stage 2 para carros premium, com leitura da ECU antes e depois. Peça seu orçamento.",
+        "title": "Remap Automotivo em SP com Dinamômetro Próprio | Veloce",
+        "description": "Remap automotivo em São Paulo com dinamômetro próprio: stage 1 e stage 2 para carros premium, ganho medido antes e depois. Peça seu orçamento.",
         "h1": "Remap automotivo em São Paulo, feito na nossa oficina",
         "lead": "Mais potência, mais torque e respostas mais rápidas, com responsabilidade técnica. O remap da Veloce é "
-                "feito aqui mesmo, na oficina, por quem trabalha só com carros premium, com leitura completa da ECU "
-                "antes e depois da reprogramação.",
+                "feito aqui mesmo, na oficina, por quem trabalha só com carros premium, com leitura completa da ECU e "
+                "dinamômetro próprio: o ganho é medido, não estimado.",
         "botao": "Pedir orçamento de remap no WhatsApp",
         "whatsapp_msg": "Olá, quero um orçamento de remap. Modelo/ano/motor: ",
         "breadcrumb": "Remap automotivo",
@@ -56,6 +56,17 @@ SERVICOS = [
                 ("Conferência depois", "Nova leitura da ECU, teste de rodagem e checagem dos parâmetros após a "
                  "reprogramação, com relatório técnico na entrega."),
             ]},
+            {"h2": "Dinamômetro próprio: o ganho medido, não prometido", "p": [
+                "A Veloce tem dinamômetro na própria oficina. Isso muda o remap: em vez de confiar no número que vem "
+                "num arquivo pronto, medimos a potência e o torque do seu carro no dinamômetro e acompanhamos o "
+                "comportamento do motor durante a medição.",
+                "O dinamômetro também ajuda no diagnóstico: um motor que não entrega o que deveria aparece na curva "
+                "de potência antes de virar defeito. Por isso ele faz parte do nosso processo de remap, e não é "
+                "um acessório.",
+             ], "fotos": [
+                ("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/porsche-911-dinamometro-veloce.webp", "Porsche 911 Carrera Cabriolet no dinamômetro da Veloce", 1200, 1600),
+                ("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/golf-gti-dinamometro-veloce.webp", "Volkswagen Golf GTI no dinamômetro da Veloce", 1200, 1600),
+             ]},
             {"h2": "Remap para carros premium", "p": [
                 "Fazemos remap nas marcas que atendemos na oficina. Veja a página de cada marca para conhecer os "
                 "serviços completos:"],
@@ -86,6 +97,9 @@ SERVICOS = [
             ("Quanto tempo leva?",
              "Depende do carro, do stage e do resultado do diagnóstico feito antes. Combine a data pelo WhatsApp que "
              "informamos o prazo para o seu carro."),
+            ("Vocês têm dinamômetro?",
+             "Sim. A Veloce tem dinamômetro próprio na oficina, na Av. Casa Verde, e ele faz parte do nosso processo "
+             "de remap e de diagnóstico de desempenho."),
             ("O consumo aumenta?",
              "No uso normal, o consumo costuma ficar parecido com o original, e em estrada pode até melhorar. Quem usa "
              "a potência extra o tempo todo vai gastar mais combustível, como em qualquer carro."),
@@ -286,7 +300,7 @@ SERVICOS = [
                  'genuínas. <a href="/manutencao-preventiva/">Ver revisão</a>.'),
                 ("Manutenção corretiva", "Motor, câmbio, arrefecimento, suspensão, freios e elétrica, com garantia "
                  "técnica do serviço."),
-                ("Remap", 'Reprogramação de motor feita na própria oficina, com leitura da ECU antes e depois. '
+                ("Remap", 'Reprogramação de motor feita na própria oficina, com leitura da ECU e dinamômetro próprio. '
                  '<a href="/remap/">Ver remap</a>.'),
                 ("Inspeção pré-compra", 'Avaliação completa antes de comprar um importado usado. '
                  '<a href="/inspecao-pre-compra/">Ver inspeção</a>.'),

@@ -83,7 +83,7 @@ def servicos_marca(nome, revisao, remap_txt, extra_card):
          "centrais e teste dos componentes antes de qualquer troca."),
         ("Manutenção corretiva", "Motor, arrefecimento, suspensão, freios, câmbio e direção, com garantia técnica do "
          "serviço e peças genuínas."),
-        (f"Remap {nome}", remap_txt + f" Conheça o {REMAP}."),
+        (f"Remap {nome}", remap_txt + f" Ganho medido no nosso dinamômetro próprio. Conheça o {REMAP}."),
         ("Inspeção pré-compra", f"Vai comprar uma {nome} usada? Avaliamos motor, câmbio, eletrônica e histórico de "
          f"falhas antes do negócio. Ver {PRECOMPRA}."),
         extra_card,
