@@ -63,6 +63,7 @@ SERVICOS = [
                 "O dinamômetro também ajuda no diagnóstico: um motor que não entrega o que deveria aparece na curva "
                 "de potência antes de virar defeito. Por isso ele faz parte do nosso processo de remap, e não é "
                 "um acessório.",
+                'Também fazemos medição avulsa, sem remap: veja a página do <a href="/dinamometro/">dinamômetro</a>.',
              ], "fotos": [
                 ("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/porsche-911-dinamometro-veloce.webp", "Porsche 911 Carrera Cabriolet no dinamômetro da Veloce", 1200, 1600),
                 ("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/golf-gti-dinamometro-veloce.webp", "Volkswagen Golf GTI no dinamômetro da Veloce", 1200, 1600),
@@ -106,6 +107,82 @@ SERVICOS = [
         ],
         "cta_h2": "Peça o orçamento do remap para o seu carro",
         "cta_p": "Mande o modelo, o ano e o motor. Um especialista responde pelo WhatsApp com a avaliação para o seu carro.",
+    },
+    # ------------------------------------------------------------------ DINAMÔMETRO
+    {
+        "slug": "dinamometro",
+        "title": "Dinamômetro para Carros em São Paulo | Veloce",
+        "description": "Dinamômetro para carros em São Paulo: meça a potência e o torque reais do seu carro, antes e depois de remap ou preparação. Zona Norte, agende.",
+        "h1": "Dinamômetro para carros em São Paulo",
+        "lead": "Quantos cavalos o seu carro entrega de verdade? No dinamômetro da Veloce, na Zona Norte de São Paulo, "
+                "você mede a potência e o torque reais do carro, com ou sem remap, e acompanha a medição.",
+        "botao": "Agendar medição no WhatsApp",
+        "whatsapp_msg": "Olá, quero agendar uma medição no dinamômetro. Carro (modelo/ano/motor): ",
+        "breadcrumb": "Dinamômetro",
+        "servico": "Medição de potência e torque em dinamômetro",
+        "servico_tipo": "Medição de potência e torque de veículos em dinamômetro de rolo",
+        "secoes": [
+            {"h2": "O que é o dinamômetro e o que ele mede", "p": [
+                "O dinamômetro automotivo é o equipamento que mede a potência (cv) e o torque (kgfm) do carro. O carro "
+                "fica preso com cintas sobre os rolos, e o motorista acelera em uma marcha fixa até o limite de "
+                "rotação. O equipamento registra a força que chega às rodas em cada rotação e monta a curva de "
+                "potência e de torque do motor.",
+                "Mais do que um número, a curva mostra como o motor entrega a força: onde o turbo enche, onde o torque "
+                "cai, se há falhas em alguma faixa de rotação. É por isso que o dinamômetro é usado tanto para medir "
+                "ganhos quanto para diagnosticar problemas.",
+            ], "fotos": [
+                ("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/porsche-911-dinamometro-veloce.webp", "Porsche 911 Carrera Cabriolet no dinamômetro da Veloce", 1200, 1600),
+                ("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/golf-gti-dinamometro-veloce.webp", "Volkswagen Golf GTI no dinamômetro da Veloce", 1200, 1600),
+            ]},
+            {"h2": "Quando vale passar o carro no dinamômetro", "cards": [
+                ("Antes e depois do remap", 'É a forma honesta de saber o ganho real de um <a href="/remap/">remap</a>, '
+                 "e não o número prometido por um arquivo pronto."),
+                ("Carro perdeu força", "Se o carro parece mais \"fraco\" que antes, a medição mostra se a potência "
+                 "caiu e em que faixa de rotação, o que orienta o diagnóstico."),
+                ("Depois de modificações", "Escapamento, admissão, intercooler ou turbo novos: o dinamômetro confirma se "
+                 "a mudança trouxe ganho ou só barulho."),
+                ("Comprar um carro preparado", 'Antes de pagar por um carro "com remap" ou preparado, meça o que ele '
+                 'entrega. Combine com a <a href="/inspecao-pre-compra/">inspeção pré-compra</a>.'),
+            ]},
+            {"h2": "Potência na roda x potência no motor", "p": [
+                "O dinamômetro de rolo mede a força que chega às rodas. Entre o motor e as rodas existem câmbio, "
+                "diferencial, eixos e pneus, e cada um consome uma parte da potência. Por isso o número medido na roda "
+                "é sempre menor que o informado pela fábrica, que é medido direto no motor.",
+                "O mais importante não é comparar com o catálogo, e sim comparar o seu carro com ele mesmo: antes e "
+                "depois de um remap, de uma peça nova ou de um reparo, no mesmo equipamento e nas mesmas condições.",
+            ]},
+            {"h2": "Como é feita a medição", "steps": [
+                ("Agendamento pelo WhatsApp.", "Você informa modelo, ano, motor e se o carro tem alguma modificação."),
+                ("Checagem antes de medir.", "Leitura das centrais, níveis, pneus e vazamentos. Carro com defeito não vai para os rolos."),
+                ("Fixação nos rolos.", "O carro é preso com cintas e posicionado no dinamômetro com ventilação."),
+                ("Puxadas de medição.", "Algumas acelerações completas em marcha fixa para confirmar o resultado."),
+                ("Resultado.", "Você acompanha a medição e recebe a potência, o torque e a curva do seu carro."),
+            ]},
+            {"h2": "Para quais carros", "p": [
+                "Medimos os carros premium e importados que atendemos na oficina:"],
+             "chips": list(MARCAS_LINKS),
+             "p_depois": ["Tem um carro de outra marca ou com tração integral? Mande o modelo pelo WhatsApp para "
+                          "confirmarmos se a medição é possível."]},
+        ],
+        "faq_h2": "Perguntas frequentes sobre dinamômetro",
+        "faq": [
+            ("Quanto custa passar o carro no dinamômetro?",
+             "Depende do carro e do tipo de medição. Mande o modelo, o ano e o motor pelo WhatsApp que passamos o "
+             "valor antes de agendar."),
+            ("Passar no dinamômetro faz mal ao carro?",
+             "Não, desde que o carro esteja em bom estado. A medição exige o motor em carga máxima por alguns "
+             "segundos, como numa aceleração forte na estrada. Por isso checamos o carro antes de colocá-lo nos rolos."),
+            ("Por que a potência medida é menor que a da fábrica?",
+             "Porque o dinamômetro de rolo mede a força nas rodas, depois das perdas no câmbio, diferencial e pneus. "
+             "A fábrica informa a potência medida direto no motor."),
+            ("Posso medir sem fazer remap?",
+             "Sim. A medição no dinamômetro pode ser feita de forma avulsa, para conhecer o desempenho do carro ou "
+             "investigar perda de potência."),
+            ("Onde fica o dinamômetro?",
+             "Na própria oficina da Veloce, na Av. Casa Verde, 3010, Casa Verde, Zona Norte de São Paulo."),
+        ],
+        "cta_h2": "Agende a medição do seu carro",
+        "cta_p": "Mande o modelo, o ano e o motor. Respondemos pelo WhatsApp com o valor e a data.",
     },
     # ------------------------------------------------------------------ INSPEÇÃO PRÉ-COMPRA
     {
@@ -304,6 +381,8 @@ SERVICOS = [
                  '<a href="/remap/">Ver remap</a>.'),
                 ("Inspeção pré-compra", 'Avaliação completa antes de comprar um importado usado. '
                  '<a href="/inspecao-pre-compra/">Ver inspeção</a>.'),
+                ("Dinamômetro próprio", 'Medição de potência e torque no nosso dinamômetro, com ou sem remap. '
+                 '<a href="/dinamometro/">Ver dinamômetro</a>.'),
                 ("Performance e personalização", "Escapamentos, rodas, freios e acertos técnicos com critério."),
             ]},
             {"h2": "Por que escolher a Veloce", "cards": [
