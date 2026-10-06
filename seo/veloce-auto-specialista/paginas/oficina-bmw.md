@@ -2,6 +2,10 @@
 
 Conteúdo da página: [`oficina-bmw.html`](oficina-bmw.html) (≈1.000 palavras, dados estruturados incluídos).
 
+**No WordPress:** página ID **461**, slug `oficina-bmw`, modelo "Elementor Largura total", status **rascunho**
+(subida em 06/10/2026 pelo `seo/wp_publicar.py`). Prévia, logado: `https://veloceautospecialista.com.br/?page_id=461&preview=true`.
+⚠️ O site **não tem plugin de SEO**, então title e meta description ainda não podem ser configurados.
+
 ## Campos de SEO (Yoast ou Rank Math)
 
 | Campo | Valor |
