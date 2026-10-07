@@ -442,3 +442,13 @@ for _p in PAGINAS:
 from paginas_servicos import SERVICOS  # noqa: E402
 
 PAGINAS += SERVICOS
+
+# Land Rover: o card de revisão aponta para a subpágina /oficina-land-rover/revisao/
+for _p in PAGINAS:
+    if _p["slug"] == "oficina-land-rover":
+        _t, _d = _p["secoes"][2]["cards"][0]
+        _p["secoes"][2]["cards"][0] = (_t, _d.replace(f"Ver {PREVENTIVA}.", 'Ver <a href="/oficina-land-rover/revisao/">revisão Land Rover</a>.'))
+
+from paginas_conteudo import CONTEUDO  # noqa: E402
+
+PAGINAS += CONTEUDO

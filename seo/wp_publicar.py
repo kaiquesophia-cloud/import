@@ -71,8 +71,15 @@ def page(a):
     if pendentes:
         print("⚠️  Ainda há placeholders no HTML:", ", ".join(pendentes))
     content = f"<!-- wp:html -->\n{raw}\n<!-- /wp:html -->"
-    existentes = _req("GET", f"pages?slug={a.slug}&status=any&context=edit")
+    filtro = ""
     body = {"title": a.title, "slug": a.slug, "content": content, "status": a.status}
+    if a.parent:  # subpágina: /pai/slug/
+        pais = _req("GET", f"pages?slug={a.parent}&parent=0&_fields=id")
+        if not pais:
+            sys.exit(f"Página-mãe '{a.parent}' não encontrada")
+        body["parent"] = pais[0]["id"]
+        filtro = f"&parent={pais[0]['id']}"
+    existentes = _req("GET", f"pages?slug={a.slug}&status=any&context=edit{filtro}")
     if a.template:
         body["template"] = a.template
     if existentes:
@@ -93,6 +100,7 @@ def main():
     s.add_argument("--title", required=True)
     s.add_argument("--html", required=True)
     s.add_argument("--status", default="draft", choices=["draft", "publish"])
+    s.add_argument("--parent", help="slug da página-mãe (ex.: oficina-bmw para /oficina-bmw/revisao/)")
     s.add_argument("--template", default="elementor_header_footer",
                    help='modelo da página; "elementor_header_footer" = Elementor largura total com cabeçalho e rodapé')
     s.set_defaults(fn=page)

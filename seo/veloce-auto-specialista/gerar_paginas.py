@@ -204,8 +204,34 @@ def sem_tags(s):
     return html.unescape(re.sub(r"<[^>]+>", "", s))
 
 
+def caminho(pg):
+    """/pai/slug/ para subpáginas (revisão, blog, câmbio); /slug/ para as demais."""
+    pai = pg.get("pai")
+    return f"/{pai['slug']}/{pg['slug']}/" if pai else f"/{pg['slug']}/"
+
+
+def arquivo(pg):
+    return pg.get("arquivo") or pg["slug"]
+
+
 def schema(pg):
-    url = f"{SITE}/{pg['slug']}/"
+    url = f"{SITE}{caminho(pg)}"
+    trilha = [{"@type": "ListItem", "position": 1, "name": "Início", "item": f"{SITE}/"}]
+    if pg.get("pai"):
+        trilha.append({"@type": "ListItem", "position": 2, "name": pg["pai"]["nome"], "item": f"{SITE}/{pg['pai']['slug']}/"})
+    trilha.append({"@type": "ListItem", "position": len(trilha) + 1, "name": pg["breadcrumb"], "item": url})
+    foto = pg.get("foto") or FOTOS_HERO.get(pg["slug"], FOTO_PADRAO)
+    if pg.get("tipo") == "artigo":
+        principal = {"@type": "BlogPosting", "headline": sem_tags(pg["h1"]), "description": pg["description"],
+                     "datePublished": pg.get("publicado", "2026-10-07"), "dateModified": pg.get("publicado", "2026-10-07"),
+                     "image": f"{UP}{foto[0]}", "inLanguage": "pt-BR", "mainEntityOfPage": url,
+                     "author": {"@id": f"{SITE}/#organization"}, "publisher": {"@id": f"{SITE}/#organization"}}
+    elif pg.get("tipo") == "blog":
+        principal = {"@type": "CollectionPage", "name": pg["title"], "url": url, "inLanguage": "pt-BR",
+                     "publisher": {"@id": f"{SITE}/#organization"}}
+    else:
+        principal = {"@type": "Service", "name": pg["servico"], "serviceType": pg["servico_tipo"],
+                     "provider": {"@id": f"{SITE}/#organization"}, "areaServed": "São Paulo", "url": url}
     return {
         "@context": "https://schema.org",
         "@graph": [
@@ -222,11 +248,8 @@ def schema(pg):
                 "areaServed": ["São Paulo", "Zona Norte de São Paulo"],
                 "brand": [{"@type": "Brand", "name": m} for m in MARCAS],
             },
-            {"@type": "Service", "name": pg["servico"], "serviceType": pg["servico_tipo"],
-             "provider": {"@id": f"{SITE}/#organization"}, "areaServed": "São Paulo", "url": url},
-            {"@type": "BreadcrumbList", "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Início", "item": f"{SITE}/"},
-                {"@type": "ListItem", "position": 2, "name": pg["breadcrumb"], "item": url}]},
+            principal,
+            {"@type": "BreadcrumbList", "itemListElement": trilha},
             {"@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": q,
                  "acceptedAnswer": {"@type": "Answer", "text": sem_tags(a)}} for q, a in pg["faq"]]},
@@ -236,10 +259,11 @@ def schema(pg):
 
 def gerar(pg):
     zap = wa(pg["whatsapp_msg"])
-    foto = FOTOS_HERO.get(pg["slug"], FOTO_PADRAO)
+    foto = pg.get("foto") or FOTOS_HERO.get(pg["slug"], FOTO_PADRAO)
+    alt_txt, alt_href = pg.get("botao_alt", ("Como chegar", "#como-chegar"))
     partes = [
         "<!--",
-        f"  PÁGINA: /{pg['slug']}/  —  Veloce Auto Specialista (gerada por gerar_paginas.py; edite paginas_dados.py)",
+        f"  PÁGINA: {caminho(pg)}  —  Veloce Auto Specialista (gerada por gerar_paginas.py; edite paginas_dados.py)",
         f"  Title SEO: {pg['title']}",
         f"  Meta description: {pg['description']}",
         "-->",
@@ -255,8 +279,8 @@ def gerar(pg):
         f"    <h1>{pg['h1']}</h1>",
         f"    <p>{texto(pg['lead'])}</p>",
         f'    <a class="btn" href="{html.escape(zap)}" rel="nofollow">{pg["botao"]}</a>',
-        '    <a class="btn alt" href="#como-chegar">Como chegar</a>',
-        "    <p class=\"addr\">📍 Av. Casa Verde, 3010 – Casa Verde, Zona Norte de São Paulo</p>",
+        f'    <a class="btn alt" href="{alt_href}">{alt_txt}</a>',
+        f'    <p class="addr">{pg.get("hero_nota", "📍 Av. Casa Verde, 3010 – Casa Verde, Zona Norte de São Paulo")}</p>',
         "  </div>",
         "</section>",
         "",
@@ -303,13 +327,13 @@ def main():
     alvo = set(sys.argv[1:])
     pasta = os.path.join(os.path.dirname(__file__), "paginas")
     for pg in PAGINAS:
-        if alvo and pg["slug"] not in alvo:
+        if alvo and pg["slug"] not in alvo and arquivo(pg) not in alvo:
             continue
         out = gerar(pg)
         palavras, erros = checar(pg, out)
-        with open(os.path.join(pasta, f"{pg['slug']}.html"), "w", encoding="utf-8") as f:
+        with open(os.path.join(pasta, f"{arquivo(pg)}.html"), "w", encoding="utf-8") as f:
             f.write(out)
-        print(f"{pg['slug']:34} {palavras:5} palavras  title {len(pg['title']):2}  desc {len(pg['description']):3}"
+        print(f"{arquivo(pg):34} {palavras:5} palavras  title {len(pg['title']):2}  desc {len(pg['description']):3}"
               + (f"  ⚠️ {'; '.join(erros)}" if erros else ""))
 
 

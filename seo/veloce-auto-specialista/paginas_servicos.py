@@ -74,6 +74,10 @@ SERVICOS = [
              "chips": list(MARCAS_LINKS),
              "p_depois": ["Os modelos mais procurados para remap são os de motor turbo a gasolina, como BMW 320i e "
                           "330i, Audi A3/S3 e Q3, Mercedes C200/C300 e GLA, MINI Cooper S/JCW e Porsche Macan."]},
+            {"h2": "Remap de câmbio", "p": [
+                "Depois do remap de motor, o câmbio pode passar a limitar o torque ou a trocar marchas na hora errada. "
+                'Também reprogramamos a central do câmbio: veja o <a href="/remap/cambio/">remap de câmbio</a>.',
+            ]},
             {"h2": "Quanto custa um remap?", "p": [
                 "O preço do remap depende do motor, do stage escolhido, de o câmbio precisar de ajuste junto e das "
                 "peças de apoio necessárias no stage 2. Por isso não trabalhamos com tabela fixa: avaliamos o seu carro "
@@ -81,6 +85,13 @@ SERVICOS = [
                 "Desconfie de remap muito barato: arquivo genérico baixado da internet, sem diagnóstico antes e sem "
                 "conferência depois, é o que dá fama ruim ao remap. Mande o modelo, o ano e o motor pelo WhatsApp e "
                 "receba o orçamento para o seu carro.",
+            ]},
+            {"h2": "Leia também", "cards": [
+                ("O que é remap?", 'Como a reprogramação funciona e quando vale a pena. <a href="/blog/o-que-e-remap/">Ler o artigo</a>.'),
+                ("Stage 1 x stage 2", 'A diferença entre os níveis e qual escolher. <a href="/blog/remap-stage-1-e-stage-2/">Ler o artigo</a>.'),
+                ("Quanto custa um remap?", 'Do que o preço depende. <a href="/blog/quanto-custa-um-remap/">Ler o artigo</a>.'),
+                ("Remap estraga o motor?", 'O que é mito e o que é risco. <a href="/blog/remap-estraga-o-motor/">Ler o artigo</a>.'),
+                ("Remap perde a garantia?", 'O que acontece com a garantia de fábrica. <a href="/blog/remap-perde-garantia/">Ler o artigo</a>.'),
             ]},
             ATENDIMENTO,
         ],
@@ -220,7 +231,8 @@ SERVICOS = [
                 "Teste de rodagem com acompanhamento técnico",
             ], "p_depois": ["A inspeção pré-compra avalia a parte mecânica e eletrônica do carro. Ela não substitui a "
                             "vistoria cautelar (laudo documental e estrutural feito por empresa credenciada), que "
-                            "nós não fazemos. Para uma compra segura, o ideal é ter as duas."]},
+                            "nós não fazemos. Para uma compra segura, o ideal é ter as duas. "
+                            '<a href="/blog/vistoria-cautelar-ou-inspecao-pre-compra/">Entenda a diferença</a>.']},
             {"h2": "O que você recebe", "cards": [
                 ("Relatório técnico", "Tudo o que foi verificado, com o estado de cada item e as falhas encontradas."),
                 ("Prioridades", "O que precisa ser feito já, o que pode esperar e o que é só desgaste normal."),

@@ -20,13 +20,24 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 472 | [/inspecao-pre-compra/](https://veloceautospecialista.com.br/inspecao-pre-compra/) | inspeção pré compra |
 | 473 | [/manutencao-preventiva/](https://veloceautospecialista.com.br/manutencao-preventiva/) | revisão carros importados |
 | 474 | [/oficina-importados-zona-norte/](https://veloceautospecialista.com.br/oficina-importados-zona-norte/) | oficina importados zona norte |
+| 561 | [/oficina-bmw/revisao/](https://veloceautospecialista.com.br/oficina-bmw/revisao/) | revisão bmw |
+| 562 | [/oficina-land-rover/revisao/](https://veloceautospecialista.com.br/oficina-land-rover/revisao/) | revisão land rover |
+| 563 | [/remap/cambio/](https://veloceautospecialista.com.br/remap/cambio/) | remap de câmbio |
+| 554 | [/blog/](https://veloceautospecialista.com.br/blog/) | (página que reúne os artigos) |
+| 555 | [/blog/o-que-e-remap/](https://veloceautospecialista.com.br/blog/o-que-e-remap/) | o que é remap |
+| 556 | [/blog/vistoria-cautelar-ou-inspecao-pre-compra/](https://veloceautospecialista.com.br/blog/vistoria-cautelar-ou-inspecao-pre-compra/) | vistoria cautelar |
+| 557 | [/blog/quanto-custa-um-remap/](https://veloceautospecialista.com.br/blog/quanto-custa-um-remap/) | quanto custa um remap |
+| 558 | [/blog/remap-stage-1-e-stage-2/](https://veloceautospecialista.com.br/blog/remap-stage-1-e-stage-2/) | remap stage 1 / stage 2 |
+| 559 | [/blog/remap-estraga-o-motor/](https://veloceautospecialista.com.br/blog/remap-estraga-o-motor/) | remap estraga o motor |
+| 560 | [/blog/remap-perde-garantia/](https://veloceautospecialista.com.br/blog/remap-perde-garantia/) | remap perde garantia |
 
 `/pvads/` (433, landing dos anúncios) recebeu `noindex, follow` no Rank Math.
 
 ## Como editar
 
 - A BMW foi feita à mão: `oficina-bmw.html`.
-- As demais são geradas: edite `../paginas_dados.py` (marcas) ou `../paginas_servicos.py` (serviços e Zona Norte),
+- As demais são geradas: edite `../paginas_dados.py` (marcas), `../paginas_servicos.py` (serviços e Zona Norte) ou
+  `../paginas_conteudo.py` (blog, revisões e câmbio; subpáginas publicam com `--parent <slug-da-mãe>`),
   rode `python3 seo/veloce-auto-specialista/gerar_paginas.py` e republique com
   `python3 seo/wp_publicar.py page --slug <slug> --title "<título>" --html <arquivo> --status publish`.
 
@@ -37,6 +48,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 - Confirmados: reset do aviso de revisão no painel, backup do software original no remap, teste de rodagem na
   inspeção pré-compra, diesel Land Rover/Jaguar, Volvo Recharge e Lamborghini Aventador/Gallardo.
 - **A Veloce tem dinamômetro próprio e faz medição avulsa** (confirmado 06/10/2026): página `/dinamometro/`;: está no /remap/ (seção com fotos + FAQ) e nos cards de remap de todas as marcas.
+- **Fazem remap de câmbio** (reprogramação da central do câmbio, confirmado 07/10/2026): página `/remap/cambio/`. Continua valendo: **não** fazem adaptação do câmbio pelo scanner.
 - Já confirmados antes: só peça genuína, sem registro de bateria, sem vistoria cautelar, remap sem preço publicado.
 
 ## Ajustes pendentes
