@@ -1935,7 +1935,7 @@
 				<nav class="nav">
 					<template v-for="(n, i) in nav" :key="i">
 						<div v-if="n.group" class="group">{{ n.group }}</div>
-						<a v-else :href="'#/' + n.r" :class="{ active: section === n.r }"><Ic :n="n.i"/>{{ n.l }}<span v-if="n.count && s.counts[n.count]" class="count">{{ s.counts[n.count] }}</span><span v-if="n.r === 'painel' && s.counts.atrasados" class="count" title="devoluções atrasadas">{{ s.counts.atrasados }}</span></a>
+						<a v-else :href="'#/' + n.r" :class="{ active: section === n.r }" @click="s.sidebar = false"><Ic :n="n.i"/>{{ n.l }}<span v-if="n.count && s.counts[n.count]" class="count">{{ s.counts[n.count] }}</span><span v-if="n.r === 'painel' && s.counts.atrasados" class="count" title="devoluções atrasadas">{{ s.counts.atrasados }}</span></a>
 					</template>
 				</nav>
 				<div class="me"><div class="avatar">{{ user.iniciais }}</div><div class="who"><strong>{{ user.nome }}</strong><a :href="logout">Sair</a></div></div>
