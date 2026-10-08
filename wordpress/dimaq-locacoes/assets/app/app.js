@@ -1364,7 +1364,7 @@
 
 						<section class="card">
 							<h3><Ic n="box"/> Equipamentos</h3>
-							<table class="items">
+							<div class="table-wrap"><table class="items">
 								<thead><tr><th style="width:30%">Equipamento</th><th style="width:96px">Qtd</th><th style="width:150px">Cobrança</th><th style="width:80px">Períodos</th><th style="width:110px">Unitário</th><th style="width:90px">Desconto</th><th style="width:110px;text-align:right">Total</th><th style="width:36px"></th></tr></thead>
 								<tbody>
 									<tr v-for="(it, i) in items" :key="it._k">
@@ -1381,7 +1381,7 @@
 										<td><button type="button" class="btn btn-ghost btn-sm" @click="items.splice(i, 1)" aria-label="Remover"><Ic n="trash"/></button></td>
 									</tr>
 								</tbody>
-							</table>
+							</table></div>
 							<div class="quick" style="margin-top:8px"><button class="btn btn-sm" @click="add()"><Ic n="plus"/> Adicionar equipamento</button><button class="btn btn-sm" @click="bestAll" title="Usa a combinação mais barata de diárias, semanas, quinzenas e meses"><Ic n="star"/> Aplicar melhor tarifa em todos</button></div>
 						</section>
 

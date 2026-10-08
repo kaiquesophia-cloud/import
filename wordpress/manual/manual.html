@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Manual do usuário — Sistema de Gestão de Locações Dimaq</title>
+<style>
+	@page { size: A4; margin: 16mm 15mm 18mm; }
+	@page :first { margin: 0; }
+	:root { --c: #f5a400; --g: #2b2b2b; --muted: #666; }
+	* { box-sizing: border-box; }
+	body { font: 11pt/1.55 "Inter", "Segoe UI", Roboto, Arial, sans-serif; color: #1d1f23; margin: 0; }
+	h1, h2, h3 { line-height: 1.25; }
+	.cover { height: 297mm; width: 210mm; background: radial-gradient(900px 500px at 20% -10%, #4a4a4a 0%, #2b2b2b 45%, #1c1c1c 100%); color: #fff; position: relative; padding: 34mm 22mm; page-break-after: always; overflow: hidden; }
+	.cover .logo { width: 120mm; filter: drop-shadow(0 6px 18px rgba(0,0,0,.4)); }
+	.cover .bar { width: 46mm; height: 4px; background: var(--c); margin: 18mm 0 9mm; }
+	.cover h1 { font-size: 30pt; margin: 0; letter-spacing: -.01em; }
+	.cover .sub { font-size: 14pt; color: #cfcfcf; margin-top: 4mm; }
+	.cover .ver { margin-top: 10mm; color: #a9a9a9; font-size: 10pt; }
+	.cover .shot { position: absolute; right: -30mm; bottom: 46mm; width: 150mm; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.55); border: 1px solid #444; transform: rotate(-4deg); }
+	.cover .made { position: absolute; left: 22mm; right: 22mm; bottom: 18mm; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #444; padding-top: 7mm; }
+	.cover .made small { display: block; text-transform: uppercase; letter-spacing: .16em; font-size: 8pt; color: #9a9a9a; margin-bottom: 2mm; }
+	.seo { font-weight: 900; font-size: 22pt; letter-spacing: .02em; color: var(--c); }
+	.seo span { color: #fff; }
+	.seo.ink span { color: var(--g); }
+	.cover .made .right { text-align: right; color: #bdbdbd; font-size: 9.5pt; }
+
+	.toc { page-break-after: always; }
+	.toc h2 { font-size: 20pt; margin: 0 0 8mm; }
+	.toc ol { padding-left: 0; list-style: none; counter-reset: c; margin: 0; }
+	.toc li { counter-increment: c; display: flex; gap: 10px; padding: 7px 0; border-bottom: 1px dotted #ccc; font-size: 11.5pt; }
+	.toc li::before { content: counter(c, decimal-leading-zero); color: var(--c); font-weight: 800; width: 28px; }
+	.toc li span { color: var(--muted); margin-left: auto; font-size: 10pt; }
+
+	section.ch { margin-top: 10mm; }
+	section.ch.np { page-break-before: always; margin-top: 0; }
+	.chead, h3 { page-break-after: avoid; break-after: avoid; }
+	.chead { page-break-inside: avoid; break-inside: avoid; }
+	section.ch > .chead + * { page-break-before: avoid; break-before: avoid; }
+	.chead { display: flex; align-items: center; gap: 12px; border-bottom: 3px solid var(--c); padding-bottom: 3mm; margin-bottom: 5mm; }
+	.chead .n { background: var(--g); color: var(--c); font-weight: 900; font-size: 15pt; width: 13mm; height: 13mm; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex: none; }
+	.chead h2 { margin: 0; font-size: 19pt; }
+	h3 { font-size: 13pt; margin: 6mm 0 2mm; }
+	p { margin: 0 0 3mm; }
+	ul, ol { margin: 0 0 3mm; padding-left: 6mm; }
+	li { margin-bottom: 1mm; }
+	.fig { margin: 4mm 0 5mm; page-break-inside: avoid; }
+	.fig img { max-width: 100%; max-height: 92mm; width: auto; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,.08); display: block; }
+	.fig.tall img { max-height: 150mm; }
+	.fig figcaption { font-size: 9pt; color: var(--muted); margin-top: 2mm; text-align: center; }
+	.fig.half { display: inline-block; width: 48.5%; vertical-align: top; }
+	.fig.phone img { max-height: 105mm; }
+	.row2 { display: flex; gap: 4mm; align-items: flex-start; page-break-inside: avoid; }
+	.row2 .fig { flex: 1; }
+	.row2 .fig img { max-height: 125mm; }
+	.tip, .warn, .ok { border-radius: 8px; padding: 3mm 4mm; margin: 3mm 0 4mm; font-size: 10pt; page-break-inside: avoid; }
+	.tip { background: #fff6dc; border-left: 4px solid var(--c); }
+	.warn { background: #fde8e8; border-left: 4px solid #dc2626; }
+	.ok { background: #e3f6ea; border-left: 4px solid #15803d; }
+	.tip b:first-child, .warn b:first-child, .ok b:first-child { display: block; margin-bottom: 1mm; }
+	table.t { width: 100%; border-collapse: collapse; font-size: 10pt; margin: 2mm 0 4mm; page-break-inside: avoid; }
+	table.t th { background: var(--g); color: #fff; text-align: left; padding: 2mm 3mm; font-weight: 700; }
+	table.t td { border-bottom: 1px solid #e5e5e5; padding: 2mm 3mm; vertical-align: top; }
+	table.t tr:nth-child(even) td { background: #fafafa; }
+	.steps { counter-reset: s; list-style: none; padding: 0; }
+	.steps > li { counter-increment: s; position: relative; padding-left: 10mm; margin-bottom: 2.5mm; }
+	.steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--c); color: #1b1b1b; font-weight: 800; font-size: 9pt; display: flex; align-items: center; justify-content: center; }
+	.k { display: inline-block; border: 1px solid #bbb; border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: 9pt; font-family: ui-monospace, monospace; background: #f6f6f6; }
+	.b { display: inline-block; padding: 0 7px; border-radius: 99px; font-size: 9pt; font-weight: 700; }
+	.b-blue { background: #e8effd; color: #2563eb; } .b-purple { background: #f1eafd; color: #7c3aed; } .b-amber { background: #fff4dc; color: #b45309; } .b-green { background: #e3f6ea; color: #15803d; } .b-red { background: #fde8e8; color: #dc2626; } .b-orange { background: #fff1e6; color: #c2410c; } .b-gray { background: #f0f1f3; color: #6b7280; }
+	.btn { display: inline-block; background: var(--c); color: #1b1b1b; font-weight: 700; padding: 0 7px; border-radius: 5px; font-size: 9.5pt; }
+	.btn.l { background: #fff; border: 1px solid #ccc; }
+	.end { page-break-before: always; text-align: center; padding-top: 60mm; }
+	.end .logo { width: 70mm; background: #454545; padding: 6mm; border-radius: 10px; }
+	.end p { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="cover">
+	<img class="logo" src="img/logo-dimaq.png" alt="Dimaq">
+	<div class="bar"></div>
+	<h1>Manual do usuário</h1>
+	<div class="sub">Sistema de Gestão de Locações</div>
+	<div class="ver">Versão 2.1 · outubro de 2026</div>
+	<img class="shot" src="img/m02-painel.png" alt="">
+	<div class="made">
+		<div><small>Sistema desenvolvido por</small><div class="seo">SEO <span>AMPLIFY</span></div></div>
+		<div class="right">DIMAQ Locações de Máquinas e Serviços Ltda<br>São Paulo · SP</div>
+	</div>
+</div>
+
+<!-- SUMÁRIO -->
+<div class="toc">
+	<h2>Sumário</h2>
+	<ol>
+		<li>Primeiro acesso e login <span>como entrar e quem vê o quê</span></li>
+		<li>Conhecendo a tela <span>menu, busca e atalhos</span></li>
+		<li>Painel inicial <span>locações em andamento e indicadores</span></li>
+		<li>Cadastros <span>equipamentos, clientes, produtos</span></li>
+		<li>Locação passo a passo <span>do orçamento à devolução</span></li>
+		<li>Quadro e agenda da frota <span>visões de acompanhamento</span></li>
+		<li>Documentos <span>contrato, orçamento, OS, recibo</span></li>
+		<li>Ordens de serviço <span>manutenção da frota</span></li>
+		<li>Vendas e estoque <span>peças e produtos</span></li>
+		<li>Financeiro <span>contas a receber e a pagar</span></li>
+		<li>Notas fiscais <span>NF-e e NFS-e</span></li>
+		<li>Relatórios <span>utilização, faturamento, inadimplência</span></li>
+		<li>Configurações <span>empresa, numeração, cláusulas</span></li>
+		<li>Site e área do cliente <span>catálogo e pedidos online</span></li>
+		<li>No celular <span>uso em campo</span></li>
+		<li>Dúvidas frequentes <span>problemas comuns e soluções</span></li>
+	</ol>
+</div>
+
+<!-- 1 -->
+<section class="ch np">
+	<div class="chead"><div class="n">1</div><h2>Primeiro acesso e login</h2></div>
+	<p>O sistema funciona pelo navegador, em computador, tablet ou celular, sem instalar nada. Ele fica num endereço próprio do site, separado do painel do WordPress:</p>
+	<p style="font-size:13pt;text-align:center;margin:4mm 0"><b>www.dimaqlocacoes.com.br/sistema</b></p>
+	<div class="fig"><img src="img/m01-login.png" alt=""><figcaption>Tela de login do sistema.</figcaption></div>
+	<ol class="steps">
+		<li>Abra o endereço acima e digite seu <b>usuário ou e-mail</b> e sua <b>senha</b>.</li>
+		<li>Deixe marcado <b>Manter conectado</b> no computador da loja para não precisar entrar toda vez. Em computador compartilhado, desmarque.</li>
+		<li>Clique em <span class="btn">Entrar no sistema</span>.</li>
+		<li>Esqueceu a senha? Clique em <b>Esqueci minha senha</b> e siga o link que chega por e-mail.</li>
+	</ol>
+	<h3>Quem vê o quê</h3>
+	<table class="t">
+		<tr><th style="width:30%">Perfil</th><th>O que pode fazer</th></tr>
+		<tr><td><b>Administrador</b></td><td>Tudo, inclusive configurações, financeiro e o painel do WordPress.</td></tr>
+		<tr><td><b>Gerente da locadora</b></td><td>Operação completa, financeiro, notas e relatórios.</td></tr>
+		<tr><td><b>Operador de locação</b></td><td>Clientes, equipamentos, locações, ordens de serviço, vendas e estoque. Não vê o financeiro.</td></tr>
+		<tr><td><b>Cliente da locadora</b></td><td>Só a área do cliente no site (capítulo 14). Não entra no sistema.</td></tr>
+	</table>
+	<div class="tip"><b>Para cadastrar a equipe</b>O administrador cria cada pessoa em <b>Usuários → Adicionar novo</b> no WordPress e escolhe o perfil <i>Operador de locação</i> ou <i>Gerente da locadora</i>. Essas pessoas entram só pelo <b>/sistema</b>; se tentarem abrir o painel do WordPress, são levadas de volta ao sistema.</div>
+</section>
+
+<!-- 2 -->
+<section class="ch">
+	<div class="chead"><div class="n">2</div><h2>Conhecendo a tela</h2></div>
+	<p>Todas as telas têm a mesma estrutura:</p>
+	<ul>
+		<li><b>Menu lateral</b> (esquerda): Operação (Painel, Locações, Agenda da frota, Equipamentos, Clientes, Ordens de serviço), Comercial (Vendas, Produtos e estoque, Fornecedores, Categorias) e Gestão (Financeiro, Notas fiscais, Relatórios, Configurações). Os números em vermelho avisam <b>pedidos do site</b> esperando resposta e <b>devoluções atrasadas</b>.</li>
+		<li><b>Busca geral</b> (topo): digite o número do contrato, o nome do cliente, o CPF/CNPJ ou o equipamento. Atalho: tecla <span class="k">/</span>.</li>
+		<li><b>Nova locação</b> (topo, à direita): abre um orçamento novo de qualquer tela.</li>
+		<li><b>Avisos</b>: cada ação mostra uma mensagem no canto inferior direito (verde quando deu certo, vermelha quando algo impediu).</li>
+	</ul>
+	<div class="fig"><img src="img/m05-busca.png" alt=""><figcaption>Busca geral: encontra contratos, clientes e equipamentos enquanto você digita.</figcaption></div>
+	<h3>Cores das situações</h3>
+	<table class="t">
+		<tr><th>Selo</th><th>Significado</th></tr>
+		<tr><td><span class="b b-orange">Solicitação do site</span></td><td>Pedido de orçamento feito pelo cliente no site; ainda não foi respondido.</td></tr>
+		<tr><td><span class="b b-blue">Orçamento</span></td><td>Proposta enviada; os equipamentos ainda <b>não</b> estão garantidos.</td></tr>
+		<tr><td><span class="b b-purple">Reservado</span></td><td>Cliente aprovou; os equipamentos estão garantidos para o período.</td></tr>
+		<tr><td><span class="b b-amber">Em locação</span></td><td>Equipamento entregue, com o cliente.</td></tr>
+		<tr><td><span class="b b-red">Em atraso</span></td><td>Passou da data de devolução e ainda não voltou.</td></tr>
+		<tr><td><span class="b b-green">Encerrado</span></td><td>Tudo devolvido.</td></tr>
+		<tr><td><span class="b b-gray">Cancelado</span></td><td>Locação cancelada antes de sair.</td></tr>
+	</table>
+</section>
+
+<!-- 3 -->
+<section class="ch">
+	<div class="chead"><div class="n">3</div><h2>Painel inicial</h2></div>
+	<p>É a primeira tela depois do login. Mostra o que precisa de atenção hoje e se atualiza sozinha a cada minuto.</p>
+	<div class="fig"><img src="img/m02-painel.png" alt=""><figcaption>Painel com os indicadores e as locações em andamento.</figcaption></div>
+	<h3>Indicadores</h3>
+	<p>Os quadros do topo são clicáveis: <b>Devoluções atrasadas</b> (pisca em vermelho quando há atraso), <b>Vencem hoje</b>, <b>Pedidos do site</b>, <b>Reservas a sair</b>, <b>Disponíveis na frota</b>, <b>Utilização da frota</b> e, para quem tem acesso ao financeiro, <b>A receber hoje</b>, <b>Vencido</b> e <b>Recebido no mês</b>.</p>
+	<h3>Locações em andamento</h3>
+	<p>Cada locação ativa aparece num cartão com:</p>
+	<ul>
+		<li><b>Contagem regressiva</b>: "2 dias restantes", "Hoje" ou "2 dias de atraso" em vermelho.</li>
+		<li><b>Barra de progresso</b> do período (dia 10 de 30) e a borda colorida pela urgência: vermelha = atrasada, laranja = vence hoje, verde = em dia.</li>
+		<li>Os <b>equipamentos</b> que estão com o cliente, o <b>valor</b> e a obra.</li>
+		<li>Botões: <span class="btn" style="background:#1fa855;color:#fff">WhatsApp</span> (mensagem de lembrete ou cobrança já escrita), <span class="btn l">Renovar</span> e <span class="btn">Devolver</span>.</li>
+	</ul>
+	<div class="fig"><img src="img/m03-cartoes.png" alt=""><figcaption>Filtros rápidos (Atrasadas, Vencem hoje, Próximos 3 dias, Esta semana, Em dia), busca e ordenação.</figcaption></div>
+	<div class="fig"><img src="img/m04-agenda-funil.png" alt=""><figcaption>Agenda de hoje e amanhã (saídas e devoluções), funil de orçamentos e lista de atenção.</figcaption></div>
+	<div class="tip"><b>Rotina sugerida para o começo do dia</b>1) Veja os <b>atrasados</b> e chame no WhatsApp. 2) Confira a <b>Agenda</b> de saídas e devoluções. 3) Responda os <b>Pedidos do site</b>. 4) Olhe a lista de <b>Atenção</b> (manutenção e estoque).</div>
+</section>
+
+<!-- 4 -->
+<section class="ch">
+	<div class="chead"><div class="n">4</div><h2>Cadastros</h2></div>
+	<h3>Equipamentos</h3>
+	<div class="fig"><img src="img/m15-equipamentos.png" alt=""><figcaption>Frota em cartões: situação, quantos estão livres e preço da diária. O botão ao lado de Exportar alterna para lista.</figcaption></div>
+	<p>Em <b>Equipamentos → Novo</b>, preencha:</p>
+	<table class="t">
+		<tr><th style="width:32%">Campo</th><th>Para que serve</th></tr>
+		<tr><td>Código / patrimônio</td><td>Sai na coluna <i>Patrimônio</i> do contrato. Não pode repetir.</td></tr>
+		<tr><td>Controle</td><td><b>Unitário</b>: uma máquina com número de série (compactador, gerador). <b>Por quantidade</b>: várias peças iguais num cadastro só (painéis de andaime, escoras) — informe a quantidade em frota.</td></tr>
+		<tr><td>Tabela de preços</td><td>Diária, semanal, quinzenal e mensal. O sistema escolhe a combinação mais barata para o período.</td></tr>
+		<tr><td>Valor de reposição</td><td>Valor de indenização por unidade. Sai no contrato multiplicado pela quantidade.</td></tr>
+		<tr><td>É acessório</td><td>Marque para itens que vão na seção <b>Acessórios</b> do contrato (travas, rodízios etc.).</td></tr>
+		<tr><td>Horímetro e preventiva</td><td>Informe "preventiva a cada X horas" e o sistema avisa quando vencer.</td></tr>
+		<tr><td>Foto e site</td><td>A foto aparece no sistema e no catálogo do site, se "Exibir no catálogo" estiver marcado.</td></tr>
+	</table>
+	<div class="fig"><img src="img/m16-equipamento.png" alt=""><figcaption>Ficha do equipamento: situação agora, agenda de reservas, histórico de manutenções e atalhos "Orçar locação" e "Abrir OS".</figcaption></div>
+	<h3>Clientes</h3>
+	<ul>
+		<li>CPF/CNPJ é conferido (o sistema recusa número inválido ou repetido).</li>
+		<li>Ao digitar o <b>CEP</b>, o endereço é preenchido sozinho.</li>
+		<li><b>Bloqueado para novas locações</b>: impede reservar e entregar para o cliente; escreva o motivo.</li>
+		<li><b>Limite de crédito</b>: o sistema avisa quando o valor em aberto passa do limite.</li>
+	</ul>
+	<div class="fig"><img src="img/m17-cliente.png" alt=""><figcaption>Ficha do cliente com valores em aberto, vencidos, histórico de locações e acesso à área do cliente.</figcaption></div>
+	<h3>Categorias, fornecedores e produtos</h3>
+	<p><b>Categorias</b> organizam a frota e o catálogo do site. <b>Fornecedores</b> são usados nas contas a pagar e nas peças. <b>Produtos e estoque</b> estão no capítulo 9.</p>
+</section>
+
+<!-- 5 -->
+<section class="ch">
+	<div class="chead"><div class="n">5</div><h2>Locação passo a passo</h2></div>
+	<p>O caminho de uma locação é: <span class="b b-blue">Orçamento</span> → <span class="b b-purple">Reservado</span> → <span class="b b-amber">Em locação</span> → <span class="b b-green">Encerrado</span>.</p>
+	<h3>1. Criar o orçamento</h3>
+	<div class="fig"><img src="img/m08-editor.png" alt=""><figcaption>Nova locação: disponibilidade e melhor preço calculados enquanto você monta o orçamento.</figcaption></div>
+	<ol class="steps">
+		<li>Clique em <span class="btn">Nova locação</span>.</li>
+		<li><b>Cliente</b>: digite parte do nome, CPF ou CNPJ e escolha na lista. Cliente novo? Clique em <b>+ Cadastrar novo</b> sem sair da tela.</li>
+		<li><b>Período</b>: escolha a data de início e use os botões de duração (1, 3, 7, 15, 30, 60 dias) ou digite a devolução.</li>
+		<li><b>Equipamentos</b>: busque e escolha. Embaixo de cada linha aparece <span style="color:#15803d;font-weight:700">✔ X livre(s) no período</span> ou <span style="color:#dc2626;font-weight:700">✖ só X livre(s)</span>, e o melhor preço.</li>
+		<li><b>Cobrança</b>: <i>Pacote (melhor tarifa)</i> calcula sozinho a combinação mais barata (ex.: 10 dias = 1 semana + 3 diárias). Também dá para cobrar por diária, semana, quinzena ou mês.</li>
+		<li>Preencha obra, endereço de entrega, frete, desconto, caução, forma e condição de pagamento.</li>
+		<li>Clique em <span class="btn">Salvar orçamento</span>.</li>
+	</ol>
+	<div class="tip"><b>Contagem de dias</b>O sistema conta o dia da retirada e o da devolução, como no contrato da Dimaq: de 08/10 a 06/11 são <b>30 dias</b>. Dá para mudar em Configurações.</div>
+	<h3>2. Enviar ao cliente</h3>
+	<p>Na ficha da locação: <span class="btn" style="background:#1fa855;color:#fff">WhatsApp</span> abre a conversa com a mensagem e o link do orçamento; <b>Copiar link para o cliente</b> copia o endereço do documento; <b>Enviar por e-mail</b> manda direto.</p>
+	<h3>3. Aprovar e reservar</h3>
+	<p>Quando o cliente aprovar, clique em <span class="btn" style="background:#2b2b2b;color:#fff">Aprovar e reservar</span>. O sistema confere a disponibilidade e garante os equipamentos. Se faltar equipamento ou o cliente estiver bloqueado, ele avisa e não reserva.</p>
+	<div class="fig tall"><img src="img/m09-contrato.png" alt=""><figcaption>Ficha da locação: etapas, contagem, equipamentos, valores, cobranças, documentos e histórico.</figcaption></div>
+	<h3>4. Entregar (iniciar a locação)</h3>
+	<div class="fig"><img src="img/m10-entrega.png" alt=""><figcaption>Entrega: marque o checklist com um toque, informe o horímetro e observações.</figcaption></div>
+	<p>Clique em <span class="btn">Entregar</span>, confira a data, marque o checklist de cada item (limpo, completo, acessórios, funcionando...) e confirme. A locação passa para <span class="b b-amber">Em locação</span>. Se a entrega for num dia diferente do previsto, o período é ajustado mantendo a duração.</p>
+	<h3>5. Renovar</h3>
+	<div class="fig" style="max-width:120mm;margin-left:auto;margin-right:auto"><img src="img/m07-renovar.png" alt=""><figcaption>Renovação com botões +1, +7, +15 e +30 dias.</figcaption></div>
+	<p>Use <span class="btn l">Renovar</span>, escolha a nova data e mantenha marcado <b>Recalcular valores</b> para o sistema ajustar o preço pelo novo período. Se o equipamento já estiver reservado para outro cliente depois, ele avisa.</p>
+	<h3>6. Lançar adicionais</h3>
+	<p><b>Lançar adicional</b> inclui cobranças extras (limpeza, frete extra, horas de operador). Atraso e avarias são lançados automaticamente na devolução.</p>
+	<h3>7. Receber a devolução</h3>
+	<div class="fig"><img src="img/m06-devolucao.png" alt=""><figcaption>Devolução: quantidade por item, checklist, avarias e prévia das diárias de atraso.</figcaption></div>
+	<ul>
+		<li><b>Devolução parcial</b>: use os botões − e + para informar quantas peças voltaram. O restante continua com o cliente e a locação segue ativa.</li>
+		<li><b>Atraso</b>: o sistema mostra quantos dias passaram e calcula as diárias excedentes (com o acréscimo configurado).</li>
+		<li><b>Avarias</b>: descreva e informe o valor a cobrar. Marque <b>Abrir OS de revisão</b> para mandar o equipamento para a oficina; ele fica bloqueado até a OS ser concluída.</li>
+		<li><b>Caução</b>: marque se foi devolvida ou retida.</li>
+	</ul>
+	<p>Quando tudo volta, a locação fica <span class="b b-green">Encerrada</span>.</p>
+	<h3>8. Faturar</h3>
+	<div class="fig" style="max-width:130mm;margin-left:auto;margin-right:auto"><img src="img/m11-faturar.png" alt="" onerror="this.parentNode.style.display='none'"><figcaption>Faturamento com prévia das parcelas.</figcaption></div>
+	<p>Use <span class="btn">Faturar</span> (a qualquer momento depois de reservar): informe valor, número de parcelas, 1º vencimento, intervalo e forma. As parcelas vão para <b>Financeiro → A receber</b>. A ficha mostra o que já foi faturado e o saldo a faturar.</p>
+	<h3>Outras ações</h3>
+	<table class="t">
+		<tr><th style="width:30%">Ação</th><th>Quando usar</th></tr>
+		<tr><td>Liberar reserva</td><td>O cliente desistiu depois de aprovar: volta para orçamento e solta os equipamentos.</td></tr>
+		<tr><td>Cancelar</td><td>Orçamento ou reserva que não vai acontecer.</td></tr>
+		<tr><td>Duplicar</td><td>Cliente que aluga sempre o mesmo kit: cria um orçamento novo igual, com datas novas.</td></tr>
+		<tr><td>Reabrir</td><td>Locação encerrada ou cancelada por engano.</td></tr>
+		<tr><td>Excluir</td><td>Só orçamentos sem faturamento.</td></tr>
+	</table>
+</section>
+
+<!-- 6 -->
+<section class="ch">
+	<div class="chead"><div class="n">6</div><h2>Quadro e agenda da frota</h2></div>
+	<h3>Quadro de locações</h3>
+	<div class="fig"><img src="img/m12-quadro.png" alt=""><figcaption>Quadro: cada coluna é uma etapa. Arraste os cartões.</figcaption></div>
+	<p>Em <b>Locações → Quadro</b>, arraste o cartão:</p>
+	<ul>
+		<li>de <b>Orçamento</b> para <b>Reservado</b>: aprova e reserva os equipamentos;</li>
+		<li>para <b>Em locação</b>: abre a janela de entrega;</li>
+		<li>de <b>Em locação</b> para <b>Encerradas</b>: abre a janela de devolução;</li>
+		<li>de <b>Reservado</b> para <b>Orçamento</b>: libera a reserva.</li>
+	</ul>
+	<p>A visão <b>Lista</b> mostra todas as locações com busca, filtros por situação e cliente, período e botão <b>Exportar</b> (planilha).</p>
+	<h3>Agenda da frota</h3>
+	<div class="fig"><img src="img/m14-frota.png" alt=""><figcaption>Agenda da frota: cada linha é um equipamento e cada barra é uma locação.</figcaption></div>
+	<p>Cores das barras: <span class="b b-amber">laranja</span> em locação, <span class="b b-red">vermelho listrado</span> atrasado, <span class="b b-purple">roxo</span> reservado, <span class="b b-blue">tracejado azul</span> orçamento. Passe o mouse para ver cliente e datas; clique para abrir a locação. <b>Clique num dia vazio</b> para orçar aquele equipamento a partir daquela data. Escolha 14, 30 ou 60 dias e filtre por categoria ou nome.</p>
+</section>
+
+<!-- 7 -->
+<section class="ch np">
+	<div class="chead"><div class="n">7</div><h2>Documentos</h2></div>
+	<p>Na ficha da locação, em <b>Documentos</b>, há quatro documentos: <b>Orçamento</b>, <b>Contrato de locação</b>, <b>Checklist de saída e retorno</b> e <b>Fatura de locação</b>. A OS, a venda e o recibo têm o seu na própria ficha. Todos abrem numa aba com o botão <b>Imprimir / salvar em PDF</b>.</p>
+	<h3>Contrato de locação</h3>
+	<div class="row2">
+		<div class="fig"><img src="img/doc-contrato-1.png" alt=""><figcaption>Página 1: partes, prazo, equipamentos, acessórios e valores.</figcaption></div>
+		<div class="fig"><img src="img/doc-contrato-2.png" alt=""><figcaption>Página 2: condições gerais, observações, local/data e assinaturas.</figcaption></div>
+	</div>
+	<p>O contrato traz: número sequencial, dados completos da locadora e do locatário, endereço de entrega, início, devolução e duração, equipamentos com quantidade, valor de reposição, nº de série, patrimônio, valor unitário e total, acessórios, totais, cláusulas, observações (pagamento e caução), local/data, assinaturas e duas testemunhas.</p>
+	<h3>Ordem de serviço</h3>
+	<div class="fig" style="max-width:120mm;margin-left:auto;margin-right:auto"><img src="img/doc-os.png" alt=""><figcaption>Ordem de serviço impressa.</figcaption></div>
+	<div class="tip"><b>Link para o cliente</b>O link enviado por WhatsApp ou e-mail abre o documento sem senha, mas só para quem tem o link (ele tem uma chave única). Um link alterado à mão não abre.</div>
+</section>
+
+<!-- 8 -->
+<section class="ch">
+	<div class="chead"><div class="n">8</div><h2>Ordens de serviço</h2></div>
+	<div class="fig tall"><img src="img/m18-os.png" alt=""><figcaption>Ficha da OS com peças, mão de obra, documento, cobrança e histórico.</figcaption></div>
+	<ol class="steps">
+		<li><b>Ordens de serviço → Novo</b> (ou <b>Abrir OS</b> na ficha do equipamento).</li>
+		<li>Escolha o equipamento, o tipo (preventiva, corretiva, revisão de retorno, serviço para cliente), a prioridade e o técnico.</li>
+		<li>Descreva o defeito. Enquanto a OS estiver aberta, o equipamento fica <span class="b b-orange">Em manutenção</span> e não pode ser alugado.</li>
+		<li>Registre diagnóstico e serviço executado, adicione as peças/serviços usados e a mão de obra.</li>
+		<li>Para cobrar do cliente, escolha o cliente e marque <b>Gerar cobrança ao cliente ao concluir</b>.</li>
+		<li>Mude a situação para <b>Concluída</b> e salve. Nesse momento o sistema <b>baixa as peças do estoque</b>, <b>libera o equipamento</b> e, se marcado, <b>gera a conta a receber</b>.</li>
+	</ol>
+	<div class="tip"><b>Preventiva</b>Quando a OS é preventiva, o horímetro dela vira a referência da próxima manutenção do equipamento.</div>
+</section>
+
+<!-- 9 -->
+<section class="ch">
+	<div class="chead"><div class="n">9</div><h2>Vendas e estoque</h2></div>
+	<div class="fig"><img src="img/m24-produtos.png" alt=""><figcaption>Produtos, peças e serviços.</figcaption></div>
+	<ul>
+		<li><b>Produtos e estoque</b>: cadastre produtos para venda, peças/insumos e serviços (serviço não tem estoque). Informe o estoque mínimo para receber alerta.</li>
+		<li><b>Movimentar estoque</b> (na ficha do produto): <i>Entrada</i> (compra, atualiza o custo), <i>Saída</i> (consumo ou perda) e <i>Ajuste</i> (contagem de inventário: informe o saldo real).</li>
+		<li><b>Vendas</b>: monte o pedido com os itens e, ao mudar para <b>Confirmada</b>, o estoque é baixado e as parcelas vão para o financeiro. Cancelar a venda devolve o estoque e cancela as parcelas em aberto.</li>
+	</ul>
+</section>
+
+<!-- 10 -->
+<section class="ch">
+	<div class="chead"><div class="n">10</div><h2>Financeiro</h2></div>
+	<div class="fig"><img src="img/m19-financeiro.png" alt=""><figcaption>Contas a receber e a pagar com totais do filtro.</figcaption></div>
+	<p>As cobranças de locações, vendas e OS entram aqui sozinhas. Lançamentos avulsos (aluguel, combustível, folha) são criados em <span class="btn">Novo</span>. Use as abas <b>A receber</b> e <b>A pagar</b> e os filtros de situação (<i>vencido</i>, <i>vence hoje</i>), cliente, categoria e período.</p>
+	<h3>Dar baixa (receber ou pagar)</h3>
+	<div class="fig" style="max-width:130mm;margin-left:auto;margin-right:auto"><img src="img/m20-baixa.png" alt=""><figcaption>Baixa com multa e juros calculados automaticamente.</figcaption></div>
+	<ol class="steps">
+		<li>Abra o lançamento e clique em <span class="btn">Receber</span> (ou <span class="btn">Pagar</span>).</li>
+		<li>Se estiver vencido, a <b>multa</b> e os <b>juros</b> já vêm calculados pela configuração; ajuste se negociar.</li>
+		<li>Informe o valor pago. <b>Pagou menos?</b> O que faltar vira um novo lançamento em aberto, com o mesmo vencimento.</li>
+		<li>Confirme. O <b>recibo</b> fica disponível para imprimir ou enviar.</li>
+	</ol>
+	<p><b>Estornar baixa</b> desfaz um pagamento lançado por engano. <b>Cancelar</b> anula uma cobrança em aberto; se for de locação, o valor volta para o saldo a faturar do contrato.</p>
+</section>
+
+<!-- 11 -->
+<section class="ch">
+	<div class="chead"><div class="n">11</div><h2>Notas fiscais</h2></div>
+	<p>Nas fichas de OS, venda e locação há o quadro <b>Nota fiscal</b> com o botão de emissão: <b>NF-e</b> para venda de produtos e <b>NFS-e</b> para serviços (manutenção, frete, montagem).</p>
+	<div class="warn"><b>Locação não tem ISS</b>Locação pura de bem móvel não é serviço para fins de ISS (Súmula Vinculante 31 do STF). Para ela use a <b>fatura de locação</b>. Emita NFS-e só para frete, montagem ou operador, quando a prefeitura exigir. Confirme o enquadramento com o contador.</div>
+	<p>A emissão automática depende de contratar um emissor (Focus NFe, PlugNotas, eNotas, NFE.io...) e configurar em <b>Configurações → Nota fiscal</b>. Enquanto a integração estiver desligada, a nota fica <b>pendente</b>: emita no portal da prefeitura ou da Sefaz e anote número, chave e link do PDF na ficha da nota (<b>Notas fiscais</b> no menu).</p>
+</section>
+
+<!-- 12 -->
+<section class="ch">
+	<div class="chead"><div class="n">12</div><h2>Relatórios</h2></div>
+	<div class="fig"><img src="img/m21-relatorio.png" alt=""><figcaption>Relatório de faturamento por categoria com gráfico.</figcaption></div>
+	<table class="t">
+		<tr><th style="width:30%">Relatório</th><th>O que responde</th></tr>
+		<tr><td>Locados agora</td><td>Tudo que está com cliente, com datas e atrasos.</td></tr>
+		<tr><td>Devoluções</td><td>O que volta nos próximos 7 dias e o que está atrasado.</td></tr>
+		<tr><td>Utilização da frota</td><td>Quantos dias cada equipamento ficou alugado, quanto rendeu e quanto já pagou do valor de compra.</td></tr>
+		<tr><td>Faturamento</td><td>Receitas e despesas previstas e realizadas por categoria.</td></tr>
+		<tr><td>Fluxo de caixa</td><td>Entradas e saídas por dia, com saldo acumulado.</td></tr>
+		<tr><td>Ranking de clientes</td><td>Quem mais alugou, quanto pagou e quanto deve.</td></tr>
+		<tr><td>Inadimplência</td><td>Clientes com contas vencidas, com botão para cobrar no WhatsApp.</td></tr>
+		<tr><td>Manutenção</td><td>Horas desde a preventiva, OS abertas e custo de manutenção.</td></tr>
+		<tr><td>Estoque</td><td>Saldo, valor em estoque e itens a repor.</td></tr>
+	</table>
+	<p>Escolha o período (este mês, mês passado, 90 dias, este ano ou datas livres). <b>Exportar planilha</b> gera um arquivo que abre no Excel. Clique numa linha para abrir o registro.</p>
+</section>
+
+<!-- 13 -->
+<section class="ch">
+	<div class="chead"><div class="n">13</div><h2>Configurações</h2></div>
+	<p>Só o administrador acessa. Lembre de clicar em <span class="btn">Salvar</span>.</p>
+	<table class="t">
+		<tr><th style="width:26%">Aba</th><th>O que ajustar</th></tr>
+		<tr><td>Empresa</td><td>Razão social, CNPJ, I.E., endereço, telefones, e-mail, cor de destaque, dados bancários/PIX (saem nos documentos e e-mails).</td></tr>
+		<tr><td>Locação e cobrança</td><td>Numeração do contrato (sequencial, como 6.576 / 1, e o <b>próximo número</b> para continuar a numeração do sistema anterior), contagem de dias, locação mínima, validade do orçamento, acréscimo por atraso, multa e juros, e-mails automáticos.</td></tr>
+		<tr><td>Contrato</td><td>Os textos das cláusulas em três posições: logo depois das partes, antes dos equipamentos e no final.</td></tr>
+		<tr><td>Site</td><td>Mostrar preços no catálogo e as páginas de catálogo e orçamento.</td></tr>
+		<tr><td>Nota fiscal</td><td>Dados do emissor de notas.</td></tr>
+	</table>
+	<div class="fig"><img src="img/m22-config-contrato.png" alt=""><figcaption>Cláusulas do contrato.</figcaption></div>
+	<div class="tip"><b>Variáveis nas cláusulas</b>Escreva {cliente}, {documento_cliente}, {numero}, {data_inicio}, {data_devolucao}, {dias}, {total}, {condicao_pagamento}, {local_obra}, {multa_vencimento}, {juros_mes}, {empresa} ou {cidade_empresa} e o sistema troca pelo valor de cada contrato.</div>
+</section>
+
+<!-- 14 -->
+<section class="ch">
+	<div class="chead"><div class="n">14</div><h2>Site e área do cliente</h2></div>
+	<p>O sistema também alimenta o site da Dimaq:</p>
+	<ul>
+		<li><b>Catálogo</b> de equipamentos, com fotos, especificações, preços (opcional) e <b>consulta de disponibilidade com valor</b> para as datas que o cliente escolher.</li>
+		<li><b>Pedido de orçamento online</b>: o cliente escolhe equipamentos e datas, e o pedido chega no sistema como <span class="b b-orange">Solicitação do site</span>, já com o preço calculado e com aviso por e-mail para a equipe.</li>
+		<li><b>Área do cliente</b>: o cliente entra com o login dele e vê locações, faturas, recibos e notas; pode aprovar orçamento e pedir renovação, coleta ou suporte. Para liberar, abra a ficha do cliente e clique em <b>Criar acesso à área do cliente</b> (ele recebe um e-mail para criar a senha).</li>
+	</ul>
+	<div class="tip"><b>Para quem cuida do site</b>As páginas usam os códigos [dimaq_catalogo], [dimaq_orcamento], [dimaq_area_cliente], [dimaq_categorias] e [dimaq_whatsapp].</div>
+</section>
+
+<!-- 15 -->
+<section class="ch">
+	<div class="chead"><div class="n">15</div><h2>No celular</h2></div>
+	<p>O sistema se adapta à tela do celular. Ideal para quem está no pátio ou na entrega: dá para consultar disponibilidade, registrar entrega e devolução com checklist e chamar o cliente no WhatsApp.</p>
+	<div class="row2">
+		<div class="fig phone"><img src="img/m25-celular.png" alt=""><figcaption>Painel no celular.</figcaption></div>
+		<div class="fig phone"><img src="img/m26-celular-cartao.png" alt=""><figcaption>Cartões das locações.</figcaption></div>
+		<div class="fig phone"><img src="img/m27-celular-menu.png" alt=""><figcaption>Menu pelo botão ☰.</figcaption></div>
+	</div>
+	<p>O botão redondo <span class="btn">+</span> no canto da tela abre uma nova locação. Dica: no navegador do celular, use "Adicionar à tela inicial" para ter um atalho do sistema como se fosse um aplicativo.</p>
+</section>
+
+<!-- 16 -->
+<section class="ch">
+	<div class="chead"><div class="n">16</div><h2>Dúvidas frequentes</h2></div>
+	<table class="t">
+		<tr><th style="width:38%">Situação</th><th>O que fazer</th></tr>
+		<tr><td>"Sem disponibilidade" ao reservar</td><td>O equipamento já está reservado ou alugado nas datas. Veja a <b>Agenda da frota</b> para achar outra data ou outro equipamento.</td></tr>
+		<tr><td>Equipamento "Em manutenção" e não sai para locação</td><td>Existe OS aberta para ele. Conclua ou cancele a OS.</td></tr>
+		<tr><td>"Cliente bloqueado"</td><td>Abra a ficha do cliente, veja o motivo e desmarque o bloqueio se for o caso.</td></tr>
+		<tr><td>Não consigo excluir um cliente ou equipamento</td><td>Ele já tem histórico. Marque como bloqueado (cliente) ou "Inativo / baixado" (equipamento).</td></tr>
+		<tr><td>O cliente pagou menos que a parcela</td><td>Dê baixa do valor pago; o restante vira automaticamente um novo lançamento em aberto.</td></tr>
+		<tr><td>Lancei uma baixa errada</td><td>Abra o lançamento e use <b>Estornar baixa</b>.</td></tr>
+		<tr><td>E-mails não chegam</td><td>O site precisa de um serviço de envio (SMTP) configurado. Peça ao suporte.</td></tr>
+		<tr><td>Não vejo o menu Financeiro</td><td>Seu perfil é Operador. Peça ao administrador o perfil Gerente.</td></tr>
+		<tr><td>A tela pediu login de novo</td><td>A sessão expirou. Entre novamente; marque "Manter conectado" no computador da loja.</td></tr>
+	</table>
+	<div class="ok"><b>Suporte</b>Dúvidas, ajustes e novas funções: fale com a equipe da <b>SEO Amplify</b>, que desenvolveu o sistema.</div>
+</section>
+
+<div class="end">
+	<img class="logo" src="img/logo-dimaq.png" alt="Dimaq">
+	<p style="margin-top:14mm">Sistema de Gestão de Locações · Manual do usuário · versão 2.1</p>
+	<div style="margin-top:22mm"><small style="display:block;text-transform:uppercase;letter-spacing:.16em;font-size:8pt;color:#888;margin-bottom:3mm">Desenvolvido por</small><span class="seo ink">SEO <span>AMPLIFY</span></span></div>
+</div>
+
+</body>
+</html>
