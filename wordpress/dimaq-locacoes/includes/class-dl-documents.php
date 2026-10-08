@@ -94,7 +94,7 @@ class DL_Documents {
 	header .co { font-size: 12px; color: #555; }
 	header .co strong { font-size: 15px; color: #111; }
 	h1 { font-size: 18px; margin: 0 0 4px; text-transform: uppercase; }
-	h2 { font-size: 13px; text-transform: uppercase; background: #f4f4f4; padding: 5px 8px; margin: 18px 0 8px; border-left: 4px solid var(--c); }
+	h2 { font-size: 12.5px; text-transform: uppercase; background: #f4f4f4; padding: 4px 8px; margin: 14px 0 6px; border-left: 4px solid var(--c); }
 	table { width: 100%; border-collapse: collapse; }
 	th, td { border: 1px solid #ddd; padding: 5px 7px; text-align: left; vertical-align: top; }
 	th { background: #fafafa; font-size: 12px; }
@@ -103,13 +103,25 @@ class DL_Documents {
 	.tot td { font-weight: bold; }
 	.big { font-size: 16px; }
 	.clauses { white-space: pre-wrap; font-size: 12px; text-align: justify; }
-	.sign { display: flex; gap: 40px; margin-top: 50px; }
+	.sign { display: flex; gap: 40px; margin-top: 44px; page-break-inside: avoid; }
 	.sign div { flex: 1; border-top: 1px solid #333; text-align: center; padding-top: 4px; font-size: 12px; }
 	.muted { color: #777; font-size: 11px; }
-	.box { border: 1px solid #ddd; min-height: 60px; padding: 6px; white-space: pre-wrap; }
+	.box { border: 1px solid #ddd; min-height: 34px; padding: 6px 8px; white-space: pre-wrap; }
 	.bar { text-align: center; margin: 14px; }
 	.bar button { background: var(--c); border: 0; padding: 10px 22px; font-size: 14px; cursor: pointer; border-radius: 4px; }
-	@media print { body { background: #fff; } .page { box-shadow: none; margin: 0; max-width: none; padding: 0; } .bar { display: none; } }
+	@page { size: A4; margin: 12mm; }
+	@media print {
+		body { background: #fff; font-size: 11.5px; line-height: 1.35; }
+		.page { box-shadow: none; margin: 0; max-width: none; padding: 0; }
+		.bar { display: none; }
+		header { padding-bottom: 8px; margin-bottom: 10px; }
+		header img { max-height: 52px; }
+		h2 { margin: 10px 0 5px; }
+		th, td { padding: 3px 6px; }
+		.box { min-height: 0; }
+		.sign { margin-top: 36px; }
+		table, .box, .grid { page-break-inside: avoid; }
+	}
 </style></head><body>
 <div class="bar"><button onclick="window.print()">Imprimir / salvar em PDF</button></div>
 <div class="page">
@@ -140,9 +152,13 @@ class DL_Documents {
 		echo '<h2>' . esc_html( $title ) . '</h2><div class="grid">';
 		echo '<div><strong>' . esc_html( $c['nome'] ) . '</strong>' . ( $c['fantasia'] ? ' (' . esc_html( $c['fantasia'] ) . ')' : '' ) . '</div>';
 		echo '<div>' . esc_html( ( 'PF' === $c['tipo'] ? 'CPF ' : 'CNPJ ' ) . dl_format_document( $c['documento'] ) . ( $c['ie_rg'] ? ' · ' . ( 'PF' === $c['tipo'] ? 'RG ' : 'IE ' ) . $c['ie_rg'] : '' ) ) . '</div>';
-		echo '<div>' . esc_html( trim( $c['logradouro'] . ', ' . $c['numero'] . ' ' . $c['complemento'] . ' — ' . $c['bairro'], ', —' ) ) . '</div>';
-		echo '<div>' . esc_html( trim( $c['cidade'] . '/' . $c['uf'] . ' ' . ( $c['cep'] ? 'CEP ' . $c['cep'] : '' ), '/ ' ) ) . '</div>';
-		echo '<div>' . esc_html( trim( $c['telefone'] . ' ' . $c['whatsapp'] ) ) . '</div><div>' . esc_html( $c['email'] ) . '</div>';
+		$street = trim( implode( ', ', array_filter( array( $c['logradouro'], $c['numero'], $c['complemento'] ) ) ) . ( $c['bairro'] ? ' — ' . $c['bairro'] : '' ), ' —' );
+		$city   = trim( $c['cidade'] . ( $c['uf'] ? '/' . $c['uf'] : '' ) . ( $c['cep'] ? ' · CEP ' . $c['cep'] : '' ) );
+		$phones = array_unique( array_filter( array( dl_format_phone( $c['telefone'] ), dl_format_phone( $c['whatsapp'] ) ) ) );
+		$lines  = array_filter( array( $street, $city, implode( ' · ', $phones ), $c['email'] ) );
+		foreach ( $lines as $line ) {
+			echo '<div>' . esc_html( $line ) . '</div>';
+		}
 		if ( $c['contato'] ) {
 			echo '<div>Contato: ' . esc_html( $c['contato'] ) . '</div>';
 		}
@@ -284,7 +300,10 @@ class DL_Documents {
 		echo '<h2>Defeito relatado</h2><div class="box">' . esc_html( $os['defeito'] ) . '</div>';
 		echo '<h2>Diagnóstico</h2><div class="box">' . esc_html( $os['diagnostico'] ) . '</div>';
 		echo '<h2>Serviço executado</h2><div class="box">' . esc_html( $os['solucao'] ) . '</div>';
-		self::product_items( 'os', $os['id'], array( 'Mão de obra' => $os['mao_obra'] ), $os['total'] );
+		self::product_items( 'os', $os['id'], array( 'Peças e serviços' => $os['subtotal'], 'Mão de obra' => $os['mao_obra'] ), $os['total'] );
+		if ( $os['obs'] ) {
+			echo '<h2>Observações</h2><div class="box">' . esc_html( $os['obs'] ) . '</div>';
+		}
 		echo '<div class="sign"><div>Técnico responsável</div><div>Cliente / aprovação</div></div>';
 	}
 
@@ -299,17 +318,24 @@ class DL_Documents {
 	}
 
 	private static function product_items( $doc, $id, $extra, $total ) {
-		echo '<h2>Itens</h2><table><thead><tr><th>Descrição</th><th class="n">Qtd</th><th class="n">Valor unit.</th><th class="n">Total</th></tr></thead><tbody>';
-		foreach ( DL_Items::get( $doc, $id ) as $it ) {
-			echo '<tr><td>' . esc_html( $it['descricao'] ) . '</td><td class="n">' . esc_html( dl_num( $it['qtd'], 2 ) ) . '</td><td class="n">' . esc_html( dl_money( $it['valor_unit'] ) ) . '</td><td class="n">' . esc_html( dl_money( $it['total'] ) ) . '</td></tr>';
+		$items = DL_Items::get( $doc, $id );
+		$disc  = array_sum( array_map( function ( $it ) { return (float) $it['desconto']; }, $items ) ) > 0;
+		$cols  = $disc ? 4 : 3;
+		echo '<h2>Itens</h2><table><thead><tr><th>Descrição</th><th class="n">Qtd</th><th class="n">Valor unit.</th>' . ( $disc ? '<th class="n">Desconto</th>' : '' ) . '<th class="n">Total</th></tr></thead><tbody>';
+		foreach ( $items as $it ) {
+			echo '<tr><td>' . esc_html( $it['descricao'] ) . '</td><td class="n">' . esc_html( dl_num( $it['qtd'], (float) $it['qtd'] === floor( (float) $it['qtd'] ) ? 0 : 2 ) ) . '</td><td class="n">' . esc_html( dl_money( $it['valor_unit'] ) ) . '</td>';
+			if ( $disc ) {
+				echo '<td class="n">' . ( (float) $it['desconto'] > 0 ? '− ' . esc_html( dl_money( $it['desconto'] ) ) : '' ) . '</td>';
+			}
+			echo '<td class="n">' . esc_html( dl_money( $it['total'] ) ) . '</td></tr>';
 		}
 		echo '</tbody><tfoot>';
 		foreach ( $extra as $label => $value ) {
 			if ( 0.0 !== (float) $value ) {
-				echo '<tr><td colspan="3" class="n">' . esc_html( $label ) . '</td><td class="n">' . esc_html( dl_money( $value ) ) . '</td></tr>';
+				echo '<tr><td colspan="' . (int) $cols . '" class="n">' . esc_html( $label ) . '</td><td class="n">' . esc_html( dl_money( $value ) ) . '</td></tr>';
 			}
 		}
-		echo '<tr class="tot"><td colspan="3" class="n">Total</td><td class="n big">' . esc_html( dl_money( $total ) ) . '</td></tr></tfoot></table>';
+		echo '<tr class="tot"><td colspan="' . (int) $cols . '" class="n">Total</td><td class="n big">' . esc_html( dl_money( $total ) ) . '</td></tr></tfoot></table>';
 	}
 
 	private static function render_recibo( $f ) {

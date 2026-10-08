@@ -279,6 +279,18 @@ function dl_format_document( $doc ) {
 	return (string) $doc;
 }
 
+/** Formata telefone brasileiro: (11) 99999-0000. */
+function dl_format_phone( $phone ) {
+	$d = dl_digits( $phone );
+	if ( 11 === strlen( $d ) ) {
+		return '(' . substr( $d, 0, 2 ) . ') ' . substr( $d, 2, 5 ) . '-' . substr( $d, 7 );
+	}
+	if ( 10 === strlen( $d ) ) {
+		return '(' . substr( $d, 0, 2 ) . ') ' . substr( $d, 2, 4 ) . '-' . substr( $d, 6 );
+	}
+	return (string) $phone;
+}
+
 /** Link de WhatsApp com mensagem pronta. */
 function dl_whatsapp_link( $number, $message = '' ) {
 	$n = dl_digits( $number );
