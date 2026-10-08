@@ -11,22 +11,26 @@ class DL_Settings {
 
 	public static function defaults() {
 		return array(
-			'empresa_nome'        => 'Dimaq Locações',
-			'empresa_cnpj'        => '',
-			'empresa_ie'          => '',
+			'empresa_nome'        => 'DIMAQ LOCACOES DE MAQUINAS E SERVICOS LTDA',
+			'empresa_cnpj'        => '09.436.484/0001-90',
+			'empresa_ie'          => '148.181.878.115',
 			'empresa_im'          => '',
-			'empresa_endereco'    => '',
-			'empresa_cidade'      => '',
-			'empresa_uf'          => '',
-			'empresa_cep'         => '',
-			'empresa_telefone'    => '',
-			'empresa_whatsapp'    => '',
+			'empresa_endereco'    => 'Rua Antonio Caserta, 31',
+			'empresa_bairro'      => 'Jardim Apurá',
+			'empresa_cidade'      => 'São Paulo',
+			'empresa_uf'          => 'SP',
+			'empresa_cep'         => '04470-060',
+			'empresa_telefone'    => '(11) 5560-3539',
+			'empresa_whatsapp'    => '(11) 94752-4204',
 			'empresa_email'       => get_option( 'admin_email' ),
 			'empresa_site'        => home_url(),
 			'logo_url'            => '',
 			'cor_primaria'        => '#f5a400',
 			'email_notificacao'   => get_option( 'admin_email' ),
 			'prefixo_contrato'    => 'LOC',
+			'numeracao_contrato'  => 'sequencial',
+			'proximo_contrato'    => 1,
+			'contagem_inclusiva'  => 1,
 			'prefixo_os'          => 'OS',
 			'prefixo_venda'       => 'VD',
 			'locacao_minima_dias' => 1,
@@ -40,6 +44,8 @@ class DL_Settings {
 			'email_cliente'       => 1,
 			'lembrete_dias'       => 1,
 			'dados_bancarios'     => '',
+			'clausulas_partes'    => self::default_clauses_parties(),
+			'clausulas_objeto'    => self::default_clauses_object(),
 			'clausulas_contrato'  => self::default_clauses(),
 			'fiscal_ativo'        => 0,
 			'fiscal_ambiente'     => 'homologacao',
@@ -51,15 +57,20 @@ class DL_Settings {
 		);
 	}
 
+	/** Cláusulas depois da identificação das partes (posição "CLÁUSULA 1 e 2" do modelo). */
+	public static function default_clauses_parties() {
+		return "CLÁUSULA 1 — OBJETO: A LOCADORA cede ao LOCATÁRIO, a título de locação, os equipamentos relacionados neste contrato, em perfeito estado de funcionamento, conforme checklist de saída.\n"
+			. "CLÁUSULA 2 — USO: Os equipamentos serão utilizados exclusivamente no endereço de entrega informado, por pessoa habilitada, sendo vedada a sublocação ou o empréstimo a terceiros.";
+	}
+
+	/** Cláusula antes da relação de equipamentos (posição "CLÁUSULA 10" do modelo). */
+	public static function default_clauses_object() {
+		return "CLÁUSULA 10 — O LOCATÁRIO declara receber os equipamentos abaixo, responsabilizando-se por danos, perda, furto ou roubo, e ressarcindo à LOCADORA o valor de reposição indicado em caso de não devolução.";
+	}
+
+	/** Cláusulas finais, depois dos acessórios (posição "CLÁUSULA 20" do modelo). */
 	public static function default_clauses() {
-		return "1. OBJETO — A LOCADORA cede ao LOCATÁRIO, a título de locação, os equipamentos relacionados neste contrato, em perfeito estado de funcionamento, conforme checklist de saída.\n\n"
-			. "2. PRAZO — A locação vigora de {data_inicio} a {data_devolucao}. A permanência do equipamento após o prazo implica cobrança de diárias adicionais, proporcionais ao período excedente.\n\n"
-			. "3. VALOR — O LOCATÁRIO pagará o valor total de {total}, na forma: {condicao_pagamento}. Atrasos de pagamento sofrem multa de {multa_vencimento}% e juros de {juros_mes}% ao mês.\n\n"
-			. "4. USO — O equipamento será utilizado exclusivamente no endereço {local_obra}, por pessoa habilitada, sendo vedada a sublocação ou o empréstimo a terceiros.\n\n"
-			. "5. CONSERVAÇÃO — O LOCATÁRIO responde por danos, perda, furto ou roubo do equipamento, ressarcindo o valor de reparo ou de reposição constante da relação de itens.\n\n"
-			. "6. MANUTENÇÃO — Defeitos decorrentes do uso normal são de responsabilidade da LOCADORA, que deve ser avisada imediatamente. Não é permitida intervenção técnica pelo LOCATÁRIO.\n\n"
-			. "7. DEVOLUÇÃO — O equipamento deve ser devolvido limpo e nas mesmas condições da retirada, sendo conferido no checklist de retorno.\n\n"
-			. "8. FORO — Fica eleito o foro da comarca de {cidade_empresa} para dirimir dúvidas oriundas deste contrato.";
+		return "CLÁUSULA 20 — A permanência dos equipamentos após o prazo implica cobrança proporcional ao período excedente. Atrasos de pagamento sofrem multa de {multa_vencimento}% e juros de {juros_mes}% ao mês. Os equipamentos devem ser devolvidos limpos e nas mesmas condições da retirada. Fica eleito o foro da comarca de {cidade_empresa} para dirimir dúvidas oriundas deste contrato.";
 	}
 
 	/** Campos da tela de configurações, por seção. */
@@ -71,6 +82,7 @@ class DL_Settings {
 				'empresa_ie'       => array( 'Inscrição estadual', 'text' ),
 				'empresa_im'       => array( 'Inscrição municipal', 'text' ),
 				'empresa_endereco' => array( 'Endereço', 'text' ),
+				'empresa_bairro'   => array( 'Bairro', 'text' ),
 				'empresa_cidade'   => array( 'Cidade', 'text' ),
 				'empresa_uf'       => array( 'UF', 'text' ),
 				'empresa_cep'      => array( 'CEP', 'text' ),
@@ -83,7 +95,10 @@ class DL_Settings {
 				'dados_bancarios'  => array( 'Dados bancários / chave PIX', 'textarea' ),
 			),
 			'Locação e cobrança' => array(
-				'prefixo_contrato'     => array( 'Prefixo do contrato', 'text' ),
+				'numeracao_contrato'   => array( 'Numeração do contrato', 'select', array( 'sequencial' => 'Sequencial (ex.: 6.576 / 1)', 'ano' => 'Prefixo e ano (ex.: LOC2026-00001)' ) ),
+				'proximo_contrato'     => array( 'Próximo número de contrato (sequencial)', 'number' ),
+				'prefixo_contrato'     => array( 'Prefixo do contrato (numeração por ano)', 'text' ),
+				'contagem_inclusiva'   => array( 'Contar o dia da retirada e o da devolução (08/10 a 06/11 = 30 dias)', 'checkbox' ),
 				'prefixo_os'           => array( 'Prefixo da OS', 'text' ),
 				'prefixo_venda'        => array( 'Prefixo da venda', 'text' ),
 				'locacao_minima_dias'  => array( 'Locação mínima (dias)', 'number' ),
@@ -96,7 +111,9 @@ class DL_Settings {
 				'lembrete_dias'        => array( 'Avisar devolução com quantos dias de antecedência', 'number' ),
 			),
 			'Contrato'         => array(
-				'clausulas_contrato' => array( 'Cláusulas — variáveis: {cliente} {documento_cliente} {numero} {data_inicio} {data_devolucao} {total} {condicao_pagamento} {local_obra} {multa_vencimento} {juros_mes} {empresa} {cidade_empresa}', 'longtext' ),
+				'clausulas_partes'   => array( 'Cláusulas logo depois das partes (Cláusulas 1 e 2)', 'longtext' ),
+				'clausulas_objeto'   => array( 'Cláusula antes dos equipamentos (Cláusula 10)', 'longtext' ),
+				'clausulas_contrato' => array( 'Cláusulas finais, depois dos acessórios (Cláusula 20). Variáveis aceitas em todas: {cliente} {documento_cliente} {numero} {data_inicio} {data_devolucao} {dias} {total} {condicao_pagamento} {local_obra} {multa_vencimento} {juros_mes} {empresa} {cidade_empresa}', 'longtext' ),
 			),
 			'Site'             => array(
 				'mostrar_precos'   => array( 'Mostrar preços no catálogo', 'checkbox' ),
@@ -135,7 +152,7 @@ class DL_Settings {
 			if ( 'fiscal_token' === $key && '' === $value ) {
 				continue; // mantém o token já salvo
 			}
-			if ( in_array( $key, array( 'clausulas_contrato', 'dados_bancarios' ), true ) ) {
+			if ( in_array( $key, array( 'clausulas_contrato', 'clausulas_partes', 'clausulas_objeto', 'dados_bancarios' ), true ) ) {
 				$out[ $key ] = sanitize_textarea_field( $value );
 			} elseif ( in_array( $key, array( 'empresa_email', 'email_notificacao' ), true ) ) {
 				$out[ $key ] = sanitize_email( $value );

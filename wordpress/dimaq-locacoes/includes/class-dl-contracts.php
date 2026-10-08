@@ -23,7 +23,28 @@ class DL_Contracts {
 
 	/** Dias cobrados entre início e devolução (mínimo 1). */
 	public static function rental_days( $start, $end ) {
-		return max( 1, dl_days_between( $start, $end ), (int) dl_opt( 'locacao_minima_dias', 1 ) );
+		$days = dl_days_between( $start, $end ) + ( self::inclusive() ? 1 : 0 );
+		return max( 1, $days, (int) dl_opt( 'locacao_minima_dias', 1 ) );
+	}
+
+	/** A Dimaq conta o dia da retirada e o da devolução (08/10 a 06/11 = 30 dias). */
+	public static function inclusive() {
+		return (bool) (int) dl_opt( 'contagem_inclusiva', 1 );
+	}
+
+	/** Data de devolução para uma duração em dias, conforme a forma de contar. */
+	public static function end_for( $start, $days ) {
+		return dl_add_days( $start, max( 1, (int) $days ) - ( self::inclusive() ? 1 : 0 ) );
+	}
+
+	/** Gera o número do contrato: sequencial ("6.576 / 1") ou por ano ("LOC2026-00001"). */
+	public static function new_number( $id, $date = '' ) {
+		if ( 'ano' === dl_opt( 'numeracao_contrato', 'sequencial' ) ) {
+			return dl_doc_number( dl_opt( 'prefixo_contrato', 'LOC' ), $id, $date );
+		}
+		$next = max( (int) get_option( 'dl_contract_last', 0 ) + 1, (int) dl_opt( 'proximo_contrato', 1 ) );
+		update_option( 'dl_contract_last', $next, false );
+		return number_format( $next, 0, ',', '.' ) . ' / 1';
 	}
 
 	public static function is_late( $c ) {
@@ -34,7 +55,7 @@ class DL_Contracts {
 
 	public static function new_row( $row ) {
 		$row['data_inicio']         = $row['data_inicio'] ? $row['data_inicio'] : dl_today();
-		$row['data_prev_devolucao'] = $row['data_prev_devolucao'] ? $row['data_prev_devolucao'] : dl_add_days( dl_today(), max( 1, (int) dl_opt( 'locacao_minima_dias', 1 ) ) );
+		$row['data_prev_devolucao'] = $row['data_prev_devolucao'] ? $row['data_prev_devolucao'] : self::end_for( $row['data_inicio'], max( 1, (int) dl_opt( 'locacao_minima_dias', 1 ) ) );
 		$row['validade_orcamento']  = dl_add_days( dl_today(), (int) dl_opt( 'validade_orcamento', 7 ) );
 		$row['status']              = 'orcamento';
 		return $row;
@@ -55,7 +76,7 @@ class DL_Contracts {
 	public static function after_save( $id, $data, $old ) {
 		$c = DL_DB::get( 'contratos', $id );
 		if ( empty( $c['numero'] ) ) {
-			DL_DB::update( 'contratos', $id, array( 'numero' => dl_doc_number( dl_opt( 'prefixo_contrato', 'LOC' ), $id, $c['criado_em'] ) ) );
+			DL_DB::update( 'contratos', $id, array( 'numero' => self::new_number( $id, $c['criado_em'] ) ) );
 		}
 		self::recalc( $id );
 		if ( $old && in_array( $c['status'], DL_Availability::BUSY, true ) && ( $old['data_inicio'] !== $c['data_inicio'] || $old['data_prev_devolucao'] !== $c['data_prev_devolucao'] ) ) {
@@ -371,7 +392,7 @@ class DL_Contracts {
 		$data['origem']              = 'admin';
 		$data['criado_por']          = get_current_user_id();
 		$new_id                      = DL_DB::insert( 'contratos', $data );
-		DL_DB::update( 'contratos', $new_id, array( 'numero' => dl_doc_number( dl_opt( 'prefixo_contrato', 'LOC' ), $new_id ) ) );
+		DL_DB::update( 'contratos', $new_id, array( 'numero' => self::new_number( $new_id ) ) );
 		global $wpdb;
 		foreach ( DL_Items::get( 'contrato', $c['id'] ) as $it ) {
 			if ( 'equipamento' !== $it['ref_tipo'] ) {

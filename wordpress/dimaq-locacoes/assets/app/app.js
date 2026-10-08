@@ -63,7 +63,9 @@
 	};
 	function addDays(s, n) { const d = new Date(s + 'T12:00:00'); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); }
 	function daysBetween(a, b) { return Math.round((new Date(b + 'T12:00:00') - new Date(a + 'T12:00:00')) / 86400000); }
-	function rentalDays(a, b) { return Math.max(1, daysBetween(a, b)); }
+	/** Dias cobrados; a Dimaq conta a retirada e a devolução (08/10 a 06/11 = 30 dias). */
+	function rentalDays(a, b) { return Math.max(1, daysBetween(a, b) + (D.inclusivo ? 1 : 0)); }
+	function endFor(start, days) { return addDays(start, days - (D.inclusivo ? 1 : 0)); }
 	function statusLabel(entity, s) { return (D.status[entity] || {})[s] || s; }
 	function debounce(fn, ms) { let t; return function () { const a = arguments, self = this; clearTimeout(t); t = setTimeout(function () { fn.apply(self, a); }, ms); }; }
 	function greeting() { const h = new Date().getHours(); return h < 12 ? 'Bom dia' : (h < 18 ? 'Boa tarde' : 'Boa noite'); }
@@ -1357,7 +1359,7 @@
 								<label class="field"><span>Início *</span><input type="date" v-model="rec.data_inicio"></label>
 								<label class="field"><span>Devolução prevista *</span><input type="date" :min="rec.data_inicio" v-model="rec.data_prev_devolucao"></label>
 							</div>
-							<div class="quick" style="margin-top:10px;align-items:center"><span class="muted small">Duração:</span><button v-for="n in [1, 3, 7, 15, 30, 60]" :key="n" class="btn btn-xs" :class="{ 'btn-dark': days === n }" @click="rec.data_prev_devolucao = addDays(rec.data_inicio, n)">{{ n }} dia{{ n > 1 ? 's' : '' }}</button><b style="margin-left:auto">{{ days }} dia(s)</b></div>
+							<div class="quick" style="margin-top:10px;align-items:center"><span class="muted small">Duração:</span><button v-for="n in [1, 3, 7, 15, 30, 60]" :key="n" class="btn btn-xs" :class="{ 'btn-dark': days === n }" @click="rec.data_prev_devolucao = endFor(rec.data_inicio, n)">{{ n }} dia{{ n > 1 ? 's' : '' }}</button><b style="margin-left:auto">{{ days }} dia(s)</b></div>
 						</section>
 
 						<section class="card">
@@ -1437,7 +1439,7 @@
 			'rec.data_prev_devolucao': function (n, o) { if (o && this.recheck) { this.recheck(); } },
 		},
 		methods: {
-			money: fmt.money, num: fmt.num, addDays: addDays,
+			money: fmt.money, num: fmt.num, addDays: addDays, endFor: endFor,
 			total: function (it) { return Math.max(0, (Number(it.qtd) || 0) * (Number(it.periodos) || 0) * (Number(it.valor_unit) || 0) - (Number(it.desconto) || 0)); },
 			add: function () { this.items.push({ _k: Math.random(), id: 0, ref_id: 0, descricao: '', qtd: 1, periodo_tipo: 'pacote', periodos: 1, valor_unit: 0, desconto: 0, q: null }); },
 			pick: function (it, e) { if (!e) { return; } it.ref_id = e.id; it.nome = e.label; it.descricao = e.nome; this.check(it, true); },
@@ -1859,6 +1861,7 @@
 					</template>
 				</nav>
 				<div class="me"><div class="avatar">{{ user.iniciais }}</div><div class="who"><strong>{{ user.nome }}</strong><a :href="logout">Sair</a></div></div>
+				<div class="credit">Desenvolvido por <img v-if="criador.logo" :src="criador.logo" :alt="criador.nome"><b v-else class="seo-text">SEO <span>AMPLIFY</span></b></div>
 			</aside>
 			<div v-if="s.sidebar" class="drawer-ov" @click="s.sidebar = false"></div>
 			<div class="main">
@@ -1884,7 +1887,7 @@
 			<component v-if="s.modal" :is="modals[s.modal.type]" :data="s.modal.data" :key="s.modal.type + (s.modal.data.id || '')"/>
 			<div class="toasts" aria-live="polite"><div v-for="t in s.toasts" :key="t.id" class="toast" :class="t.type"><Ic :n="t.type === 'error' ? 'alert' : 'check'"/><span>{{ t.message }}</span></div></div>
 		</div>`,
-		data: function () { return { s: store, logo: D.logo, empresa: D.empresa.nome, user: D.usuario, logout: D.logoutUrl, modals: ACTION_MODALS }; },
+		data: function () { return { s: store, logo: D.logo, criador: D.criador, empresa: D.empresa.nome, user: D.usuario, logout: D.logoutUrl, modals: ACTION_MODALS }; },
 		computed: {
 			r: function () { return store.route; },
 			section: function () {

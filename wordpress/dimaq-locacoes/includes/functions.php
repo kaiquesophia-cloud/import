@@ -291,6 +291,12 @@ function dl_format_phone( $phone ) {
 	return (string) $phone;
 }
 
+/** Formata CEP: 04470060 → 04470-060. */
+function dl_format_cep( $cep ) {
+	$d = dl_digits( $cep );
+	return 8 === strlen( $d ) ? substr( $d, 0, 5 ) . '-' . substr( $d, 5 ) : (string) $cep;
+}
+
 /** Link de WhatsApp com mensagem pronta. */
 function dl_whatsapp_link( $number, $message = '' ) {
 	$n = dl_digits( $number );

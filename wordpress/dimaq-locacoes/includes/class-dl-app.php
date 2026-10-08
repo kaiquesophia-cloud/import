@@ -18,6 +18,21 @@ class DL_App {
 		add_action( 'template_redirect', array( __CLASS__, 'maybe_render' ), 0 );
 	}
 
+	/** Crédito de quem desenvolveu o sistema (logo em assets/app/seo-amplify.png, se existir). */
+	public static function credit() {
+		$file = 'assets/app/seo-amplify.png';
+		return array(
+			'nome' => 'SEO Amplify',
+			'logo' => file_exists( DL_DIR . $file ) ? DL_URL . $file : null,
+		);
+	}
+
+	public static function credit_html() {
+		$c = self::credit();
+		$mark = $c['logo'] ? '<img src="' . esc_url( $c['logo'] ) . '" alt="' . esc_attr( $c['nome'] ) . '">' : '<b class="seo-text">SEO <span>AMPLIFY</span></b>';
+		return '<div class="credit">Desenvolvido por ' . $mark . '</div>';
+	}
+
 	public static function rewrite() {
 		add_rewrite_rule( '^' . self::SLUG . '/?$', 'index.php?dl_app=1', 'top' );
 	}
@@ -120,6 +135,7 @@ class DL_App {
 			<?php endif; ?>
 		</form>
 		<p class="login-foot"><?php echo esc_html( dl_opt( 'empresa_nome' ) . ( dl_opt( 'empresa_telefone' ) ? ' · ' . dl_opt( 'empresa_telefone' ) : '' ) ); ?></p>
+		<?php echo self::credit_html(); // phpcs:ignore WordPress.Security.EscapeOutput -- escapado em credit_html(). ?>
 	</main>
 </body>
 </html>
@@ -136,7 +152,9 @@ class DL_App {
 			'appUrl'     => dl_app_url(),
 			'logoutUrl'  => wp_logout_url( dl_app_url() ),
 			'logo'       => DL_URL . 'assets/app/logo-dimaq.png',
+			'criador'    => self::credit(),
 			'hoje'       => dl_today(),
+			'inclusivo'  => DL_Contracts::inclusive(),
 			'empresa'    => array(
 				'nome'     => dl_opt( 'empresa_nome' ),
 				'whatsapp' => dl_opt( 'empresa_whatsapp' ),

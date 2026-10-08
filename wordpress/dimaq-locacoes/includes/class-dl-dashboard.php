@@ -65,8 +65,8 @@ class DL_Dashboard {
 	public static function card( $c ) {
 		$today   = dl_today();
 		$cli     = DL_DB::get( 'clientes', (int) $c['cliente_id'] );
-		$total_d = max( 1, dl_days_between( $c['data_inicio'], $c['data_prev_devolucao'] ) );
-		$elapsed = dl_days_between( $c['data_inicio'], $today );
+		$total_d = DL_Contracts::rental_days( $c['data_inicio'], $c['data_prev_devolucao'] );
+		$elapsed = dl_days_between( $c['data_inicio'], $today ) + ( DL_Contracts::inclusive() ? 1 : 0 );
 		$late    = DL_Contracts::is_late( $c ) ? dl_days_between( $c['data_prev_devolucao'], $today ) : 0;
 		$items   = array();
 		foreach ( DL_Items::get( 'contrato', $c['id'] ) as $it ) {

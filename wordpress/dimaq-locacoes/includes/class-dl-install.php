@@ -134,6 +134,7 @@ class DL_Install {
 			foto_id bigint(20) unsigned NOT NULL DEFAULT 0,
 			descricao text NULL,
 			especificacoes text NULL,
+			acessorio tinyint(1) NOT NULL DEFAULT 0,
 			publicar_site tinyint(1) NOT NULL DEFAULT 1,
 			destaque tinyint(1) NOT NULL DEFAULT 0,
 			criado_em datetime NOT NULL,

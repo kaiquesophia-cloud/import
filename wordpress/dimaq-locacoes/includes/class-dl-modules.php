@@ -105,6 +105,7 @@ class DL_Modules {
 				'controle'        => array( 'label' => 'Controle', 'type' => 'select', 'options' => array( 'unitario' => 'Unitário (1 patrimônio)', 'quantidade' => 'Por quantidade (andaimes, escoras...)' ), 'help' => 'Por quantidade: um cadastro representa várias peças iguais.' ),
 				'qtd_total'       => array( 'label' => 'Quantidade em frota', 'type' => 'int', 'default' => 1, 'list' => true ),
 				'status'          => array( 'label' => 'Situação', 'type' => 'select', 'options' => dl_statuses( 'equipamento' ), 'list' => true, 'badge' => 'equipamento' ),
+				'acessorio'       => array( 'label' => 'É acessório (sai na seção Acessórios do contrato)', 'type' => 'checkbox' ),
 				'valor_diaria'    => array( 'label' => 'Diária (R$)', 'type' => 'money', 'list' => true, 'section' => 'Tabela de preços' ),
 				'valor_semanal'   => array( 'label' => 'Semanal (R$)', 'type' => 'money' ),
 				'valor_quinzenal' => array( 'label' => 'Quinzenal (R$)', 'type' => 'money' ),

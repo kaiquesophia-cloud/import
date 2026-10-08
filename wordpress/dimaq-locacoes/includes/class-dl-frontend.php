@@ -360,7 +360,7 @@ class DL_Frontend {
 				'origem'              => 'site',
 			)
 		);
-		$number = dl_doc_number( dl_opt( 'prefixo_contrato', 'LOC' ), $contract );
+		$number = DL_Contracts::new_number( $contract );
 		DL_DB::update( 'contratos', $contract, array( 'numero' => $number ) );
 		$days = DL_Contracts::rental_days( $start, $end );
 		global $wpdb;
