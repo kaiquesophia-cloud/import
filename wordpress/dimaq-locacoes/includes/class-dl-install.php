@@ -198,6 +198,8 @@ class DL_Install {
 			adicionais decimal(12,2) NOT NULL DEFAULT 0,
 			total decimal(12,2) NOT NULL DEFAULT 0,
 			valor_faturado decimal(12,2) NOT NULL DEFAULT 0,
+			cobranca varchar(10) NOT NULL DEFAULT 'periodo',
+			medicao_ciclo int(11) NOT NULL DEFAULT 30,
 			forma_pagamento varchar(20) NOT NULL DEFAULT '',
 			condicao_pagamento varchar(120) NOT NULL DEFAULT '',
 			obs text NULL,
@@ -234,10 +236,45 @@ class DL_Install {
 			checklist_retorno text NULL,
 			avarias text NULL,
 			valor_avaria decimal(12,2) NOT NULL DEFAULT 0,
+			medicao_id bigint(20) unsigned NOT NULL DEFAULT 0,
 			ordem int(11) NOT NULL DEFAULT 0,
 			PRIMARY KEY  (id),
 			KEY doc (doc_tipo,doc_id),
 			KEY ref (ref_tipo,ref_id)
+		) $c;";
+
+		// Histórico de saídas e retornos de cada item (base da cobrança por medição).
+		$sql[] = "CREATE TABLE {$p}movimentos (
+			id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+			item_id bigint(20) unsigned NOT NULL,
+			contrato_id bigint(20) unsigned NOT NULL,
+			tipo varchar(8) NOT NULL,
+			qtd decimal(12,3) NOT NULL,
+			data date NOT NULL,
+			criado_em datetime NOT NULL,
+			PRIMARY KEY  (id),
+			KEY item_id (item_id),
+			KEY contrato_id (contrato_id)
+		) $c;";
+
+		$sql[] = "CREATE TABLE {$p}medicoes (
+			id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+			contrato_id bigint(20) unsigned NOT NULL,
+			numero int(11) NOT NULL DEFAULT 1,
+			inicio date NOT NULL,
+			fim date NOT NULL,
+			valor_itens decimal(12,2) NOT NULL DEFAULT 0,
+			valor_adicionais decimal(12,2) NOT NULL DEFAULT 0,
+			valor_frete decimal(12,2) NOT NULL DEFAULT 0,
+			desconto decimal(12,2) NOT NULL DEFAULT 0,
+			total decimal(12,2) NOT NULL DEFAULT 0,
+			linhas longtext NULL,
+			obs text NULL,
+			status varchar(12) NOT NULL DEFAULT 'gerada',
+			criado_por bigint(20) unsigned NOT NULL DEFAULT 0,
+			criado_em datetime NOT NULL,
+			PRIMARY KEY  (id),
+			KEY contrato_id (contrato_id)
 		) $c;";
 
 		$sql[] = "CREATE TABLE {$p}ordens_servico (

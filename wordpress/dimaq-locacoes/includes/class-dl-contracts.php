@@ -58,6 +58,11 @@ class DL_Contracts {
 		$row['data_prev_devolucao'] = $row['data_prev_devolucao'] ? $row['data_prev_devolucao'] : self::end_for( $row['data_inicio'], max( 1, (int) dl_opt( 'locacao_minima_dias', 1 ) ) );
 		$row['validade_orcamento']  = dl_add_days( dl_today(), (int) dl_opt( 'validade_orcamento', 7 ) );
 		$row['status']              = 'orcamento';
+		// Forma de cobrança: a da configuração, salvo se a tela pediu outra.
+		if ( ! isset( $_GET['cobranca'] ) || ! in_array( $row['cobranca'], array( 'periodo', 'medicao' ), true ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+			$row['cobranca'] = 'medicao' === dl_opt( 'cobranca_padrao', 'periodo' ) ? 'medicao' : 'periodo';
+		}
+		$row['medicao_ciclo'] = $row['medicao_ciclo'] ? $row['medicao_ciclo'] : 30;
 		return $row;
 	}
 
@@ -180,7 +185,11 @@ class DL_Contracts {
 			$a[] = 'devolver';
 			$a[] = 'renovar';
 		}
-		if ( in_array( $st, array( 'reservado', 'ativo', 'encerrado' ), true ) ) {
+		if ( DL_Measurement::is_measured( $c ) ) {
+			if ( in_array( $st, array( 'ativo', 'encerrado' ), true ) ) {
+				$a[] = 'medir';
+			}
+		} elseif ( in_array( $st, array( 'reservado', 'ativo', 'encerrado' ), true ) ) {
 			$a[] = 'faturar';
 		}
 		if ( in_array( $st, array( 'solicitacao', 'orcamento', 'reservado' ), true ) ) {
@@ -278,6 +287,16 @@ class DL_Contracts {
 				$date = sanitize_text_field( $p['data'] ?? '' );
 				$r    = self::receive( $c, preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date ) ? $date : dl_today(), (array) ( $p['itens'] ?? array() ), ! empty( $p['cobrar_atraso'] ), sanitize_key( $p['caucao_status'] ?? '' ) );
 				return is_wp_error( $r ) ? $r : array( 'message' => $r );
+
+			case 'medir':
+				return DL_Measurement::generate( $c, $p );
+
+			case 'cancelar_medicao':
+				$m = DL_DB::get( 'medicoes', absint( $p['medicao'] ?? 0 ) );
+				if ( ! $m || (int) $m['contrato_id'] !== $id ) {
+					return new WP_Error( 'medicao', 'Medição não encontrada.' );
+				}
+				return DL_Measurement::cancel( $m );
 
 			case 'remover_adicional':
 				global $wpdb;
@@ -475,6 +494,7 @@ class DL_Contracts {
 				),
 				array( 'id' => $it['id'] )
 			);
+			DL_Measurement::log( $it['id'], $c['id'], 'saida', $it['qtd'], $date );
 		}
 		DL_DB::update( 'contratos', $c['id'], array( 'status' => 'ativo', 'data_inicio' => $start, 'data_prev_devolucao' => $end ) );
 		dl_log( 'contratos', $c['id'], 'Entregue — locação iniciada', dl_date( $date ) );
@@ -518,11 +538,13 @@ class DL_Contracts {
 				),
 				array( 'id' => $it['id'] )
 			);
+			DL_Measurement::log( $it['id'], $c['id'], 'retorno', $qty, $date );
 			$equip = DL_DB::get( 'equipamentos', (int) $it['ref_id'] );
 			if ( $equip && null !== $hour && $hour > (float) $equip['horimetro'] ) {
 				DL_DB::update( 'equipamentos', $equip['id'], array( 'horimetro' => $hour ) );
 			}
-			if ( $charge_late && $late_days > 0 && $equip ) {
+			// Na cobrança por medição o tempo a mais já entra na medição: sem diária de atraso.
+			if ( $charge_late && $late_days > 0 && $equip && ! DL_Measurement::is_measured( $c ) ) {
 				$fee = DL_Pricing::late_fee( $equip['valor_diaria'], $late_days, $qty, $pct );
 				if ( $fee > 0 ) {
 					self::add_extra( $c['id'], sprintf( 'Diárias excedentes — %s (%d dia(s) × %s)', $equip['nome'], $late_days, dl_num( $qty, 0 ) ), $fee );
@@ -555,6 +577,9 @@ class DL_Contracts {
 		do_action( 'dl_contract_returned', $c['id'], $pending <= 0 );
 		$c2 = DL_DB::get( 'contratos', $c['id'] );
 		$saldo = round( $c2['total'] - $c2['valor_faturado'], 2 );
+		if ( DL_Measurement::is_measured( $c2 ) ) {
+			return ( $pending <= 0 ? 'Devolução registrada e contrato encerrado. Gere a medição final.' : 'Devolução parcial registrada; a próxima medição já considera a nova quantidade.' );
+		}
 		return ( $pending <= 0 ? 'Devolução registrada e contrato encerrado.' : 'Devolução parcial registrada.' ) . ( $saldo > 0 ? ' Saldo a faturar: ' . dl_money( $saldo ) . '.' : '' );
 	}
 

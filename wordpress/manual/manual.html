@@ -82,7 +82,7 @@
 	<div class="bar"></div>
 	<h1>Manual do usuário</h1>
 	<div class="sub">Sistema de Gestão de Locações</div>
-	<div class="ver">Versão 2.1 · outubro de 2026</div>
+	<div class="ver">Versão 2.2 · outubro de 2026</div>
 	<img class="shot" src="img/m02-painel.png" alt="">
 	<div class="made">
 		<div><small>Sistema desenvolvido por</small><div class="seo">SEO <span>AMPLIFY</span></div></div>
@@ -99,6 +99,7 @@
 		<li>Painel inicial <span>locações em andamento e indicadores</span></li>
 		<li>Cadastros <span>equipamentos, clientes, produtos</span></li>
 		<li>Locação passo a passo <span>do orçamento à devolução</span></li>
+		<li>Cobrança por medição (pro-rata) <span>locações cobradas pelo uso real</span></li>
 		<li>Quadro e agenda da frota <span>visões de acompanhamento</span></li>
 		<li>Documentos <span>contrato, orçamento, OS, recibo</span></li>
 		<li>Ordens de serviço <span>manutenção da frota</span></li>
@@ -131,7 +132,7 @@
 		<tr><td><b>Administrador</b></td><td>Tudo, inclusive configurações, financeiro e o painel do WordPress.</td></tr>
 		<tr><td><b>Gerente da locadora</b></td><td>Operação completa, financeiro, notas e relatórios.</td></tr>
 		<tr><td><b>Operador de locação</b></td><td>Clientes, equipamentos, locações, ordens de serviço, vendas e estoque. Não vê o financeiro.</td></tr>
-		<tr><td><b>Cliente da locadora</b></td><td>Só a área do cliente no site (capítulo 14). Não entra no sistema.</td></tr>
+		<tr><td><b>Cliente da locadora</b></td><td>Só a área do cliente no site (capítulo 15). Não entra no sistema.</td></tr>
 	</table>
 	<div class="tip"><b>Para cadastrar a equipe</b>O administrador cria cada pessoa em <b>Usuários → Adicionar novo</b> no WordPress e escolhe o perfil <i>Operador de locação</i> ou <i>Gerente da locadora</i>. Essas pessoas entram só pelo <b>/sistema</b>; se tentarem abrir o painel do WordPress, são levadas de volta ao sistema.</div>
 </section>
@@ -206,7 +207,7 @@
 	</ul>
 	<div class="fig"><img src="img/m17-cliente.png" alt=""><figcaption>Ficha do cliente com valores em aberto, vencidos, histórico de locações e acesso à área do cliente.</figcaption></div>
 	<h3>Categorias, fornecedores e produtos</h3>
-	<p><b>Categorias</b> organizam a frota e o catálogo do site. <b>Fornecedores</b> são usados nas contas a pagar e nas peças. <b>Produtos e estoque</b> estão no capítulo 9.</p>
+	<p><b>Categorias</b> organizam a frota e o catálogo do site. <b>Fornecedores</b> são usados nas contas a pagar e nas peças. <b>Produtos e estoque</b> estão no capítulo 10.</p>
 </section>
 
 <!-- 5 -->
@@ -261,9 +262,62 @@
 	</table>
 </section>
 
+<!-- 6 medição -->
+<section class="ch np">
+	<div class="chead"><div class="n">6</div><h2>Cobrança por medição (pro-rata)</h2></div>
+	<p>É uma <b>opção de cada locação</b>, pensada para obras longas com andaimes, escoras e outros itens que vão e voltam aos poucos. Em vez de um valor fechado, o sistema cobra a cada ciclo (normalmente 30 dias) <b>só os dias e as quantidades que realmente ficaram com o cliente</b>.</p>
+	<table class="t">
+		<tr><th style="width:34%">Forma de cobrança</th><th>Como funciona</th></tr>
+		<tr><td><b>Por período</b> (padrão)</td><td>Valor fechado para o período do contrato; renovação, diárias de atraso e faturamento como no capítulo 5.</td></tr>
+		<tr><td><b>Por medição (pro-rata)</b></td><td>A cada medição: quantidade × dias de cada item, à diária do contrato. Devolução parcial e itens incluídos no meio do período entram pela data real. Não há diária de atraso, porque o tempo a mais já entra na medição.</td></tr>
+	</table>
+	<h3>Como ativar</h3>
+	<ol class="steps">
+		<li>No orçamento (ou editando a locação), em <b>Forma de cobrança</b>, escolha <b>Por medição (pro-rata)</b>.</li>
+		<li>Em <b>Medição a cada (dias)</b>, informe o ciclo (padrão 30).</li>
+		<li>Nos equipamentos, use a cobrança <b>Mensal</b> com o valor mensal de cada peça.</li>
+	</ol>
+	<div class="fig"><img src="img/m31-editor-medicao.png" alt=""><figcaption>Opção "Por medição" na locação; o total passa a ser só uma estimativa.</figcaption></div>
+	<div class="tip"><b>Padrão para as novas locações</b>Em <b>Configurações → Locação e cobrança</b>, "Forma de cobrança das novas locações" define qual opção já vem marcada. Ali também fica o número de dias usado para achar a diária (padrão 30).</div>
+	<h3>Como o valor é calculado</h3>
+	<p><b>Diária de cada peça = valor mensal ÷ 30.</b> Em cada medição, o sistema soma, item a item, <b>quantidade × dias</b> em que a peça ficou com o cliente, e multiplica pela diária. O dia da retirada e o da devolução contam, como no restante do sistema.</p>
+	<table class="t">
+		<tr><th colspan="4">Exemplo — medição de 03/09 a 02/10 (30 dias)</th></tr>
+		<tr><td><b>Andaime tubular</b> R$ 25,00/mês → R$ 0,8333/dia</td><td>40 peças o período todo</td><td>40 × 30 = 1.200 diárias</td><td style="text-align:right"><b>R$ 1.000,00</b></td></tr>
+		<tr><td><b>Escora metálica</b> R$ 20,00/mês → R$ 0,6667/dia</td><td>60 peças até 26/09; 20 voltaram, ficaram 40</td><td>60 × 24 + 40 × 6 = 1.680 diárias</td><td style="text-align:right"><b>R$ 1.120,00</b></td></tr>
+		<tr><td colspan="3">Frete (entra na 1ª medição)</td><td style="text-align:right">R$ 150,00</td></tr>
+		<tr><td colspan="3"><b>Total da medição 1</b></td><td style="text-align:right"><b>R$ 2.270,00</b></td></tr>
+	</table>
+	<ul>
+		<li><b>Frete e desconto</b> do contrato entram na primeira medição.</li>
+		<li><b>Adicionais</b> (avarias, limpeza, extras) entram na próxima medição gerada.</li>
+		<li>Desconto dado no item reduz a diária na mesma proporção.</li>
+	</ul>
+	<h3>Gerar a medição</h3>
+	<p>Quando um ciclo termina, aparece <b>"Medição pendente"</b> na lista de Atenção do painel e no e-mail diário. Os cartões dessas locações têm o selo <span class="b b-purple">medição</span>.</p>
+	<div class="fig" style="max-width:110mm;margin-left:auto;margin-right:auto"><img src="img/m29-alerta-medicao.png" alt=""><figcaption>Aviso de medição pendente no painel.</figcaption></div>
+	<ol class="steps">
+		<li>Abra a locação. No quadro <b>Medições (pro-rata)</b> aparece o próximo período sugerido.</li>
+		<li>Clique em <span class="btn">Gerar medição</span>. O sistema já preenche o período (o dia seguinte ao fim da última medição até completar o ciclo).</li>
+		<li>Confira a prévia: cada item com as faixas de quantidade × dias. Se mudar as datas, o cálculo é refeito na hora.</li>
+		<li>Escolha parcelas, vencimento e forma de pagamento e clique em <span class="btn">Gerar medição e cobrança</span>. A cobrança vai para o Financeiro e o boletim fica disponível para imprimir ou enviar.</li>
+	</ol>
+	<div class="fig"><img src="img/m28-medicao.png" alt=""><figcaption>Janela da medição com a prévia do cálculo.</figcaption></div>
+	<div class="fig"><img src="img/m30-medicoes-card.png" alt=""><figcaption>Na ficha da locação: medições geradas, boletins e a próxima medição.</figcaption></div>
+	<h3>Boletim de medição</h3>
+	<div class="fig tall" style="max-width:120mm;margin-left:auto;margin-right:auto"><img src="img/doc-medicao.png" alt=""><figcaption>Boletim de medição para enviar ao cliente.</figcaption></div>
+	<p>O boletim mostra o período, cada equipamento com as faixas de quantidade × dias, as diárias, o valor unitário, os adicionais, o frete e o total, com espaço para o "de acordo" do cliente.</p>
+	<h3>Fim da locação e correções</h3>
+	<ul>
+		<li><b>Medição final:</b> quando tudo é devolvido, a locação encerra e o sistema sugere a <b>medição final</b>, que vai até o dia em que a última peça voltou.</li>
+		<li><b>Cancelar:</b> só a <b>última</b> medição pode ser cancelada (botão ✕ ao lado dela). As parcelas em aberto dela são canceladas; se alguma já foi paga, estorne o pagamento antes.</li>
+		<li>Não dá para medir o mesmo período duas vezes, e uma locação com medição não pode ser excluída.</li>
+	</ul>
+</section>
+
 <!-- 6 -->
 <section class="ch">
-	<div class="chead"><div class="n">6</div><h2>Quadro e agenda da frota</h2></div>
+	<div class="chead"><div class="n">7</div><h2>Quadro e agenda da frota</h2></div>
 	<h3>Quadro de locações</h3>
 	<div class="fig"><img src="img/m12-quadro.png" alt=""><figcaption>Quadro: cada coluna é uma etapa. Arraste os cartões.</figcaption></div>
 	<p>Em <b>Locações → Quadro</b>, arraste o cartão:</p>
@@ -281,7 +335,7 @@
 
 <!-- 7 -->
 <section class="ch np">
-	<div class="chead"><div class="n">7</div><h2>Documentos</h2></div>
+	<div class="chead"><div class="n">8</div><h2>Documentos</h2></div>
 	<p>Na ficha da locação, em <b>Documentos</b>, há cinco documentos: <b>Orçamento</b>, <b>Contrato de locação</b>, <b>Checklist de saída e retorno</b>, <b>Devolução de equipamento</b> e <b>Fatura de locação</b>. A OS, a venda e o recibo têm o seu na própria ficha. Todos abrem numa aba com o botão <b>Imprimir / salvar em PDF</b>.</p>
 	<h3>Contrato de locação</h3>
 	<div class="row2">
@@ -299,7 +353,7 @@
 
 <!-- 8 -->
 <section class="ch">
-	<div class="chead"><div class="n">8</div><h2>Ordens de serviço</h2></div>
+	<div class="chead"><div class="n">9</div><h2>Ordens de serviço</h2></div>
 	<div class="fig tall"><img src="img/m18-os.png" alt=""><figcaption>Ficha da OS com peças, mão de obra, documento, cobrança e histórico.</figcaption></div>
 	<ol class="steps">
 		<li><b>Ordens de serviço → Novo</b> (ou <b>Abrir OS</b> na ficha do equipamento).</li>
@@ -314,7 +368,7 @@
 
 <!-- 9 -->
 <section class="ch">
-	<div class="chead"><div class="n">9</div><h2>Vendas e estoque</h2></div>
+	<div class="chead"><div class="n">10</div><h2>Vendas e estoque</h2></div>
 	<div class="fig"><img src="img/m24-produtos.png" alt=""><figcaption>Produtos, peças e serviços.</figcaption></div>
 	<ul>
 		<li><b>Produtos e estoque</b>: cadastre produtos para venda, peças/insumos e serviços (serviço não tem estoque). Informe o estoque mínimo para receber alerta.</li>
@@ -325,7 +379,7 @@
 
 <!-- 10 -->
 <section class="ch">
-	<div class="chead"><div class="n">10</div><h2>Financeiro</h2></div>
+	<div class="chead"><div class="n">11</div><h2>Financeiro</h2></div>
 	<div class="fig"><img src="img/m19-financeiro.png" alt=""><figcaption>Contas a receber e a pagar com totais do filtro.</figcaption></div>
 	<p>As cobranças de locações, vendas e OS entram aqui sozinhas. Lançamentos avulsos (aluguel, combustível, folha) são criados em <span class="btn">Novo</span>. Use as abas <b>A receber</b> e <b>A pagar</b> e os filtros de situação (<i>vencido</i>, <i>vence hoje</i>), cliente, categoria e período.</p>
 	<h3>Dar baixa (receber ou pagar)</h3>
@@ -341,7 +395,7 @@
 
 <!-- 11 -->
 <section class="ch">
-	<div class="chead"><div class="n">11</div><h2>Notas fiscais</h2></div>
+	<div class="chead"><div class="n">12</div><h2>Notas fiscais</h2></div>
 	<p>Nas fichas de OS, venda e locação há o quadro <b>Nota fiscal</b> com o botão de emissão: <b>NF-e</b> para venda de produtos e <b>NFS-e</b> para serviços (manutenção, frete, montagem).</p>
 	<div class="warn"><b>Locação não tem ISS</b>Locação pura de bem móvel não é serviço para fins de ISS (Súmula Vinculante 31 do STF). Para ela use a <b>fatura de locação</b>. Emita NFS-e só para frete, montagem ou operador, quando a prefeitura exigir. Confirme o enquadramento com o contador.</div>
 	<p>A emissão automática depende de contratar um emissor (Focus NFe, PlugNotas, eNotas, NFE.io...) e configurar em <b>Configurações → Nota fiscal</b>. Enquanto a integração estiver desligada, a nota fica <b>pendente</b>: emita no portal da prefeitura ou da Sefaz e anote número, chave e link do PDF na ficha da nota (<b>Notas fiscais</b> no menu).</p>
@@ -349,7 +403,7 @@
 
 <!-- 12 -->
 <section class="ch">
-	<div class="chead"><div class="n">12</div><h2>Relatórios</h2></div>
+	<div class="chead"><div class="n">13</div><h2>Relatórios</h2></div>
 	<div class="fig"><img src="img/m21-relatorio.png" alt=""><figcaption>Relatório de faturamento por categoria com gráfico.</figcaption></div>
 	<table class="t">
 		<tr><th style="width:30%">Relatório</th><th>O que responde</th></tr>
@@ -368,7 +422,7 @@
 
 <!-- 13 -->
 <section class="ch">
-	<div class="chead"><div class="n">13</div><h2>Configurações</h2></div>
+	<div class="chead"><div class="n">14</div><h2>Configurações</h2></div>
 	<p>Só o administrador acessa. Lembre de clicar em <span class="btn">Salvar</span>.</p>
 	<table class="t">
 		<tr><th style="width:26%">Aba</th><th>O que ajustar</th></tr>
@@ -384,7 +438,7 @@
 
 <!-- 14 -->
 <section class="ch">
-	<div class="chead"><div class="n">14</div><h2>Site e área do cliente</h2></div>
+	<div class="chead"><div class="n">15</div><h2>Site e área do cliente</h2></div>
 	<p>O sistema também alimenta o site da Dimaq:</p>
 	<ul>
 		<li><b>Catálogo</b> de equipamentos, com fotos, especificações, preços (opcional) e <b>consulta de disponibilidade com valor</b> para as datas que o cliente escolher.</li>
@@ -396,7 +450,7 @@
 
 <!-- 15 -->
 <section class="ch">
-	<div class="chead"><div class="n">15</div><h2>No celular</h2></div>
+	<div class="chead"><div class="n">16</div><h2>No celular</h2></div>
 	<p>O sistema se adapta à tela do celular. Ideal para quem está no pátio ou na entrega: dá para consultar disponibilidade, registrar entrega e devolução com checklist e chamar o cliente no WhatsApp.</p>
 	<div class="row2">
 		<div class="fig phone"><img src="img/m25-celular.png" alt=""><figcaption>Painel no celular.</figcaption></div>
@@ -408,7 +462,7 @@
 
 <!-- 16 -->
 <section class="ch">
-	<div class="chead"><div class="n">16</div><h2>Dúvidas frequentes</h2></div>
+	<div class="chead"><div class="n">17</div><h2>Dúvidas frequentes</h2></div>
 	<table class="t">
 		<tr><th style="width:38%">Situação</th><th>O que fazer</th></tr>
 		<tr><td>"Sem disponibilidade" ao reservar</td><td>O equipamento já está reservado ou alugado nas datas. Veja a <b>Agenda da frota</b> para achar outra data ou outro equipamento.</td></tr>
@@ -416,6 +470,7 @@
 		<tr><td>"Cliente bloqueado"</td><td>Abra a ficha do cliente, veja o motivo e desmarque o bloqueio se for o caso.</td></tr>
 		<tr><td>Não consigo excluir um cliente ou equipamento</td><td>Ele já tem histórico. Marque como bloqueado (cliente) ou "Inativo / baixado" (equipamento).</td></tr>
 		<tr><td>O cliente pagou menos que a parcela</td><td>Dê baixa do valor pago; o restante vira automaticamente um novo lançamento em aberto.</td></tr>
+		<tr><td>A medição saiu errada</td><td>Se for a última, cancele (✕ na ficha) e gere de novo. Se faltou registrar uma devolução, registre-a com a data certa antes de medir.</td></tr>
 		<tr><td>Lancei uma baixa errada</td><td>Abra o lançamento e use <b>Estornar baixa</b>.</td></tr>
 		<tr><td>E-mails não chegam</td><td>O site precisa de um serviço de envio (SMTP) configurado. Peça ao suporte.</td></tr>
 		<tr><td>Não vejo o menu Financeiro</td><td>Seu perfil é Operador. Peça ao administrador o perfil Gerente.</td></tr>
@@ -426,7 +481,7 @@
 
 <div class="end">
 	<img class="logo" src="img/logo-dimaq.png" alt="Dimaq">
-	<p style="margin-top:14mm">Sistema de Gestão de Locações · Manual do usuário · versão 2.1</p>
+	<p style="margin-top:14mm">Sistema de Gestão de Locações · Manual do usuário · versão 2.2</p>
 	<div style="margin-top:22mm"><small style="display:block;text-transform:uppercase;letter-spacing:.16em;font-size:8pt;color:#888;margin-bottom:3mm">Desenvolvido por</small><span class="seo ink">SEO <span>AMPLIFY</span></span></div>
 </div>
 

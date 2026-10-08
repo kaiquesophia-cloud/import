@@ -57,6 +57,7 @@ class DL_API {
 		self::route( 'record/(?P<module>[a-z_]+)/(?P<id>\d+)', 'DELETE', array( __CLASS__, 'delete_record' ) );
 		self::route( 'contract/(?P<id>\d+)/action', 'POST', array( __CLASS__, 'contract_action' ) );
 		self::route( 'contract/(?P<id>\d+)/status', 'POST', array( __CLASS__, 'contract_move_status' ) );
+		self::route( 'contract/(?P<id>\d+)/medicao', 'GET', array( __CLASS__, 'measurement_preview' ), 'dl_financeiro' );
 		self::route( 'finance/(?P<id>\d+)/action', 'POST', array( __CLASS__, 'finance_action' ), 'dl_financeiro' );
 		self::route( 'stock/(?P<id>\d+)', 'POST', array( __CLASS__, 'stock_move' ) );
 		self::route( 'fiscal', 'POST', array( __CLASS__, 'fiscal_emit' ), 'dl_financeiro' );
@@ -163,6 +164,7 @@ class DL_API {
 			'contrato'  => 'Contrato de locação',
 			'checklist' => 'Checklist de saída e retorno',
 			'devolucao' => 'Devolução de equipamento (para a retirada)',
+			'medicao'   => 'Boletim de medição',
 			'fatura'    => 'Fatura de locação',
 			'os'        => 'Ordem de serviço',
 			'venda'     => 'Pedido de venda',
@@ -362,6 +364,13 @@ class DL_API {
 				$out['multa_atraso_pct'] = (float) dl_opt( 'multa_atraso_pct', 0 );
 				$cli                = DL_DB::get( 'clientes', (int) $row['cliente_id'] );
 				$out['cliente']     = $cli ? array( 'email' => $cli['email'], 'telefone' => $cli['whatsapp'] ? $cli['whatsapp'] : $cli['telefone'] ) : null;
+				if ( DL_Measurement::is_measured( $row ) ) {
+					$out['medicoes'] = array();
+					foreach ( DL_Measurement::list_for( $id ) as $m ) {
+						$out['medicoes'][] = array( 'id' => (int) $m['id'], 'numero' => (int) $m['numero'], 'inicio' => $m['inicio'], 'fim' => $m['fim'], 'total' => (float) $m['total'], 'status' => $m['status'], 'doc' => DL_Documents::url( 'medicao', $m['id'] ), 'publico' => DL_Documents::public_url( 'medicao', $m['id'] ) );
+					}
+					$out['medicao_sugestao'] = in_array( $row['status'], array( 'ativo', 'encerrado' ), true ) ? DL_Measurement::suggestion( $row ) : null;
+				}
 				if ( $fin ) {
 					$out['cobrancas'] = DL_Finance::linked( 'contrato', $id );
 					$out['notas']     = DL_Fiscal::linked( 'contrato', $id );
@@ -437,7 +446,7 @@ class DL_API {
 		}
 		$body = self::body( $req );
 		$op   = sanitize_key( $body['op'] ?? '' );
-		if ( 'faturar' === $op && ! current_user_can( 'dl_financeiro' ) ) {
+		if ( in_array( $op, array( 'faturar', 'medir', 'cancelar_medicao' ), true ) && ! current_user_can( 'dl_financeiro' ) ) {
 			return new WP_Error( 'perm', 'Faturamento exige permissão do financeiro.' );
 		}
 		$r = DL_Contracts::perform( $c, $op, (array) ( $body['dados'] ?? array() ) );
@@ -473,6 +482,19 @@ class DL_API {
 		}
 		$r = DL_Contracts::perform( $c, $op, array() );
 		return is_wp_error( $r ) ? $r : array( 'mensagem' => $r['message'] );
+	}
+
+	/** Prévia da medição de um período (nada é gravado). */
+	public static function measurement_preview( WP_REST_Request $req ) {
+		$c = DL_DB::get( 'contratos', (int) $req['id'] );
+		if ( ! $c ) {
+			return new WP_Error( 'nao_encontrado', 'Contrato não encontrado.' );
+		}
+		$sug   = DL_Measurement::suggestion( $c );
+		$start = self::date_param( $req['inicio'], $sug['inicio'] );
+		$end   = self::date_param( $req['fim'], $sug['fim'] );
+		$calc  = DL_Measurement::calculate( $c, $start, $end );
+		return is_wp_error( $calc ) ? $calc : $calc + array( 'sugestao' => $sug );
 	}
 
 	public static function finance_action( WP_REST_Request $req ) {

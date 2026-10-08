@@ -176,6 +176,8 @@ class DL_Modules {
 				'telefone_obra'       => array( 'label' => 'Telefone na obra', 'type' => 'tel' ),
 				'valor_frete'         => array( 'label' => 'Frete (R$)', 'type' => 'money', 'section' => 'Valores' ),
 				'desconto'            => array( 'label' => 'Desconto (R$)', 'type' => 'money' ),
+				'cobranca'            => array( 'label' => 'Forma de cobrança', 'type' => 'select', 'options' => array( 'periodo' => 'Por período (valor fechado)', 'medicao' => 'Por medição (pro-rata)' ), 'default' => 'periodo', 'help' => 'Por medição: a cada ciclo cobra só os dias e as quantidades que ficaram com o cliente.' ),
+				'medicao_ciclo'       => array( 'label' => 'Medição a cada (dias)', 'type' => 'int', 'default' => 30 ),
 				'caucao'              => array( 'label' => 'Caução (R$)', 'type' => 'money' ),
 				'caucao_status'       => array( 'label' => 'Caução', 'type' => 'select', 'options' => array( 'nao_cobrado' => 'Não cobrada', 'recebido' => 'Recebida', 'devolvido' => 'Devolvida', 'retido' => 'Retida' ) ),
 				'subtotal'            => array( 'label' => 'Subtotal dos itens', 'type' => 'readonly_money' ),

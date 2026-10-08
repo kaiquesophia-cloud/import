@@ -111,6 +111,7 @@ class DL_Dashboard {
 			'itens'         => $items,
 			'whatsapp'      => $phone ? dl_whatsapp_link( $phone, $msg ) : '',
 			'acoes'         => DL_Contracts::available_actions( $c ),
+			'medicao'       => DL_Measurement::is_measured( $c ),
 		);
 	}
 
@@ -191,6 +192,10 @@ class DL_Dashboard {
 	/** Alertas que pedem ação. */
 	public static function alerts() {
 		$out = array();
+		foreach ( DL_Measurement::pending() as $p ) {
+			$s     = $p['sugestao'];
+			$out[] = array( 'tipo' => 'medicao', 'texto' => ( $s['final'] ? 'Medição final pendente: ' : 'Medição ' . $s['numero'] . ' pendente: ' ) . $p['contrato']['numero'] . ' — ' . DL_DB::label( 'clientes', $p['contrato']['cliente_id'] ) . ' (' . dl_date( $s['inicio'] ) . ' a ' . dl_date( $s['fim'] ) . ')', 'abrir' => 'contratos/' . $p['contrato']['id'] );
+		}
 		foreach ( DL_Service_Orders::preventive_due() as $e ) {
 			$out[] = array( 'tipo' => 'manutencao', 'texto' => 'Preventiva vencida: ' . $e['nome'] . ' (' . dl_num( $e['horimetro'] - $e['ultima_manutencao_horas'], 0 ) . ' h)', 'abrir' => 'equipamentos/' . $e['id'] );
 		}

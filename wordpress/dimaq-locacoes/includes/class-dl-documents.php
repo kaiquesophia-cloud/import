@@ -15,6 +15,7 @@ class DL_Documents {
 		'contrato'  => 'contratos',
 		'checklist' => 'contratos',
 		'devolucao' => 'contratos',
+		'medicao'   => 'medicoes',
 		'fatura'    => 'contratos',
 		'os'        => 'ordens_servico',
 		'venda'     => 'vendas',
@@ -28,7 +29,16 @@ class DL_Documents {
 
 	/** Link interno (usuário logado com permissão). */
 	public static function url( $type, $id ) {
-		return wp_nonce_url( add_query_arg( array( 'action' => 'dl_doc', 'tipo' => $type, 'id' => (int) $id ), admin_url( 'admin-post.php' ) ), 'dl_doc_' . $type . '_' . $id );
+		// Sem wp_nonce_url(): ela devolve "&amp;", que quebra o link quando a tela monta o endereço.
+		return add_query_arg(
+			array(
+				'action'   => 'dl_doc',
+				'tipo'     => $type,
+				'id'       => (int) $id,
+				'_wpnonce' => wp_create_nonce( 'dl_doc_' . $type . '_' . $id ),
+			),
+			admin_url( 'admin-post.php' )
+		);
 	}
 
 	/** Link público assinado, para mandar ao cliente. */
@@ -44,7 +54,7 @@ class DL_Documents {
 		$type = sanitize_key( $_GET['tipo'] ?? '' );
 		$id   = absint( $_GET['id'] ?? 0 );
 		check_admin_referer( 'dl_doc_' . $type . '_' . $id );
-		dl_require_cap( 'recibo' === $type ? 'dl_financeiro' : 'dl_operar' );
+		dl_require_cap( in_array( $type, array( 'recibo', 'medicao' ), true ) ? 'dl_financeiro' : 'dl_operar' );
 		self::output( $type, $id );
 	}
 
@@ -75,6 +85,7 @@ class DL_Documents {
 			'orcamento' => 'Orçamento de locação',
 			'contrato'  => 'Contrato de locação de equipamentos',
 			'devolucao' => 'Devolução de equipamento',
+			'medicao'   => 'Boletim de medição',
 			'checklist' => 'Checklist de saída e retorno',
 			'fatura'    => 'Fatura de locação',
 			'os'        => 'Ordem de serviço',
@@ -195,8 +206,8 @@ class DL_Documents {
 	}
 </style></head><body>
 <div class="bar"><button onclick="window.print()">Imprimir / salvar em PDF</button></div>
-<div class="page<?php echo in_array( $type, array( 'contrato', 'devolucao' ), true ) ? ' ct' : ''; ?>">
-	<?php if ( ! in_array( $type, array( 'contrato', 'devolucao' ), true ) ) : ?>
+<div class="page<?php echo in_array( $type, array( 'contrato', 'devolucao', 'medicao' ), true ) ? ' ct' : ''; ?>">
+	<?php if ( ! in_array( $type, array( 'contrato', 'devolucao', 'medicao' ), true ) ) : ?>
 	<header>
 		<div>
 			<img src="<?php echo esc_url( dl_opt( 'logo_url' ) ? dl_opt( 'logo_url' ) : DL_URL . 'assets/app/logo-dimaq-original.png' ); ?>" alt="<?php echo esc_attr( dl_opt( 'empresa_nome' ) ); ?>"><br>
@@ -457,7 +468,12 @@ class DL_Documents {
 		if ( (float) $c['desconto'] > 0 ) {
 			echo '<tr><td>Desconto</td><td class="n">− ' . esc_html( dl_money( $c['desconto'] ) ) . '</td></tr>';
 		}
-		echo '<tr class="g"><td>Total do contrato</td><td class="n">' . esc_html( dl_money( $c['total'] ) ) . '</td></tr>';
+		if ( DL_Measurement::is_measured( $c ) ) {
+			echo '<tr class="g"><td>Estimativa do período</td><td class="n">' . esc_html( dl_money( $c['total'] ) ) . '</td></tr>';
+			echo '<tr><td colspan="2" style="font-size:10.5px">Cobrança <b>por medição (pro-rata)</b> a cada ' . (int) $c['medicao_ciclo'] . ' dias: em cada medição são cobrados os dias e as quantidades efetivamente em poder do locatário, à diária equivalente ao valor do período (valor mensal ÷ ' . (int) dl_opt( 'medicao_base_dias', 30 ) . ').</td></tr>';
+		} else {
+			echo '<tr class="g"><td>Total do contrato</td><td class="n">' . esc_html( dl_money( $c['total'] ) ) . '</td></tr>';
+		}
 		echo '<tr><td colspan="2" style="font-size:10.5px;color:#666">Valor de reposição dos bens (equipamentos + acessórios): ' . esc_html( dl_money( $repo_total + $acc_repo ) ) . '</td></tr></table></div>';
 
 		if ( trim( (string) dl_opt( 'clausulas_contrato' ) ) ) {
@@ -568,6 +584,64 @@ class DL_Documents {
 		echo '<div class="when"><div><small>Local / data da devolução</small>' . esc_html( dl_opt( 'empresa_cidade' ) ?: '________' ) . ', ____ / ____ / ________ &nbsp; às ____:____</div><div><small>Conferido por (locadora)</small>&nbsp;</div></div>';
 		echo '<div class="sign2"><div>Locadora<small>' . esc_html( dl_opt( 'empresa_nome' ) ) . '</small></div><div>Locatário(a) / quem entregou<small>' . esc_html( $cli ? $cli['nome'] : '' ) . '</small><small style="text-align:left;margin-top:8px">Nome: ____________________________________</small><small style="text-align:left">CPF: ____________________ &nbsp; RG: __________________</small></div></div>';
 		echo '</div>';
+	}
+
+	/** Boletim de medição: o que ficou com o cliente, por quantos dias, e o valor. */
+	private static function render_medicao( $m ) {
+		$c    = DL_DB::get( 'contratos', (int) $m['contrato_id'] );
+		$cli  = $c ? DL_DB::get( 'clientes', (int) $c['cliente_id'] ) : null;
+		$logo = dl_opt( 'logo_url' ) ? dl_opt( 'logo_url' ) : DL_URL . 'assets/app/logo-dimaq-original.png';
+		$data = json_decode( (string) $m['linhas'], true );
+		$data = is_array( $data ) ? $data : array( 'linhas' => array(), 'adicionais' => array() );
+		$days = (int) round( ( strtotime( $m['fim'] ) - strtotime( $m['inicio'] ) ) / DAY_IN_SECONDS ) + 1;
+
+		echo '<div class="ct-top dvh"><div><img src="' . esc_url( $logo ) . '" alt=""><div class="co"><b>' . esc_html( dl_opt( 'empresa_nome' ) ) . '</b><br>' . esc_html( implode( ' · ', array_filter( array( dl_opt( 'empresa_cnpj' ) ? 'CNPJ ' . dl_opt( 'empresa_cnpj' ) : '', dl_opt( 'empresa_telefone' ), dl_opt( 'empresa_email' ) ) ) ) ) . '</div></div>';
+		echo '<div class="id"><small>Contrato nº</small><strong>' . esc_html( $c ? $c['numero'] : '' ) . '</strong></div></div>';
+		echo '<h1 class="t">Boletim de medição nº ' . (int) $m['numero'] . ( 'cancelada' === $m['status'] ? ' — CANCELADO' : '' ) . '</h1>';
+		echo '<p class="intro">Cobrança pro-rata: dias e quantidades efetivamente em poder do locatário no período.</p>';
+
+		echo '<div class="info4">';
+		echo '<div><small>Locatário(a)</small><b>' . esc_html( $cli ? $cli['nome'] : '' ) . '</b></div>';
+		echo '<div><small>Período medido</small><b>' . esc_html( dl_date( $m['inicio'] ) . ' a ' . dl_date( $m['fim'] ) ) . '</b></div>';
+		echo '<div><small>Dias no período</small><b>' . (int) $days . '</b></div>';
+		echo '<div><small>Obra</small><b>' . esc_html( $c ? ( $c['local_obra'] ? $c['local_obra'] : $c['endereco_entrega'] ) : '' ) . '</b></div>';
+		echo '</div>';
+
+		echo '<div class="sec">Equipamentos medidos <i>' . count( $data['linhas'] ) . '</i></div>';
+		echo '<table class="eq"><thead><tr><th style="width:60px">Código</th><th>Descrição</th><th>Quantidade × dias no período</th><th class="n">Diárias</th><th class="n">Diária unit.</th><th class="n">Valor</th></tr></thead><tbody>';
+		if ( ! $data['linhas'] ) {
+			echo '<tr><td></td><td colspan="5" style="color:#888">Nenhum equipamento com o cliente no período.</td></tr>';
+		}
+		foreach ( $data['linhas'] as $l ) {
+			$parts = array();
+			foreach ( $l['faixas'] as $f ) {
+				$parts[] = dl_num( $f['qtd'], (float) $f['qtd'] === floor( (float) $f['qtd'] ) ? 0 : 2 ) . ' un × ' . (int) $f['dias'] . ' d (' . dl_date( $f['de'] ) . '–' . dl_date( $f['ate'] ) . ')';
+			}
+			echo '<tr><td>' . esc_html( $l['codigo'] ) . '</td><td>' . esc_html( $l['descricao'] ) . '</td><td style="font-size:10.5px">' . esc_html( implode( ' + ', $parts ) ) . '</td><td class="n">' . esc_html( dl_num( $l['diarias'], 0 ) ) . '</td><td class="n">' . esc_html( 'R$ ' . number_format( (float) $l['diaria'], 4, ',', '.' ) ) . '</td><td class="n">' . esc_html( dl_money( $l['valor'] ) ) . '</td></tr>';
+		}
+		echo '</tbody><tfoot><tr><td></td><td colspan="4">Subtotal dos equipamentos</td><td class="n">' . esc_html( dl_money( $m['valor_itens'] ) ) . '</td></tr></tfoot></table>';
+
+		echo '<div class="sumbox"><table>';
+		echo '<tr><td>Equipamentos (pro-rata)</td><td class="n">' . esc_html( dl_money( $m['valor_itens'] ) ) . '</td></tr>';
+		foreach ( $data['adicionais'] as $x ) {
+			echo '<tr><td>' . esc_html( $x['descricao'] ) . '</td><td class="n">' . esc_html( dl_money( $x['valor'] ) ) . '</td></tr>';
+		}
+		if ( (float) $m['valor_frete'] > 0 ) {
+			echo '<tr><td>Frete</td><td class="n">' . esc_html( dl_money( $m['valor_frete'] ) ) . '</td></tr>';
+		}
+		if ( (float) $m['desconto'] > 0 ) {
+			echo '<tr><td>Desconto</td><td class="n">− ' . esc_html( dl_money( $m['desconto'] ) ) . '</td></tr>';
+		}
+		echo '<tr class="g"><td>Total da medição</td><td class="n">' . esc_html( dl_money( $m['total'] ) ) . '</td></tr></table></div>';
+		echo '<p class="clause">Diária unitária = valor do período contratado ÷ dias do período (mensal ÷ ' . (int) dl_opt( 'medicao_base_dias', 30 ) . ')' . ( DL_Contracts::inclusive() ? '; o dia da retirada e o da devolução são cobrados' : '' ) . '.</p>';
+		if ( $m['obs'] ) {
+			echo '<div class="sec">Observações</div><div class="obs">' . nl2br( esc_html( $m['obs'] ) ) . '</div>';
+		}
+		if ( dl_opt( 'dados_bancarios' ) ) {
+			echo '<div class="sec">Dados para pagamento</div><div class="obs">' . nl2br( esc_html( dl_opt( 'dados_bancarios' ) ) ) . '</div>';
+		}
+		echo '<p class="place">' . esc_html( ( dl_opt( 'empresa_cidade' ) ?: '________' ) . ', ' . self::long_date( substr( $m['criado_em'], 0, 10 ) ) ) . '.</p>';
+		echo '<div class="sign2"><div>Locadora<small>' . esc_html( dl_opt( 'empresa_nome' ) ) . '</small></div><div>De acordo — locatário(a)<small>' . esc_html( $cli ? $cli['nome'] : '' ) . '</small></div></div>';
 	}
 
 	private static function render_checklist( $c ) {

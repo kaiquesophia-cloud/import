@@ -66,9 +66,19 @@ Requisitos: WordPress 6.0+, PHP 7.4+, MySQL/MariaDB. A interface já vem com tud
 - Bloqueio de cliente e alertas de inadimplência e de limite de crédito.
 - Duplicar contrato como novo orçamento.
 
+### Cobrança por medição (pro-rata) — opcional por locação
+Em **Forma de cobrança**, cada locação pode ser *por período* (valor fechado) ou *por medição*.
+Na medição, a cada ciclo (padrão 30 dias) o sistema cobra quantidade × dias de cada item que
+ficou com o cliente, à diária do contrato (mensal ÷ 30). Devoluções parciais e itens incluídos
+entram pela data real (histórico em `dl_movimentos`); frete e desconto vão na 1ª medição;
+adicionais na próxima; sem diária de atraso. Cada medição gera conta a receber e um **boletim
+de medição**. Só a última medição pode ser cancelada. Regras em `includes/class-dl-measurement.php`;
+testes do cálculo em `php tests/test-measurement.php`.
+
 ### Documentos (imprimir ou salvar em PDF)
 Orçamento, contrato de locação (com cláusulas editáveis e variáveis), checklist de saída e
-retorno, fatura de locação, ordem de serviço, pedido de venda e recibo.
+retorno, devolução de equipamento, boletim de medição, fatura de locação, ordem de serviço,
+pedido de venda e recibo.
 
 ### Ordens de serviço
 Preventiva, corretiva, revisão de retorno e serviço para cliente. Peças saem do estoque ao
@@ -137,7 +147,7 @@ API pública: `GET /wp-json/dimaq/v1/equipamentos` e
   `class-dl-finance.php`, `class-dl-service-orders.php`, `class-dl-sales.php`.
 - Ganchos úteis: `dl_contract_started`, `dl_contract_returned`, `dl_quote_received`,
   `dl_finance_paid`, `dl_daily_done`.
-- Testes do cálculo de preço: `php tests/test-pricing.php`.
+- Testes: `php tests/test-pricing.php` (preço) e `php tests/test-measurement.php` (medição).
 
 ## Limitações conhecidas
 

@@ -150,7 +150,7 @@ class DL_App {
 			'wpApi'      => esc_url_raw( rest_url( 'wp/v2/' ) ),
 			'nonce'      => wp_create_nonce( 'wp_rest' ),
 			'appUrl'     => dl_app_url(),
-			'logoutUrl'  => wp_logout_url( dl_app_url() ),
+			'logoutUrl'  => html_entity_decode( wp_logout_url( dl_app_url() ), ENT_QUOTES, 'UTF-8' ), // a tela usa o endereço cru
 			'logo'       => DL_URL . 'assets/app/logo-dimaq.png',
 			'criador'    => self::credit(),
 			'hoje'       => dl_today(),

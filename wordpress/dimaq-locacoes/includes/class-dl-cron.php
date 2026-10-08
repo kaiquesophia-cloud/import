@@ -88,6 +88,14 @@ class DL_Cron {
 			}
 		}
 
+		$meas = DL_Measurement::pending();
+		if ( $meas ) {
+			$lines[] = '';
+			$lines[] = 'MEDIÇÕES A FAZER';
+			foreach ( $meas as $m ) {
+				$lines[] = sprintf( '  %s — %s — %s a %s', $m['contrato']['numero'], DL_DB::label( 'clientes', $m['contrato']['cliente_id'] ), dl_date( $m['sugestao']['inicio'] ), dl_date( $m['sugestao']['fim'] ) );
+			}
+		}
 		foreach ( DL_Service_Orders::preventive_due() as $e ) {
 			$lines[] = 'Preventiva vencida: ' . $e['nome'];
 		}

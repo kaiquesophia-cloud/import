@@ -695,6 +695,66 @@
 		},
 	};
 
+	/** Medição pro-rata: escolhe o período, vê o cálculo e gera a cobrança. */
+	const MeasureModal = {
+		components: { Modal: Modal, Ic: Ic },
+		props: { data: Object },
+		template: `<Modal :title="'Medição ' + (sug ? sug.numero : '') + ' — ' + data.numero" wide @close="close">
+			<p class="muted small" style="margin-top:0">Cobra os dias e as quantidades que ficaram com o cliente no período, à diária do contrato (valor mensal ÷ 30). Devoluções parciais e itens incluídos entram pela data real.</p>
+			<div class="form-grid">
+				<label class="field"><span>Início do período</span><input type="date" v-model="ini" @change="load"></label>
+				<label class="field"><span>Fim do período</span><input type="date" v-model="fim" :min="ini" @change="load"></label>
+				<div class="field"><span>Dias</span><div class="readonly">{{ p ? p.dias : '—' }}</div></div>
+			</div>
+			<p v-if="sug && sug.final" class="notice info" style="margin-top:10px">Medição final: vai até a data em que o último equipamento voltou.</p>
+			<p v-else-if="fim > today" class="notice warning" style="margin-top:10px">O período ainda não terminou: o cálculo considera que o que está na obra continua lá até {{ date(fim) }}.</p>
+			<div v-if="!p" class="empty"><span class="spinner dark"></span></div>
+			<template v-else>
+				<table class="t" style="margin-top:10px">
+					<thead><tr><th>Equipamento</th><th>Quantidade × dias</th><th class="n">Diárias</th><th class="n">Diária</th><th class="n">Valor</th></tr></thead>
+					<tbody>
+						<tr v-if="!p.linhas.length"><td colspan="5" class="muted">Nenhum equipamento com o cliente no período.</td></tr>
+						<tr v-for="l in p.linhas" :key="l.item_id"><td><b>{{ l.descricao }}</b></td><td class="small">{{ l.faixas.map(f => num(f.qtd) + ' un × ' + f.dias + ' d (' + short(f.de) + '–' + short(f.ate) + ')').join(' + ') }}</td><td class="n">{{ num(l.diarias) }}</td><td class="n">{{ money4(l.diaria) }}</td><td class="n"><b>{{ money(l.valor) }}</b></td></tr>
+					</tbody>
+				</table>
+				<div class="preview" style="margin-top:10px">
+					<div class="l"><span>Equipamentos (pro-rata)</span><b>{{ money(p.valor_itens) }}</b></div>
+					<div class="l" v-for="x in p.adicionais" :key="x.id"><span>{{ x.descricao }}</span><b>{{ money(x.valor) }}</b></div>
+					<div class="l" v-if="p.valor_frete"><span>Frete (1ª medição)</span><b>{{ money(p.valor_frete) }}</b></div>
+					<div class="l" v-if="p.desconto"><span>Desconto (1ª medição)</span><b>− {{ money(p.desconto) }}</b></div>
+					<div class="l" style="font-size:16px;border-top:1px solid #e5e7eb;padding-top:6px;margin-top:4px"><span>Total da medição</span><b>{{ money(p.total) }}</b></div>
+				</div>
+				<div class="form-grid" style="margin-top:12px">
+					<label class="field"><span>Parcelas</span><input type="number" min="1" max="12" v-model.number="parcelas"></label>
+					<label class="field"><span>1º vencimento</span><input type="date" v-model="venc"></label>
+					<label class="field"><span>Forma</span><select v-model="forma"><option v-for="(l, k) in formas" :key="k" :value="k">{{ l }}</option></select></label>
+					<label class="field full"><span>Observações do boletim</span><input v-model="obs" placeholder="Opcional"></label>
+				</div>
+			</template>
+			<template #footer><button class="btn" @click="close">Cancelar</button><button class="btn btn-primary" :disabled="busy || !p || p.total <= 0" @click="save"><Ic n="chart"/> Gerar medição e cobrança</button></template>
+		</Modal>`,
+		data: function () { return { sug: null, p: null, ini: '', fim: '', parcelas: 1, venc: D.hoje, forma: this.data.forma || 'boleto', obs: '', busy: false, formas: D.pagamentos, today: D.hoje }; },
+		created: async function () {
+			try {
+				const r = await get('contract/' + this.data.id + '/medicao');
+				this.sug = r.sugestao; this.ini = r.inicio; this.fim = r.fim; this.p = r;
+			} catch (e) { toast(e.message, 'error'); closeAction(); }
+		},
+		methods: {
+			money: fmt.money, num: fmt.num, date: fmt.date, short: fmt.short, close: closeAction,
+			money4: function (v) { return 'R$ ' + (Number(v) || 0).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 4 }); },
+			load: async function () {
+				if (!this.ini || !this.fim || this.fim < this.ini) { return; }
+				try { this.p = await get('contract/' + this.data.id + '/medicao', { inicio: this.ini, fim: this.fim }); } catch (e) { toast(e.message, 'error'); }
+			},
+			save: async function () {
+				this.busy = true;
+				try { const r = await contractOp(this.data.id, 'medir', { inicio: this.ini, fim: this.fim, parcelas: this.parcelas, vencimento: this.venc, forma: this.forma, obs: this.obs }); done(r.mensagem); } catch (e) { toast(e.message, 'error'); }
+				this.busy = false;
+			},
+		},
+	};
+
 	/** Cadastro rápido de cliente dentro da locação. */
 	const QuickClientModal = {
 		components: { Modal: Modal, RecordForm: RecordForm },
@@ -725,11 +785,11 @@
 		},
 	};
 
-	const ACTION_MODALS = { entregar: DeliverModal, devolver: ReturnModal, renovar: RenewModal, faturar: BillModal, adicional: ExtraModal, pagar: PayModal, nota: FiscalModal, estoque: StockModal, cliente: QuickClientModal };
+	const ACTION_MODALS = { medir: MeasureModal, entregar: DeliverModal, devolver: ReturnModal, renovar: RenewModal, faturar: BillModal, adicional: ExtraModal, pagar: PayModal, nota: FiscalModal, estoque: StockModal, cliente: QuickClientModal };
 
 	/** Executa uma ação de contrato vinda de um botão (abre janela quando precisa). */
 	async function runContractAction(card, op) {
-		if (['entregar', 'devolver', 'renovar', 'faturar', 'adicional'].indexOf(op) !== -1) { openAction(op, card); return; }
+		if (['entregar', 'devolver', 'renovar', 'faturar', 'adicional', 'medir'].indexOf(op) !== -1) { openAction(op, card); return; }
 		const confirmText = { cancelar: 'Cancelar esta locação?', reabrir: 'Reabrir como orçamento?', voltar_orcamento: 'Liberar a reserva e voltar para orçamento?' }[op];
 		if (confirmText && !window.confirm(confirmText)) { return; }
 		try {
@@ -739,7 +799,7 @@
 	}
 	const ACTION_LABELS = {
 		reservar: ['Aprovar e reservar', 'check', 'btn-dark'], entregar: ['Entregar', 'out', 'btn-primary'], devolver: ['Receber devolução', 'in', 'btn-primary'],
-		renovar: ['Renovar', 'refresh', ''], faturar: ['Faturar', 'money', ''], voltar_orcamento: ['Liberar reserva', 'back', ''], cancelar: ['Cancelar', 'x', 'btn-danger'],
+		renovar: ['Renovar', 'refresh', ''], faturar: ['Faturar', 'money', ''], medir: ['Gerar medição', 'chart', ''], voltar_orcamento: ['Liberar reserva', 'back', ''], cancelar: ['Cancelar', 'x', 'btn-danger'],
 		reabrir: ['Reabrir', 'refresh', ''], duplicar: ['Duplicar', 'copy', ''], email: ['Enviar por e-mail', 'mail', ''],
 	};
 
@@ -758,7 +818,7 @@
 		template: `<article class="rental" :class="urg">
 			<div class="top">
 				<div style="min-width:0">
-					<a class="num" :href="'#/contratos/' + c.id">{{ c.numero }}</a>
+					<a class="num" :href="'#/contratos/' + c.id">{{ c.numero }}</a> <span v-if="c.medicao" class="badge b-reservado" style="font-size:10px" title="Cobrança por medição (pro-rata)">medição</span>
 					<div class="client" @click="open">{{ c.cliente ? c.cliente.nome : '—' }}</div>
 					<div class="where" v-if="c.local_obra"><Ic n="pin"/>{{ c.local_obra }}</div>
 				</div>
@@ -1255,6 +1315,21 @@
 							<button v-if="fin && r.acoes.includes('faturar') && card.a_faturar > 0" class="btn btn-primary btn-block" style="margin-top:12px" @click="act('faturar')"><Ic n="money"/> Faturar {{ money(card.a_faturar) }}</button>
 						</section>
 
+						<section class="card" v-if="r.medicoes">
+							<h3><Ic n="chart"/> Medições (pro-rata)</h3>
+							<p class="muted small" style="margin-top:-6px">Cobrança a cada {{ c.medicao_ciclo }} dias pelos dias e quantidades que ficaram com o cliente. Total acima é só a estimativa do período.</p>
+							<div v-if="!r.medicoes.length" class="muted small">Nenhuma medição ainda.</div>
+							<div v-for="m in r.medicoes" :key="m.id" class="agenda-item">
+								<div class="tx"><strong>Medição {{ m.numero }} · {{ money(m.total) }}</strong><span>{{ date(m.inicio) }} a {{ date(m.fim) }}<template v-if="m.status === 'cancelada'"> · cancelada</template></span></div>
+								<a v-if="fin" class="btn btn-xs" :href="m.doc" target="_blank" rel="noopener" title="Boletim de medição"><Ic n="print"/></a>
+								<button v-if="fin && m.status === 'gerada' && m.id === lastMeasure" class="btn btn-xs btn-ghost" title="Cancelar medição" @click="cancelMeasure(m)"><Ic n="x"/></button>
+							</div>
+							<template v-if="r.medicao_sugestao && !r.medicao_sugestao.nada">
+								<p class="small" style="margin:10px 0 6px">Próxima: <b>{{ r.medicao_sugestao.final ? 'medição final' : 'medição ' + r.medicao_sugestao.numero }}</b> — {{ date(r.medicao_sugestao.inicio) }} a {{ date(r.medicao_sugestao.fim) }} <span v-if="r.medicao_sugestao.pronta" class="badge b-atrasado">pendente</span></p>
+								<button v-if="fin" class="btn btn-primary btn-block" @click="act('medir')"><Ic n="chart"/> Gerar medição</button>
+							</template>
+						</section>
+
 						<section class="card" v-if="r.cobrancas && r.cobrancas.length">
 							<h3><Ic n="receipt"/> Cobranças</h3>
 							<div v-for="f in r.cobrancas" :key="f.id" class="agenda-item" style="cursor:pointer" @click="go('financeiro/' + f.id)">
@@ -1298,6 +1373,7 @@
 			card: function () { return this.r.cartao; },
 			closed: function () { return ['encerrado', 'cancelado'].indexOf(this.c.status) !== -1; },
 			mainActions: function () { return this.r.acoes.filter(function (a) { return ['reservar', 'entregar', 'devolver', 'renovar'].indexOf(a) !== -1; }); },
+			lastMeasure: function () { const ok = (this.r.medicoes || []).filter(function (m) { return m.status === 'gerada'; }); return ok.length ? ok[ok.length - 1].id : 0; },
 			otherActions: function () { return this.r.acoes.filter(function (a) { return ['voltar_orcamento', 'cancelar', 'reabrir', 'duplicar'].indexOf(a) !== -1; }); },
 			entregaLabel: function () { return { retirada: 'Cliente retira', entrega: 'Locadora entrega', entrega_coleta: 'Locadora entrega e coleta' }[this.c.entrega] || this.c.entrega; },
 			caucaoLabel: function () { return { nao_cobrado: 'não cobrada', recebido: 'recebida', devolvido: 'devolvida', retido: 'retida' }[this.c.caucao_status]; },
@@ -1323,6 +1399,7 @@
 			label: function (a) { return ACTION_LABELS[a] || [a, 'check', '']; },
 			load: async function () { try { this.r = await get('record/contratos/' + this.id); } catch (e) { toast(e.message, 'error'); } },
 			act: function (a) { runContractAction(Object.assign({}, this.card, { forma: this.c.forma_pagamento }), a); },
+			cancelMeasure: async function (m) { if (!window.confirm('Cancelar a medição ' + m.numero + '? As parcelas em aberto dela serão canceladas.')) { return; } try { const r = await contractOp(this.c.id, 'cancelar_medicao', { medicao: m.id }); done(r.mensagem); } catch (e) { toast(e.message, 'error'); } },
 			removeExtra: async function (a) { if (!window.confirm('Remover este adicional?')) { return; } try { const r = await contractOp(this.c.id, 'remover_adicional', { item: a.id }); done(r.mensagem); } catch (e) { toast(e.message, 'error'); } },
 			emitNote: function () { openAction('nota', { origem: 'contrato', id: this.c.id, sugestao: this.r.nota_sugestao }); },
 			copyLink: function () {
@@ -1400,6 +1477,7 @@
 								<div class="l grand"><span>Total</span><span>{{ money(grand) }}</span></div>
 								<div class="l small muted"><span>Caução sugerida</span><span>{{ money(deposit) }} <button v-if="deposit && !Number(rec.caucao)" class="btn btn-xs" @click="rec.caucao = deposit">usar</button></span></div>
 							</div>
+							<div v-if="rec.cobranca === 'medicao'" class="notice info" style="margin-top:12px">Cobrança por medição: este total é uma estimativa. A cada {{ rec.medicao_ciclo || 30 }} dias o sistema cobra só os dias e quantidades que ficaram com o cliente. Dica: use a cobrança <b>Mensal</b> nos itens.</div>
 							<div v-if="conflicts" class="notice error" style="margin-top:12px">{{ conflicts }} item(ns) sem disponibilidade suficiente no período. Dá para salvar como orçamento, mas não reservar.</div>
 							<button class="btn btn-primary btn-block" style="margin-top:12px" :disabled="busy" @click="save"><Ic n="check"/> Salvar {{ id ? 'alterações' : 'orçamento' }}</button>
 						</section>
