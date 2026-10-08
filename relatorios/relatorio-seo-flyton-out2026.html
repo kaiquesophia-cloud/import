@@ -1,4 +1,4 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SEO Flyton · Outubro 2026</title>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Resultados Flyton · Outubro 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -215,85 +215,138 @@ footer p { font-size: 13px; color: var(--muted); max-width: 70ch; }
 }
 </style>
 
+<style>
+.quarters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: end; height: 220px; padding-top: 28px; }
+.q { display: grid; grid-template-rows: auto 1fr auto; gap: 8px; height: 100%; align-items: end; text-align: center; min-width: 0; }
+.q .v { font-family: var(--display); font-stretch: 112%; font-weight: 750; font-size: 22px; font-variant-numeric: tabular-nums; }
+.q .col { align-self: end; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, var(--accent), var(--accent-2)); }
+.q .col.dim { background: var(--surface-2); border: 1px solid var(--line); }
+.q .lb { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.q .lb b { display: block; color: var(--good); font-weight: 500; }
+.timeline { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); position: relative; }
+.timeline::before { content: ""; position: absolute; left: 0; right: 0; top: 7px; height: 2px; background: linear-gradient(90deg, var(--line), var(--accent)); }
+.ms { position: relative; padding-top: 28px; padding-right: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.ms::before { content: ""; position: absolute; top: 0; left: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.ms:last-child::before { background: var(--accent); box-shadow: 0 0 0 6px rgba(255,122,26,0.18); }
+.ms .when { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.ms .big2 { font-family: var(--display); font-stretch: 112%; font-weight: 750; font-size: 26px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.ms p { font-size: 14px; color: var(--muted); }
+@media (max-width: 860px) {
+  .timeline { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .timeline::before { left: 7px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: linear-gradient(180deg, var(--line), var(--accent)); }
+  .ms { padding-top: 0; padding-left: 32px; }
+  .quarters { gap: 8px; }
+  .q .v { font-size: 18px; }
+}
+@media print { .timeline, .quarters, .ms { break-inside: avoid; } }
+</style>
+
 </head><body><div class="wrap">
 
 <header class="cover">
   <div class="cover-top">
     <img src="data:image/png;base64,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" alt="SEO Amplify">
-    <span class="label">Relatório de SEO · Outubro 2026</span>
+    <span class="label">Relatório de resultados · Outubro 2026</span>
   </div>
-  <h1>Flyton está a <span class="hl">uma página</span> do topo do Google.</h1>
-  <p class="lede">O tráfego orgânico do flyton.com.br cresceu de 17 para 248 visitas por mês em um ano. Quase todas as palavras-chave já estão entre a 2ª e a 5ª página. Com os ajustes certos, elas sobem para a primeira.</p>
+  <h1>Um ano de <span class="hl">decolagem</span> no Google.</h1>
+  <p class="lede">Em 12 meses, a Flyton saiu de 17 para 248 visitas por mês vindas do Google, e passou a aparecer em 99 buscas diferentes, contra 3 no início.</p>
   <div class="strip">
+    <div><span class="label">Cliente</span><strong>Flyton</strong></div>
     <div><span class="label">Site</span><strong>flyton.com.br</strong></div>
-    <div><span class="label">Mercado</span><strong>Google Brasil · PT</strong></div>
     <div><span class="label">Período</span><strong>set/2025 – set/2026</strong></div>
     <div><span class="label">Preparado por</span><strong>SEO Amplify</strong></div>
   </div>
 </header>
 
-<!-- ============ RESUMO ============ -->
+<!-- ============ RESULTADOS ============ -->
 <section>
   <div class="sec-head">
-    <span class="label">Resumo</span>
-    <h2>Onde o site está hoje</h2>
+    <span class="label">Resultados</span>
+    <h2>Antes e depois</h2>
+    <p>Setembro de 2025 comparado a setembro de 2026.</p>
   </div>
   <div class="kpis">
-    <div class="kpi"><span class="label">Visitas orgânicas / mês</span><span class="v">248</span><span class="d"><b>+1.359%</b> em 12 meses (eram 17)</span></div>
-    <div class="kpi"><span class="label">Palavras-chave no Google</span><span class="v">99</span><span class="d"><b>+96</b> em 12 meses (eram 3)</span></div>
-    <div class="kpi"><span class="label">Autoridade do domínio</span><span class="v">11<small class="muted" style="font-size:18px">/100</small></span><span class="d">Concorrentes diretos: 15 a 47</span></div>
-    <div class="kpi"><span class="label">Sites que linkam</span><span class="v">94</span><span class="d">267 links no total</span></div>
+    <div class="kpi"><span class="label">Visitas do Google / mês</span><span class="v">248</span><span class="d">eram 17 · <b>14,6× mais</b></span></div>
+    <div class="kpi"><span class="label">Buscas em que aparece</span><span class="v">99</span><span class="d">eram 3 · <b>+96 buscas</b></span></div>
+    <div class="kpi"><span class="label">Entre os 50 primeiros</span><span class="v">78</span><span class="d">era 1 · <b>+77 buscas</b></span></div>
+    <div class="kpi"><span class="label">Valor em anúncios / mês</span><span class="v">R$ 990</span><span class="d">visitas que chegam sem pagar</span></div>
   </div>
   <div class="takeaways">
     <div>
-      <h3>O conteúdo já funciona</h3>
-      <p>"Jatinho particular" tem 5.400 buscas por mês e o site já está na posição 11, logo abaixo da primeira página. Outras 13 buscas de fretamento e táxi aéreo estão entre as posições 8 e 15.</p>
+      <h3>Mais gente encontrando a Flyton</h3>
+      <p>O site recebe hoje 14 vezes mais visitas do Google do que há um ano, sem nenhum investimento em anúncios.</p>
+    </div>
+    <div style="border-top-color:var(--good)">
+      <h3>Presença em muito mais buscas</h3>
+      <p>A Flyton passou a aparecer quando as pessoas procuram jatinho particular, fretamento, táxi aéreo e helicóptero.</p>
     </div>
     <div>
-      <h3>A velocidade no celular segura o site</h3>
-      <p>No teste de laboratório, o conteúdo principal levou 86,9 s para aparecer no celular. O Google considera bom até 2,5 s. Essa é a correção mais urgente.</p>
-    </div>
-    <div>
-      <h3>Falta autoridade</h3>
-      <p>Os concorrentes que aparecem na frente têm autoridade de 29 a 47. A Flyton tem 11. Isso se resolve com links de sites do setor de aviação, imprensa e parceiros.</p>
+      <h3>Perto da primeira página</h3>
+      <p>"Jatinho particular", a busca mais importante do setor, com 5.400 pesquisas por mês, já está na posição 11.</p>
     </div>
   </div>
 </section>
 
 <!-- ============ EVOLUÇÃO ============ -->
-<section>
+<section class="pb">
   <div class="sec-head">
     <span class="label">Evolução</span>
-    <h2>Um ano de crescimento constante</h2>
-    <p>Visitas orgânicas estimadas e número de palavras-chave em que o site aparece no Google, mês a mês.</p>
+    <h2>Crescimento mês a mês</h2>
+    <p>Visitas vindas do Google e quantidade de buscas em que a Flyton aparece.</p>
   </div>
   <div class="two">
     <div class="panel">
       <div class="panel-head">
-        <h3>Visitas e palavras-chave por mês</h3>
-        <div class="legend"><span><i style="background:var(--accent)"></i>Visitas</span><span><i style="background:var(--sky)"></i>Palavras-chave</span></div>
+        <h3>Visitas e buscas por mês</h3>
+        <div class="legend"><span><i style="background:var(--accent)"></i>Visitas</span><span><i style="background:var(--sky)"></i>Buscas em que aparece</span></div>
       </div>
       <div class="chart-box" id="trend"></div>
     </div>
     <div class="panel">
-      <div class="panel-head"><h3>Em que posição estão as 99 palavras</h3></div>
-      <div class="tiers">
-        <div class="tier"><span>Top 3</span><div class="bar"><span style="width:0%"></span></div><span class="n">0</span></div>
-        <div class="tier"><span>Posição 4–10</span><div class="bar"><span style="width:4%;background:var(--good)"></span></div><span class="n">4</span></div>
-        <div class="tier"><span>Posição 11–50</span><div class="bar"><span style="width:74%;background:var(--accent)"></span></div><span class="n">74</span></div>
-        <div class="tier"><span>Posição 51–100</span><div class="bar"><span style="width:21%;background:var(--muted)"></span></div><span class="n">21</span></div>
-      </div>
-      <p class="muted" style="font-size:14.5px">75% das palavras estão entre as posições 11 e 50. Elas já são relevantes para o Google, mas ainda não aparecem na primeira página, onde ficam quase todos os cliques.</p>
+      <div class="panel-head"><h3>Visitas por trimestre</h3></div>
+      <div class="quarters" id="quarters"></div>
+      <p class="muted" style="font-size:14.5px">Cada trimestre trouxe mais visitas que o anterior. O último somou 701 visitas, mais que o dobro do final de 2025.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ NA PORTA ============ -->
+<!-- ============ MARCOS ============ -->
 <section>
   <div class="sec-head">
-    <span class="label">Palavras-chave</span>
-    <h2>Na porta da primeira página</h2>
-    <p>Buscas em que o site está entre as posições 8 e 15. Juntas, somam cerca de 8.400 buscas por mês. São as mais rápidas de subir porque o Google já associa o site ao assunto.</p>
+    <span class="label">Marcos</span>
+    <h2>Os momentos do ano</h2>
+  </div>
+  <div class="timeline">
+    <div class="ms"><span class="when">Set 2025</span><span class="big2">17 visitas</span><p>Ponto de partida. O site aparecia em apenas 3 buscas.</p></div>
+    <div class="ms"><span class="when">Dez 2025</span><span class="big2">185 visitas</span><p>Primeiro grande salto, com 38 buscas diferentes.</p></div>
+    <div class="ms"><span class="when">Mai 2026</span><span class="big2">209 visitas</span><p>Passou de 200 visitas no mês pela primeira vez.</p></div>
+    <div class="ms"><span class="when">Ago 2026</span><span class="big2">266 visitas</span><p>Recorde de visitas em um único mês.</p></div>
+    <div class="ms"><span class="when">Set 2026</span><span class="big2">99 buscas</span><p>Recorde de buscas em que a Flyton aparece.</p></div>
+  </div>
+</section>
+
+<!-- ============ SUBINDO ============ -->
+<section>
+  <div class="sec-head">
+    <span class="label">Posições</span>
+    <h2>Cada vez mais perto do topo</h2>
+    <p>Quantidade de buscas em que a Flyton aparece entre os 50 primeiros resultados do Google, mês a mês.</p>
+  </div>
+  <div class="panel">
+    <div class="panel-head">
+      <h3>Buscas entre os 50 primeiros resultados</h3>
+      <div class="legend"><span><i style="background:var(--good)"></i>Primeira página</span><span><i style="background:var(--accent)"></i>Posições 11 a 50</span></div>
+    </div>
+    <div class="chart-box" id="climb"></div>
+  </div>
+</section>
+
+<!-- ============ DESTAQUES ============ -->
+<section class="pb">
+  <div class="sec-head">
+    <span class="label">Destaques</span>
+    <h2>Onde a Flyton já aparece bem</h2>
+    <p>Buscas importantes para o negócio em que a Flyton está na primeira página ou logo depois dela. Juntas, somam cerca de 8.400 pesquisas por mês.</p>
   </div>
   <div class="panel">
     <div class="panel-head">
@@ -303,8 +356,8 @@ footer p { font-size: 13px; color: var(--muted); max-width: 70ch; }
     <div class="chart-box" id="runway"></div>
   </div>
   <div class="table-box">
-    <table>
-      <thead><tr><th>Palavra-chave</th><th class="r">Buscas/mês</th><th class="r">Posição</th><th>Página</th></tr></thead>
+    <table style="min-width:420px">
+      <thead><tr><th>O que as pessoas buscam</th><th class="r">Pesquisas/mês</th><th class="r">Posição da Flyton</th></tr></thead>
       <tbody id="near"></tbody>
     </table>
   </div>
@@ -313,130 +366,15 @@ footer p { font-size: 13px; color: var(--muted); max-width: 70ch; }
 <!-- ============ PÁGINAS ============ -->
 <section>
   <div class="sec-head">
-    <span class="label">Páginas</span>
-    <h2>Uma página traz quase todo o tráfego</h2>
-    <p>A página de jatinho particular responde por 78% das visitas orgânicas. As páginas de táxi aéreo por cidade já existem, mas ainda não trazem visitas.</p>
+    <span class="label">Conteúdo</span>
+    <h2>As páginas que mais atraem visitas</h2>
+    <p>A página de jatinho particular é hoje a principal porta de entrada da Flyton no Google, seguida pela de helicóptero em São Paulo.</p>
   </div>
   <div class="table-box">
-    <table>
-      <thead><tr><th>Página</th><th class="r">Visitas/mês</th><th style="width:38%">Participação</th></tr></thead>
+    <table style="min-width:420px">
+      <thead><tr><th>Página</th><th class="r">Visitas/mês</th><th style="width:40%">Participação</th></tr></thead>
       <tbody id="pages"></tbody>
     </table>
-  </div>
-</section>
-
-<!-- ============ VELOCIDADE ============ -->
-<section class="pb">
-  <div class="sec-head">
-    <span class="label">Velocidade · PageSpeed</span>
-    <h2>O celular é o maior problema técnico</h2>
-    <p>Teste de laboratório do Google (Lighthouse) na página inicial. A maior parte de quem busca jatinho e táxi aéreo usa o celular, e o Google classifica o site pela versão de celular.</p>
-  </div>
-  <div class="speed">
-    <div class="panel">
-      <div class="panel-head"><h3>Celular</h3><span class="chip bad">Crítico</span></div>
-      <div id="mobile"></div>
-    </div>
-    <div class="panel">
-      <div class="panel-head"><h3>Computador</h3><span class="chip warn">Atenção</span></div>
-      <div id="desktop"></div>
-    </div>
-  </div>
-  <div class="fixes">
-    <div class="fix"><span class="gain">até −1,1 s no celular</span><h3>Remover JavaScript sem uso</h3><p>223 KB de scripts carregam sem ser usados na página. Normalmente são plugins e widgets do tema.</p></div>
-    <div class="fix"><span class="gain">até −0,75 s no celular</span><h3>Limpar CSS sem uso</h3><p>176 KB de estilos não usados. Vale gerar o CSS só com o que a página realmente usa.</p></div>
-    <div class="fix"><span class="gain">até −0,63 s no celular</span><h3>Eliminar redirecionamentos</h3><p>O endereço passa por redirecionamentos antes de abrir. Os links devem apontar direto para a versão final (https, com ou sem www).</p></div>
-  </div>
-  <p class="muted" style="font-size:14.5px">Um tempo de 86,9 s indica que algum elemento da primeira tela, provavelmente a imagem ou o vídeo do topo, está pesado ou carregando tarde. Comprimir esse arquivo e carregá-lo primeiro deve trazer o maior ganho.</p>
-</section>
-
-<!-- ============ AUDITORIA ============ -->
-<section>
-  <div class="sec-head">
-    <span class="label">Auditoria técnica</span>
-    <h2>A base está saudável, faltam ajustes de página</h2>
-    <p>67 páginas rastreadas. Nenhum bloqueio de indexação. Os problemas são simples de corrigir e se concentram em títulos e textos.</p>
-  </div>
-  <div class="audit">
-    <div class="panel score">
-      <div id="gauge"></div>
-      <span class="label">Nota de saúde do site</span>
-    </div>
-    <div class="issues">
-      <div class="issue"><span class="dot" style="background:var(--bad)"></span><span class="t">Páginas com pouco texto<small>O Google tem pouco conteúdo para entender sobre o que a página fala.</small></span><span class="c">11</span></div>
-      <div class="issue"><span class="dot" style="background:var(--bad)"></span><span class="t">Títulos duplicados<small>Páginas diferentes com o mesmo título competem entre si.</small></span><span class="c">5</span></div>
-      <div class="issue"><span class="dot" style="background:var(--bad)"></span><span class="t">Descrições (meta description) duplicadas<small>O texto que aparece no Google se repete em várias páginas.</small></span><span class="c">5</span></div>
-      <div class="issue"><span class="dot" style="background:var(--warn)"></span><span class="t">Títulos curtos demais<small>Espaço desperdiçado para incluir a palavra-chave e a cidade.</small></span><span class="c">27</span></div>
-      <div class="issue"><span class="dot" style="background:var(--warn)"></span><span class="t">Páginas sem título principal (H1)<small>O H1 diz ao Google qual é o assunto central da página.</small></span><span class="c">13</span></div>
-      <div class="issue"><span class="dot" style="background:var(--warn)"></span><span class="t">Página com erro 404, descrição vazia e URL fora do padrão<small>Um caso de cada.</small></span><span class="c">3</span></div>
-    </div>
-  </div>
-  <div class="oks"><span>Sitemap presente</span><span>Certificado SSL válido</span><span>Nenhuma página bloqueada</span><span>Sem links quebrados nos textos</span><span>Sem redirecionamentos temporários</span></div>
-</section>
-
-<!-- ============ CONCORRÊNCIA ============ -->
-<section>
-  <div class="sec-head">
-    <span class="label">Concorrência</span>
-    <h2>Quem disputa as mesmas buscas</h2>
-    <p>Sites que aparecem no Google para as mesmas palavras-chave da Flyton. A diferença principal está na autoridade do domínio, que vem dos links que cada site recebe.</p>
-  </div>
-  <div class="table-box">
-    <table>
-      <thead><tr><th>Site</th><th style="width:30%">Autoridade</th><th class="r">Visitas/mês</th><th class="r">Palavras-chave</th><th class="r">Em comum</th></tr></thead>
-      <tbody id="comp"></tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ============ OPORTUNIDADES ============ -->
-<section>
-  <div class="sec-head">
-    <span class="label">Oportunidades</span>
-    <h2>Buscas que a Flyton ainda não aproveita</h2>
-    <p>Volume mensal no Google Brasil. São buscas de quem está pronto para contratar e em que o site ainda não aparece, ou aparece muito longe do topo.</p>
-  </div>
-  <div class="gaps">
-    <div class="gap">
-      <h3>Táxi aéreo por cidade</h3>
-      <ul>
-        <li><span>táxi aéreo</span><span>3.600</span></li>
-        <li><span>táxi aéreo rio de janeiro</span><span>260</span></li>
-        <li><span>táxi aéreo sp</span><span>210</span></li>
-        <li><span>táxi aéreo bh</span><span>170</span></li>
-        <li><span>táxi aéreo curitiba</span><span>140</span></li>
-        <li><span>táxi aéreo salvador</span><span>140</span></li>
-        <li><span>táxi aéreo recife</span><span>140</span></li>
-        <li><span>táxi aéreo fortaleza</span><span>140</span></li>
-        <li><span>táxi aéreo brasília</span><span>110</span></li>
-      </ul>
-      <p>As páginas de Recife e Fortaleza já existem e precisam de conteúdo local: aeroportos atendidos, destinos frequentes e tempo de voo.</p>
-    </div>
-    <div class="gap">
-      <h3>Preço e custo</h3>
-      <ul>
-        <li><span>jatinho particular preço</span><span>1.000</span></li>
-        <li><span>preço jatinho</span><span>590</span></li>
-        <li><span>quanto custa um avião particular</span><span>390</span></li>
-        <li><span>taxi aéreo preços</span><span>390</span></li>
-        <li><span>preço taxi aéreo</span><span>320</span></li>
-        <li><span>quanto custa taxi aéreo</span><span>260</span></li>
-        <li><span>quanto custa um taxi aéreo</span><span>210</span></li>
-      </ul>
-      <p>Hoje elas caem nas páginas de jatinho e de helicóptero, entre as posições 16 e 25, ou nem aparecem. Uma página só sobre preços, com faixas de valor por rota e aeronave, atende melhor a essa busca.</p>
-    </div>
-    <div class="gap">
-      <h3>Helicóptero</h3>
-      <ul>
-        <li><span>aluguel de helicóptero</span><span>590</span></li>
-        <li><span>helicóptero aluguel</span><span>390</span></li>
-        <li><span>alugar helicóptero</span><span>390</span></li>
-        <li><span>helicópteros particulares</span><span>260</span></li>
-        <li><span>táxi aéreo helicóptero preço</span><span>260</span></li>
-        <li><span>helicóptero são paulo</span><span>170</span></li>
-      </ul>
-      <p>O site está entre as posições 10 e 29. Reforçar a página de fretamento de helicóptero com rotas, capacidade e perguntas frequentes deve trazer essas buscas para a primeira página.</p>
-    </div>
   </div>
 </section>
 
@@ -444,18 +382,60 @@ footer p { font-size: 13px; color: var(--muted); max-width: 70ch; }
 <section>
   <div class="sec-head">
     <span class="label">Potencial</span>
-    <h2>O que muda ao chegar ao topo</h2>
+    <h2>O que vem com a primeira página</h2>
   </div>
   <div class="potential">
     <div class="panel">
-      <span class="label">"jatinho particular" · 5.400 buscas/mês</span>
+      <span class="label">"jatinho particular" · 5.400 pesquisas/mês</span>
       <div class="from-to"><span class="big num">65</span><span class="arrow">→</span><span class="big num hl">540–800</span></div>
-      <p class="muted">Visitas por mês só com essa palavra, saindo da posição 11 para o top 3. A estimativa usa uma taxa de cliques de 10% a 15%, comum para as três primeiras posições.</p>
+      <p class="muted">Visitas por mês só com essa busca, ao sair da posição 11 para as três primeiras posições do Google. Estimativa.</p>
     </div>
     <div class="panel">
-      <span class="label">Valor do tráfego orgânico atual</span>
+      <span class="label">Valor das visitas atuais</span>
       <div class="from-to"><span class="big num">≈ R$ 990</span><span class="muted">/mês</span></div>
-      <p class="muted">É quanto custariam em Google Ads as visitas que o site já recebe de graça, pelo custo por clique de cada palavra. Uma visita de "jatinho particular" custa cerca de R$ 9,30 em anúncio.</p>
+      <p class="muted">É quanto custaria trazer as mesmas visitas com anúncios no Google. Hoje elas chegam sem custo por clique.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRÓXIMO DESTINO ============ -->
+<section class="pb">
+  <div class="sec-head">
+    <span class="label">Próximo destino</span>
+    <h2>Onde ainda podemos crescer</h2>
+    <p>Buscas de quem está pronto para contratar e em que a Flyton ainda pode ganhar espaço. Números de pesquisas por mês no Brasil.</p>
+  </div>
+  <div class="gaps">
+    <div class="gap">
+      <h3>Táxi aéreo nas capitais</h3>
+      <ul>
+        <li><span>táxi aéreo</span><span>3.600</span></li>
+        <li><span>táxi aéreo rio de janeiro</span><span>260</span></li>
+        <li><span>táxi aéreo sp</span><span>210</span></li>
+        <li><span>táxi aéreo bh</span><span>170</span></li>
+        <li><span>táxi aéreo recife</span><span>140</span></li>
+        <li><span>táxi aéreo salvador</span><span>140</span></li>
+        <li><span>táxi aéreo fortaleza</span><span>140</span></li>
+      </ul>
+    </div>
+    <div class="gap">
+      <h3>Quem pesquisa preço</h3>
+      <ul>
+        <li><span>jatinho particular preço</span><span>1.000</span></li>
+        <li><span>preço jatinho</span><span>590</span></li>
+        <li><span>quanto custa um avião particular</span><span>390</span></li>
+        <li><span>preço táxi aéreo</span><span>320</span></li>
+        <li><span>quanto custa táxi aéreo</span><span>260</span></li>
+      </ul>
+    </div>
+    <div class="gap">
+      <h3>Helicóptero</h3>
+      <ul>
+        <li><span>aluguel de helicóptero</span><span>590</span></li>
+        <li><span>alugar helicóptero</span><span>390</span></li>
+        <li><span>helicópteros particulares</span><span>260</span></li>
+        <li><span>helicóptero são paulo</span><span>170</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -463,47 +443,28 @@ footer p { font-size: 13px; color: var(--muted); max-width: 70ch; }
 <!-- ============ PLANO ============ -->
 <section>
   <div class="sec-head">
-    <span class="label">Plano de voo · 90 dias</span>
+    <span class="label">Plano de voo · próximos 90 dias</span>
     <h2>Próximos passos</h2>
-    <p>Em ordem de impacto. Cada etapa prepara a seguinte: primeiro o site precisa abrir rápido, depois o conteúdo sobe, e então a autoridade sustenta as posições.</p>
   </div>
   <div class="plan">
     <div class="leg">
-      <div class="leg-head"><span class="when">Semanas 1–2</span><h3>Decolagem técnica</h3></div>
-      <ol>
-        <li>Otimizar a imagem ou o vídeo do topo e reduzir o tempo de carregamento no celular</li>
-        <li>Remover scripts e estilos sem uso</li>
-        <li>Padronizar o endereço (https, com ou sem www) e eliminar redirecionamentos</li>
-        <li>Corrigir a página 404</li>
-        <li>Escrever títulos, descrições e H1 únicos para cada página</li>
-      </ol>
+      <div class="leg-head"><span class="when">Mês 1</span><h3>Site mais rápido</h3></div>
+      <p class="muted" style="font-size:14.5px">Deixar o site mais leve e rápido no celular, onde está a maioria de quem pesquisa voos executivos.</p>
     </div>
     <div class="leg">
-      <div class="leg-head"><span class="when">Semanas 3–6</span><h3>Subir o que já está perto</h3></div>
-      <ol>
-        <li>Ampliar a página de jatinho particular: tipos de aeronave, rotas, como funciona o fretamento</li>
-        <li>Adicionar perguntas frequentes com marcação para o Google (FAQ)</li>
-        <li>Criar a página de preços de fretamento e de táxi aéreo</li>
-        <li>Reforçar a página de helicóptero em São Paulo</li>
-        <li>Ligar as páginas entre si com links internos</li>
-      </ol>
+      <div class="leg-head"><span class="when">Mês 2</span><h3>Chegar à primeira página</h3></div>
+      <p class="muted" style="font-size:14.5px">Fortalecer as páginas de jatinho particular e helicóptero e criar uma página que responda "quanto custa".</p>
     </div>
     <div class="leg">
-      <div class="leg-head"><span class="when">Semanas 7–12</span><h3>Ganhar altitude</h3></div>
-      <ol>
-        <li>Completar as páginas de táxi aéreo por cidade, começando por SP, Rio, BH e Recife</li>
-        <li>Buscar links de portais de aviação, associações do setor e parceiros (FBOs, hangares, hotéis)</li>
-        <li>Divulgar na imprensa de negócios e de lifestyle</li>
-        <li>Otimizar o Perfil da Empresa no Google</li>
-        <li>Medir posições e refazer este relatório no dia 90</li>
-      </ol>
+      <div class="leg-head"><span class="when">Mês 3</span><h3>Novos destinos</h3></div>
+      <p class="muted" style="font-size:14.5px">Páginas de táxi aéreo por cidade e divulgação da Flyton em sites do setor de aviação e de negócios.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <img src="data:image/png;base64,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" alt="SEO Amplify">
-  <p>Dados: Ubersuggest (Google Brasil, português), coletados em 7 de outubro de 2026. Visitas e posições são estimativas da ferramenta e podem diferir do Google Search Console. Velocidade: teste de laboratório PageSpeed/Lighthouse da página inicial.</p>
+  <p>Dados de Ubersuggest, Google Brasil, coletados em outubro de 2026. Visitas, posições e valores são estimativas.</p>
 </footer>
 
 </div>
@@ -513,65 +474,81 @@ footer p { font-size: 13px; color: var(--muted); max-width: 70ch; }
   var css = getComputedStyle(document.documentElement);
   function c(n) { return css.getPropertyValue(n).trim(); }
   var fmt = function (n) { return n.toLocaleString("pt-BR"); };
+  function halo(extra) { return ' paint-order="stroke" stroke="' + c('--surface') + '" stroke-width="5"' + (extra || ''); }
 
-  /* ---- tendência ---- */
   var months = ["set/25","out","nov","dez","jan/26","fev","mar","abr","mai","jun","jul","ago","set/26"];
   var visits = [17,41,87,185,98,98,136,167,209,155,187,266,248];
   var kws = [3,10,24,38,27,48,55,58,75,63,56,83,99];
-  var W = 600, H = 280, L = 40, R = 40, T = 20, B = 34;
-  var iw = W - L - R, ih = H - T - B;
-  var vmax = 300, kmax = 120;
+
+  /* ---- tendência ---- */
+  var W = 600, H = 280, L = 40, R = 40, T = 20, B = 34, iw = W - L - R, ih = H - T - B, vmax = 300, kmax = 120;
   function x(i) { return L + iw * i / (months.length - 1); }
   function yv(v) { return T + ih - ih * v / vmax; }
   function yk(v) { return T + ih - ih * v / kmax; }
-  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" style="min-width:520px;display:block" role="img" aria-label="Visitas orgânicas e palavras-chave por mês, de setembro de 2025 a setembro de 2026">';
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" style="min-width:520px;display:block" role="img" aria-label="Visitas e buscas por mês, de setembro de 2025 a setembro de 2026">';
   s += '<defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + c('--accent') + '" stop-opacity="0.35"/><stop offset="1" stop-color="' + c('--accent') + '" stop-opacity="0"/></linearGradient></defs>';
   [0,100,200,300].forEach(function (g) {
-    s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + yv(g) + '" y2="' + yv(g) + '" stroke="' + c('--line') + '" stroke-width="1"/>';
+    s += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + yv(g) + '" y2="' + yv(g) + '" stroke="' + c('--line') + '"/>';
     s += '<text x="' + (L - 8) + '" y="' + (yv(g) + 4) + '" text-anchor="end" font-size="11" fill="' + c('--accent') + '">' + g + '</text>';
     s += '<text x="' + (W - R + 8) + '" y="' + (yv(g) + 4) + '" font-size="11" fill="' + c('--sky') + '">' + (g * kmax / vmax) + '</text>';
   });
   var pv = visits.map(function (v, i) { return x(i) + ',' + yv(v); });
   s += '<path d="M' + x(0) + ',' + yv(0) + ' L' + pv.join(' L') + ' L' + x(visits.length - 1) + ',' + yv(0) + ' Z" fill="url(#ga)"/>';
   s += '<polyline points="' + pv.join(' ') + '" fill="none" stroke="' + c('--accent') + '" stroke-width="2.5" stroke-linejoin="round"/>';
-  var pk = kws.map(function (v, i) { return x(i) + ',' + yk(v); });
-  s += '<polyline points="' + pk.join(' ') + '" fill="none" stroke="' + c('--sky') + '" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round"/>';
-  months.forEach(function (m, i) {
-    if (i % 2 === 0) s += '<text x="' + x(i) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="' + c('--muted') + '">' + m + '</text>';
-  });
+  s += '<polyline points="' + kws.map(function (v, i) { return x(i) + ',' + yk(v); }).join(' ') + '" fill="none" stroke="' + c('--sky') + '" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round"/>';
+  months.forEach(function (m, i) { if (i % 2 === 0) s += '<text x="' + x(i) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="11" fill="' + c('--muted') + '">' + m + '</text>'; });
   var li = visits.length - 1;
+  s += '<circle cx="' + x(0) + '" cy="' + yv(visits[0]) + '" r="4" fill="' + c('--accent') + '" stroke="' + c('--surface') + '" stroke-width="2"/>';
+  s += '<text x="' + (x(0) + 10) + '" y="' + (yv(visits[0]) - 10) + '" font-size="12"' + halo() + ' fill="' + c('--muted') + '">17</text>';
   s += '<circle cx="' + x(li) + '" cy="' + yv(visits[li]) + '" r="5" fill="' + c('--accent') + '" stroke="' + c('--surface') + '" stroke-width="2"/>';
-  s += '<text x="' + (x(li) - 14) + '" y="' + (yv(visits[li]) - 14) + '" text-anchor="end" font-size="12" font-weight="500" paint-order="stroke" stroke="' + c('--surface') + '" stroke-width="5" fill="' + c('--fg') + '">248 visitas</text>';
+  s += '<text x="' + (x(li) - 14) + '" y="' + (yv(visits[li]) - 14) + '" text-anchor="end" font-size="12" font-weight="500"' + halo() + ' fill="' + c('--fg') + '">248 visitas</text>';
   s += '<circle cx="' + x(li) + '" cy="' + yk(kws[li]) + '" r="4" fill="' + c('--sky') + '" stroke="' + c('--surface') + '" stroke-width="2"/>';
-  s += '<text x="' + (x(li) - 14) + '" y="' + (yk(kws[li]) + 22) + '" text-anchor="end" font-size="12" paint-order="stroke" stroke="' + c('--surface') + '" stroke-width="5" fill="' + c('--sky') + '">99 palavras</text>';
+  s += '<text x="' + (x(li) - 14) + '" y="' + (yk(kws[li]) + 22) + '" text-anchor="end" font-size="12"' + halo() + ' fill="' + c('--sky') + '">99 buscas</text>';
   s += '</svg>';
   document.getElementById('trend').innerHTML = s;
 
-  /* ---- palavras na porta ---- */
-  var near = [
-    ["jatinho particular",5400,11,"/jatinho-particular/"],
-    ["taxi aéreo preço",390,14,"/helicoptero-sao-paulo/"],
-    ["quanto custa fretar um jatinho",320,13,"/jatinho-particular/"],
-    ["o que é jatinho",260,8,"/jatinho-particular/"],
-    ["alugar jato particular",260,10,"/jatinho-particular/"],
-    ["táxi aéreo helicóptero preço",260,10,"/helicoptero-sao-paulo/"],
-    ["alugar jatinho particular",260,11,"/jatinho-particular/"],
-    ["aluguel jatinho particular",260,11,"/jatinho-particular/"],
-    ["aluguel de jato",210,9,"/jatinho-aluguel/"],
-    ["fretar avião",210,15,"/jatinho-particular/"],
-    ["helicóptero são paulo",170,13,"/helicoptero-sao-paulo/"],
-    ["táxi aéreo são paulo",140,13,"/"],
-    ["fretar um jato",140,13,"/jatinho-particular/"]
-  ];
-  document.getElementById('near').innerHTML = near.map(function (r) {
-    var cls = r[2] <= 10 ? 'p1' : 'p2';
-    return '<tr><td>' + r[0] + '</td><td class="r">' + fmt(r[1]) + '</td><td class="r"><span class="pos ' + cls + '">' + r[2] + '</span></td><td><span class="path">' + r[3] + '</span></td></tr>';
+  /* ---- trimestres ---- */
+  var qs = [["out–dez/25", 313], ["jan–mar/26", 332], ["abr–jun/26", 531], ["jul–set/26", 701]];
+  document.getElementById('quarters').innerHTML = qs.map(function (q, i) {
+    var g = i ? '+' + Math.round((q[1] / qs[i - 1][1] - 1) * 100) + '%' : '&nbsp;';
+    return '<div class="q"><span class="v">' + q[1] + '</span><div class="col' + (i ? '' : ' dim') + '" style="height:' + (q[1] / 701 * 100) + '%"></div><span class="lb">' + q[0] + '<b>' + g + '</b></span></div>';
   }).join('');
 
-  /* ---- pista de posições 1–20 ---- */
+  /* ---- subida de posições (barras empilhadas) ---- */
+  var top10 = [0,1,3,3,1,2,3,8,8,4,4,5,4];
+  var mid = [1,1,10,18,7,21,38,40,50,43,30,54,74];
+  var CW = 900, CH = 300, cl = 36, cr = 12, ct = 26, cb = 30, cih = CH - ct - cb, cmax = 80;
+  var bw = (CW - cl - cr) / months.length;
+  function cy(v) { return ct + cih - cih * v / cmax; }
+  var b = '<svg viewBox="0 0 ' + CW + ' ' + CH + '" width="100%" style="min-width:520px;display:block" role="img" aria-label="Buscas entre os 50 primeiros resultados por mês">';
+  [0,20,40,60,80].forEach(function (g) {
+    b += '<line x1="' + cl + '" x2="' + (CW - cr) + '" y1="' + cy(g) + '" y2="' + cy(g) + '" stroke="' + c('--line') + '"/>';
+    b += '<text x="' + (cl - 8) + '" y="' + (cy(g) + 4) + '" text-anchor="end" font-size="11" fill="' + c('--muted') + '">' + g + '</text>';
+  });
+  months.forEach(function (m, i) {
+    var bx = cl + i * bw + bw * 0.18, w = bw * 0.64, t = top10[i] + mid[i];
+    b += '<rect x="' + bx + '" y="' + cy(t) + '" width="' + w + '" height="' + (cy(top10[i]) - cy(t)) + '" rx="2" fill="' + c('--accent') + '" fill-opacity="' + (i === months.length - 1 ? 1 : 0.7) + '"/>';
+    if (top10[i]) b += '<rect x="' + bx + '" y="' + cy(top10[i]) + '" width="' + w + '" height="' + (cy(0) - cy(top10[i])) + '" fill="' + c('--good') + '"/>';
+    if (i % 2 === 0) b += '<text x="' + (bx + w / 2) + '" y="' + (CH - 10) + '" text-anchor="middle" font-size="11" fill="' + c('--muted') + '">' + m + '</text>';
+    if (i === 0 || i === months.length - 1) b += '<text x="' + (bx + w / 2) + '" y="' + (cy(t) - 8) + '" text-anchor="middle" font-size="12" font-weight="500" fill="' + c('--fg') + '">' + t + '</text>';
+  });
+  b += '</svg>';
+  document.getElementById('climb').innerHTML = b;
+
+  /* ---- destaques ---- */
+  var near = [
+    ["jatinho particular",5400,11],["táxi aéreo preço",390,14],["quanto custa fretar um jatinho",320,13],
+    ["o que é jatinho",260,8],["alugar jato particular",260,10],["táxi aéreo helicóptero preço",260,10],
+    ["alugar jatinho particular",260,11],["aluguel jatinho particular",260,11],["aluguel de jato",210,9],
+    ["fretar avião",210,15],["helicóptero são paulo",170,13],["táxi aéreo são paulo",140,13],["fretar um jato",140,13]
+  ];
+  document.getElementById('near').innerHTML = near.map(function (r) {
+    return '<tr><td>' + r[0] + '</td><td class="r">' + fmt(r[1]) + '</td><td class="r"><span class="pos ' + (r[2] <= 10 ? 'p1' : 'p2') + '">' + r[2] + 'º</span></td></tr>';
+  }).join('');
+
   var RW = 640, RH = 170, rl = 20, rr = 20, maxPos = 20;
   function rx(p) { return rl + (RW - rl - rr) * (p - 0.5) / maxPos; }
-  var r = '<svg viewBox="0 0 ' + RW + ' ' + RH + '" width="100%" style="min-width:560px;display:block" role="img" aria-label="Posições das principais palavras-chave entre 1 e 20">';
+  var r = '<svg viewBox="0 0 ' + RW + ' ' + RH + '" width="100%" style="min-width:560px;display:block" role="img" aria-label="Posição das principais buscas entre 1 e 20">';
   r += '<rect x="' + rl + '" y="56" width="' + (rx(10.5) - rl) + '" height="56" rx="4" fill="' + c('--good') + '" fill-opacity="0.08"/>';
   r += '<rect x="' + rx(10.5) + '" y="56" width="' + (RW - rr - rx(10.5)) + '" height="56" rx="4" fill="' + c('--accent') + '" fill-opacity="0.06"/>';
   r += '<line x1="' + rx(10.5) + '" x2="' + rx(10.5) + '" y1="44" y2="124" stroke="' + c('--fg') + '" stroke-opacity="0.5" stroke-dasharray="3 3"/>';
@@ -579,71 +556,26 @@ footer p { font-size: 13px; color: var(--muted); max-width: 70ch; }
   r += '<text x="' + (rx(10.5) + 8) + '" y="40" font-size="11" fill="' + c('--accent') + '">2ª PÁGINA</text>';
   for (var p = 1; p <= maxPos; p++) {
     r += '<line x1="' + rx(p) + '" x2="' + rx(p) + '" y1="84" y2="' + (p % 5 === 0 || p === 1 ? 92 : 88) + '" stroke="' + c('--muted') + '" stroke-opacity="0.5"/>';
-    if (p === 1 || p % 5 === 0) r += '<text x="' + rx(p) + '" y="140" text-anchor="middle" font-size="11" fill="' + c('--muted') + '">' + p + '</text>';
+    if (p === 1 || p % 5 === 0) r += '<text x="' + rx(p) + '" y="140" text-anchor="middle" font-size="11" fill="' + c('--muted') + '">' + p + 'º</text>';
   }
   r += '<line x1="' + rl + '" x2="' + (RW - rr) + '" y1="84" y2="84" stroke="' + c('--muted') + '" stroke-opacity="0.5"/>';
   var stack = {};
   near.forEach(function (k) {
     var n = stack[k[2]] = (stack[k[2]] || 0) + 1;
     var rad = Math.max(4, Math.min(16, Math.sqrt(k[1]) / 4.6));
-    var cy = 84 - (n - 1) * 0 ;
     var off = (n - 1) * 9 * (n % 2 ? 1 : -1);
-    var col = k[2] <= 10 ? c('--good') : c('--accent');
-    r += '<circle cx="' + rx(k[2]) + '" cy="' + (cy + off) + '" r="' + rad + '" fill="' + col + '" fill-opacity="0.75" stroke="' + c('--surface') + '" stroke-width="1.5"><title>' + k[0] + ' · posição ' + k[2] + ' · ' + fmt(k[1]) + ' buscas/mês</title></circle>';
+    r += '<circle cx="' + rx(k[2]) + '" cy="' + (84 + off) + '" r="' + rad + '" fill="' + (k[2] <= 10 ? c('--good') : c('--accent')) + '" fill-opacity="0.75" stroke="' + c('--surface') + '" stroke-width="1.5"><title>' + k[0] + ' · ' + k[2] + 'º · ' + fmt(k[1]) + ' pesquisas/mês</title></circle>';
   });
   r += '<text x="' + rx(11) + '" y="160" text-anchor="middle" font-size="11.5" fill="' + c('--fg') + '">jatinho particular · 5.400/mês</text>';
-  r += '<text x="' + (RW - rr) + '" y="160" text-anchor="end" font-size="10.5" fill="' + c('--muted') + '">tamanho = buscas/mês</text>';
+  r += '<text x="' + (RW - rr) + '" y="160" text-anchor="end" font-size="10.5" fill="' + c('--muted') + '">tamanho = pesquisas/mês</text>';
   r += '</svg>';
   document.getElementById('runway').innerHTML = r;
 
   /* ---- páginas ---- */
-  var pages = [["/jatinho-particular/",97],["/helicoptero-sao-paulo/",19],["/fretamento-de-helicoptero/",3],["/taxi-aereo-fortaleza/",2],["/jatinho-aluguel/",2],["/rogerio-marques/",1],["/ (página inicial)",1],["/taxi-aereo-recife/",0],["/fretamento/",0],["/frota/",0]];
-  var tot = pages.reduce(function (a, b) { return a + b[1]; }, 0);
+  var pages = [["Jatinho particular",97],["Helicóptero em São Paulo",19],["Fretamento de helicóptero",3],["Táxi aéreo Fortaleza",2],["Aluguel de jatinho",2],["Página inicial",1]];
+  var tot = 125;
   document.getElementById('pages').innerHTML = pages.map(function (p) {
-    var pct = Math.round(p[1] / tot * 100);
-    return '<tr><td><span class="path" style="color:var(--fg)">' + p[0] + '</span></td><td class="r">' + p[1] + '</td><td><div class="da"><div class="bar"><span style="width:' + (p[1] / 97 * 100) + '%;background:var(--accent)"></span></div><span class="mono num" style="font-size:12.5px;color:var(--muted);min-width:34px;text-align:right">' + pct + '%</span></div></td></tr>';
-  }).join('');
-
-  /* ---- velocidade ---- */
-  function rate(v, good, poor) { return v <= good ? 'good' : v <= poor ? 'warn' : 'bad'; }
-  var lbl = { good: 'Bom', warn: 'Melhorar', bad: 'Ruim' };
-  function metrics(d) {
-    var rows = [
-      ["Conteúdo principal visível", "LCP · bom até 2,5 s", d.lcp + " s", rate(d.lcp, 2.5, 4)],
-      ["Primeiro conteúdo na tela", "FCP · bom até 1,8 s", d.fcp + " s", rate(d.fcp, 1.8, 3)],
-      ["Velocidade de exibição", "Speed Index · bom até 3,4 s", d.si + " s", rate(d.si, 3.4, 5.8)],
-      ["Tempo de bloqueio", "TBT · bom até 200 ms", d.tbt + " ms", rate(d.tbt, 200, 600)],
-      ["Estabilidade do layout", "CLS · bom até 0,1", "0", "good"]
-    ];
-    return rows.map(function (m) {
-      return '<div class="metric"><span class="name">' + m[0] + '<small>' + m[1] + '</small></span><span style="display:grid;justify-items:end"><span class="val">' + m[2].replace('.', ',') + '</span><span class="chip ' + m[3] + '">' + lbl[m[3]] + '</span></span></div>';
-    }).join('');
-  }
-  document.getElementById('mobile').innerHTML = metrics({ lcp: 86.9, fcp: 5.1, si: 9.4, tbt: 40 });
-  document.getElementById('desktop').innerHTML = metrics({ lcp: 14.6, fcp: 1.1, si: 3.1, tbt: 6 });
-
-  /* ---- nota de saúde ---- */
-  var score = 76, GR = 64, circ = 2 * Math.PI * GR, arc = circ * 0.75;
-  var g = '<svg viewBox="0 0 170 150" width="190" role="img" aria-label="Nota 76 de 100">';
-  g += '<circle cx="85" cy="85" r="' + GR + '" fill="none" stroke="' + c('--surface-2') + '" stroke-width="12" stroke-linecap="round" stroke-dasharray="' + arc + ' ' + circ + '" transform="rotate(135 85 85)"/>';
-  g += '<circle cx="85" cy="85" r="' + GR + '" fill="none" stroke="' + c('--warn') + '" stroke-width="12" stroke-linecap="round" stroke-dasharray="' + (arc * score / 100) + ' ' + circ + '" transform="rotate(135 85 85)"/>';
-  g += '<text x="85" y="92" text-anchor="middle" font-size="40" font-weight="500" fill="' + c('--fg') + '">' + score + '</text>';
-  g += '<text x="85" y="114" text-anchor="middle" font-size="12" fill="' + c('--muted') + '">de 100</text>';
-  g += '</svg>';
-  document.getElementById('gauge').innerHTML = g;
-
-  /* ---- concorrentes ---- */
-  var comp = [
-    ["flyflapper.com", 47, 21470, 17534, 87],
-    ["lideraviacao.com.br", 43, 8973, 879, 68],
-    ["aircharter.com.br", 29, 2610, 1271, 62],
-    ["flightmarket.com.br", 25, 21948, 6867, 29],
-    ["solojetaviacao.com.br", 15, 814, 128, 34],
-    ["flyton.com.br", 11, 248, 99, null]
-  ];
-  document.getElementById('comp').innerHTML = comp.map(function (k) {
-    var me = k[4] === null;
-    return '<tr' + (me ? ' class="me"' : '') + '><td>' + (me ? '<strong>' + k[0] + '</strong>' : k[0]) + '</td><td><div class="da"><div class="bar"><span style="width:' + (k[1] / 50 * 100) + '%"></span></div><span class="mono num" style="min-width:24px;text-align:right">' + k[1] + '</span></div></td><td class="r">' + fmt(k[2]) + '</td><td class="r">' + fmt(k[3]) + '</td><td class="r">' + (me ? '—' : k[4]) + '</td></tr>';
+    return '<tr><td>' + p[0] + '</td><td class="r">' + p[1] + '</td><td><div class="da"><div class="bar"><span style="width:' + (p[1] / 97 * 100) + '%;background:var(--accent)"></span></div><span class="mono num" style="font-size:12.5px;color:var(--muted);min-width:34px;text-align:right">' + Math.round(p[1] / tot * 100) + '%</span></div></td></tr>';
   }).join('');
 })();
 </script>
