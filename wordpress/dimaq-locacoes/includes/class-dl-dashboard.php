@@ -1,6 +1,7 @@
 <?php
 /**
- * Painel inicial: indicadores do dia e listas de atenção.
+ * Dados do painel inicial: indicadores, locações em andamento, funil, agenda,
+ * linha do tempo da frota, gráficos e alertas.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,173 +22,256 @@ class DL_Dashboard {
 		$maint  = (float) $wpdb->get_var( "SELECT COALESCE(SUM(CASE WHEN controle='quantidade' THEN qtd_total ELSE 1 END),0) FROM {$te} WHERE status = 'manutencao'" ); // phpcs:ignore WordPress.DB.PreparedSQL
 		$out    = (float) $wpdb->get_var( "SELECT COALESCE(SUM(i.qtd - i.qtd_devolvida),0) FROM {$ti} i JOIN {$tc} c ON c.id=i.doc_id WHERE i.doc_tipo='contrato' AND i.ref_tipo='equipamento' AND c.status='ativo'" ); // phpcs:ignore WordPress.DB.PreparedSQL
 		$month1 = current_time( 'Y-m-01' );
+		$fin    = current_user_can( 'dl_financeiro' );
 
-		return array(
+		$k = array(
 			'frota'        => $fleet,
 			'locados'      => $out,
 			'manutencao'   => $maint,
 			'disponiveis'  => max( 0, $fleet - $out - $maint ),
-			'utilizacao'   => $fleet ? 100 * $out / $fleet : 0,
+			'utilizacao'   => $fleet ? round( 100 * $out / $fleet, 1 ) : 0,
 			'ativos'       => (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tc} WHERE status='ativo'" ), // phpcs:ignore WordPress.DB.PreparedSQL
 			'atrasados'    => (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tc} WHERE status='ativo' AND data_prev_devolucao < %s", $today ) ), // phpcs:ignore WordPress.DB.PreparedSQL
+			'vencem_hoje'  => (int) $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$tc} WHERE status='ativo' AND data_prev_devolucao = %s", $today ) ), // phpcs:ignore WordPress.DB.PreparedSQL
 			'solicitacoes' => (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tc} WHERE status='solicitacao'" ), // phpcs:ignore WordPress.DB.PreparedSQL
 			'reservas'     => (int) $wpdb->get_var( "SELECT COUNT(*) FROM {$tc} WHERE status='reservado'" ), // phpcs:ignore WordPress.DB.PreparedSQL
-			'receber_hoje' => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(valor - valor_pago),0) FROM {$tf} WHERE tipo='receber' AND status='aberto' AND vencimento = %s", $today ) ), // phpcs:ignore WordPress.DB.PreparedSQL
-			'vencido'      => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(valor - valor_pago),0) FROM {$tf} WHERE tipo='receber' AND status='aberto' AND vencimento < %s", $today ) ), // phpcs:ignore WordPress.DB.PreparedSQL
-			'pagar_7'      => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(valor - valor_pago),0) FROM {$tf} WHERE tipo='pagar' AND status='aberto' AND vencimento <= %s", dl_add_days( $today, 7 ) ) ), // phpcs:ignore WordPress.DB.PreparedSQL
-			'recebido_mes' => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(valor_pago + juros + multa - desconto),0) FROM {$tf} WHERE tipo='receber' AND status='pago' AND data_pagamento >= %s", $month1 ) ), // phpcs:ignore WordPress.DB.PreparedSQL
-			'contratado_mes' => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(total),0) FROM {$tc} WHERE status IN ('reservado','ativo','encerrado') AND data_inicio >= %s", $month1 ) ), // phpcs:ignore WordPress.DB.PreparedSQL
+			'em_locacao_valor' => (float) $wpdb->get_var( "SELECT COALESCE(SUM(total),0) FROM {$tc} WHERE status='ativo'" ), // phpcs:ignore WordPress.DB.PreparedSQL
+		);
+		if ( $fin ) {
+			$k += array(
+				'receber_hoje'   => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(valor - valor_pago),0) FROM {$tf} WHERE tipo='receber' AND status='aberto' AND vencimento = %s", $today ) ), // phpcs:ignore WordPress.DB.PreparedSQL
+				'vencido'        => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(valor - valor_pago),0) FROM {$tf} WHERE tipo='receber' AND status='aberto' AND vencimento < %s", $today ) ), // phpcs:ignore WordPress.DB.PreparedSQL
+				'pagar_7'        => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(valor - valor_pago),0) FROM {$tf} WHERE tipo='pagar' AND status='aberto' AND vencimento <= %s", dl_add_days( $today, 7 ) ) ), // phpcs:ignore WordPress.DB.PreparedSQL
+				'recebido_mes'   => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(valor_pago + juros + multa - desconto),0) FROM {$tf} WHERE tipo='receber' AND status='pago' AND data_pagamento >= %s", $month1 ) ), // phpcs:ignore WordPress.DB.PreparedSQL
+				'contratado_mes' => (float) $wpdb->get_var( $wpdb->prepare( "SELECT COALESCE(SUM(total),0) FROM {$tc} WHERE status IN ('reservado','ativo','encerrado') AND data_inicio >= %s", $month1 ) ), // phpcs:ignore WordPress.DB.PreparedSQL
+				'a_faturar'      => (float) $wpdb->get_var( "SELECT COALESCE(SUM(CASE WHEN total > valor_faturado THEN total - valor_faturado ELSE 0 END),0) FROM {$tc} WHERE status IN ('ativo','encerrado','reservado')" ), // phpcs:ignore WordPress.DB.PreparedSQL
+			);
+		}
+		return $k;
+	}
+
+	/** Abreviações em português, independentes do idioma do WordPress. */
+	public static function month_name( $n ) {
+		$m = array( 1 => 'jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez' );
+		return $m[ $n ];
+	}
+
+	public static function weekday( $w ) {
+		$d = array( 'dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb' );
+		return $d[ $w ];
+	}
+
+	/** Cartão de um contrato com tudo que a tela precisa. */
+	public static function card( $c ) {
+		$today   = dl_today();
+		$cli     = DL_DB::get( 'clientes', (int) $c['cliente_id'] );
+		$total_d = max( 1, dl_days_between( $c['data_inicio'], $c['data_prev_devolucao'] ) );
+		$elapsed = dl_days_between( $c['data_inicio'], $today );
+		$late    = DL_Contracts::is_late( $c ) ? dl_days_between( $c['data_prev_devolucao'], $today ) : 0;
+		$items   = array();
+		foreach ( DL_Items::get( 'contrato', $c['id'] ) as $it ) {
+			if ( 'equipamento' !== $it['ref_tipo'] ) {
+				continue;
+			}
+			$items[] = array(
+				'id'        => (int) $it['id'],
+				'ref_id'    => (int) $it['ref_id'],
+				'descricao' => DL_DB::label( 'equipamentos', $it['ref_id'] ) ?: $it['descricao'],
+				'qtd'       => (float) $it['qtd'],
+				'pendente'  => (float) $it['qtd'] - (float) $it['qtd_devolvida'],
+			);
+		}
+		$phone = $cli ? ( $cli['whatsapp'] ? $cli['whatsapp'] : $cli['telefone'] ) : '';
+		$name  = $cli ? ( $cli['contato'] ? $cli['contato'] : $cli['nome'] ) : '';
+		if ( 'ativo' === $c['status'] ) {
+			$msg = $late
+				? sprintf( 'Olá, %s! A devolução da locação %s estava prevista para %s. Podemos combinar a coleta ou a renovação?', $name, $c['numero'], dl_date( $c['data_prev_devolucao'] ) )
+				: sprintf( 'Olá, %s! Passando para lembrar que a locação %s vence em %s. Quer renovar?', $name, $c['numero'], dl_date( $c['data_prev_devolucao'] ) );
+		} else {
+			$msg = sprintf( 'Olá, %s! Segue o orçamento %s da %s, no valor de %s: %s', $name, $c['numero'], dl_opt( 'empresa_nome' ), dl_money( $c['total'] ), DL_Documents::public_url( 'orcamento', $c['id'] ) );
+		}
+		return array(
+			'id'            => (int) $c['id'],
+			'numero'        => $c['numero'],
+			'status'        => DL_Contracts::is_late( $c ) ? 'atrasado' : $c['status'],
+			'status_raw'    => $c['status'],
+			'cliente'       => $cli ? array( 'id' => (int) $cli['id'], 'nome' => $cli['nome'], 'telefone' => $phone, 'bloqueado' => (bool) $cli['bloqueado'] ) : null,
+			'local_obra'    => trim( $c['local_obra'] . ( $c['endereco_entrega'] ? ' · ' . $c['endereco_entrega'] : '' ), ' ·' ),
+			'entrega'       => $c['entrega'],
+			'inicio'        => $c['data_inicio'],
+			'fim'           => $c['data_prev_devolucao'],
+			'dias_total'    => $total_d,
+			'dias_passados' => max( 0, min( $total_d, $elapsed ) ),
+			'dias_restantes' => dl_days_between( $today, $c['data_prev_devolucao'] ),
+			'dias_atraso'   => $late,
+			'progresso'     => max( 0, min( 100, round( 100 * $elapsed / $total_d ) ) ),
+			'total'         => (float) $c['total'],
+			'a_faturar'     => max( 0, round( (float) $c['total'] - (float) $c['valor_faturado'], 2 ) ),
+			'origem'        => $c['origem'],
+			'itens'         => $items,
+			'whatsapp'      => $phone ? dl_whatsapp_link( $phone, $msg ) : '',
+			'acoes'         => DL_Contracts::available_actions( $c ),
 		);
 	}
 
-	public static function render() {
-		dl_require_cap( 'dl_operar' );
+	/** Locações em andamento (mais urgentes primeiro). */
+	public static function active() {
 		global $wpdb;
-		$k     = self::kpis();
-		$today = dl_today();
-		$tc    = dl_table( 'contratos' );
-		$fin   = current_user_can( 'dl_financeiro' );
-		?>
-		<div class="wrap dl-wrap">
-			<h1><?php echo esc_html( dl_opt( 'empresa_nome' ) ); ?> — Painel</h1>
-			<?php dl_render_notice(); ?>
-			<p class="dl-quick">
-				<a class="button button-primary" href="<?php echo esc_url( dl_admin_url( 'dl-contratos', array( 'action' => 'new' ) ) ); ?>">+ Novo orçamento de locação</a>
-				<a class="button" href="<?php echo esc_url( dl_admin_url( 'dl-clientes', array( 'action' => 'new' ) ) ); ?>">+ Cliente</a>
-				<a class="button" href="<?php echo esc_url( dl_admin_url( 'dl-equipamentos', array( 'action' => 'new' ) ) ); ?>">+ Equipamento</a>
-				<a class="button" href="<?php echo esc_url( dl_admin_url( 'dl-os', array( 'action' => 'new' ) ) ); ?>">+ Ordem de serviço</a>
-				<a class="button" href="<?php echo esc_url( dl_admin_url( 'dl-disponibilidade' ) ); ?>">Consultar disponibilidade</a>
-			</p>
-			<div class="dl-kpis">
-				<div class="dl-kpi"><span>Frota ativa</span><strong><?php echo esc_html( dl_num( $k['frota'], 0 ) ); ?></strong></div>
-				<div class="dl-kpi"><span>Locados agora</span><strong><?php echo esc_html( dl_num( $k['locados'], 0 ) ); ?></strong></div>
-				<div class="dl-kpi"><span>Disponíveis</span><strong><?php echo esc_html( dl_num( $k['disponiveis'], 0 ) ); ?></strong></div>
-				<div class="dl-kpi"><span>Em manutenção</span><strong><?php echo esc_html( dl_num( $k['manutencao'], 0 ) ); ?></strong></div>
-				<div class="dl-kpi"><span>Utilização da frota</span><strong><?php echo esc_html( dl_num( $k['utilizacao'], 1 ) ); ?>%</strong></div>
-				<div class="dl-kpi"><span>Contratos em andamento</span><strong><?php echo (int) $k['ativos']; ?></strong></div>
-				<div class="dl-kpi <?php echo $k['atrasados'] ? 'dl-kpi-alert' : ''; ?>"><span>Devoluções atrasadas</span><strong><?php echo (int) $k['atrasados']; ?></strong></div>
-				<div class="dl-kpi <?php echo $k['solicitacoes'] ? 'dl-kpi-warn' : ''; ?>"><span>Pedidos do site</span><strong><?php echo (int) $k['solicitacoes']; ?></strong></div>
-				<?php if ( $fin ) : ?>
-					<div class="dl-kpi"><span>A receber hoje</span><strong><?php echo esc_html( dl_money( $k['receber_hoje'] ) ); ?></strong></div>
-					<div class="dl-kpi <?php echo $k['vencido'] > 0 ? 'dl-kpi-alert' : ''; ?>"><span>Vencido a receber</span><strong><?php echo esc_html( dl_money( $k['vencido'] ) ); ?></strong></div>
-					<div class="dl-kpi"><span>A pagar em 7 dias</span><strong><?php echo esc_html( dl_money( $k['pagar_7'] ) ); ?></strong></div>
-					<div class="dl-kpi"><span>Recebido no mês</span><strong><?php echo esc_html( dl_money( $k['recebido_mes'] ) ); ?></strong></div>
-					<div class="dl-kpi"><span>Contratado no mês</span><strong><?php echo esc_html( dl_money( $k['contratado_mes'] ) ); ?></strong></div>
-				<?php endif; ?>
-			</div>
-
-			<div class="dl-columns">
-				<div class="dl-card">
-					<h2>Devoluções: atrasadas e próximos 3 dias</h2>
-					<?php
-					$rows = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$tc} WHERE status='ativo' AND data_prev_devolucao <= %s ORDER BY data_prev_devolucao LIMIT 15", dl_add_days( $today, 3 ) ), ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
-					self::contract_table( $rows, true );
-					?>
-				</div>
-				<div class="dl-card">
-					<h2>Saídas programadas (reservas)</h2>
-					<?php
-					$rows = $wpdb->get_results( "SELECT * FROM {$tc} WHERE status='reservado' ORDER BY data_inicio LIMIT 15", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
-					self::contract_table( $rows, false );
-					?>
-				</div>
-				<div class="dl-card">
-					<h2>Pedidos de orçamento do site</h2>
-					<?php
-					$rows = $wpdb->get_results( "SELECT * FROM {$tc} WHERE status='solicitacao' ORDER BY id DESC LIMIT 15", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
-					self::contract_table( $rows, false );
-					?>
-				</div>
-				<div class="dl-card">
-					<h2>Manutenção</h2>
-					<?php
-					$prev = DL_Service_Orders::preventive_due();
-					$open = $wpdb->get_results( 'SELECT * FROM ' . dl_table( 'ordens_servico' ) . " WHERE status IN ('aberta','em_andamento','aguardando_peca') ORDER BY FIELD(prioridade,'urgente','alta','normal','baixa'), data_abertura LIMIT 15", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
-					if ( ! $prev && ! $open ) {
-						echo '<p>Nada pendente.</p>';
-					}
-					echo '<ul class="dl-links">';
-					foreach ( $prev as $e ) {
-						echo '<li>⚠ Preventiva vencida: <a href="' . esc_url( dl_admin_url( 'dl-os', array( 'action' => 'new', 'equipamento_id' => $e['id'], 'tipo' => 'preventiva' ) ) ) . '">' . esc_html( $e['nome'] ) . '</a> (' . esc_html( dl_num( $e['horimetro'] - $e['ultima_manutencao_horas'], 0 ) ) . ' h)</li>';
-					}
-					foreach ( $open as $os ) {
-						echo '<li><a href="' . esc_url( dl_admin_url( 'dl-os', array( 'action' => 'edit', 'id' => $os['id'] ) ) ) . '">' . esc_html( $os['numero'] ) . '</a> ' . esc_html( DL_DB::label( 'equipamentos', $os['equipamento_id'] ) ) . ' ' . dl_badge( 'os', $os['status'] ) . '</li>'; // phpcs:ignore WordPress.Security.EscapeOutput
-					}
-					foreach ( DL_Stock::low_stock() as $p ) {
-						echo '<li>📦 Estoque baixo: <a href="' . esc_url( dl_admin_url( 'dl-produtos', array( 'action' => 'edit', 'id' => $p['id'] ) ) ) . '">' . esc_html( $p['nome'] ) . '</a> (' . esc_html( dl_num( $p['estoque_atual'], 0 ) ) . ')</li>';
-					}
-					echo '</ul>';
-					?>
-				</div>
-			</div>
-		</div>
-		<?php
+		$rows = $wpdb->get_results( 'SELECT * FROM ' . dl_table( 'contratos' ) . " WHERE status = 'ativo' ORDER BY data_prev_devolucao ASC, id ASC LIMIT 300", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
+		return array_map( array( __CLASS__, 'card' ), $rows );
 	}
 
-	private static function contract_table( $rows, $show_late ) {
-		if ( ! $rows ) {
-			echo '<p>Nada por aqui.</p>';
-			return;
+	/** Funil comercial: pedidos do site, orçamentos e reservas. */
+	public static function pipeline() {
+		global $wpdb;
+		$out = array();
+		foreach ( array( 'solicitacao', 'orcamento', 'reservado' ) as $st ) {
+			$order    = 'reservado' === $st ? 'data_inicio ASC' : 'id DESC';
+			$rows     = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . dl_table( 'contratos' ) . " WHERE status = %s ORDER BY {$order} LIMIT 60", $st ), ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
+			$out[ $st ] = array_map( array( __CLASS__, 'card' ), $rows );
 		}
-		echo '<table class="widefat striped"><tbody>';
-		foreach ( $rows as $c ) {
-			$late = $show_late && $c['data_prev_devolucao'] < dl_today();
-			echo '<tr><td><a href="' . esc_url( dl_admin_url( 'dl-contratos', array( 'action' => 'edit', 'id' => $c['id'] ) ) ) . '">' . esc_html( $c['numero'] ) . '</a></td><td>' . esc_html( DL_DB::label( 'clientes', $c['cliente_id'] ) ) . '</td><td>' . esc_html( dl_date( $show_late ? $c['data_prev_devolucao'] : $c['data_inicio'] ) ) . '</td><td>' . ( $late ? dl_badge( 'contrato', 'atrasado' ) : esc_html( dl_money( $c['total'] ) ) ) . '</td></tr>'; // phpcs:ignore WordPress.Security.EscapeOutput
-		}
-		echo '</tbody></table>';
+		return $out;
 	}
 
-	/** Consulta rápida de disponibilidade por período. */
-	public static function render_availability() {
-		dl_require_cap( 'dl_operar' );
+	/** Agenda de hoje e amanhã: saídas e devoluções. */
+	public static function agenda() {
 		global $wpdb;
-		$from  = isset( $_GET['de'] ) ? sanitize_text_field( wp_unslash( $_GET['de'] ) ) : dl_today(); // phpcs:ignore WordPress.Security.NonceVerification
-		$to    = isset( $_GET['ate'] ) ? sanitize_text_field( wp_unslash( $_GET['ate'] ) ) : dl_add_days( dl_today(), 7 ); // phpcs:ignore WordPress.Security.NonceVerification
-		$cat   = absint( $_GET['cat'] ?? 0 ); // phpcs:ignore WordPress.Security.NonceVerification
-		$to    = max( $from, $to );
-		$where = $cat ? $wpdb->prepare( ' AND categoria_id = %d', $cat ) : '';
-		$equips = $wpdb->get_results( 'SELECT * FROM ' . dl_table( 'equipamentos' ) . " WHERE status <> 'inativo' {$where} ORDER BY nome", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
-		$days  = DL_Contracts::rental_days( $from, $to );
-		?>
-		<div class="wrap dl-wrap">
-			<h1>Disponibilidade da frota</h1>
-			<form method="get" class="dl-filters">
-				<input type="hidden" name="page" value="dl-disponibilidade">
-				<label>de <input type="date" name="de" value="<?php echo esc_attr( $from ); ?>"></label>
-				<label>até <input type="date" name="ate" value="<?php echo esc_attr( $to ); ?>"></label>
-				<select name="cat"><option value="0">Todas as categorias</option>
-				<?php foreach ( DL_DB::options( 'categorias' ) as $id => $name ) : ?>
-					<option value="<?php echo (int) $id; ?>" <?php selected( $cat, $id ); ?>><?php echo esc_html( $name ); ?></option>
-				<?php endforeach; ?>
-				</select>
-				<button class="button">Consultar</button>
-			</form>
-			<table class="widefat striped dl-table">
-				<thead><tr><th>Equipamento</th><th>Frota</th><th>Livre no período</th><th>Melhor preço p/ <?php echo (int) $days; ?> dia(s)</th><th>Ocupação</th><th></th></tr></thead>
-				<tbody>
-				<?php foreach ( $equips as $e ) : ?>
-					<?php
-					$free  = DL_Availability::available( $e['id'], $from, $to );
-					$fleet = 'quantidade' === $e['controle'] ? (int) $e['qtd_total'] : 1;
-					$best  = DL_Pricing::best_price( DL_Contracts::rates( $e ), $days );
-					$sched = DL_Availability::schedule( $e['id'], $from );
-					?>
-					<tr>
-						<td><a href="<?php echo esc_url( dl_admin_url( 'dl-equipamentos', array( 'action' => 'edit', 'id' => $e['id'] ) ) ); ?>"><?php echo esc_html( trim( $e['codigo'] . ' ' . $e['nome'] ) ); ?></a> <?php echo 'manutencao' === $e['status'] ? dl_badge( 'equipamento', 'manutencao' ) : ''; // phpcs:ignore WordPress.Security.EscapeOutput ?></td>
-						<td><?php echo (int) $fleet; ?></td>
-						<td><strong style="color:<?php echo $free > 0 ? '#1a7f37' : '#b32d2e'; ?>"><?php echo esc_html( dl_num( $free, 0 ) ); ?></strong></td>
-						<td><?php echo $best['total'] ? esc_html( dl_money( $best['total'] ) . ' (' . $best['descricao'] . ')' ) : '—'; ?></td>
-						<td class="dl-small">
-							<?php foreach ( array_slice( $sched, 0, 4 ) as $s ) : ?>
-								<a href="<?php echo esc_url( dl_admin_url( 'dl-contratos', array( 'action' => 'edit', 'id' => $s['id'] ) ) ); ?>"><?php echo esc_html( $s['numero'] ); ?></a> <?php echo esc_html( dl_date( $s['data_inicio'] ) . '–' . dl_date( $s['data_prev_devolucao'] ) . ' (' . ( dl_statuses( 'contrato' )[ $s['status'] ] ?? '' ) . ')' ); ?><br>
-							<?php endforeach; ?>
-						</td>
-						<td><?php if ( $free > 0 ) : ?><a class="button button-small" href="<?php echo esc_url( dl_admin_url( 'dl-contratos', array( 'action' => 'new', 'data_inicio' => $from, 'data_prev_devolucao' => $to, 'equip' => $e['id'] ) ) ); ?>">Orçar</a><?php endif; ?></td>
-					</tr>
-				<?php endforeach; ?>
-				</tbody>
-			</table>
-		</div>
-		<?php
+		$tc       = dl_table( 'contratos' );
+		$today    = dl_today();
+		$tomorrow = dl_add_days( $today, 1 );
+		$out      = array();
+		foreach ( array( $today => 'Hoje', $tomorrow => 'Amanhã' ) as $day => $label ) {
+			$saidas = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$tc} WHERE status = 'reservado' AND data_inicio " . ( $day === $today ? '<=' : '=' ) . ' %s ORDER BY data_inicio', $day ), ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
+			$voltas = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$tc} WHERE status = 'ativo' AND data_prev_devolucao = %s", $day ), ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
+			$out[]  = array(
+				'dia'       => $day,
+				'label'     => $label,
+				'saidas'    => array_map( array( __CLASS__, 'card' ), $saidas ),
+				'devolucoes' => array_map( array( __CLASS__, 'card' ), $voltas ),
+			);
+		}
+		return $out;
+	}
+
+	/** Recebido e contratado por mês (últimos N meses). */
+	public static function revenue( $months = 6 ) {
+		global $wpdb;
+		$out = array();
+		for ( $i = $months - 1; $i >= 0; $i-- ) {
+			$start = date( 'Y-m-01', strtotime( current_time( 'Y-m-01' ) . " -{$i} months" ) );
+			$end   = date( 'Y-m-t', strtotime( $start ) );
+			$out[] = array(
+				'mes'        => self::month_name( (int) date( 'n', strtotime( $start ) ) ) . '/' . date( 'y', strtotime( $start ) ),
+				'recebido'   => current_user_can( 'dl_financeiro' ) ? (float) $wpdb->get_var( $wpdb->prepare( 'SELECT COALESCE(SUM(valor_pago + juros + multa - desconto),0) FROM ' . dl_table( 'financeiro' ) . " WHERE tipo='receber' AND status='pago' AND data_pagamento BETWEEN %s AND %s", $start, $end ) ) : null,
+				'contratado' => (float) $wpdb->get_var( $wpdb->prepare( 'SELECT COALESCE(SUM(total),0) FROM ' . dl_table( 'contratos' ) . " WHERE status IN ('reservado','ativo','encerrado') AND data_inicio BETWEEN %s AND %s", $start, $end ) ),
+			);
+		}
+		return $out;
+	}
+
+	/** Ocupação por categoria agora. */
+	public static function by_category() {
+		global $wpdb;
+		$rows = $wpdb->get_results( 'SELECT * FROM ' . dl_table( 'equipamentos' ) . " WHERE status <> 'inativo'", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
+		$cats = array();
+		foreach ( $rows as $e ) {
+			$name = DL_DB::label( 'categorias', (int) $e['categoria_id'] ) ?: 'Sem categoria';
+			$f    = 'quantidade' === $e['controle'] ? (int) $e['qtd_total'] : 1;
+			$cats[ $name ]['frota']  = ( $cats[ $name ]['frota'] ?? 0 ) + $f;
+			$cats[ $name ]['locado'] = ( $cats[ $name ]['locado'] ?? 0 ) + DL_Availability::out_now( $e['id'] );
+		}
+		$out = array();
+		foreach ( $cats as $name => $v ) {
+			$out[] = array( 'categoria' => $name, 'frota' => $v['frota'], 'locado' => $v['locado'], 'pct' => $v['frota'] ? round( 100 * $v['locado'] / $v['frota'] ) : 0 );
+		}
+		usort( $out, function ( $a, $b ) { return $b['pct'] <=> $a['pct']; } );
+		return $out;
+	}
+
+	/** Alertas que pedem ação. */
+	public static function alerts() {
+		$out = array();
+		foreach ( DL_Service_Orders::preventive_due() as $e ) {
+			$out[] = array( 'tipo' => 'manutencao', 'texto' => 'Preventiva vencida: ' . $e['nome'] . ' (' . dl_num( $e['horimetro'] - $e['ultima_manutencao_horas'], 0 ) . ' h)', 'abrir' => 'equipamentos/' . $e['id'] );
+		}
+		foreach ( DL_Stock::low_stock() as $p ) {
+			$out[] = array( 'tipo' => 'estoque', 'texto' => 'Estoque baixo: ' . $p['nome'] . ' (' . dl_num( $p['estoque_atual'], 0 ) . ' ' . $p['unidade'] . ')', 'abrir' => 'produtos/' . $p['id'] );
+		}
+		global $wpdb;
+		$os = $wpdb->get_results( 'SELECT id, numero, equipamento_id, prioridade FROM ' . dl_table( 'ordens_servico' ) . " WHERE status IN ('aberta','em_andamento','aguardando_peca') AND prioridade IN ('alta','urgente') ORDER BY id DESC LIMIT 10", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
+		foreach ( $os as $o ) {
+			$out[] = array( 'tipo' => 'os', 'texto' => 'OS ' . $o['numero'] . ' (' . $o['prioridade'] . '): ' . DL_DB::label( 'equipamentos', $o['equipamento_id'] ), 'abrir' => 'os/' . $o['id'] );
+		}
+		return $out;
+	}
+
+	/**
+	 * Linha do tempo: cada equipamento com as faixas ocupadas por contratos no intervalo.
+	 */
+	public static function timeline( $from, $days, $category = 0, $q = '' ) {
+		global $wpdb;
+		$days  = max( 7, min( 90, (int) $days ) );
+		$to    = dl_add_days( $from, $days - 1 );
+		$where = "status <> 'inativo'";
+		if ( $category ) {
+			$where .= $wpdb->prepare( ' AND categoria_id = %d', $category );
+		}
+		if ( $q ) {
+			$like   = '%' . $wpdb->esc_like( $q ) . '%';
+			$where .= $wpdb->prepare( ' AND (nome LIKE %s OR codigo LIKE %s)', $like, $like );
+		}
+		$equips = $wpdb->get_results( 'SELECT id, codigo, nome, controle, qtd_total, status, categoria_id FROM ' . dl_table( 'equipamentos' ) . " WHERE {$where} ORDER BY nome LIMIT 200", ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL
+		$today  = dl_today();
+		$rows   = array();
+		foreach ( $equips as $e ) {
+			$segs = $wpdb->get_results(
+				$wpdb->prepare(
+					'SELECT c.id, c.numero, c.status, c.cliente_id, c.data_inicio, c.data_prev_devolucao, SUM(i.qtd - i.qtd_devolvida) AS qtd
+					FROM ' . dl_table( 'itens' ) . ' i JOIN ' . dl_table( 'contratos' ) . " c ON c.id = i.doc_id
+					WHERE i.doc_tipo = 'contrato' AND i.ref_tipo = 'equipamento' AND i.ref_id = %d
+					AND c.status IN ('orcamento','solicitacao','reservado','ativo') AND i.qtd > i.qtd_devolvida
+					AND c.data_inicio <= %s AND ( c.data_prev_devolucao >= %s OR c.status = 'ativo' )
+					GROUP BY c.id ORDER BY c.data_inicio",
+					$e['id'],
+					$to,
+					$from
+				),
+				ARRAY_A
+			);
+			$bars = array();
+			foreach ( $segs as $s ) {
+				$late  = 'ativo' === $s['status'] && $s['data_prev_devolucao'] < $today;
+				$end   = $late ? max( $today, $s['data_prev_devolucao'] ) : $s['data_prev_devolucao'];
+				$start = max( $from, $s['data_inicio'] );
+				$end   = min( $to, $end );
+				if ( $end < $start ) {
+					continue;
+				}
+				$bars[] = array(
+					'contrato' => (int) $s['id'],
+					'numero'   => $s['numero'],
+					'status'   => $late ? 'atrasado' : $s['status'],
+					'cliente'  => DL_DB::label( 'clientes', $s['cliente_id'] ),
+					'qtd'      => (float) $s['qtd'],
+					'inicio'   => $s['data_inicio'],
+					'fim'      => $s['data_prev_devolucao'],
+					'col'      => dl_days_between( $from, $start ),
+					'span'     => dl_days_between( $start, $end ) + 1,
+				);
+			}
+			$rows[] = array(
+				'id'     => (int) $e['id'],
+				'nome'   => trim( $e['codigo'] . ' ' . $e['nome'] ),
+				'frota'  => 'quantidade' === $e['controle'] ? (int) $e['qtd_total'] : 1,
+				'status' => $e['status'],
+				'bars'   => $bars,
+			);
+		}
+		$header = array();
+		for ( $i = 0; $i < $days; $i++ ) {
+			$d        = dl_add_days( $from, $i );
+			$header[] = array( 'data' => $d, 'dia' => date( 'd', strtotime( $d ) ), 'semana' => self::weekday( (int) date( 'w', strtotime( $d ) ) ), 'fds' => in_array( (int) date( 'w', strtotime( $d ) ), array( 0, 6 ), true ), 'hoje' => $d === $today );
+		}
+		return array( 'de' => $from, 'ate' => $to, 'dias' => $header, 'linhas' => $rows );
 	}
 }

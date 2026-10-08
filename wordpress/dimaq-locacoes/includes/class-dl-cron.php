@@ -102,7 +102,7 @@ class DL_Cron {
 		}
 
 		if ( $lines ) {
-			wp_mail( dl_opt( 'email_notificacao' ), 'Resumo do dia — ' . dl_opt( 'empresa_nome' ) . ' — ' . dl_date( $today ), implode( "\n", $lines ) . "\n\nPainel: " . dl_admin_url( 'dl-painel' ) );
+			wp_mail( dl_opt( 'email_notificacao' ), 'Resumo do dia — ' . dl_opt( 'empresa_nome' ) . ' — ' . dl_date( $today ), implode( "\n", $lines ) . "\n\nPainel: " . dl_app_url() );
 		}
 		do_action( 'dl_daily_done', $lines );
 	}

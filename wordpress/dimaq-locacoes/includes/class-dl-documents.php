@@ -115,7 +115,7 @@ class DL_Documents {
 <div class="page">
 	<header>
 		<div>
-			<?php if ( dl_opt( 'logo_url' ) ) : ?><img src="<?php echo esc_url( dl_opt( 'logo_url' ) ); ?>" alt=""><br><?php endif; ?>
+			<img src="<?php echo esc_url( dl_opt( 'logo_url' ) ? dl_opt( 'logo_url' ) : DL_URL . 'assets/app/logo-dimaq-original.png' ); ?>" alt="<?php echo esc_attr( dl_opt( 'empresa_nome' ) ); ?>"><br>
 			<div class="co"><strong><?php echo esc_html( dl_opt( 'empresa_nome' ) ); ?></strong><br>
 			<?php echo esc_html( trim( ( dl_opt( 'empresa_cnpj' ) ? 'CNPJ ' . dl_opt( 'empresa_cnpj' ) : '' ) . ( dl_opt( 'empresa_ie' ) ? ' · IE ' . dl_opt( 'empresa_ie' ) : '' ) ) ); ?><br>
 			<?php echo esc_html( trim( dl_opt( 'empresa_endereco' ) . ' — ' . dl_opt( 'empresa_cidade' ) . '/' . dl_opt( 'empresa_uf' ), ' —/' ) ); ?><br>

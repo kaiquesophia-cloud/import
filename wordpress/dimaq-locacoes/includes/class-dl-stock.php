@@ -10,8 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 class DL_Stock {
 
 	public static function init() {
-		add_action( 'admin_post_dl_stock_move', array( __CLASS__, 'handle_move' ) );
-		add_action( 'dl_sidebar_produtos', array( __CLASS__, 'sidebar' ) );
 		add_filter( 'dl_can_delete_produtos', array( __CLASS__, 'can_delete' ), 10, 2 );
 		add_filter( 'dl_list_row_produtos', array( __CLASS__, 'list_row' ) );
 	}
@@ -58,7 +56,7 @@ class DL_Stock {
 		return true;
 	}
 
-	/** Baixa (ou estorna, com $sign = 1) os produtos de um documento. */
+	/** Baixa (ou estorna, com $reverse) os produtos de um documento. */
 	public static function apply_document( $doc_tipo, $doc_id, $label, $reverse = false ) {
 		foreach ( DL_Items::get( $doc_tipo, $doc_id ) as $it ) {
 			if ( 'produto' !== $it['ref_tipo'] || ! $it['ref_id'] ) {
@@ -81,37 +79,10 @@ class DL_Stock {
 		return $used ? 'Produto já usado em vendas ou OS — desative em vez de excluir.' : $can;
 	}
 
-	public static function sidebar( $p ) {
+	/** Últimas movimentações de um produto. */
+	public static function history( $product_id ) {
 		global $wpdb;
-		if ( 'servico' !== $p['tipo'] ) {
-			echo '<div class="dl-card"><h3>Estoque: ' . esc_html( dl_num( $p['estoque_atual'], 3 ) . ' ' . $p['unidade'] ) . '</h3>';
-			echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" class="dl-inline-form">';
-			wp_nonce_field( 'dl_stock_' . $p['id'] );
-			echo '<input type="hidden" name="action" value="dl_stock_move"><input type="hidden" name="id" value="' . (int) $p['id'] . '">';
-			echo '<label>Movimento<br><select name="tipo"><option value="entrada">Entrada (compra)</option><option value="saida">Saída (consumo/perda)</option><option value="ajuste">Ajuste (contagem: saldo final)</option></select></label>';
-			echo '<label>Quantidade<br><input type="number" step="0.001" name="qtd" required></label>';
-			echo '<label>Custo unitário (entrada)<br><input type="number" step="0.01" min="0" name="custo"></label>';
-			echo '<label>Observação<br><input type="text" name="obs"></label>';
-			echo '<button class="button button-primary">Movimentar estoque</button></form></div>';
-		}
-		$rows = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . dl_table( 'estoque_mov' ) . ' WHERE produto_id = %d ORDER BY id DESC LIMIT 20', $p['id'] ), ARRAY_A );
-		if ( $rows ) {
-			echo '<div class="dl-card"><h3>Últimas movimentações</h3><table class="widefat striped"><tbody>';
-			foreach ( $rows as $r ) {
-				echo '<tr><td>' . esc_html( dl_datetime( $r['criado_em'] ) ) . '</td><td>' . esc_html( $r['tipo'] ) . '</td><td>' . esc_html( dl_num( $r['qtd'], 3 ) ) . '</td><td>' . esc_html( $r['obs'] ) . '</td></tr>';
-			}
-			echo '</tbody></table></div>';
-		}
-	}
-
-	public static function handle_move() {
-		dl_require_cap( 'dl_operar' );
-		$id = absint( $_POST['id'] ?? 0 );
-		check_admin_referer( 'dl_stock_' . $id );
-		$type = in_array( $_POST['tipo'] ?? '', array( 'entrada', 'saida', 'ajuste' ), true ) ? sanitize_key( $_POST['tipo'] ) : 'entrada';
-		self::move( $id, $type, dl_decimal( wp_unslash( $_POST['qtd'] ?? 0 ) ), 'manual', 0, sanitize_text_field( wp_unslash( $_POST['obs'] ?? '' ) ), dl_decimal( wp_unslash( $_POST['custo'] ?? 0 ) ) );
-		dl_log( 'produtos', $id, 'Estoque: ' . $type );
-		dl_redirect( dl_admin_url( 'dl-produtos', array( 'action' => 'edit', 'id' => $id ) ), 'Estoque atualizado.' );
+		return $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . dl_table( 'estoque_mov' ) . ' WHERE produto_id = %d ORDER BY id DESC LIMIT 30', $product_id ), ARRAY_A );
 	}
 
 	/** Produtos no estoque mínimo ou abaixo. */

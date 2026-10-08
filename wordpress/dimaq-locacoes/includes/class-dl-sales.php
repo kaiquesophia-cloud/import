@@ -14,9 +14,7 @@ class DL_Sales {
 		add_filter( 'dl_before_save_vendas', array( __CLASS__, 'before_save' ), 10, 3 );
 		add_action( 'dl_after_save_vendas', array( __CLASS__, 'after_save' ), 10, 3 );
 		add_action( 'dl_items_saved_venda', array( __CLASS__, 'recalc' ) );
-		add_action( 'dl_sidebar_vendas', array( __CLASS__, 'sidebar' ) );
 		add_filter( 'dl_can_delete_vendas', array( __CLASS__, 'can_delete' ), 10, 2 );
-		add_filter( 'dl_row_actions_vendas', array( __CLASS__, 'row_actions' ), 10, 2 );
 	}
 
 	public static function new_row( $row ) {
@@ -63,7 +61,7 @@ class DL_Sales {
 	public static function confirm( $v ) {
 		if ( ! DL_Items::get( 'venda', $v['id'] ) ) {
 			DL_DB::update( 'vendas', $v['id'], array( 'status' => 'orcamento' ) );
-			set_transient( 'dl_notice_' . get_current_user_id(), array( 'type' => 'error', 'message' => 'Adicione itens antes de confirmar a venda.' ), 60 );
+			dl_notice( 'Adicione itens antes de confirmar a venda.', 'error' );
 			return;
 		}
 		DL_Stock::apply_document( 'venda', $v['id'], 'Venda ' . $v['numero'] );
@@ -99,17 +97,5 @@ class DL_Sales {
 
 	public static function can_delete( $can, $row ) {
 		return 'orcamento' === $row['status'] ? $can : 'Só orçamentos podem ser excluídos — cancele a venda.';
-	}
-
-	public static function row_actions( $actions, $row ) {
-		$actions['print'] = '<a target="_blank" href="' . esc_url( DL_Documents::url( 'venda', $row['id'] ) ) . '">Imprimir</a>';
-		return $actions;
-	}
-
-	public static function sidebar( $v ) {
-		echo '<div class="dl-card"><h3>Resumo</h3><p>' . dl_badge( 'venda', $v['status'] ) . '</p><p class="dl-big">' . esc_html( dl_money( $v['total'] ) ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput
-		echo '<p><a class="button" target="_blank" href="' . esc_url( DL_Documents::url( 'venda', $v['id'] ) ) . '">Imprimir pedido</a></p></div>';
-		DL_Finance::render_linked( 'venda', $v['id'] );
-		DL_Fiscal::render_linked( 'venda', $v['id'], $v );
 	}
 }

@@ -392,7 +392,7 @@ class DL_Frontend {
 		dl_log( 'contratos', $contract, 'Pedido recebido pelo site' );
 		wp_cache_delete( 'dl_pending' );
 
-		$admin_link = dl_admin_url( 'dl-contratos', array( 'action' => 'edit', 'id' => $contract ) );
+		$admin_link = dl_app_url( 'contratos/' . $contract );
 		wp_mail(
 			dl_opt( 'email_notificacao' ),
 			'Novo pedido de orçamento ' . $number . ' — ' . $name,
@@ -567,7 +567,7 @@ class DL_Frontend {
 			}
 		}
 		dl_log( 'contratos', $id, $labels[ $req ], 'pela área do cliente' );
-		wp_mail( dl_opt( 'email_notificacao' ), $labels[ $req ] . ' — ' . $c['numero'], $cli['nome'] . ' (' . $cli['telefone'] . ")\n\n" . dl_admin_url( 'dl-contratos', array( 'action' => 'edit', 'id' => $id ) ) );
+		wp_mail( dl_opt( 'email_notificacao' ), $labels[ $req ] . ' — ' . $c['numero'], $cli['nome'] . ' (' . $cli['telefone'] . ")\n\n" . dl_app_url( 'contratos/' . $id ) );
 		wp_safe_redirect( add_query_arg( 'dl_msg', rawurlencode( 'Recebemos sua solicitação. Entraremos em contato.' ), $back ) );
 		exit;
 	}

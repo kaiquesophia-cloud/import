@@ -13,58 +13,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class DL_Fiscal {
 
-	public static function init() {
-		add_action( 'admin_post_dl_fiscal', array( __CLASS__, 'handle' ) );
-		add_filter( 'dl_row_actions_notas', array( __CLASS__, 'row_actions' ), 10, 2 );
-	}
-
-	public static function row_actions( $actions, $row ) {
-		if ( $row['pdf_url'] ) {
-			$actions['pdf'] = '<a target="_blank" href="' . esc_url( $row['pdf_url'] ) . '">PDF</a>';
-		}
-		return $actions;
-	}
-
 	/** Tipo de nota adequado para cada origem. */
 	public static function kind_for( $origin ) {
 		return 'venda' === $origin ? 'nfe' : 'nfse';
 	}
 
-	public static function render_linked( $origin, $origin_id, $row ) {
-		if ( ! current_user_can( 'dl_financeiro' ) ) {
-			return;
-		}
+	/** Notas ligadas a um documento. */
+	public static function linked( $origin, $origin_id ) {
 		global $wpdb;
-		$notes = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . dl_table( 'notas' ) . ' WHERE origem = %s AND origem_id = %d ORDER BY id DESC', $origin, $origin_id ), ARRAY_A );
-		$kind  = self::kind_for( $origin );
-		echo '<div class="dl-card"><h3>Nota fiscal</h3>';
-		foreach ( $notes as $n ) {
-			echo '<p>' . esc_html( strtoupper( $n['tipo'] ) . ' ' . ( $n['numero'] ? 'nº ' . $n['numero'] : $n['referencia'] ) ) . ' ' . dl_badge( 'nota', $n['status'] ) . ' <a href="' . esc_url( dl_admin_url( 'dl-notas', array( 'action' => 'edit', 'id' => $n['id'] ) ) ) . '">abrir</a>'; // phpcs:ignore WordPress.Security.EscapeOutput
-			if ( $n['pdf_url'] ) {
-				echo ' · <a target="_blank" href="' . esc_url( $n['pdf_url'] ) . '">PDF</a>';
-			}
-			echo '</p>';
-		}
-		if ( 'contrato' === $origin ) {
-			echo '<p class="description">Locação de bem móvel não é serviço para fins de ISS (Súmula Vinculante 31 do STF): use a <a target="_blank" href="' . esc_url( DL_Documents::url( 'fatura', $origin_id ) ) . '">fatura de locação</a>. Emita NFS-e só para frete, montagem ou operador, se sua prefeitura exigir.</p>';
-		}
-		$value = (float) ( $row['total'] ?? 0 );
-		if ( 'contrato' === $origin ) {
-			$value = (float) $row['valor_frete'];
-		}
-		echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" class="dl-inline-form">';
-		wp_nonce_field( 'dl_fiscal_' . $origin . '_' . $origin_id );
-		echo '<input type="hidden" name="action" value="dl_fiscal"><input type="hidden" name="origem" value="' . esc_attr( $origin ) . '"><input type="hidden" name="origem_id" value="' . (int) $origin_id . '">';
-		echo '<label>Valor da nota<br><input type="number" step="0.01" min="0.01" name="valor" value="' . esc_attr( $value ) . '" required></label>';
-		echo '<label>Discriminação<br><input type="text" name="discriminacao" value="' . esc_attr( self::default_description( $origin, $row ) ) . '"></label>';
-		echo '<button class="button">' . ( 'nfe' === $kind ? 'Emitir NF-e' : 'Emitir NFS-e' ) . '</button></form>';
-		if ( ! dl_opt( 'fiscal_ativo' ) ) {
-			echo '<p class="description">Integração desligada: o registro fica pendente para você emitir no portal e anotar número e chave.</p>';
-		}
-		echo '</div>';
+		return $wpdb->get_results( $wpdb->prepare( 'SELECT id, tipo, numero, referencia, valor, status, pdf_url, mensagem FROM ' . dl_table( 'notas' ) . ' WHERE origem = %s AND origem_id = %d ORDER BY id DESC', $origin, $origin_id ), ARRAY_A );
 	}
 
-	private static function default_description( $origin, $row ) {
+	/** Valor e discriminação sugeridos para a nota de um documento. */
+	public static function suggestion( $origin, $row ) {
+		return array(
+			'tipo'          => self::kind_for( $origin ),
+			'valor'         => 'contrato' === $origin ? (float) $row['valor_frete'] : (float) $row['total'],
+			'discriminacao' => self::default_description( $origin, $row ),
+			'ativo'         => (bool) dl_opt( 'fiscal_ativo' ),
+		);
+	}
+
+	public static function default_description( $origin, $row ) {
 		if ( 'os' === $origin ) {
 			return 'Serviço de manutenção conforme OS ' . $row['numero'];
 		}
@@ -72,24 +42,6 @@ class DL_Fiscal {
 			return 'Frete / transporte de equipamentos — contrato ' . $row['numero'];
 		}
 		return 'Venda ' . $row['numero'];
-	}
-
-	public static function handle() {
-		dl_require_cap( 'dl_financeiro' );
-		$origin    = sanitize_key( $_POST['origem'] ?? '' );
-		$origin_id = absint( $_POST['origem_id'] ?? 0 );
-		check_admin_referer( 'dl_fiscal_' . $origin . '_' . $origin_id );
-		$map = array( 'contrato' => array( 'contratos', 'dl-contratos' ), 'os' => array( 'ordens_servico', 'dl-os' ), 'venda' => array( 'vendas', 'dl-vendas' ) );
-		if ( ! isset( $map[ $origin ] ) ) {
-			wp_die( 'Origem inválida.' );
-		}
-		$row = DL_DB::get( $map[ $origin ][0], $origin_id );
-		if ( ! $row ) {
-			wp_die( 'Documento não encontrado.' );
-		}
-		$note_id = self::emit( $origin, $row, round( dl_decimal( wp_unslash( $_POST['valor'] ?? 0 ) ), 2 ), sanitize_text_field( wp_unslash( $_POST['discriminacao'] ?? '' ) ) );
-		$note    = DL_DB::get( 'notas', $note_id );
-		dl_redirect( dl_admin_url( $map[ $origin ][1], array( 'action' => 'edit', 'id' => $origin_id ) ), 'Nota ' . strtoupper( $note['tipo'] ) . ': ' . ( dl_statuses( 'nota' )[ $note['status'] ] ?? $note['status'] ) . ( $note['mensagem'] ? ' — ' . esc_html( $note['mensagem'] ) : '' ), 'rejeitada' === $note['status'] ? 'error' : 'success' );
 	}
 
 	public static function build_payload( $kind, $origin, $row, $value, $description ) {

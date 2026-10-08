@@ -107,32 +107,25 @@ function dl_log( $entity, $entity_id, $action, $details = '' ) {
 	);
 }
 
-/** URL de uma página administrativa do plugin. */
-function dl_admin_url( $page, $args = array() ) {
-	return add_query_arg( array_merge( array( 'page' => $page ), $args ), admin_url( 'admin.php' ) );
+/**
+ * Endereço do sistema (fora do painel do WordPress). $route é a tela interna,
+ * ex.: 'contratos/12' abre o contrato 12.
+ */
+function dl_app_url( $route = '' ) {
+	$base = get_option( 'permalink_structure' ) ? home_url( '/' . DL_App::SLUG . '/' ) : add_query_arg( 'dl_app', '1', home_url( '/' ) );
+	return $route ? $base . '#/' . ltrim( $route, '/' ) : $base;
 }
 
-/** Redireciona com mensagem de aviso exibida no topo da página. */
-function dl_redirect( $url, $message = '', $type = 'success' ) {
-	if ( $message ) {
-		set_transient( 'dl_notice_' . get_current_user_id(), array( 'message' => $message, 'type' => $type ), 60 );
-	}
-	wp_safe_redirect( $url );
-	exit;
+/** Guarda um aviso para devolver junto com a resposta da operação. */
+function dl_notice( $message, $type = 'warning' ) {
+	$GLOBALS['dl_notices'][] = array( 'type' => $type, 'message' => wp_strip_all_tags( $message ) );
 }
 
-/** Exibe (e consome) a mensagem pendente. */
-function dl_render_notice() {
-	$key    = 'dl_notice_' . get_current_user_id();
-	$notice = get_transient( $key );
-	if ( $notice ) {
-		delete_transient( $key );
-		printf(
-			'<div class="notice notice-%s is-dismissible"><p>%s</p></div>',
-			esc_attr( $notice['type'] ),
-			wp_kses_post( $notice['message'] )
-		);
-	}
+/** Retorna e limpa os avisos acumulados. */
+function dl_take_notices() {
+	$n = isset( $GLOBALS['dl_notices'] ) ? $GLOBALS['dl_notices'] : array();
+	$GLOBALS['dl_notices'] = array();
+	return $n;
 }
 
 /** Interrompe se o usuário não tiver a permissão. */

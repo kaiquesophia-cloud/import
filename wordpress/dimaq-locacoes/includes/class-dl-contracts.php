@@ -16,16 +16,9 @@ class DL_Contracts {
 		add_action( 'dl_after_save_contratos', array( __CLASS__, 'after_save' ), 10, 3 );
 		add_filter( 'dl_validate_items_contrato', array( __CLASS__, 'validate_items' ), 10, 4 );
 		add_action( 'dl_items_saved_contrato', array( __CLASS__, 'recalc' ) );
-		add_action( 'dl_sidebar_contratos', array( __CLASS__, 'sidebar' ) );
-		add_action( 'dl_after_client_field_contratos', array( __CLASS__, 'client_warning' ) );
 		add_filter( 'dl_can_delete_contratos', array( __CLASS__, 'can_delete' ), 10, 2 );
-		add_filter( 'dl_row_actions_contratos', array( __CLASS__, 'row_actions' ), 10, 2 );
 		add_filter( 'dl_list_row_contratos', array( __CLASS__, 'list_row' ) );
-		add_filter( 'dl_filter_options_contratos', array( __CLASS__, 'filter_options' ), 10, 2 );
 		add_filter( 'dl_filter_where_contratos', array( __CLASS__, 'filter_where' ), 10, 3 );
-		add_action( 'admin_post_dl_contract', array( __CLASS__, 'handle_action' ) );
-		add_action( 'admin_post_dl_contract_move', array( __CLASS__, 'handle_move' ) );
-		add_action( 'wp_ajax_dl_best_price', array( __CLASS__, 'ajax_best_price' ) );
 	}
 
 	/** Dias cobrados entre início e devolução (mínimo 1). */
@@ -68,7 +61,7 @@ class DL_Contracts {
 		if ( $old && in_array( $c['status'], DL_Availability::BUSY, true ) && ( $old['data_inicio'] !== $c['data_inicio'] || $old['data_prev_devolucao'] !== $c['data_prev_devolucao'] ) ) {
 			$problems = DL_Availability::check_items( DL_Items::get( 'contrato', $id ), $c['data_inicio'], $c['data_prev_devolucao'], $id );
 			if ( $problems ) {
-				set_transient( 'dl_notice_' . get_current_user_id(), array( 'type' => 'warning', 'message' => 'Datas salvas, mas há conflito de disponibilidade:<br>' . esc_html( implode( ' · ', $problems ) ) ), 60 );
+				dl_notice( 'Datas salvas, mas há conflito de disponibilidade: ' . implode( ' · ', $problems ) );
 			}
 		}
 	}
@@ -100,24 +93,27 @@ class DL_Contracts {
 		DL_DB::update( 'contratos', $id, array( 'subtotal' => $sub, 'adicionais' => $add, 'total' => round( $total, 2 ) ) );
 	}
 
-	public static function client_warning( $row ) {
-		$cli = DL_DB::get( 'clientes', (int) $row['cliente_id'] );
+	/** Alertas sobre o cliente (bloqueio, atraso, limite de crédito). */
+	public static function client_alerts( $client_id ) {
+		$cli = DL_DB::get( 'clientes', (int) $client_id );
+		$out = array();
 		if ( ! $cli ) {
-			return;
+			return $out;
 		}
-		$open = DL_Finance::client_overdue( $cli['id'] );
 		if ( $cli['bloqueado'] ) {
-			echo '<div class="dl-field dl-full"><div class="notice notice-error inline"><p><strong>Cliente bloqueado.</strong> ' . esc_html( $cli['motivo_bloqueio'] ) . '</p></div></div>';
+			$out[] = array( 'type' => 'error', 'message' => 'Cliente bloqueado. ' . $cli['motivo_bloqueio'] );
 		}
-		if ( $open > 0 ) {
-			echo '<div class="dl-field dl-full"><div class="notice notice-warning inline"><p>Cliente com ' . esc_html( dl_money( $open ) ) . ' em contas vencidas.</p></div></div>';
+		$overdue = DL_Finance::client_overdue( $cli['id'] );
+		if ( $overdue > 0 ) {
+			$out[] = array( 'type' => 'warning', 'message' => 'Cliente com ' . dl_money( $overdue ) . ' em contas vencidas.' );
 		}
 		if ( (float) $cli['limite_credito'] > 0 ) {
 			$exposure = DL_Finance::client_open( $cli['id'] );
 			if ( $exposure > (float) $cli['limite_credito'] ) {
-				echo '<div class="dl-field dl-full"><div class="notice notice-warning inline"><p>Em aberto (' . esc_html( dl_money( $exposure ) ) . ') acima do limite de crédito (' . esc_html( dl_money( $cli['limite_credito'] ) ) . ').</p></div></div>';
+				$out[] = array( 'type' => 'warning', 'message' => 'Em aberto (' . dl_money( $exposure ) . ') acima do limite de crédito (' . dl_money( $cli['limite_credito'] ) . ').' );
 			}
 		}
+		return $out;
 	}
 
 	public static function can_delete( $can, $row ) {
@@ -137,18 +133,6 @@ class DL_Contracts {
 		return $row;
 	}
 
-	public static function row_actions( $actions, $row ) {
-		$actions['print'] = '<a target="_blank" href="' . esc_url( DL_Documents::url( in_array( $row['status'], array( 'orcamento', 'solicitacao' ), true ) ? 'orcamento' : 'contrato', $row['id'] ) ) . '">Imprimir</a>';
-		return $actions;
-	}
-
-	public static function filter_options( $options, $filter ) {
-		if ( 'status' === $filter ) {
-			$options['atrasado'] = 'Em atraso';
-		}
-		return $options;
-	}
-
 	public static function filter_where( $custom, $filter, $value ) {
 		global $wpdb;
 		if ( 'status' === $filter && 'atrasado' === $value ) {
@@ -157,175 +141,87 @@ class DL_Contracts {
 		return $custom;
 	}
 
-	/* ------------------------------------------------------------- lateral */
-
-	private static function action_form( $id, $op, $label, $class = 'button', $fields = '', $confirm = '' ) {
-		echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" class="dl-inline-form"' . ( $confirm ? ' onsubmit="return confirm(\'' . esc_js( $confirm ) . '\');"' : '' ) . '>';
-		wp_nonce_field( 'dl_contract_' . $id );
-		echo '<input type="hidden" name="action" value="dl_contract"><input type="hidden" name="id" value="' . (int) $id . '"><input type="hidden" name="op" value="' . esc_attr( $op ) . '">';
-		echo $fields; // phpcs:ignore WordPress.Security.EscapeOutput -- campos montados internamente.
-		echo '<button class="' . esc_attr( $class ) . '">' . esc_html( $label ) . '</button></form>';
-	}
-
-	public static function sidebar( $c ) {
-		$id     = (int) $c['id'];
-		$status = $c['status'];
-		$cli    = DL_DB::get( 'clientes', (int) $c['cliente_id'] );
-		$days   = self::rental_days( $c['data_inicio'], $c['data_prev_devolucao'] );
-		echo '<div class="dl-card dl-summary"><h3>Resumo</h3>';
-		echo '<p>' . dl_badge( 'contrato', self::is_late( $c ) ? 'atrasado' : $status ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput
-		echo '<p>' . esc_html( dl_date( $c['data_inicio'] ) . ' → ' . dl_date( $c['data_prev_devolucao'] ) . ' (' . $days . ' dia' . ( $days > 1 ? 's' : '' ) . ')' ) . '</p>';
-		if ( self::is_late( $c ) ) {
-			echo '<p class="dl-alert">Atrasado há ' . (int) dl_days_between( $c['data_prev_devolucao'], dl_today() ) . ' dia(s).</p>';
-		}
-		echo '<p class="dl-big">' . esc_html( dl_money( $c['total'] ) ) . '</p>';
-		echo '<p>Faturado: ' . esc_html( dl_money( $c['valor_faturado'] ) ) . ' · Saldo a faturar: ' . esc_html( dl_money( max( 0, $c['total'] - $c['valor_faturado'] ) ) ) . '</p>';
-		echo '</div>';
-
-		echo '<div class="dl-card dl-actions"><h3>Ações</h3>';
-		if ( in_array( $status, array( 'solicitacao', 'orcamento' ), true ) ) {
-			self::action_form( $id, 'reservar', 'Aprovar e reservar equipamentos', 'button button-primary' );
-			echo '<a class="button" href="' . esc_url( dl_admin_url( 'dl-movimento', array( 'id' => $id, 'modo' => 'saida' ) ) ) . '">Entregar agora (iniciar locação)</a>';
-		}
-		if ( 'reservado' === $status ) {
-			echo '<a class="button button-primary" href="' . esc_url( dl_admin_url( 'dl-movimento', array( 'id' => $id, 'modo' => 'saida' ) ) ) . '">Registrar entrega / retirada</a>';
-			self::action_form( $id, 'voltar_orcamento', 'Liberar reserva (voltar a orçamento)' );
-		}
-		if ( 'ativo' === $status ) {
-			echo '<a class="button button-primary" href="' . esc_url( dl_admin_url( 'dl-movimento', array( 'id' => $id, 'modo' => 'retorno' ) ) ) . '">Registrar devolução</a>';
-			$fields = '<label>Nova data de devolução<br><input type="date" name="nova_data" required min="' . esc_attr( dl_add_days( $c['data_prev_devolucao'], 1 ) ) . '"></label><br><label><input type="checkbox" name="recalcular" value="1" checked> Recalcular valores dos itens</label><br>';
-			self::action_form( $id, 'renovar', 'Renovar / prorrogar', 'button', $fields );
-		}
-		if ( in_array( $status, array( 'reservado', 'ativo', 'encerrado' ), true ) ) {
-			$saldo  = max( 0, round( $c['total'] - $c['valor_faturado'], 2 ) );
-			$fields = '<label>Valor<br><input type="number" step="0.01" min="0.01" name="valor" value="' . esc_attr( $saldo ) . '" required></label>'
-				. '<label>Parcelas<br><input type="number" name="parcelas" min="1" max="36" value="1"></label>'
-				. '<label>1º vencimento<br><input type="date" name="vencimento" value="' . esc_attr( dl_today() ) . '" required></label>'
-				. '<label>Intervalo (dias)<br><input type="number" name="intervalo" min="1" value="30"></label>'
-				. '<label>Forma<br><select name="forma">';
-			foreach ( dl_payment_methods() as $k => $l ) {
-				$fields .= '<option value="' . esc_attr( $k ) . '" ' . selected( $c['forma_pagamento'], $k, false ) . '>' . esc_html( $l ) . '</option>';
-			}
-			$fields .= '</select></label><br>';
-			echo '<details><summary class="button">Faturar (gerar contas a receber)</summary>';
-			self::action_form( $id, 'faturar', 'Gerar cobrança', 'button button-secondary', $fields );
-			echo '</details>';
-		}
-		if ( in_array( $status, array( 'solicitacao', 'orcamento', 'reservado' ), true ) ) {
-			self::action_form( $id, 'cancelar', 'Cancelar', 'button button-link-delete', '', 'Cancelar esta locação?' );
-		}
-		if ( in_array( $status, array( 'encerrado', 'cancelado' ), true ) ) {
-			self::action_form( $id, 'reabrir', 'Reabrir como orçamento', 'button', '', 'Reabrir este contrato?' );
-		}
-		self::action_form( $id, 'duplicar', 'Duplicar como novo orçamento' );
-		echo '</div>';
-
-		echo '<div class="dl-card"><h3>Documentos</h3><ul class="dl-links">';
-		$docs = array(
-			'orcamento' => 'Orçamento',
-			'contrato'  => 'Contrato de locação',
-			'checklist' => 'Checklist de saída e retorno',
-			'fatura'    => 'Fatura de locação',
-		);
-		foreach ( $docs as $t => $l ) {
-			echo '<li><a target="_blank" href="' . esc_url( DL_Documents::url( $t, $id ) ) . '">' . esc_html( $l ) . '</a></li>';
-		}
-		echo '</ul>';
-		if ( $cli ) {
-			$type   = in_array( $status, array( 'orcamento', 'solicitacao' ), true ) ? 'orcamento' : 'contrato';
-			$link   = DL_Documents::public_url( $type, $id );
-			$msg    = sprintf( "Olá, %s! Segue o %s %s da %s, no valor de %s: %s", $cli['contato'] ? $cli['contato'] : $cli['nome'], 'orcamento' === $type ? 'orçamento' : 'contrato', $c['numero'], dl_opt( 'empresa_nome' ), dl_money( $c['total'] ), $link );
-			$phone  = $cli['whatsapp'] ? $cli['whatsapp'] : $cli['telefone'];
-			if ( $phone ) {
-				echo '<a class="button" target="_blank" href="' . esc_url( dl_whatsapp_link( $phone, $msg ) ) . '">Enviar pelo WhatsApp</a> ';
-			}
-			if ( $cli['email'] ) {
-				self::action_form( $id, 'email', 'Enviar por e-mail', 'button' );
-			}
-		}
-		echo '</div>';
-
-		DL_Finance::render_linked( 'contrato', $id );
-		DL_Fiscal::render_linked( 'contrato', $id, $c );
-
-		$adds = array_filter(
-			DL_Items::get( 'contrato', $id ),
-			function ( $it ) {
-				return 'adicional' === $it['ref_tipo'];
-			}
-		);
-		if ( $adds ) {
-			echo '<div class="dl-card"><h3>Adicionais lançados</h3><ul class="dl-links">';
-			foreach ( $adds as $a ) {
-				echo '<li>' . esc_html( $a['descricao'] . ' — ' . dl_money( $a['total'] ) ) . ' ';
-				if ( ! in_array( $status, array( 'encerrado', 'cancelado' ), true ) ) {
-					self::action_form( $id, 'remover_adicional', '✕', 'button-link', '<input type="hidden" name="item" value="' . (int) $a['id'] . '">', 'Remover este adicional?' );
-				}
-				echo '</li>';
-			}
-			echo '</ul></div>';
-		}
-	}
-
 	/* ------------------------------------------------------------- ações */
 
-	public static function handle_action() {
-		dl_require_cap( 'dl_operar' );
-		$id = absint( $_POST['id'] ?? 0 );
-		check_admin_referer( 'dl_contract_' . $id );
-		$c = DL_DB::get( 'contratos', $id );
-		if ( ! $c ) {
-			wp_die( 'Contrato não encontrado.' );
+	/** Ações que a tela pode oferecer conforme a situação do contrato. */
+	public static function available_actions( $c ) {
+		$st = $c['status'];
+		$a  = array();
+		if ( in_array( $st, array( 'solicitacao', 'orcamento' ), true ) ) {
+			$a[] = 'reservar';
+			$a[] = 'entregar';
 		}
-		$op   = sanitize_key( $_POST['op'] ?? '' );
-		$back = dl_admin_url( 'dl-contratos', array( 'action' => 'edit', 'id' => $id ) );
+		if ( 'reservado' === $st ) {
+			$a[] = 'entregar';
+			$a[] = 'voltar_orcamento';
+		}
+		if ( 'ativo' === $st ) {
+			$a[] = 'devolver';
+			$a[] = 'renovar';
+		}
+		if ( in_array( $st, array( 'reservado', 'ativo', 'encerrado' ), true ) ) {
+			$a[] = 'faturar';
+		}
+		if ( in_array( $st, array( 'solicitacao', 'orcamento', 'reservado' ), true ) ) {
+			$a[] = 'cancelar';
+		}
+		if ( in_array( $st, array( 'encerrado', 'cancelado' ), true ) ) {
+			$a[] = 'reabrir';
+		}
+		$a[] = 'duplicar';
+		return $a;
+	}
 
+	/**
+	 * Executa uma ação sobre o contrato.
+	 *
+	 * @return array|WP_Error ['message'=>string, 'id'=>int (contrato resultante)]
+	 */
+	public static function perform( $c, $op, array $p ) {
+		$id = (int) $c['id'];
 		switch ( $op ) {
 			case 'reservar':
-				$msg = self::reserve( $c );
-				if ( is_wp_error( $msg ) ) {
-					dl_redirect( $back, $msg->get_error_message(), 'error' );
-				}
-				dl_redirect( $back, 'Equipamentos reservados.' );
-				break;
+				$r = self::reserve( $c );
+				return is_wp_error( $r ) ? $r : array( 'message' => 'Equipamentos reservados.' );
 
 			case 'voltar_orcamento':
-				if ( 'reservado' === $c['status'] ) {
-					DL_DB::update( 'contratos', $id, array( 'status' => 'orcamento' ) );
-					dl_log( 'contratos', $id, 'Reserva liberada' );
+				if ( 'reservado' !== $c['status'] ) {
+					return new WP_Error( 'status', 'Só reservas podem ser liberadas.' );
 				}
-				dl_redirect( $back, 'Reserva liberada.' );
-				break;
+				DL_DB::update( 'contratos', $id, array( 'status' => 'orcamento' ) );
+				dl_log( 'contratos', $id, 'Reserva liberada' );
+				return array( 'message' => 'Reserva liberada.' );
 
 			case 'cancelar':
-				if ( 'ativo' === $c['status'] ) {
-					dl_redirect( $back, 'Contrato em locação: registre a devolução antes.', 'error' );
+				if ( ! in_array( $c['status'], array( 'solicitacao', 'orcamento', 'reservado' ), true ) ) {
+					return new WP_Error( 'status', 'Contrato em locação: registre a devolução antes.' );
 				}
 				DL_DB::update( 'contratos', $id, array( 'status' => 'cancelado' ) );
 				dl_log( 'contratos', $id, 'Cancelado' );
-				dl_redirect( $back, 'Locação cancelada. Contas a receber já geradas não foram alteradas — revise no financeiro.' );
-				break;
+				return array( 'message' => 'Locação cancelada. Cobranças já geradas não foram alteradas — revise no financeiro.' );
 
 			case 'reabrir':
+				if ( ! in_array( $c['status'], array( 'encerrado', 'cancelado' ), true ) ) {
+					return new WP_Error( 'status', 'Só contratos encerrados ou cancelados podem ser reabertos.' );
+				}
 				DL_DB::update( 'contratos', $id, array( 'status' => 'orcamento', 'data_encerramento' => null ) );
 				dl_log( 'contratos', $id, 'Reaberto como orçamento' );
-				dl_redirect( $back, 'Contrato reaberto como orçamento.' );
-				break;
+				return array( 'message' => 'Contrato reaberto como orçamento.' );
 
 			case 'renovar':
-				$new = sanitize_text_field( wp_unslash( $_POST['nova_data'] ?? '' ) );
-				$r   = self::renew( $c, $new, ! empty( $_POST['recalcular'] ) );
-				if ( is_wp_error( $r ) ) {
-					dl_redirect( $back, $r->get_error_message(), 'error' );
-				}
-				dl_redirect( $back, 'Locação prorrogada até ' . dl_date( $new ) . '.' );
-				break;
+				$new = sanitize_text_field( $p['nova_data'] ?? '' );
+				$r   = self::renew( $c, $new, ! empty( $p['recalcular'] ) );
+				return is_wp_error( $r ) ? $r : array( 'message' => 'Locação prorrogada até ' . dl_date( $new ) . '.' );
 
 			case 'faturar':
-				$valor = round( dl_decimal( wp_unslash( $_POST['valor'] ?? 0 ) ), 2 );
-				if ( $valor <= 0 ) {
-					dl_redirect( $back, 'Informe um valor.', 'error' );
+				if ( ! in_array( $c['status'], array( 'reservado', 'ativo', 'encerrado' ), true ) ) {
+					return new WP_Error( 'status', 'Fature depois de reservar ou entregar.' );
 				}
+				$valor = round( dl_decimal( $p['valor'] ?? 0 ), 2 );
+				if ( $valor <= 0 ) {
+					return new WP_Error( 'valor', 'Informe um valor.' );
+				}
+				$due = sanitize_text_field( $p['vencimento'] ?? '' );
 				$ids = DL_Finance::create_installments(
 					array(
 						'tipo'            => 'receber',
@@ -334,37 +230,56 @@ class DL_Contracts {
 						'cliente_id'      => $c['cliente_id'],
 						'origem'          => 'contrato',
 						'origem_id'       => $id,
-						'forma_pagamento' => sanitize_key( $_POST['forma'] ?? '' ),
+						'forma_pagamento' => sanitize_key( $p['forma'] ?? '' ),
 					),
 					$valor,
-					absint( $_POST['parcelas'] ?? 1 ),
-					sanitize_text_field( wp_unslash( $_POST['vencimento'] ?? dl_today() ) ),
-					absint( $_POST['intervalo'] ?? 30 )
+					absint( $p['parcelas'] ?? 1 ),
+					preg_match( '/^\d{4}-\d{2}-\d{2}$/', $due ) ? $due : dl_today(),
+					absint( $p['intervalo'] ?? 30 )
 				);
 				DL_DB::update( 'contratos', $id, array( 'valor_faturado' => round( (float) $c['valor_faturado'] + $valor, 2 ) ) );
 				dl_log( 'contratos', $id, 'Faturado', dl_money( $valor ) . ' em ' . count( $ids ) . ' parcela(s)' );
-				dl_redirect( $back, 'Cobrança gerada: ' . count( $ids ) . ' parcela(s) em contas a receber.' );
-				break;
+				return array( 'message' => 'Cobrança gerada: ' . count( $ids ) . ' parcela(s) em contas a receber.' );
 
 			case 'duplicar':
 				$new_id = self::duplicate( $c );
-				dl_redirect( dl_admin_url( 'dl-contratos', array( 'action' => 'edit', 'id' => $new_id ) ), 'Novo orçamento criado a partir de ' . $c['numero'] . '.' );
-				break;
+				return array( 'message' => 'Novo orçamento criado a partir de ' . $c['numero'] . '.', 'id' => $new_id );
 
 			case 'email':
-				$ok = self::send_email( $c );
-				dl_redirect( $back, $ok ? 'E-mail enviado ao cliente.' : 'Falha ao enviar o e-mail (verifique o SMTP do site).', $ok ? 'success' : 'error' );
-				break;
+				return self::send_email( $c ) ? array( 'message' => 'E-mail enviado ao cliente.' ) : new WP_Error( 'email', 'Falha ao enviar o e-mail (verifique o SMTP do site e o e-mail do cliente).' );
+
+			case 'entregar':
+				$date = sanitize_text_field( $p['data'] ?? '' );
+				$r    = self::deliver( $c, preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date ) ? $date : dl_today(), (array) ( $p['itens'] ?? array() ) );
+				return is_wp_error( $r ) ? $r : array( 'message' => $r );
+
+			case 'devolver':
+				$date = sanitize_text_field( $p['data'] ?? '' );
+				$r    = self::receive( $c, preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date ) ? $date : dl_today(), (array) ( $p['itens'] ?? array() ), ! empty( $p['cobrar_atraso'] ), sanitize_key( $p['caucao_status'] ?? '' ) );
+				return is_wp_error( $r ) ? $r : array( 'message' => $r );
 
 			case 'remover_adicional':
 				global $wpdb;
-				$wpdb->delete( dl_table( 'itens' ), array( 'id' => absint( $_POST['item'] ?? 0 ), 'doc_tipo' => 'contrato', 'doc_id' => $id, 'ref_tipo' => 'adicional' ) );
+				if ( in_array( $c['status'], array( 'encerrado', 'cancelado' ), true ) ) {
+					return new WP_Error( 'status', 'Contrato fechado.' );
+				}
+				$wpdb->delete( dl_table( 'itens' ), array( 'id' => absint( $p['item'] ?? 0 ), 'doc_tipo' => 'contrato', 'doc_id' => $id, 'ref_tipo' => 'adicional' ) );
 				self::recalc( $id );
 				dl_log( 'contratos', $id, 'Adicional removido' );
-				dl_redirect( $back, 'Adicional removido.' );
-				break;
+				return array( 'message' => 'Adicional removido.' );
+
+			case 'adicional':
+				$desc  = sanitize_text_field( $p['descricao'] ?? '' );
+				$value = round( dl_decimal( $p['valor'] ?? 0 ), 2 );
+				if ( ! $desc || $value <= 0 ) {
+					return new WP_Error( 'dados', 'Informe descrição e valor.' );
+				}
+				self::add_extra( $id, $desc, $value );
+				self::recalc( $id );
+				dl_log( 'contratos', $id, 'Adicional lançado', $desc . ' — ' . dl_money( $value ) );
+				return array( 'message' => 'Adicional lançado.' );
 		}
-		dl_redirect( $back );
+		return new WP_Error( 'acao', 'Ação desconhecida.' );
 	}
 
 	public static function reserve( $c ) {
@@ -502,99 +417,7 @@ class DL_Contracts {
 		return $ok;
 	}
 
-	/* ------------------------------------------- entrega e devolução (telas) */
-
-	public static function render_move() {
-		dl_require_cap( 'dl_operar' );
-		$id   = absint( $_GET['id'] ?? 0 ); // phpcs:ignore WordPress.Security.NonceVerification
-		$mode = 'retorno' === ( $_GET['modo'] ?? '' ) ? 'retorno' : 'saida'; // phpcs:ignore WordPress.Security.NonceVerification
-		$c    = DL_DB::get( 'contratos', $id );
-		if ( ! $c ) {
-			wp_die( 'Contrato não encontrado.' );
-		}
-		$items = array_filter(
-			DL_Items::get( 'contrato', $id ),
-			function ( $it ) use ( $mode ) {
-				return 'equipamento' === $it['ref_tipo'] && ( 'saida' === $mode || (float) $it['qtd_devolvida'] < (float) $it['qtd'] );
-			}
-		);
-		$late = 'retorno' === $mode ? max( 0, dl_days_between( $c['data_prev_devolucao'], dl_today() ) ) : 0;
-		?>
-		<div class="wrap dl-wrap">
-			<h1><?php echo esc_html( ( 'saida' === $mode ? 'Entrega / retirada' : 'Devolução' ) . ' — ' . $c['numero'] ); ?></h1>
-			<p><a href="<?php echo esc_url( dl_admin_url( 'dl-contratos', array( 'action' => 'edit', 'id' => $id ) ) ); ?>">← voltar ao contrato</a> · Cliente: <strong><?php echo esc_html( DL_DB::label( 'clientes', $c['cliente_id'] ) ); ?></strong> · Período: <?php echo esc_html( dl_date( $c['data_inicio'] ) . ' a ' . dl_date( $c['data_prev_devolucao'] ) ); ?></p>
-			<?php dl_render_notice(); ?>
-			<?php if ( ! $items ) : ?>
-				<p>Nenhum item pendente.</p>
-			<?php else : ?>
-			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="dl-card">
-				<?php wp_nonce_field( 'dl_move_' . $id ); ?>
-				<input type="hidden" name="action" value="dl_contract_move">
-				<input type="hidden" name="id" value="<?php echo (int) $id; ?>">
-				<input type="hidden" name="modo" value="<?php echo esc_attr( $mode ); ?>">
-				<p><label><?php echo 'saida' === $mode ? 'Data da entrega' : 'Data da devolução'; ?> <input type="date" name="data" value="<?php echo esc_attr( 'saida' === $mode ? max( dl_today(), (string) $c['data_inicio'] ) : dl_today() ); ?>" required></label></p>
-				<?php if ( 'saida' === $mode && $c['data_inicio'] !== dl_today() ) : ?>
-					<p class="description">A data de início do contrato será ajustada para a data da entrega, mantendo a duração.</p>
-				<?php endif; ?>
-				<table class="widefat striped">
-					<thead><tr><th>Equipamento</th><th>Qtd</th><th>Horímetro</th><th>Checklist / estado</th><?php if ( 'retorno' === $mode ) : ?><th>Avarias</th><th>Valor da avaria</th><th>Abrir OS</th><?php endif; ?></tr></thead>
-					<tbody>
-					<?php foreach ( $items as $it ) : ?>
-						<?php $pending = (float) $it['qtd'] - (float) $it['qtd_devolvida']; ?>
-						<tr>
-							<td><strong><?php echo esc_html( $it['descricao'] ); ?></strong></td>
-							<td>
-								<?php if ( 'retorno' === $mode ) : ?>
-									<input type="number" step="0.001" min="0" max="<?php echo esc_attr( $pending ); ?>" name="mv[<?php echo (int) $it['id']; ?>][qtd]" value="<?php echo esc_attr( $pending ); ?>" style="width:80px"> de <?php echo esc_html( dl_num( $pending, 0 ) ); ?>
-								<?php else : ?>
-									<?php echo esc_html( dl_num( $it['qtd'], 0 ) ); ?>
-								<?php endif; ?>
-							</td>
-							<td><input type="number" step="0.1" name="mv[<?php echo (int) $it['id']; ?>][horimetro]" value="<?php echo esc_attr( 'saida' === $mode ? DL_DB::label( 'equipamentos', $it['ref_id'], 'horimetro' ) : '' ); ?>" style="width:100px"></td>
-							<td><textarea name="mv[<?php echo (int) $it['id']; ?>][checklist]" rows="3" cols="30" placeholder="Ex.: limpo, completo, acessórios ok, combustível 1/2"><?php echo esc_textarea( 'saida' === $mode ? (string) $it['checklist_saida'] : '' ); ?></textarea></td>
-							<?php if ( 'retorno' === $mode ) : ?>
-								<td><textarea name="mv[<?php echo (int) $it['id']; ?>][avarias]" rows="3" cols="25"></textarea></td>
-								<td><input type="number" step="0.01" min="0" name="mv[<?php echo (int) $it['id']; ?>][valor_avaria]" value="0" style="width:100px"></td>
-								<td><label><input type="checkbox" name="mv[<?php echo (int) $it['id']; ?>][os]" value="1"> revisão</label></td>
-							<?php endif; ?>
-						</tr>
-					<?php endforeach; ?>
-					</tbody>
-				</table>
-				<?php if ( 'retorno' === $mode ) : ?>
-					<p><label><input type="checkbox" name="cobrar_atraso" value="1" <?php checked( $late > 0 ); ?>> Lançar diárias excedentes se a devolução for após <?php echo esc_html( dl_date( $c['data_prev_devolucao'] ) ); ?><?php echo $late > 0 ? esc_html( ' (hoje: ' . $late . ' dia(s) de atraso)' ) : ''; ?></label></p>
-					<?php if ( (float) $c['caucao'] > 0 ) : ?>
-						<p><label>Caução de <?php echo esc_html( dl_money( $c['caucao'] ) ); ?>: <select name="caucao_status"><option value="">manter</option><option value="devolvido">devolvida ao cliente</option><option value="retido">retida</option></select></label></p>
-					<?php endif; ?>
-				<?php endif; ?>
-				<p><button class="button button-primary button-large"><?php echo 'saida' === $mode ? 'Confirmar entrega e iniciar locação' : 'Confirmar devolução'; ?></button></p>
-			</form>
-			<?php endif; ?>
-		</div>
-		<?php
-	}
-
-	public static function handle_move() {
-		dl_require_cap( 'dl_operar' );
-		$id = absint( $_POST['id'] ?? 0 );
-		check_admin_referer( 'dl_move_' . $id );
-		$c = DL_DB::get( 'contratos', $id );
-		if ( ! $c ) {
-			wp_die( 'Contrato não encontrado.' );
-		}
-		$mode = 'retorno' === ( $_POST['modo'] ?? '' ) ? 'retorno' : 'saida';
-		$date = sanitize_text_field( wp_unslash( $_POST['data'] ?? '' ) );
-		if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date ) ) {
-			$date = dl_today();
-		}
-		$mv   = isset( $_POST['mv'] ) ? wp_unslash( (array) $_POST['mv'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
-		$back = dl_admin_url( 'dl-contratos', array( 'action' => 'edit', 'id' => $id ) );
-		$r    = 'saida' === $mode ? self::deliver( $c, $date, $mv ) : self::receive( $c, $date, $mv, ! empty( $_POST['cobrar_atraso'] ), sanitize_key( $_POST['caucao_status'] ?? '' ) );
-		if ( is_wp_error( $r ) ) {
-			dl_redirect( dl_admin_url( 'dl-movimento', array( 'id' => $id, 'modo' => $mode ) ), $r->get_error_message(), 'error' );
-		}
-		dl_redirect( $back, $r );
-	}
+	/* ------------------------------------------------- entrega e devolução */
 
 	/** Entrega: confere disponibilidade, grava checklist de saída e inicia a locação. */
 	public static function deliver( $c, $date, $mv ) {
@@ -731,20 +554,5 @@ class DL_Contracts {
 				'ordem'      => 999,
 			)
 		);
-	}
-
-	/** AJAX: melhor tarifa para um equipamento num número de dias. */
-	public static function ajax_best_price() {
-		check_ajax_referer( 'dl_admin', 'nonce' );
-		if ( ! current_user_can( 'dl_operar' ) ) {
-			wp_send_json_error( 'sem permissão', 403 );
-		}
-		$e = DL_DB::get( 'equipamentos', absint( $_POST['equip'] ?? 0 ) );
-		if ( ! $e ) {
-			wp_send_json_error( 'equipamento não encontrado' );
-		}
-		$days = self::rental_days( sanitize_text_field( wp_unslash( $_POST['inicio'] ?? '' ) ), sanitize_text_field( wp_unslash( $_POST['fim'] ?? '' ) ) );
-		$best = DL_Pricing::best_price( self::rates( $e ), $days );
-		wp_send_json_success( $best + array( 'dias' => $days, 'nome' => $e['nome'] ) );
 	}
 }

@@ -8,14 +8,42 @@ com catálogo no site, pedido de orçamento online e área do cliente.
 
 1. Compacte a pasta `dimaq-locacoes/` em `.zip` (ou copie para `wp-content/plugins/`).
 2. No WordPress: **Plugins → Adicionar novo → Enviar plugin** → ativar.
-3. Abra **Locação → Configurações** e preencha os dados da empresa, WhatsApp, multa/juros,
-   cláusulas do contrato e dados bancários/PIX.
-4. Crie as páginas do site com os shortcodes (abaixo) e indique-as nas Configurações.
-5. Configure um SMTP (ex.: plugin WP Mail SMTP) para os e-mails saírem de verdade.
-6. Os lembretes diários dependem do WP-Cron. Em hospedagem com pouco tráfego, agende
+3. Abra **`https://seusite.com.br/sistema`**. É o sistema da locadora, com login próprio e o
+   logo da Dimaq, fora do painel do WordPress. (Com links permanentes "simples", o endereço é
+   `https://seusite.com.br/?dl_app=1`.)
+4. Em **Configurações** (dentro do sistema), preencha os dados da empresa, WhatsApp,
+   multa/juros, cláusulas do contrato e dados bancários/PIX.
+5. Cadastre a equipe em **Usuários** do WordPress com o perfil **Operador de locação** ou
+   **Gerente da locadora**. Eles entram direto pelo `/sistema`; se tentarem abrir o
+   `wp-admin`, são mandados para o sistema, e a barra do WordPress não aparece para eles.
+6. Configure um SMTP (ex.: plugin WP Mail SMTP) para os e-mails saírem de verdade.
+7. Os lembretes diários dependem do WP-Cron. Em hospedagem com pouco tráfego, agende
    `wp-cron.php` no cron do servidor.
 
-Requisitos: WordPress 6.0+, PHP 7.4+, MySQL/MariaDB.
+Requisitos: WordPress 6.0+, PHP 7.4+, MySQL/MariaDB. A interface já vem com tudo que usa
+(Vue 3 e Chart.js dentro do plugin), sem depender de CDN.
+
+## O sistema
+
+- **Painel inicial**: saudação, indicadores clicáveis (em andamento, atrasadas com alerta
+  pulsando, vencem hoje, pedidos do site, reservas, frota disponível, utilização, a receber,
+  vencido, recebido no mês) e **as locações em andamento em cartões**, cada um com contagem
+  regressiva, barra de progresso do período, cor pela urgência, equipamentos, WhatsApp
+  pronto e botões de **Devolver** e **Renovar**. Filtros rápidos (atrasadas, hoje, 3 dias,
+  semana, em dia), busca, ordenação e visão em lista. Abaixo: agenda de hoje e amanhã
+  (saídas e devoluções com botão de ação), funil de orçamentos, alertas (preventiva vencida,
+  estoque baixo, OS urgente), gráfico de faturamento de 6 meses e ocupação da frota por
+  categoria. Atualiza sozinho a cada minuto.
+- **Quadro de locações** (kanban): arraste o cartão de Orçamento para Reservado e o sistema
+  reserva; solte em Em locação e abre a entrega; solte em Encerradas e abre a devolução.
+- **Agenda da frota**: linha do tempo com cada equipamento numa linha e cada locação numa
+  barra (em locação, atrasada, reservada, orçamento). Clique num dia vazio para orçar.
+- **Nova locação**: cliente com busca (ou cadastro na hora), duração com um clique,
+  equipamentos com **disponibilidade e melhor preço ao vivo** e resumo de valores fixo na tela.
+- **Entrega e devolução em janelas**: checklist por item com um toque, horímetro, devolução
+  parcial com +/−, prévia das diárias de atraso e das avarias, OS de revisão automática.
+- **Busca geral** no topo (tecla `/`) por contrato, cliente ou equipamento.
+- Funciona no celular (menu lateral recolhível e botão flutuante de nova locação).
 
 ## O que tem
 
@@ -91,17 +119,20 @@ API pública: `GET /wp-json/dimaq/v1/equipamentos` e
 ### Permissões
 | Perfil | Acesso |
 |---|---|
-| Administrador | tudo |
-| Gerente da locadora | operação + financeiro e relatórios |
-| Operador de locação | clientes, equipamentos, contratos, OS, vendas, estoque |
+| Administrador | tudo, inclusive o painel do WordPress |
+| Gerente da locadora | sistema completo: operação + financeiro e relatórios |
+| Operador de locação | clientes, equipamentos, locações, OS, vendas, estoque (sem financeiro) |
 | Cliente da locadora | só a área do cliente no site |
 
 ## Para quem for mexer no código
 
-- `includes/class-dl-modules.php` define os campos de cada cadastro; `class-dl-crud.php`
-  monta lista, filtros, formulário e CSV a partir dessa definição. Para adicionar um campo:
-  coluna em `class-dl-install.php`, suba `DL_DB_VERSION` e acrescente o campo no módulo (ou
-  use o filtro `dl_modules`).
+- `includes/class-dl-app.php`: o endereço `/sistema`, o login e a página da aplicação.
+- `includes/class-dl-api.php`: a API interna (`/wp-json/dimaq/v1/app/...`), protegida por login,
+  nonce e a permissão de cada módulo.
+- `assets/app/app.js` e `app.css`: a interface (Vue 3 sem etapa de build; basta editar).
+- `includes/class-dl-modules.php` define os campos de cada cadastro; a interface monta listas e
+  formulários a partir dele. Para adicionar um campo: coluna em `class-dl-install.php`, suba
+  `DL_DB_VERSION` e acrescente o campo no módulo (ou use o filtro `dl_modules`).
 - Regras de negócio: `class-dl-contracts.php` (locação), `class-dl-availability.php`,
   `class-dl-finance.php`, `class-dl-service-orders.php`, `class-dl-sales.php`.
 - Ganchos úteis: `dl_contract_started`, `dl_contract_returned`, `dl_quote_received`,

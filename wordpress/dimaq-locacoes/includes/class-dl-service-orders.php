@@ -15,10 +15,8 @@ class DL_Service_Orders {
 		add_filter( 'dl_new_row_os', array( __CLASS__, 'new_row' ) );
 		add_action( 'dl_after_save_os', array( __CLASS__, 'after_save' ), 10, 3 );
 		add_action( 'dl_items_saved_os', array( __CLASS__, 'recalc' ) );
-		add_action( 'dl_sidebar_os', array( __CLASS__, 'sidebar' ) );
 		add_filter( 'dl_can_delete_os', array( __CLASS__, 'can_delete' ), 10, 2 );
 		add_action( 'dl_before_delete_os', array( __CLASS__, 'before_delete' ) );
-		add_filter( 'dl_row_actions_os', array( __CLASS__, 'row_actions' ), 10, 2 );
 	}
 
 	public static function new_row( $row ) {
@@ -147,19 +145,6 @@ class DL_Service_Orders {
 		if ( $row['estoque_baixado'] ) {
 			DL_Stock::apply_document( 'os', $row['id'], 'OS ' . $row['numero'] . ' excluída', true );
 		}
-	}
-
-	public static function row_actions( $actions, $row ) {
-		$actions['print'] = '<a target="_blank" href="' . esc_url( DL_Documents::url( 'os', $row['id'] ) ) . '">Imprimir</a>';
-		return $actions;
-	}
-
-	public static function sidebar( $os ) {
-		echo '<div class="dl-card"><h3>Resumo</h3><p>' . dl_badge( 'os', $os['status'] ) . '</p><p class="dl-big">' . esc_html( dl_money( $os['total'] ) ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput
-		echo '<p><a class="button" target="_blank" href="' . esc_url( DL_Documents::url( 'os', $os['id'] ) ) . '">Imprimir ordem de serviço</a></p>';
-		echo '<p class="description">Ao marcar como <strong>Concluída</strong>: baixa as peças do estoque, libera o equipamento e, se marcado, gera a cobrança ao cliente.</p></div>';
-		DL_Finance::render_linked( 'os', $os['id'] );
-		DL_Fiscal::render_linked( 'os', $os['id'], $os );
 	}
 
 	/** Equipamentos com preventiva vencida pelo horímetro. */

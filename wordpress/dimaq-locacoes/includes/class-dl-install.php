@@ -17,6 +17,8 @@ class DL_Install {
 		}
 		update_option( 'dl_db_version', DL_DB_VERSION );
 		DL_Cron::schedule();
+		DL_App::rewrite();
+		flush_rewrite_rules();
 	}
 
 	public static function maybe_upgrade() {
