@@ -162,6 +162,7 @@ class DL_API {
 			'orcamento' => 'Orçamento',
 			'contrato'  => 'Contrato de locação',
 			'checklist' => 'Checklist de saída e retorno',
+			'devolucao' => 'Devolução de equipamento (para a retirada)',
 			'fatura'    => 'Fatura de locação',
 			'os'        => 'Ordem de serviço',
 			'venda'     => 'Pedido de venda',
@@ -357,7 +358,7 @@ class DL_API {
 				$out['cartao']      = DL_Dashboard::card( $row );
 				$out['alertas']     = DL_Contracts::client_alerts( $row['cliente_id'] );
 				$out['acoes']       = DL_Contracts::available_actions( $row );
-				$out['documentos']  = self::docs( array( 'orcamento', 'contrato', 'checklist', 'fatura' ), $id );
+				$out['documentos']  = self::docs( array( 'orcamento', 'contrato', 'checklist', 'devolucao', 'fatura' ), $id );
 				$out['multa_atraso_pct'] = (float) dl_opt( 'multa_atraso_pct', 0 );
 				$cli                = DL_DB::get( 'clientes', (int) $row['cliente_id'] );
 				$out['cliente']     = $cli ? array( 'email' => $cli['email'], 'telefone' => $cli['whatsapp'] ? $cli['whatsapp'] : $cli['telefone'] ) : null;

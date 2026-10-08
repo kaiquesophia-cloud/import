@@ -14,6 +14,7 @@ class DL_Documents {
 		'orcamento' => 'contratos',
 		'contrato'  => 'contratos',
 		'checklist' => 'contratos',
+		'devolucao' => 'contratos',
 		'fatura'    => 'contratos',
 		'os'        => 'ordens_servico',
 		'venda'     => 'vendas',
@@ -73,6 +74,7 @@ class DL_Documents {
 		$titles = array(
 			'orcamento' => 'Orçamento de locação',
 			'contrato'  => 'Contrato de locação de equipamentos',
+			'devolucao' => 'Devolução de equipamento',
 			'checklist' => 'Checklist de saída e retorno',
 			'fatura'    => 'Fatura de locação',
 			'os'        => 'Ordem de serviço',
@@ -156,6 +158,28 @@ class DL_Documents {
 	.ct .wit { display: flex; gap: 40px; margin-top: 36px; page-break-inside: avoid; }
 	.ct .wit div { flex: 1; border-top: 1px solid #999; padding-top: 4px; font-size: 11px; color: #444; }
 	.ct .wit span { display: block; margin-top: 2px; }
+	.ct .party.wide dl { grid-template-columns: auto 1fr auto 1fr; }
+	.ct .dv .sec { margin: 11px 0 5px; }
+	.ct .dv .party { margin-top: 10px; padding: 7px 12px; }
+	.ct .dv .sign2 { margin-top: 30px; }
+	.ct-top.dvh img { max-height: 46px; }
+	.ct .info4 { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #e3e3e3; border-radius: 10px; overflow: hidden; margin-top: 12px; }
+	.ct .info4 div { padding: 7px 11px; border-right: 1px solid #eee; }
+	.ct .info4 div:last-child { border-right: 0; }
+	.ct .info4 small { display: block; font-size: 9.5px; text-transform: uppercase; letter-spacing: .1em; color: #888; }
+	.ct .info4 b { font-size: 12.5px; }
+	.ct .fill { display: inline-block; min-width: 110px; border-bottom: 1px solid #999; height: 14px; vertical-align: bottom; }
+	.ct table.eq td.box { width: 62px; border-left: 1px solid #e3e3e3; }
+	.ct table.eq th.box { width: 62px; text-align: center; }
+	.ct .lines { border: 1px solid #e3e3e3; border-radius: 10px; padding: 4px 12px; }
+	.ct .lines div { border-bottom: 1px solid #ddd; height: 24px; }
+	.ct .lines div:last-child { border-bottom: 0; }
+	.ct .opts { display: flex; gap: 22px; margin-top: 6px; font-size: 11.5px; }
+	.ct .opts span::before { content: ""; display: inline-block; width: 11px; height: 11px; border: 1.5px solid #333; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+	.ct .opts span.x::before { background: #333; box-shadow: inset 0 0 0 2px #fff; }
+	.ct .when { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; margin-top: 16px; font-size: 12px; }
+	.ct .when div { border: 1px solid #e3e3e3; border-radius: 10px; padding: 10px 12px; }
+	.ct .when small { display: block; font-size: 9.5px; text-transform: uppercase; letter-spacing: .1em; color: #888; margin-bottom: 8px; }
 	@page { size: A4; margin: 12mm; }
 	@media print {
 		body { background: #fff; font-size: 11.5px; line-height: 1.35; }
@@ -171,8 +195,8 @@ class DL_Documents {
 	}
 </style></head><body>
 <div class="bar"><button onclick="window.print()">Imprimir / salvar em PDF</button></div>
-<div class="page<?php echo 'contrato' === $type ? ' ct' : ''; ?>">
-	<?php if ( 'contrato' !== $type ) : ?>
+<div class="page<?php echo in_array( $type, array( 'contrato', 'devolucao' ), true ) ? ' ct' : ''; ?>">
+	<?php if ( ! in_array( $type, array( 'contrato', 'devolucao' ), true ) ) : ?>
 	<header>
 		<div>
 			<img src="<?php echo esc_url( dl_opt( 'logo_url' ) ? dl_opt( 'logo_url' ) : DL_URL . 'assets/app/logo-dimaq-original.png' ); ?>" alt="<?php echo esc_attr( dl_opt( 'empresa_nome' ) ); ?>"><br>
@@ -452,6 +476,98 @@ class DL_Documents {
 		echo '<p class="place">' . esc_html( ( dl_opt( 'empresa_cidade' ) ?: '________' ) . ', ' . self::long_date( $c['data_inicio'] ) ) . '.</p>';
 		echo '<div class="sign2"><div>Locadora<small>' . esc_html( dl_opt( 'empresa_nome' ) ) . '</small></div><div>Locatário(a)<small>' . esc_html( $cli ? $cli['nome'] : '' ) . '</small></div></div>';
 		echo '<div class="wit"><div>Testemunha 1<span>Nome:</span><span>CPF:</span></div><div>Testemunha 2<span>Nome:</span><span>CPF:</span></div></div>';
+	}
+
+	/**
+	 * Devolução de equipamento: ficha para levar na retirada. A data e o local ficam em
+	 * branco, no fim, para preencher à mão no dia (o papel costuma ser impresso antes).
+	 */
+	private static function render_devolucao( $c ) {
+		$cli  = DL_DB::get( 'clientes', (int) $c['cliente_id'] );
+		$logo = dl_opt( 'logo_url' ) ? dl_opt( 'logo_url' ) : DL_URL . 'assets/app/logo-dimaq-original.png';
+		$co   = array_filter(
+			array(
+				implode( ' · ', array_filter( array( trim( dl_opt( 'empresa_endereco' ) . ( dl_opt( 'empresa_bairro' ) ? ' — ' . dl_opt( 'empresa_bairro' ) : '' ) ), trim( dl_opt( 'empresa_cidade' ) . ( dl_opt( 'empresa_uf' ) ? ' / ' . dl_opt( 'empresa_uf' ) : '' ) ), dl_opt( 'empresa_cep' ) ? 'CEP ' . dl_format_cep( dl_opt( 'empresa_cep' ) ) : '' ) ) ),
+				implode( ' · ', array_filter( array( dl_opt( 'empresa_cnpj' ) ? 'CNPJ ' . dl_opt( 'empresa_cnpj' ) : '', dl_opt( 'empresa_ie' ) ? 'I.E. ' . dl_opt( 'empresa_ie' ) : '', dl_opt( 'empresa_telefone' ), dl_opt( 'empresa_whatsapp' ), dl_opt( 'empresa_email' ) ) ) ),
+			)
+		);
+		echo '<div class="ct-top dvh"><div><img src="' . esc_url( $logo ) . '" alt=""><div class="co"><b>' . esc_html( dl_opt( 'empresa_nome' ) ) . '</b><br>' . implode( '<br>', array_map( 'esc_html', $co ) ) . '</div></div>';
+		echo '<div class="id"><small>Contrato nº</small><strong>' . esc_html( $c['numero'] ) . '</strong></div></div>';
+		echo '<h1 class="t">Devolução de equipamento</h1>';
+
+		echo '<div class="info4">';
+		echo '<div><small>Início da locação</small><b>' . esc_html( dl_date( $c['data_inicio'] ) ) . '</b></div>';
+		echo '<div><small>Devolução prevista</small><b>' . esc_html( dl_date( $c['data_prev_devolucao'] ) ) . '</b></div>';
+		echo '<div><small>Prazo</small><b>' . (int) DL_Contracts::rental_days( $c['data_inicio'], $c['data_prev_devolucao'] ) . ' dias</b></div>';
+		echo '<div><small>NF de remessa de retorno nº</small><span class="fill"></span></div>';
+		echo '</div>';
+
+		echo '<div class="dv">';
+		self::party_card(
+			'Locatário(a)',
+			'b wide',
+			$cli ? $cli['nome'] : '',
+			array(
+				'Endereço'      => $cli ? trim( $cli['logradouro'] . ( $cli['numero'] ? ', ' . $cli['numero'] : '' ) . ( $cli['complemento'] ? ' ' . $cli['complemento'] : '' ) . ( $cli['bairro'] ? ' — ' . $cli['bairro'] : '' ) ) : '',
+				'Cidade / UF'   => $cli ? trim( $cli['cidade'] . ( $cli['uf'] ? ' / ' . $cli['uf'] : '' ) . ( $cli['cep'] ? ' · CEP ' . dl_format_cep( $cli['cep'] ) : '' ) ) : '',
+				'CNPJ/CPF'      => $cli ? dl_format_document( $cli['documento'] ) : '',
+				'I.E. / RG'     => $cli ? $cli['ie_rg'] : '',
+				'Telefone'      => $cli ? implode( ' / ', array_unique( array_filter( array( dl_format_phone( $cli['telefone'] ), dl_format_phone( $cli['whatsapp'] ) ) ) ) ) : '',
+				'E-mail'        => $cli ? $cli['email'] : '',
+			)
+		);
+
+		$equip = array();
+		$acc   = array();
+		foreach ( DL_Items::get( 'contrato', $c['id'] ) as $it ) {
+			if ( 'equipamento' !== $it['ref_tipo'] ) {
+				continue;
+			}
+			$e   = DL_DB::get( 'equipamentos', (int) $it['ref_id'] );
+			$row = array( 'it' => $it, 'e' => $e );
+			if ( $e && ! empty( $e['acessorio'] ) ) {
+				$acc[] = $row;
+			} else {
+				$equip[] = $row;
+			}
+		}
+		$table = function ( $title, $rows, $empty ) {
+			echo '<div class="sec">' . esc_html( $title ) . ' <i>' . count( $rows ) . '</i></div>';
+			echo '<table class="eq"><thead><tr><th style="width:70px">Código</th><th>Descrição</th><th class="n" style="width:72px">Qtde locada</th><th class="box">Qtde OK</th><th class="box">Qtde c/ defeito</th><th class="box">Qtde inutiliz.</th></tr></thead><tbody>';
+			if ( ! $rows ) {
+				echo '<tr><td></td><td style="color:#888">' . esc_html( $empty ) . '</td><td></td><td class="box"></td><td class="box"></td><td class="box"></td></tr>';
+			}
+			foreach ( $rows as $r ) {
+				$it      = $r['it'];
+				$e       = $r['e'];
+				$pending = (float) $it['qtd'] - (float) $it['qtd_devolvida'];
+				$note    = (float) $it['qtd_devolvida'] > 0 ? ' (já devolvido ' . dl_num( $it['qtd_devolvida'], 0 ) . ' de ' . dl_num( $it['qtd'], 0 ) . ')' : '';
+				$serial  = $e && 'unitario' === $e['controle'] && $e['numero_serie'] ? ' · série ' . $e['numero_serie'] : '';
+				echo '<tr><td>' . esc_html( $e ? $e['codigo'] : '' ) . '</td><td>' . esc_html( ( $e ? $e['nome'] : $it['descricao'] ) . $serial ) . '<small style="color:#888">' . esc_html( $note ) . '</small></td><td class="n"><b>' . esc_html( dl_num( max( 0, $pending ), 0 ) ) . '</b></td><td class="box"></td><td class="box"></td><td class="box"></td></tr>';
+			}
+			echo '</tbody></table>';
+		};
+		$table( 'Equipamentos', $equip, 'Nenhum equipamento.' );
+		$table( 'Acessórios', $acc, 'Nenhum acessório.' );
+
+		echo '<div class="sec">Ocorrências</div><div class="lines"><div></div><div></div></div>';
+
+		$coleta = in_array( $c['entrega'], array( 'entrega_coleta' ), true );
+		self::party_card(
+			'Local da retirada',
+			'a wide',
+			trim( $c['local_obra'] ) ? $c['local_obra'] : 'Obra / local de uso',
+			array(
+				'Endereço'    => $c['endereco_entrega'],
+				'Responsável' => trim( $c['responsavel_obra'] ),
+				'Telefone'    => dl_format_phone( $c['telefone_obra'] ),
+			)
+		);
+		echo '<div class="opts"><span class="' . ( $coleta ? 'x' : '' ) . '">Retirada pela locadora</span><span class="' . ( $coleta ? '' : 'x' ) . '">Devolvido pelo cliente na locadora</span></div>';
+
+		echo '<div class="when"><div><small>Local / data da devolução</small>' . esc_html( dl_opt( 'empresa_cidade' ) ?: '________' ) . ', ____ / ____ / ________ &nbsp; às ____:____</div><div><small>Conferido por (locadora)</small>&nbsp;</div></div>';
+		echo '<div class="sign2"><div>Locadora<small>' . esc_html( dl_opt( 'empresa_nome' ) ) . '</small></div><div>Locatário(a) / quem entregou<small>' . esc_html( $cli ? $cli['nome'] : '' ) . '</small><small style="text-align:left;margin-top:8px">Nome: ____________________________________</small><small style="text-align:left">CPF: ____________________ &nbsp; RG: __________________</small></div></div>';
+		echo '</div>';
 	}
 
 	private static function render_checklist( $c ) {
