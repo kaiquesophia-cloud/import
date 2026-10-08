@@ -42,6 +42,9 @@ Requisitos: WordPress 6.0+, PHP 7.4+, MySQL/MariaDB. A interface já vem com tud
   equipamentos com **disponibilidade e melhor preço ao vivo** e resumo de valores fixo na tela.
 - **Entrega e devolução em janelas**: checklist por item com um toque, horímetro, devolução
   parcial com +/−, prévia das diárias de atraso e das avarias, OS de revisão automática.
+- **Rota do dia** para o motorista: entregas e coletas na ordem do caminho, com Maps, Waze,
+  ligar e WhatsApp em cada parada, baixa da entrega/coleta pelo celular e a rota completa no
+  Google Maps saindo da Dimaq. Filtro por motorista; coleta pode ser agendada para outro dia.
 - **Busca geral** no topo (tecla `/`) por contrato, cliente ou equipamento.
 - Funciona no celular (menu lateral recolhível e botão flutuante de nova locação).
 
@@ -74,6 +77,14 @@ entram pela data real (histórico em `dl_movimentos`); frete e desconto vão na 
 adicionais na próxima; sem diária de atraso. Cada medição gera conta a receber e um **boletim
 de medição**. Só a última medição pode ser cancelada. Regras em `includes/class-dl-measurement.php`;
 testes do cálculo em `php tests/test-measurement.php`.
+
+### Rota do dia (entregas e coletas)
+Entram as locações reservadas com "Locadora entrega" (ou "entrega e coleta") no dia do início e as
+coletas: "entrega e coleta" no dia da devolução prevista ou qualquer locação com **Coleta agendada**
+(ação *Agendar coleta*, ou o pedido de coleta da área do cliente, que entra na rota de hoje). O que
+ficou para trás aparece hoje como pendente; o que foi feito no dia continua na lista, no fim. A
+ordem das paradas fica salva por dia (`dl_rota_ordem`). Endereço: o da entrega, senão o da obra,
+senão o do cliente. Regras em `includes/class-dl-route.php`.
 
 ### Documentos (imprimir ou salvar em PDF)
 Orçamento, contrato de locação (com cláusulas editáveis e variáveis), checklist de saída e
@@ -148,6 +159,7 @@ API pública: `GET /wp-json/dimaq/v1/equipamentos` e
 - Ganchos úteis: `dl_contract_started`, `dl_contract_returned`, `dl_quote_received`,
   `dl_finance_paid`, `dl_daily_done`.
 - Testes: `php tests/test-pricing.php` (preço) e `php tests/test-measurement.php` (medição).
+- Rota do dia: `class-dl-route.php` e a rota `GET /wp-json/dimaq/v1/app/route?data=AAAA-MM-DD`.
 
 ## Limitações conhecidas
 

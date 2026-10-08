@@ -121,6 +121,11 @@
 		star: 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z',
 		link: 'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1',
 		camera: 'M4 8h3l2-3h6l2 3h3v11H4zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
+		route: 'M6 19a2 2 0 1 0 0-.01M18 5a2 2 0 1 0 0-.01M6 17V9a3 3 0 0 1 3-3h3M18 7v8a3 3 0 0 1-3 3h-3',
+		phone: 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z',
+		nav: 'M3 11l18-8-8 18-2-8z',
+		up: 'M6 15l6-6 6 6',
+		dn: 'M6 9l6 6 6-6',
 	};
 	const Ic = {
 		props: { n: String },
@@ -136,6 +141,7 @@
 		['contrato', /^contratos\/(\d+)$/, ['id']],
 		['contratos', /^contratos$/],
 		['frota', /^frota$/],
+		['rota', /^rota$/],
 		['relatorios', /^relatorios(?:\/([a-z_]+))?$/, ['key']],
 		['configuracoes', /^configuracoes$/],
 		['registro-novo', /^([a-z_]+)\/novo$/, ['module']],
@@ -623,6 +629,42 @@
 		},
 	};
 
+	/** Agenda a coleta na obra: põe a locação na rota do dia escolhido. */
+	const PickupModal = {
+		components: { Modal: Modal, Ic: Ic },
+		props: { data: Object },
+		template: `<Modal title="Agendar coleta" @close="close">
+			<div v-if="!ok" class="empty"><span class="spinner dark"></span></div>
+			<template v-else>
+				<div class="form-grid">
+					<label class="field"><span>Dia da coleta</span><input type="date" v-model="f.data"></label>
+					<label class="field"><span>Motorista</span><input v-model="f.motorista" list="dl-motoristas" placeholder="Opcional"></label>
+				</div>
+				<datalist id="dl-motoristas"><option v-for="m in motoristas" :key="m" :value="m"></option></datalist>
+				<p class="muted small">A coleta aparece na <b>Rota do dia</b> dessa data, com o endereço da obra.</p>
+			</template>
+			<template #footer><button v-if="tinha" class="btn btn-danger" style="margin-right:auto" @click="save(true)">Desmarcar coleta</button><button class="btn" @click="close">Cancelar</button><button class="btn btn-primary" :disabled="!ok || !f.data" @click="save(false)"><Ic n="truck"/> Agendar</button></template>
+		</Modal>`,
+		data: function () { return { ok: false, tinha: false, f: { data: addDays(D.hoje, 1), motorista: '' }, motoristas: [] }; },
+		created: async function () {
+			try {
+				const r = await get('record/contratos/' + this.data.id);
+				const reg = r.registro;
+				if (reg.coleta_em) { this.f.data = reg.coleta_em; this.tinha = true; }
+				this.f.motorista = reg.motorista || '';
+				const day = await get('route', { data: D.hoje });
+				this.motoristas = day.motoristas;
+				this.ok = true;
+			} catch (e) { toast(e.message, 'error'); }
+		},
+		methods: {
+			close: closeAction,
+			save: async function (remover) {
+				try { const r = await contractOp(this.data.id, 'agendar_coleta', remover ? { remover: 1 } : this.f); done(r.mensagem); } catch (e) { toast(e.message, 'error'); }
+			},
+		},
+	};
+
 	/** Baixa de conta a receber/pagar. */
 	const PayModal = {
 		components: { Modal: Modal, Ic: Ic },
@@ -785,11 +827,11 @@
 		},
 	};
 
-	const ACTION_MODALS = { medir: MeasureModal, entregar: DeliverModal, devolver: ReturnModal, renovar: RenewModal, faturar: BillModal, adicional: ExtraModal, pagar: PayModal, nota: FiscalModal, estoque: StockModal, cliente: QuickClientModal };
+	const ACTION_MODALS = { agendar_coleta: PickupModal, medir: MeasureModal, entregar: DeliverModal, devolver: ReturnModal, renovar: RenewModal, faturar: BillModal, adicional: ExtraModal, pagar: PayModal, nota: FiscalModal, estoque: StockModal, cliente: QuickClientModal };
 
 	/** Executa uma ação de contrato vinda de um botão (abre janela quando precisa). */
 	async function runContractAction(card, op) {
-		if (['entregar', 'devolver', 'renovar', 'faturar', 'adicional', 'medir'].indexOf(op) !== -1) { openAction(op, card); return; }
+		if (['entregar', 'devolver', 'renovar', 'faturar', 'adicional', 'medir', 'agendar_coleta'].indexOf(op) !== -1) { openAction(op, card); return; }
 		const confirmText = { cancelar: 'Cancelar esta locação?', reabrir: 'Reabrir como orçamento?', voltar_orcamento: 'Liberar a reserva e voltar para orçamento?' }[op];
 		if (confirmText && !window.confirm(confirmText)) { return; }
 		try {
@@ -800,7 +842,7 @@
 	const ACTION_LABELS = {
 		reservar: ['Aprovar e reservar', 'check', 'btn-dark'], entregar: ['Entregar', 'out', 'btn-primary'], devolver: ['Receber devolução', 'in', 'btn-primary'],
 		renovar: ['Renovar', 'refresh', ''], faturar: ['Faturar', 'money', ''], medir: ['Gerar medição', 'chart', ''], voltar_orcamento: ['Liberar reserva', 'back', ''], cancelar: ['Cancelar', 'x', 'btn-danger'],
-		reabrir: ['Reabrir', 'refresh', ''], duplicar: ['Duplicar', 'copy', ''], email: ['Enviar por e-mail', 'mail', ''],
+		reabrir: ['Reabrir', 'refresh', ''], agendar_coleta: ['Agendar coleta', 'truck', ''], duplicar: ['Duplicar', 'copy', ''], email: ['Enviar por e-mail', 'mail', ''],
 	};
 
 	/* ================================================================ painel */
@@ -1292,6 +1334,8 @@
 								<template v-if="c.local_obra"><dt>Obra</dt><dd>{{ c.local_obra }}</dd></template>
 								<template v-if="c.endereco_entrega"><dt>Endereço</dt><dd>{{ c.endereco_entrega }} <a class="small" target="_blank" rel="noopener" :href="'https://www.google.com/maps/search/' + encodeURIComponent(c.endereco_entrega)">abrir mapa</a></dd></template>
 								<template v-if="c.responsavel_obra"><dt>Responsável</dt><dd>{{ c.responsavel_obra }} {{ c.telefone_obra }}</dd></template>
+								<template v-if="c.motorista"><dt>Motorista</dt><dd>{{ c.motorista }}</dd></template>
+								<template v-if="c.coleta_em"><dt>Coleta</dt><dd>agendada para <b>{{ date(c.coleta_em) }}</b> · <a class="small" href="#/rota">ver rota</a></dd></template>
 								<template v-if="c.condicao_pagamento"><dt>Pagamento</dt><dd>{{ c.condicao_pagamento }}</dd></template>
 								<template v-if="c.obs"><dt>Observações</dt><dd>{{ c.obs }}</dd></template>
 								<template v-if="c.obs_interna"><dt>Interno</dt><dd style="white-space:pre-wrap">{{ c.obs_interna }}</dd></template>
@@ -1374,7 +1418,7 @@
 			closed: function () { return ['encerrado', 'cancelado'].indexOf(this.c.status) !== -1; },
 			mainActions: function () { return this.r.acoes.filter(function (a) { return ['reservar', 'entregar', 'devolver', 'renovar'].indexOf(a) !== -1; }); },
 			lastMeasure: function () { const ok = (this.r.medicoes || []).filter(function (m) { return m.status === 'gerada'; }); return ok.length ? ok[ok.length - 1].id : 0; },
-			otherActions: function () { return this.r.acoes.filter(function (a) { return ['voltar_orcamento', 'cancelar', 'reabrir', 'duplicar'].indexOf(a) !== -1; }); },
+			otherActions: function () { return this.r.acoes.filter(function (a) { return ['agendar_coleta', 'voltar_orcamento', 'cancelar', 'reabrir', 'duplicar'].indexOf(a) !== -1; }); },
 			entregaLabel: function () { return { retirada: 'Cliente retira', entrega: 'Locadora entrega', entrega_coleta: 'Locadora entrega e coleta' }[this.c.entrega] || this.c.entrega; },
 			caucaoLabel: function () { return { nao_cobrado: 'não cobrada', recebido: 'recebida', devolvido: 'devolvida', retido: 'retida' }[this.c.caucao_status]; },
 			steps: function () {
@@ -1561,6 +1605,93 @@
 	};
 
 	/* ==================================================== agenda da frota */
+
+	/** Rota do dia: entregas e coletas na ordem do motorista, com mapa e baixa pelo celular. */
+	const RoutePage = {
+		components: { Ic: Ic },
+		template: `<div class="page route-page">
+			<div class="page-head">
+				<h1>Rota do dia</h1><span class="sub">entregas e coletas da locadora</span>
+				<div class="actions"><button class="btn btn-sm" @click="load" aria-label="Atualizar"><Ic n="refresh"/></button></div>
+			</div>
+			<div class="toolbar">
+				<span class="seg"><button :class="{ on: data === hoje }" @click="setDay(hoje)">Hoje</button><button :class="{ on: data === amanha }" @click="setDay(amanha)">Amanhã</button></span>
+				<input type="date" class="input" style="min-width:0;max-width:170px" v-model="data" @change="load">
+				<select v-if="r && r.motoristas.length" class="input" style="min-width:0;max-width:200px" v-model="motorista" @change="load"><option value="">Todos os motoristas</option><option v-for="m in r.motoristas" :key="m" :value="m">{{ m }}</option></select>
+			</div>
+			<div v-if="!r" class="empty"><span class="spinner dark"></span></div>
+			<template v-else>
+				<div class="route-sum card">
+					<div class="route-prog"><div><b>{{ r.feitas }}</b> de <b>{{ r.paradas.length }}</b> parada(s) feita(s)<span class="muted"> · {{ nEntregas }} entrega(s), {{ nColetas }} coleta(s)</span></div><div class="bar"><i :style="{ width: pct + '%' }"></i></div></div>
+					<a v-if="r.rota_maps" class="btn btn-primary" :href="r.rota_maps" target="_blank" rel="noopener"><Ic n="nav"/> Abrir rota no Google Maps</a>
+				</div>
+				<p v-if="r.mais_de_9" class="notice warning">O Google Maps abre no máximo 10 paradas de uma vez: a rota completa leva as 10 primeiras pendentes.</p>
+				<div v-if="!r.paradas.length" class="card empty">Nenhuma entrega ou coleta neste dia.<br><span class="small">Entram aqui as locações com "Locadora entrega" e as coletas agendadas.</span></div>
+				<ol class="stops">
+					<li v-for="(p, i) in r.paradas" :key="p.chave" class="stop" :class="[p.tipo, { feito: p.feito, late: p.atrasada }]">
+						<div class="stop-n">{{ p.feito ? '' : i + 1 }}<Ic v-if="p.feito" n="check"/></div>
+						<div class="stop-body">
+							<div class="stop-top">
+								<span class="badge" :class="p.tipo === 'entrega' ? 'b-ativo' : 'b-orcamento'">{{ p.tipo === 'entrega' ? 'Entrega' : 'Coleta' }}</span>
+								<span v-if="p.feito" class="badge b-encerrado">Feita</span>
+								<span v-else-if="p.atrasada" class="badge b-atrasado">Pendente desde {{ short(p.desde) }}</span>
+								<span v-if="p.agendada && !p.feito" class="badge b-reservado">agendada</span>
+								<a class="num" :href="'#/contratos/' + p.contrato.id">{{ p.contrato.numero }}</a>
+								<span v-if="p.motorista" class="muted small">· {{ p.motorista }}</span>
+								<span class="grow"></span>
+								<span v-if="!p.feito" class="reorder"><button class="btn btn-sm btn-ghost" :disabled="i === 0" @click="move(i, -1)" aria-label="Subir"><Ic n="up"/></button><button class="btn btn-sm btn-ghost" :disabled="i === pendentes - 1" @click="move(i, 1)" aria-label="Descer"><Ic n="dn"/></button></span>
+							</div>
+							<div class="stop-client">{{ p.cliente }}<span v-if="p.obra" class="muted"> · {{ p.obra }}</span></div>
+							<div class="stop-addr"><Ic n="pin"/><span>{{ p.endereco || 'Sem endereço — preencha na locação' }}</span></div>
+							<div v-if="!p.feito && (p.responsavel || p.telefone)" class="stop-contact muted small">{{ p.responsavel }}{{ p.responsavel && p.telefone ? ' · ' : '' }}{{ p.telefone }}</div>
+							<div v-if="!p.feito" class="equip-chips"><span v-for="(it, k) in p.itens" :key="k"><b v-if="it.qtd > 1">{{ num(it.qtd) }}×</b> {{ it.descricao }}</span></div>
+							<div v-if="p.obs && !p.feito" class="stop-obs small">{{ p.obs }}</div>
+							<div v-if="!p.feito" class="stop-acts">
+								<a v-if="p.maps" class="btn btn-sm" :href="p.maps" target="_blank" rel="noopener"><Ic n="pin"/> Maps</a>
+								<a v-if="p.waze" class="btn btn-sm" :href="p.waze" target="_blank" rel="noopener"><Ic n="nav"/> Waze</a>
+								<a v-if="p.telefone" class="btn btn-sm" :href="'tel:' + digits(p.telefone)"><Ic n="phone"/> Ligar</a>
+								<a v-if="p.whatsapp" class="btn btn-sm btn-wa" :href="p.whatsapp" target="_blank" rel="noopener"><Ic n="wa"/> Avisar</a>
+								<span class="grow"></span>
+								<button v-if="!p.feito && p.tipo === 'entrega'" class="btn btn-sm btn-primary" @click="act('entregar', p)"><Ic n="out"/> Confirmar entrega</button>
+								<button v-if="!p.feito && p.tipo === 'coleta'" class="btn btn-sm btn-primary" @click="act('devolver', p)"><Ic n="in"/> Confirmar coleta</button>
+							</div>
+						</div>
+					</li>
+				</ol>
+				<p class="muted small">Use as setas para pôr as paradas na ordem do caminho; a ordem fica salva para o dia. Coleta fora da data prevista: abra a locação e use <b>Agendar coleta</b>.</p>
+			</template>
+		</div>`,
+		data: function () { return { r: null, data: D.hoje, hoje: D.hoje, amanha: addDays(D.hoje, 1), motorista: '' }; },
+		computed: {
+			nEntregas: function () { return this.r.paradas.filter(function (p) { return p.tipo === 'entrega'; }).length; },
+			nColetas: function () { return this.r.paradas.length - this.nEntregas; },
+			pendentes: function () { return this.r.paradas.length - this.r.feitas; },
+			pct: function () { return this.r.paradas.length ? Math.round(100 * this.r.feitas / this.r.paradas.length) : 0; },
+		},
+		created: function () { this.load(); this.stop = watch(function () { return store.tick; }, () => this.load()); },
+		unmounted: function () { this.stop(); },
+		methods: {
+			short: fmt.short,
+			num: fmt.num,
+			digits: function (t) { return String(t).replace(/\D/g, ''); },
+			setDay: function (d) { this.data = d; this.load(); },
+			load: async function () {
+				try { this.r = await get('route', { data: this.data, motorista: this.motorista }); } catch (e) { toast(e.message, 'error'); }
+			},
+			move: async function (i, dir) {
+				const list = this.r.paradas, j = i + dir;
+				if (j < 0 || j >= list.length) { return; }
+				const t = list[i]; list[i] = list[j]; list[j] = t;
+				try {
+					// a ordem salva vale para o dia todo; com filtro de motorista, as paradas dos outros seguem depois
+					await post('route/order', { data: this.data, ordem: list.map(function (p) { return p.chave; }) });
+					const day = await get('route', { data: this.data, motorista: this.motorista });
+					this.r.rota_maps = day.rota_maps;
+				} catch (e) { toast(e.message, 'error'); }
+			},
+			act: function (op, p) { openAction(op, { id: p.contrato.id }); },
+		},
+	};
 
 	const FleetPage = {
 		components: { Ic: Ic, Autocomplete: Autocomplete },
@@ -1880,6 +2011,7 @@
 		{ group: 'Operação' },
 		{ r: 'painel', l: 'Painel', i: 'home' },
 		{ r: 'contratos', l: 'Locações', i: 'file', count: 'solicitacoes' },
+		{ r: 'rota', l: 'Rota do dia', i: 'route' },
 		{ r: 'frota', l: 'Agenda da frota', i: 'calendar' },
 		{ r: 'equipamentos', l: 'Equipamentos', i: 'truck' },
 		{ r: 'clientes', l: 'Clientes', i: 'users' },
@@ -1928,7 +2060,7 @@
 	};
 
 	const App = {
-		components: { Ic: Ic, GlobalSearch: GlobalSearch, DashboardPage: DashboardPage, ContractsPage: ContractsPage, ContractView: ContractView, ContractEditor: ContractEditor, FleetPage: FleetPage, ListPage: ListPage, RecordPage: RecordPage, ReportsPage: ReportsPage, SettingsPage: SettingsPage },
+		components: { Ic: Ic, GlobalSearch: GlobalSearch, RoutePage: RoutePage, DashboardPage: DashboardPage, ContractsPage: ContractsPage, ContractView: ContractView, ContractEditor: ContractEditor, FleetPage: FleetPage, ListPage: ListPage, RecordPage: RecordPage, ReportsPage: ReportsPage, SettingsPage: SettingsPage },
 		template: `<div class="shell">
 			<aside class="sidebar" :class="{ open: s.sidebar }">
 				<div class="brand"><a href="#/painel"><img :src="logo" :alt="empresa"></a><small>Gestão de locações</small></div>
@@ -1949,13 +2081,14 @@
 					<span class="spacer"></span>
 					<a class="btn btn-primary hide-sm" href="#/contratos/novo"><Ic n="plus"/> Nova locação</a>
 				</header>
-				<a class="fab" href="#/contratos/novo" aria-label="Nova locação"><Ic n="plus"/></a>
+				<a v-if="r.name !== 'rota'" class="fab" href="#/contratos/novo" aria-label="Nova locação"><Ic n="plus"/></a>
 				<DashboardPage v-if="r.name === 'painel'"/>
 				<ContractsPage v-else-if="r.name === 'contratos'" :key="r.path + JSON.stringify(r.query)"/>
 				<ContractEditor v-else-if="r.name === 'contratos-novo'" :key="'n' + JSON.stringify(r.query)"/>
 				<ContractEditor v-else-if="r.name === 'contrato-editar'" :id="r.params.id" :key="'e' + r.params.id"/>
 				<ContractView v-else-if="r.name === 'contrato'" :id="r.params.id"/>
 				<FleetPage v-else-if="r.name === 'frota'"/>
+				<RoutePage v-else-if="r.name === 'rota'"/>
 				<ReportsPage v-else-if="r.name === 'relatorios'" :rkey="r.params.key"/>
 				<SettingsPage v-else-if="r.name === 'configuracoes'"/>
 				<RecordPage v-else-if="r.name === 'registro-novo'" :module="r.params.module" :key="'new' + r.params.module + JSON.stringify(r.query)"/>

@@ -174,6 +174,8 @@ class DL_Modules {
 				'endereco_entrega'    => array( 'label' => 'Endereço de entrega', 'type' => 'text', 'width' => 'full' ),
 				'responsavel_obra'    => array( 'label' => 'Responsável na obra', 'type' => 'text' ),
 				'telefone_obra'       => array( 'label' => 'Telefone na obra', 'type' => 'tel' ),
+				'motorista'           => array( 'label' => 'Motorista', 'type' => 'text', 'help' => 'Quem faz a entrega e a coleta. Filtra a rota do dia.' ),
+				'coleta_em'           => array( 'label' => 'Coleta agendada', 'type' => 'date', 'help' => 'Põe a coleta na rota desse dia. Vazio: na entrega e coleta, vale a devolução prevista.' ),
 				'valor_frete'         => array( 'label' => 'Frete (R$)', 'type' => 'money', 'section' => 'Valores' ),
 				'desconto'            => array( 'label' => 'Desconto (R$)', 'type' => 'money' ),
 				'cobranca'            => array( 'label' => 'Forma de cobrança', 'type' => 'select', 'options' => array( 'periodo' => 'Por período (valor fechado)', 'medicao' => 'Por medição (pro-rata)' ), 'default' => 'periodo', 'help' => 'Por medição: a cada ciclo cobra só os dias e as quantidades que ficaram com o cliente.' ),

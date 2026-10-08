@@ -47,6 +47,8 @@ class DL_API {
 	public static function routes() {
 		self::route( 'dashboard', 'GET', array( __CLASS__, 'dashboard' ) );
 		self::route( 'timeline', 'GET', array( __CLASS__, 'timeline' ) );
+		self::route( 'route', 'GET', array( __CLASS__, 'route_day' ) );
+		self::route( 'route/order', 'POST', array( __CLASS__, 'route_order' ) );
 		self::route( 'search', 'GET', array( __CLASS__, 'search' ) );
 		self::route( 'lookup/(?P<table>[a-z_]+)', 'GET', array( __CLASS__, 'lookup' ) );
 		self::route( 'quote', 'GET', array( __CLASS__, 'quote' ) );
@@ -87,6 +89,23 @@ class DL_API {
 
 	private static function date_param( $v, $default ) {
 		return is_string( $v ) && preg_match( '/^\d{4}-\d{2}-\d{2}$/', $v ) ? $v : $default;
+	}
+
+	/* ------------------------------------------------------------- rota do dia */
+
+	public static function route_day( WP_REST_Request $req ) {
+		$date = self::date_param( $req->get_param( 'data' ), dl_today() );
+		return DL_Route::day( $date, sanitize_text_field( (string) $req->get_param( 'motorista' ) ) );
+	}
+
+	public static function route_order( WP_REST_Request $req ) {
+		$b    = self::body( $req );
+		$date = self::date_param( $b['data'] ?? '', '' );
+		if ( ! $date ) {
+			return new WP_Error( 'data', 'Data inválida.' );
+		}
+		DL_Route::save_order( $date, (array) ( $b['ordem'] ?? array() ) );
+		return array( 'ok' => true );
 	}
 
 	/** Esquema dos módulos para a interface montar listas e formulários. */

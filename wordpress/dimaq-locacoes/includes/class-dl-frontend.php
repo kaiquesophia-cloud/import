@@ -566,6 +566,9 @@ class DL_Frontend {
 				$labels[ $req ] .= ' — reserva automática não foi possível: ' . $r->get_error_message();
 			}
 		}
+		if ( 'coleta' === $req && 'ativo' === $c['status'] && empty( $c['coleta_em'] ) ) {
+			DL_DB::update( 'contratos', $id, array( 'coleta_em' => dl_today() ) ); // entra na rota de hoje; a equipe ajusta o dia
+		}
 		dl_log( 'contratos', $id, $labels[ $req ], 'pela área do cliente' );
 		wp_mail( dl_opt( 'email_notificacao' ), $labels[ $req ] . ' — ' . $c['numero'], $cli['nome'] . ' (' . $cli['telefone'] . ")\n\n" . dl_app_url( 'contratos/' . $id ) );
 		wp_safe_redirect( add_query_arg( 'dl_msg', rawurlencode( 'Recebemos sua solicitação. Entraremos em contato.' ), $back ) );

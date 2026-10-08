@@ -101,6 +101,7 @@
 		<li>Locação passo a passo <span>do orçamento à devolução</span></li>
 		<li>Cobrança por medição (pro-rata) <span>locações cobradas pelo uso real</span></li>
 		<li>Quadro e agenda da frota <span>visões de acompanhamento</span></li>
+		<li>Rota do dia <span>entregas e coletas do motorista</span></li>
 		<li>Documentos <span>contrato, orçamento, OS, recibo</span></li>
 		<li>Ordens de serviço <span>manutenção da frota</span></li>
 		<li>Vendas e estoque <span>peças e produtos</span></li>
@@ -132,7 +133,7 @@
 		<tr><td><b>Administrador</b></td><td>Tudo, inclusive configurações, financeiro e o painel do WordPress.</td></tr>
 		<tr><td><b>Gerente da locadora</b></td><td>Operação completa, financeiro, notas e relatórios.</td></tr>
 		<tr><td><b>Operador de locação</b></td><td>Clientes, equipamentos, locações, ordens de serviço, vendas e estoque. Não vê o financeiro.</td></tr>
-		<tr><td><b>Cliente da locadora</b></td><td>Só a área do cliente no site (capítulo 15). Não entra no sistema.</td></tr>
+		<tr><td><b>Cliente da locadora</b></td><td>Só a área do cliente no site (capítulo 16). Não entra no sistema.</td></tr>
 	</table>
 	<div class="tip"><b>Para cadastrar a equipe</b>O administrador cria cada pessoa em <b>Usuários → Adicionar novo</b> no WordPress e escolhe o perfil <i>Operador de locação</i> ou <i>Gerente da locadora</i>. Essas pessoas entram só pelo <b>/sistema</b>; se tentarem abrir o painel do WordPress, são levadas de volta ao sistema.</div>
 </section>
@@ -207,7 +208,7 @@
 	</ul>
 	<div class="fig"><img src="img/m17-cliente.png" alt=""><figcaption>Ficha do cliente com valores em aberto, vencidos, histórico de locações e acesso à área do cliente.</figcaption></div>
 	<h3>Categorias, fornecedores e produtos</h3>
-	<p><b>Categorias</b> organizam a frota e o catálogo do site. <b>Fornecedores</b> são usados nas contas a pagar e nas peças. <b>Produtos e estoque</b> estão no capítulo 10.</p>
+	<p><b>Categorias</b> organizam a frota e o catálogo do site. <b>Fornecedores</b> são usados nas contas a pagar e nas peças. <b>Produtos e estoque</b> estão no capítulo 11.</p>
 </section>
 
 <!-- 5 -->
@@ -335,7 +336,39 @@
 
 <!-- 7 -->
 <section class="ch np">
-	<div class="chead"><div class="n">8</div><h2>Documentos</h2></div>
+	<div class="chead"><div class="n">8</div><h2>Rota do dia</h2></div>
+	<p>Em <b>Rota do dia</b> (menu Operação) ficam as entregas e coletas que a Dimaq faz na obra, na ordem do caminho. Feita para o motorista usar no celular: abre o endereço no mapa, liga ou avisa o cliente e dá a baixa ali mesmo.</p>
+	<div class="row2">
+		<div class="fig phone" style="flex:0 0 62mm"><img src="img/m33-rota-celular.png" alt="" style="max-height:125mm"><figcaption>Rota no celular do motorista.</figcaption></div>
+		<div style="flex:1">
+			<h3>O que entra na rota</h3>
+			<ul>
+				<li><b>Entrega</b>: locação reservada com <b>Locadora entrega</b> ou <b>entrega e coleta</b>, no dia do início. Entrega que ficou para trás aparece hoje, marcada "Pendente desde".</li>
+				<li><b>Coleta</b>: locação em andamento com <b>entrega e coleta</b>, no dia da devolução prevista; ou qualquer locação com <b>coleta agendada</b> para o dia.</li>
+				<li>Cliente que retira e devolve na locadora não entra.</li>
+				<li>Quando o cliente pede coleta pela área do cliente, ela entra na rota de hoje. Ajuste o dia se precisar.</li>
+			</ul>
+			<h3>Em cada parada</h3>
+			<ul>
+				<li><b>Maps</b> e <b>Waze</b>: abrem o endereço da entrega (ou o da obra, ou o do cliente) para navegar.</li>
+				<li><b>Ligar</b> e <b>Avisar</b>: telefone da obra e mensagem pronta de WhatsApp ("estou a caminho").</li>
+				<li><b>Confirmar entrega</b> / <b>Confirmar coleta</b>: abrem as mesmas janelas de entrega e devolução, com checklist e horímetro. A parada fica verde e vai para o fim da lista.</li>
+				<li>Coleta parcial (buscou só parte das peças): a parada continua pendente com o que falta.</li>
+			</ul>
+		</div>
+	</div>
+	<div class="fig"><img src="img/m32-rota.png" alt=""><figcaption>Rota do dia no computador: progresso do dia, filtro por motorista e rota completa no Google Maps.</figcaption></div>
+	<h3>Ordem, motorista e rota completa</h3>
+	<p>Use as setas <span class="btn">▲</span> <span class="btn">▼</span> para pôr as paradas na ordem do caminho; a ordem fica salva para o dia e vale para todos. O botão <b>Abrir rota no Google Maps</b> monta o trajeto saindo do endereço da Dimaq (Configurações) e passando pelas paradas pendentes, na ordem da lista. O Google Maps aceita até 10 paradas de uma vez.</p>
+	<p>No campo <b>Motorista</b> da locação (seção Obra e entrega), informe quem faz a entrega e a coleta. Na rota, escolha o motorista para ver só as paradas dele.</p>
+	<h3>Agendar coleta</h3>
+	<div class="fig"><img src="img/m34-agendar-coleta.png" alt=""><figcaption>Agendar coleta, na tela da locação.</figcaption></div>
+	<p>Para coletar num dia diferente da devolução prevista, ou numa locação em que o cliente retirou, abra a locação e clique em <b>Agendar coleta</b>: escolha o dia e o motorista. Para voltar ao normal, use <b>Desmarcar coleta</b>. O dia também pode ser alterado no campo <b>Coleta agendada</b> ao editar a locação.</p>
+</section>
+
+<!-- 8 -->
+<section class="ch np">
+	<div class="chead"><div class="n">9</div><h2>Documentos</h2></div>
 	<p>Na ficha da locação, em <b>Documentos</b>, há cinco documentos: <b>Orçamento</b>, <b>Contrato de locação</b>, <b>Checklist de saída e retorno</b>, <b>Devolução de equipamento</b> e <b>Fatura de locação</b>. A OS, a venda e o recibo têm o seu na própria ficha. Todos abrem numa aba com o botão <b>Imprimir / salvar em PDF</b>.</p>
 	<h3>Contrato de locação</h3>
 	<div class="row2">
@@ -353,7 +386,7 @@
 
 <!-- 8 -->
 <section class="ch">
-	<div class="chead"><div class="n">9</div><h2>Ordens de serviço</h2></div>
+	<div class="chead"><div class="n">10</div><h2>Ordens de serviço</h2></div>
 	<div class="fig tall"><img src="img/m18-os.png" alt=""><figcaption>Ficha da OS com peças, mão de obra, documento, cobrança e histórico.</figcaption></div>
 	<ol class="steps">
 		<li><b>Ordens de serviço → Novo</b> (ou <b>Abrir OS</b> na ficha do equipamento).</li>
@@ -368,7 +401,7 @@
 
 <!-- 9 -->
 <section class="ch">
-	<div class="chead"><div class="n">10</div><h2>Vendas e estoque</h2></div>
+	<div class="chead"><div class="n">11</div><h2>Vendas e estoque</h2></div>
 	<div class="fig"><img src="img/m24-produtos.png" alt=""><figcaption>Produtos, peças e serviços.</figcaption></div>
 	<ul>
 		<li><b>Produtos e estoque</b>: cadastre produtos para venda, peças/insumos e serviços (serviço não tem estoque). Informe o estoque mínimo para receber alerta.</li>
@@ -379,7 +412,7 @@
 
 <!-- 10 -->
 <section class="ch">
-	<div class="chead"><div class="n">11</div><h2>Financeiro</h2></div>
+	<div class="chead"><div class="n">12</div><h2>Financeiro</h2></div>
 	<div class="fig"><img src="img/m19-financeiro.png" alt=""><figcaption>Contas a receber e a pagar com totais do filtro.</figcaption></div>
 	<p>As cobranças de locações, vendas e OS entram aqui sozinhas. Lançamentos avulsos (aluguel, combustível, folha) são criados em <span class="btn">Novo</span>. Use as abas <b>A receber</b> e <b>A pagar</b> e os filtros de situação (<i>vencido</i>, <i>vence hoje</i>), cliente, categoria e período.</p>
 	<h3>Dar baixa (receber ou pagar)</h3>
@@ -395,7 +428,7 @@
 
 <!-- 11 -->
 <section class="ch">
-	<div class="chead"><div class="n">12</div><h2>Notas fiscais</h2></div>
+	<div class="chead"><div class="n">13</div><h2>Notas fiscais</h2></div>
 	<p>Nas fichas de OS, venda e locação há o quadro <b>Nota fiscal</b> com o botão de emissão: <b>NF-e</b> para venda de produtos e <b>NFS-e</b> para serviços (manutenção, frete, montagem).</p>
 	<div class="warn"><b>Locação não tem ISS</b>Locação pura de bem móvel não é serviço para fins de ISS (Súmula Vinculante 31 do STF). Para ela use a <b>fatura de locação</b>. Emita NFS-e só para frete, montagem ou operador, quando a prefeitura exigir. Confirme o enquadramento com o contador.</div>
 	<p>A emissão automática depende de contratar um emissor (Focus NFe, PlugNotas, eNotas, NFE.io...) e configurar em <b>Configurações → Nota fiscal</b>. Enquanto a integração estiver desligada, a nota fica <b>pendente</b>: emita no portal da prefeitura ou da Sefaz e anote número, chave e link do PDF na ficha da nota (<b>Notas fiscais</b> no menu).</p>
@@ -403,7 +436,7 @@
 
 <!-- 12 -->
 <section class="ch">
-	<div class="chead"><div class="n">13</div><h2>Relatórios</h2></div>
+	<div class="chead"><div class="n">14</div><h2>Relatórios</h2></div>
 	<div class="fig"><img src="img/m21-relatorio.png" alt=""><figcaption>Relatório de faturamento por categoria com gráfico.</figcaption></div>
 	<table class="t">
 		<tr><th style="width:30%">Relatório</th><th>O que responde</th></tr>
@@ -422,7 +455,7 @@
 
 <!-- 13 -->
 <section class="ch">
-	<div class="chead"><div class="n">14</div><h2>Configurações</h2></div>
+	<div class="chead"><div class="n">15</div><h2>Configurações</h2></div>
 	<p>Só o administrador acessa. Lembre de clicar em <span class="btn">Salvar</span>.</p>
 	<table class="t">
 		<tr><th style="width:26%">Aba</th><th>O que ajustar</th></tr>
@@ -438,7 +471,7 @@
 
 <!-- 14 -->
 <section class="ch">
-	<div class="chead"><div class="n">15</div><h2>Site e área do cliente</h2></div>
+	<div class="chead"><div class="n">16</div><h2>Site e área do cliente</h2></div>
 	<p>O sistema também alimenta o site da Dimaq:</p>
 	<ul>
 		<li><b>Catálogo</b> de equipamentos, com fotos, especificações, preços (opcional) e <b>consulta de disponibilidade com valor</b> para as datas que o cliente escolher.</li>
@@ -450,8 +483,8 @@
 
 <!-- 15 -->
 <section class="ch">
-	<div class="chead"><div class="n">16</div><h2>No celular</h2></div>
-	<p>O sistema se adapta à tela do celular. Ideal para quem está no pátio ou na entrega: dá para consultar disponibilidade, registrar entrega e devolução com checklist e chamar o cliente no WhatsApp.</p>
+	<div class="chead"><div class="n">17</div><h2>No celular</h2></div>
+	<p>O sistema se adapta à tela do celular. Ideal para quem está no pátio ou na entrega: dá para consultar disponibilidade, registrar entrega e devolução com checklist e chamar o cliente no WhatsApp. O motorista usa a <b>Rota do dia</b> (capítulo 8).</p>
 	<div class="row2">
 		<div class="fig phone"><img src="img/m25-celular.png" alt=""><figcaption>Painel no celular.</figcaption></div>
 		<div class="fig phone"><img src="img/m26-celular-cartao.png" alt=""><figcaption>Cartões das locações.</figcaption></div>
@@ -462,7 +495,7 @@
 
 <!-- 16 -->
 <section class="ch">
-	<div class="chead"><div class="n">17</div><h2>Dúvidas frequentes</h2></div>
+	<div class="chead"><div class="n">18</div><h2>Dúvidas frequentes</h2></div>
 	<table class="t">
 		<tr><th style="width:38%">Situação</th><th>O que fazer</th></tr>
 		<tr><td>"Sem disponibilidade" ao reservar</td><td>O equipamento já está reservado ou alugado nas datas. Veja a <b>Agenda da frota</b> para achar outra data ou outro equipamento.</td></tr>

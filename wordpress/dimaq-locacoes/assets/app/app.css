@@ -409,6 +409,37 @@ table.t td.n, table.t th.n { text-align: right; white-space: nowrap; }
 .hello { font-size: 24px; font-weight: 800; letter-spacing: -.02em; margin: 0; }
 .ic { width: 18px; height: 18px; display: inline-block; vertical-align: middle; }
 
+/* ---------- rota do dia ---------- */
+.route-sum { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+.route-prog { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 8px; }
+.route-prog .bar { height: 8px; background: var(--gray-bg); border-radius: 99px; overflow: hidden; }
+.route-prog .bar i { display: block; height: 100%; background: var(--green); border-radius: 99px; transition: width .3s; }
+.stops { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.stop { display: flex; gap: 14px; background: var(--card); border: 1px solid #eceef1; border-left: 5px solid var(--accent); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px 16px; }
+.stop.coleta { border-left-color: var(--blue); }
+.stop.late { border-left-color: var(--red); }
+.stop.feito { opacity: .62; border-left-color: var(--green); }
+.stop-n { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--graphite); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.stop.feito .stop-n { background: var(--green); }
+.stop-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.stop-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.stop-top .num { font-weight: 700; color: var(--ink); text-decoration: none; }
+.stop-top .grow, .stop-acts .grow { flex: 1; }
+.stop-top .reorder { display: inline-flex; gap: 2px; }
+.stop-client { font-weight: 700; font-size: 15px; }
+.stop-addr { display: flex; gap: 6px; align-items: flex-start; }
+.stop-addr .ic { flex: none; margin-top: 2px; color: var(--muted); }
+.stop-obs { background: var(--amber-bg); color: #92400e; border-radius: 8px; padding: 6px 10px; }
+.stop-acts { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 4px; }
+@media (max-width: 860px) {
+	.stop { padding: 12px; gap: 10px; }
+	.stop-n { width: 28px; height: 28px; font-size: 13px; }
+	.stop-acts .btn { flex: 1 1 auto; justify-content: center; }
+	.stop-acts .grow { display: none; }
+	.stop-acts .btn-primary { flex-basis: 100%; padding: 12px; font-size: 15px; }
+	.route-sum .btn { width: 100%; justify-content: center; }
+}
+
 /* ---------- celular ---------- */
 @media (max-width: 1100px) {
 	.grid-main { grid-template-columns: 1fr; }

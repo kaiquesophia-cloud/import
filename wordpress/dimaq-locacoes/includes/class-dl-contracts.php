@@ -184,6 +184,7 @@ class DL_Contracts {
 		if ( 'ativo' === $st ) {
 			$a[] = 'devolver';
 			$a[] = 'renovar';
+			$a[] = 'agendar_coleta';
 		}
 		if ( DL_Measurement::is_measured( $c ) ) {
 			if ( in_array( $st, array( 'ativo', 'encerrado' ), true ) ) {
@@ -274,6 +275,24 @@ class DL_Contracts {
 			case 'duplicar':
 				$new_id = self::duplicate( $c );
 				return array( 'message' => 'Novo orçamento criado a partir de ' . $c['numero'] . '.', 'id' => $new_id );
+
+			case 'agendar_coleta':
+				if ( 'ativo' !== $c['status'] ) {
+					return new WP_Error( 'status', 'Só dá para agendar coleta de locação em andamento.' );
+				}
+				$date   = sanitize_text_field( $p['data'] ?? '' );
+				$driver = sanitize_text_field( $p['motorista'] ?? $c['motorista'] );
+				if ( ! empty( $p['remover'] ) ) {
+					DL_DB::update( 'contratos', $id, array( 'coleta_em' => null ) );
+					dl_log( 'contratos', $id, 'Coleta desmarcada' );
+					return array( 'message' => 'Coleta desmarcada.' );
+				}
+				if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date ) ) {
+					return new WP_Error( 'data', 'Informe a data da coleta.' );
+				}
+				DL_DB::update( 'contratos', $id, array( 'coleta_em' => $date, 'motorista' => $driver ) );
+				dl_log( 'contratos', $id, 'Coleta agendada', dl_date( $date ) . ( $driver ? ' — ' . $driver : '' ) );
+				return array( 'message' => 'Coleta agendada para ' . dl_date( $date ) . '. Ela aparece na rota do dia.' );
 
 			case 'email':
 				return self::send_email( $c ) ? array( 'message' => 'E-mail enviado ao cliente.' ) : new WP_Error( 'email', 'Falha ao enviar o e-mail (verifique o SMTP do site e o e-mail do cliente).' );

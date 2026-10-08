@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Dimaq Locações — Gestão de Locação
  * Description:       Sistema de gestão para locadora de equipamentos: clientes, equipamentos, contratos de locação, devoluções, ordens de serviço, vendas, estoque, financeiro, faturamento, notas fiscais, relatórios, catálogo no site e área do cliente.
- * Version:           2.2.1
+ * Version:           2.3.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Dimaq Locações
@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DL_VERSION', '2.2.1' );
-define( 'DL_DB_VERSION', '5' );
+define( 'DL_VERSION', '2.3.0' );
+define( 'DL_DB_VERSION', '6' );
 define( 'DL_FILE', __FILE__ );
 define( 'DL_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DL_URL', plugin_dir_url( __FILE__ ) );
@@ -31,6 +31,7 @@ require_once DL_DIR . 'includes/class-dl-items.php';
 require_once DL_DIR . 'includes/class-dl-availability.php';
 require_once DL_DIR . 'includes/class-dl-contracts.php';
 require_once DL_DIR . 'includes/class-dl-measurement.php';
+require_once DL_DIR . 'includes/class-dl-route.php';
 require_once DL_DIR . 'includes/class-dl-stock.php';
 require_once DL_DIR . 'includes/class-dl-finance.php';
 require_once DL_DIR . 'includes/class-dl-service-orders.php';

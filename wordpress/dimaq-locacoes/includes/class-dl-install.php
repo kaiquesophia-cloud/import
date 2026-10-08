@@ -190,6 +190,8 @@ class DL_Install {
 			responsavel_obra varchar(120) NOT NULL DEFAULT '',
 			telefone_obra varchar(30) NOT NULL DEFAULT '',
 			entrega varchar(20) NOT NULL DEFAULT 'retirada',
+			motorista varchar(60) NOT NULL DEFAULT '',
+			coleta_em date NULL,
 			valor_frete decimal(12,2) NOT NULL DEFAULT 0,
 			desconto decimal(12,2) NOT NULL DEFAULT 0,
 			caucao decimal(12,2) NOT NULL DEFAULT 0,
