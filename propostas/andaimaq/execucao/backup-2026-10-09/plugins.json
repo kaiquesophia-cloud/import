@@ -1,0 +1,497 @@
+[
+ {
+  "plugin": "all-in-one-wp-migration/all-in-one-wp-migration",
+  "status": "active",
+  "name": "All-in-One WP Migração e Backup",
+  "plugin_uri": "https://servmask.com/",
+  "author": "ServMask",
+  "author_uri": "https://servmask.com/",
+  "description": {
+   "raw": "O All-in-One WP Migration simplifica a migração de todo o seu site WordPress. Exporte ou importe seu banco de dados, mídia, plugins e temas com apenas alguns cliques.",
+   "rendered": "O All-in-One WP Migration simplifica a migração de todo o seu site WordPress. Exporte ou importe seu banco de dados, mídia, plugins e temas com apenas alguns cliques. <cite>Por <a href=\"https://servmask.com/\">ServMask</a>.</cite>"
+  },
+  "version": "7.97",
+  "network_only": true,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "all-in-one-wp-migration",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/all-in-one-wp-migration/all-in-one-wp-migration",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "all-in-one-wp-migration-unlimited-extension/all-in-one-wp-migration-unlimited-extension",
+  "status": "active",
+  "name": "All-in-One WP Migration Unlimited Extension",
+  "plugin_uri": "https://servmask.com/",
+  "author": "ServMask",
+  "author_uri": "https://servmask.com/",
+  "description": {
+   "raw": "Extension for All-in-One WP Migration that enables unlimited size exports and imports",
+   "rendered": "Extension for All-in-One WP Migration that enables unlimited size exports and imports <cite>Por <a href=\"https://servmask.com/\">ServMask</a>.</cite>"
+  },
+  "version": "2.65",
+  "network_only": true,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "all-in-one-wp-migration-unlimited-extension",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/all-in-one-wp-migration-unlimited-extension/all-in-one-wp-migration-unlimited-extension",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "click-to-chat-for-whatsapp/click-to-chat",
+  "status": "active",
+  "name": "Click to Chat",
+  "plugin_uri": "https://wordpress.org/plugins/click-to-chat-for-whatsapp/",
+  "author": "HoliThemes",
+  "author_uri": "https://holithemes.com/plugins/click-to-chat/",
+  "description": {
+   "raw": "Lets make your Web page visitors contact you through WhatsApp with a single click/tap",
+   "rendered": "Lets make your Web page visitors contact you through WhatsApp with a single click/tap <cite>Por <a href=\"https://holithemes.com/plugins/click-to-chat/\">HoliThemes</a>.</cite>"
+  },
+  "version": "4.27",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "click-to-chat-for-whatsapp",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/click-to-chat-for-whatsapp/click-to-chat",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "contact-form-7/wp-contact-form-7",
+  "status": "active",
+  "name": "Contact Form 7",
+  "plugin_uri": "https://contactform7.com/",
+  "author": "Takayuki Miyoshi",
+  "author_uri": "http://ideasilo.wordpress.com/",
+  "description": {
+   "raw": "Só mais um plugin de formulário de contato. Simples, mas flexível.",
+   "rendered": "Só mais um plugin de formulário de contato. Simples, mas flexível. <cite>Por <a href=\"http://ideasilo.wordpress.com/\">Takayuki Miyoshi</a>.</cite>"
+  },
+  "version": "6.1.1",
+  "network_only": false,
+  "requires_wp": "6.7",
+  "requires_php": "7.4",
+  "textdomain": "contact-form-7",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/contact-form-7/wp-contact-form-7",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "copy-delete-posts/copy-delete-posts",
+  "status": "active",
+  "name": "Copy &amp; Delete Posts",
+  "plugin_uri": "https://copy-delete-posts.com",
+  "author": "Inisev",
+  "author_uri": "https://inisev.com",
+  "description": {
+   "raw": "A melhor solução para criar facilmente cópias dos seus posts e páginas, e também excluí-los de uma só vez.",
+   "rendered": "A melhor solução para criar facilmente cópias dos seus posts e páginas, e também excluí-los de uma só vez. <cite>Por <a href=\"https://inisev.com\">Inisev</a>.</cite>"
+  },
+  "version": "1.5.0",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "copy-delete-posts",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/copy-delete-posts/copy-delete-posts",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "elementor/elementor",
+  "status": "active",
+  "name": "Elementor",
+  "plugin_uri": "https://elementor.com/?utm_source=wp-plugins&#038;utm_campaign=plugin-uri&#038;utm_medium=wp-dash",
+  "author": "Elementor.com",
+  "author_uri": "https://elementor.com/?utm_source=wp-plugins&#038;utm_campaign=author-uri&#038;utm_medium=wp-dash",
+  "description": {
+   "raw": "O construtor de sites Elementor tem tudo: construtor de páginas do tipo arrastar e soltar, design perfeito em pixels, edição responsiva para dispositivos móveis e muito mais. Comece agora!",
+   "rendered": "O construtor de sites Elementor tem tudo: construtor de páginas do tipo arrastar e soltar, design perfeito em pixels, edição responsiva para dispositivos móveis e muito mais. Comece agora! <cite>Por <a href=\"https://elementor.com/?utm_source=wp-plugins&#038;utm_campaign=author-uri&#038;utm_medium=wp-dash\">Elementor.com</a>.</cite>"
+  },
+  "version": "3.31.2",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "elementor",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/elementor/elementor",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "elementor-pro/elementor-pro",
+  "status": "active",
+  "name": "Elementor Pro",
+  "plugin_uri": "https://go.elementor.com/wp-dash-wp-plugins-author-uri/",
+  "author": "Elementor.com",
+  "author_uri": "https://go.elementor.com/wp-dash-wp-plugins-author-uri/",
+  "description": {
+   "raw": "Elevate your designs and unlock the full power of Elementor. Gain access to dozens of Pro widgets and kits, Theme Builder, Pop Ups, Forms and WooCommerce building capabilities.",
+   "rendered": "Elevate your designs and unlock the full power of Elementor. Gain access to dozens of Pro widgets and kits, Theme Builder, Pop Ups, Forms and WooCommerce building capabilities. <cite>Por <a href=\"https://go.elementor.com/wp-dash-wp-plugins-author-uri/\">Elementor.com</a>.</cite>"
+  },
+  "version": "3.27.4",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "elementor-pro",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/elementor-pro/elementor-pro",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "elementskit-lite/elementskit-lite",
+  "status": "active",
+  "name": "ElementsKit Lite",
+  "plugin_uri": "https://wpmet.com/plugin/elementskit/",
+  "author": "Wpmet",
+  "author_uri": "https://wpmet.com/",
+  "description": {
+   "raw": "The most advanced addons for Elementor with tons of widgets, Header builder, Footer builder, Mega menu builder, layout pack and powerful custom controls.",
+   "rendered": "The most advanced addons for Elementor with tons of widgets, Header builder, Footer builder, Mega menu builder, layout pack and powerful custom controls. <cite>Por <a href=\"https://wpmet.com/\">Wpmet</a>.</cite>"
+  },
+  "version": "3.6.0",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "elementskit-lite",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/elementskit-lite/elementskit-lite",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "elementskit/elementskit",
+  "status": "active",
+  "name": "ElementsKit Pro",
+  "plugin_uri": "https://wpmet.com/plugin/elementskit",
+  "author": "Wpmet",
+  "author_uri": "https://wpmet.com/",
+  "description": {
+   "raw": "The most advanced addons for Elementor with tons of widgets, layout pack and powerful custom controls.",
+   "rendered": "The most advanced addons for Elementor with tons of widgets, layout pack and powerful custom controls. <cite>Por <a href=\"https://wpmet.com/\">Wpmet</a>.</cite>"
+  },
+  "version": "3.8.2",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "elementskit",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/elementskit/elementskit",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "metform/metform",
+  "status": "active",
+  "name": "MetForm",
+  "plugin_uri": "http://wpmet.com/plugin/metform/",
+  "author": "Wpmet",
+  "author_uri": "https://wpmet.com",
+  "description": {
+   "raw": "Most flexible and design friendly form builder for Elementor",
+   "rendered": "Most flexible and design friendly form builder for Elementor <cite>Por <a href=\"https://wpmet.com\">Wpmet</a>.</cite>"
+  },
+  "version": "4.0.4",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "metform",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/metform/metform",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "seo-by-rank-math/rank-math",
+  "status": "active",
+  "name": "Rank Math SEO",
+  "plugin_uri": "https://rankmath.com/",
+  "author": "Rank Math SEO",
+  "author_uri": "https://rankmath.com/?utm_source=Plugin&#038;utm_medium=Readme%20Author%20URI&#038;utm_campaign=WP",
+  "description": {
+   "raw": "O Rank Math SEO é o melhor plugin de SEO para WordPress, com os recursos de muitas ferramentas de SEO e SEO COM IA em um único pacote para ajudar a multiplicar seu tráfego de SEO.",
+   "rendered": "O Rank Math SEO é o melhor plugin de SEO para WordPress, com os recursos de muitas ferramentas de SEO e SEO COM IA em um único pacote para ajudar a multiplicar seu tráfego de SEO. <cite>Por <a href=\"https://rankmath.com/?utm_source=Plugin&#038;utm_medium=Readme%20Author%20URI&#038;utm_campaign=WP\">Rank Math SEO</a>.</cite>"
+  },
+  "version": "1.0.250",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "rank-math",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/seo-by-rank-math/rank-math",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "seo-by-rank-math-pro/rank-math-pro",
+  "status": "active",
+  "name": "Rank Math SEO PRO",
+  "plugin_uri": "https://rankmath.com/wordpress/plugin/seo-suite/",
+  "author": "Rank Math SEO",
+  "author_uri": "https://rankmath.com/?utm_source=Plugin&#038;utm_medium=Readme%20Author%20URI&#038;utm_campaign=WP",
+  "description": {
+   "raw": "Turbine o SEO do seu site com as opções do Rank Math PRO, como análises do site, desempenho de SEO, modelos de dados estruturados (schemas) personalizados, sitemaps para notícias/vídeos, etc.",
+   "rendered": "Turbine o SEO do seu site com as opções do Rank Math PRO, como análises do site, desempenho de SEO, modelos de dados estruturados (schemas) personalizados, sitemaps para notícias/vídeos, etc. <cite>Por <a href=\"https://rankmath.com/?utm_source=Plugin&#038;utm_medium=Readme%20Author%20URI&#038;utm_campaign=WP\">Rank Math SEO</a>.</cite>"
+  },
+  "version": "3.0.93",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "rank-math-pro",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/seo-by-rank-math-pro/rank-math-pro",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "google-site-kit/google-site-kit",
+  "status": "active",
+  "name": "Site Kit por Google",
+  "plugin_uri": "https://sitekit.withgoogle.com",
+  "author": "Google",
+  "author_uri": "https://opensource.google.com",
+  "description": {
+   "raw": "Site Kit é uma solução completa para os usuários do WordPress usarem tudo que o Google oferece para torná-los bem sucedidos na web.",
+   "rendered": "Site Kit é uma solução completa para os usuários do WordPress usarem tudo que o Google oferece para torná-los bem sucedidos na web. <cite>Por <a href=\"https://opensource.google.com\">Google</a>.</cite>"
+  },
+  "version": "1.159.0",
+  "network_only": false,
+  "requires_wp": "5.2",
+  "requires_php": "7.4",
+  "textdomain": "google-site-kit",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/google-site-kit/google-site-kit",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "template-kit-import/template-kit-import",
+  "status": "active",
+  "name": "Template Kit Import",
+  "plugin_uri": "",
+  "author": "Envato",
+  "author_uri": "https://envato.com",
+  "description": {
+   "raw": "Import Template Kits to WordPress",
+   "rendered": "Import Template Kits to WordPress <cite>Por <a href=\"https://envato.com\">Envato</a>.</cite>"
+  },
+  "version": "1.0.16",
+  "network_only": false,
+  "requires_wp": "",
+  "requires_php": "",
+  "textdomain": "template-kit-import",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/template-kit-import/template-kit-import",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "plugin": "wp-reviews-plugin-for-google/wp-reviews-plugin-for-google",
+  "status": "active",
+  "name": "Widgets for Google Reviews",
+  "plugin_uri": "https://br.wordpress.org/plugins/wp-reviews-plugin-for-google/",
+  "author": "Trustindex.io ",
+  "author_uri": "https://www.trustindex.io/",
+  "description": {
+   "raw": "Incorpore avaliações do Google de forma rápida e fácil em seu site WordPress. Aumente o SEO, a confiança e as vendas usando as avaliações do Google.",
+   "rendered": "Incorpore avaliações do Google de forma rápida e fácil em seu site WordPress. Aumente o SEO, a confiança e as vendas usando as avaliações do Google. <cite>Por <a href=\"https://www.trustindex.io/\">Trustindex.io </a>.</cite>"
+  },
+  "version": "13.0",
+  "network_only": false,
+  "requires_wp": "6.2",
+  "requires_php": "7.0",
+  "textdomain": "wp-reviews-plugin-for-google",
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/plugins/wp-reviews-plugin-for-google/wp-reviews-plugin-for-google",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ]
+  }
+ }
+]
