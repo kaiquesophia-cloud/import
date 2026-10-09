@@ -74,3 +74,25 @@ Pendente: plugin de cache (a instalação pela API foi bloqueada pela trava de p
 fazer pelo painel), imagem de fundo menor para celular, JavaScript sem uso (~1,1 s no celular),
 redirecionamento de entrada (~630 ms) e o schema do Rank Math ainda apontando para os PNGs.
 Para desfazer a troca de imagens: `python3 -I propostas/andaimaq/execucao/wp/aplicar.py desfazer`.
+
+## Executado em 09/10/2026 (velocidade, parte 2)
+
+4. Cache Enabler instalado pelo Kaique no painel; o Site Health do WordPress confirma o cache de página.
+5. Fundos de seção/coluna com versão menor para tablet (1024 px) e celular (768 px) nas páginas
+   de locação, preço e equipamentos (`aplicar.py fundo-mobile`). As imagens `<img>` já usavam
+   `srcset` e escolhem sozinhas o tamanho certo.
+6. Imagem destacada definida nas 5 páginas (`aplicar.py destaque`): o schema do Rank Math agora
+   aponta para o WebP. As únicas PNG restantes são o logo e o ícone do site (69 KB).
+7. O servidor passou para PHP 8.3 (era 7.4).
+
+| PageSpeed (home) | Início | Parte 1 | Agora |
+|---|---:|---:|---:|
+| Celular — LCP | 14,6 s | 6,5 s | 4,5 s |
+| Celular — TBT | 144 ms | 87 ms | 159 ms |
+| Computador — LCP | 5,4 s | 1,7 s | 2,1 s |
+| Computador — TBT | 5,5 s | 285 ms | 185 ms |
+| Computador — TTI | 13,7 s | 3,9 s | 3,8 s |
+
+Medições de laboratório variam ±0,5 s entre rodadas. Ainda pendente no celular: CSS sem uso
+(~450 ms, vem do Elementor/ElementsKit) e o redirecionamento de entrada (~630 ms, provável
+`http`→`https` no servidor; quem chega pelo Google já cai no `https`).

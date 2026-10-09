@@ -178,6 +178,61 @@ def plugins_off():
         print(p, "->", r["status"])
 
 
+def _tamanhos(mid):
+    s = req("GET", f"/wp/v2/media/{mid}")["media_details"]["sizes"]
+    return {k: v["source_url"] for k, v in s.items()}
+
+
+def _fundos_responsivos(obj, tam):
+    """Em section/column/container com fundo WebP, define versão menor p/ tablet e celular."""
+    n = 0
+    if isinstance(obj, dict):
+        st = obj.get("settings")
+        if isinstance(st, dict) and obj.get("elType") in ("section", "column", "container"):
+            bg = st.get("background_image")
+            if isinstance(bg, dict) and bg.get("id") in tam:
+                t = tam[bg["id"]]
+                for chave, size in (("background_image_tablet", "large"),
+                                    ("background_image_mobile", "medium_large")):
+                    if size in t and (st.get(chave) or {}).get("url") != t[size]:
+                        st[chave] = {"url": t[size], "id": bg["id"], "size": "", "alt": "",
+                                     "source": "library"}
+                        n += 1
+        for v in obj.values():
+            n += _fundos_responsivos(v, tam)
+    elif isinstance(obj, list):
+        for v in obj:
+            n += _fundos_responsivos(v, tam)
+    return n
+
+
+def fundo_mobile():
+    mapa = json.load(open(MAPA))
+    tam = {m["new_id"]: _tamanhos(m["new_id"]) for m in mapa.values()}
+    for rb, pid, slug in _alvos():
+        dados = json.loads(req("GET", f"/wp/v2/{rb}/{pid}?context=edit")["meta"]["_elementor_data"])
+        n = _fundos_responsivos(dados, tam)
+        if not n:
+            print(slug, "sem fundo para ajustar")
+            continue
+        req("POST", f"/wp/v2/{rb}/{pid}", data={"meta": {"_elementor_data": json.dumps(dados, ensure_ascii=False)}})
+        lido = json.loads(req("GET", f"/wp/v2/{rb}/{pid}?context=edit")["meta"]["_elementor_data"])
+        print(f"{slug}: {n} fundos responsivos, conferido={'OK' if lido == dados else 'DIFERENTE'}")
+    cache()
+
+
+# imagem destacada por página (o Rank Math usa no schema e no compartilhamento)
+DESTAQUE = {11: "71", 239: "169", 295: "169", 124: "169", 119: "169"}
+
+
+def destaque():
+    mapa = json.load(open(MAPA))
+    for pid, old in DESTAQUE.items():
+        novo = mapa[old]["new_id"]
+        r = req("POST", f"/wp/v2/pages/{pid}", data={"featured_media": novo})
+        print(r["slug"], "-> imagem destacada", r["featured_media"])
+
+
 def instalar_cache():
     """Instala e ativa o Cache Enabler (wordpress.org). Desfazer: desativar o plugin."""
     ja = [p for p in req("GET", "/wp/v2/plugins") if p["plugin"].startswith("cache-enabler/")]
@@ -198,7 +253,8 @@ def cache():
 
 if __name__ == "__main__":
     cmds = {"status": status, "upload": upload, "trocar": trocar, "plugins-off": plugins_off,
-            "cache": cache, "desfazer": desfazer, "instalar-cache": instalar_cache}
+            "cache": cache, "desfazer": desfazer, "instalar-cache": instalar_cache,
+            "fundo-mobile": fundo_mobile, "destaque": destaque}
     if len(sys.argv) != 2 or sys.argv[1] not in cmds:
         sys.exit("uso: aplicar.py " + "|".join(cmds))
     cmds[sys.argv[1]]()
