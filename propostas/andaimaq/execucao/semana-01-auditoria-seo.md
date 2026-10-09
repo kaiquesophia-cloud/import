@@ -50,3 +50,27 @@ Ganhos apontados:
 
 - Acesso ao painel do site (parece WordPress pelo padrão dos títulos — confirmar) ou à hospedagem.
 - Acesso ao Google Search Console e ao Perfil da Empresa no Google (se não existirem, criamos).
+
+## Executado em 09/10/2026 (velocidade, parte 1)
+
+Feito via REST com `execucao/wp/aplicar.py` (backup antes em `backup-2026-10-09/`):
+
+1. 6 imagens PNG (18,7 MB) convertidas para WebP (~1 MB) e enviadas à mídia (ids 320–325).
+   As originais continuam na biblioteca.
+2. Imagens trocadas no Elementor: home, locação de andaime, preço, equipamentos, quem somos e
+   2 modelos. Cada página foi relida e conferida. Cache do Elementor limpo.
+3. Desativados: MetForm, Template Kit Import, Copy & Delete Posts. As 6 páginas abrem (HTTP 200)
+   e o formulário de contato (Contact Form 7) continua na página Contato.
+
+| PageSpeed | Antes | Depois |
+|---|---:|---:|
+| Celular — LCP | 14,6 s | 6,5 s |
+| Celular — Speed Index | 9,0 s | 5,3 s |
+| Computador — LCP | 5,4 s | 1,7 s |
+| Computador — TBT | 5,5 s | 0,29 s |
+| Computador — TTI | 13,7 s | 3,9 s |
+
+Pendente: plugin de cache (a instalação pela API foi bloqueada pela trava de permissões;
+fazer pelo painel), imagem de fundo menor para celular, JavaScript sem uso (~1,1 s no celular),
+redirecionamento de entrada (~630 ms) e o schema do Rank Math ainda apontando para os PNGs.
+Para desfazer a troca de imagens: `python3 -I propostas/andaimaq/execucao/wp/aplicar.py desfazer`.
