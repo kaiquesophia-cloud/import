@@ -233,6 +233,55 @@ def destaque():
         print(r["slug"], "-> imagem destacada", r["featured_media"])
 
 
+def _aplicar_widget(el, mudancas):
+    st = el.setdefault("settings", {})
+    for chave, valor in mudancas.items():
+        if chave == "__replace":
+            def troca(o):
+                if isinstance(o, dict):
+                    return {k: troca(v) for k, v in o.items()}
+                if isinstance(o, list):
+                    return [troca(v) for v in o]
+                if isinstance(o, str):
+                    for a, b in valor:
+                        o = o.replace(a, b)
+                return o
+            el["settings"] = st = troca(st)
+        else:
+            st[chave] = valor
+
+
+def editar(arquivo):
+    """Aplica um arquivo de conteúdo (conteudo/*.json): textos de widgets + meta do Rank Math."""
+    spec = json.load(open(arquivo))
+    pid = spec["page_id"]
+    atual = req("GET", f"/wp/v2/pages/{pid}?context=edit")
+    dados = json.loads(atual["meta"]["_elementor_data"])
+    copia = os.path.join(BACKUP, f"page-{pid}-antes-{time.strftime('%Y%m%d-%H%M%S')}.json")
+    json.dump(dados, open(copia, "w"), ensure_ascii=False, indent=1)
+    print("backup da página:", os.path.relpath(copia, EXEC))
+    achados = set()
+
+    def walk(lista):
+        for el in lista:
+            if el.get("id") in spec["widgets"]:
+                _aplicar_widget(el, spec["widgets"][el["id"]])
+                achados.add(el["id"])
+            walk(el.get("elements", []))
+    walk(dados)
+    faltando = set(spec["widgets"]) - achados
+    if faltando:
+        sys.exit(f"widgets não encontrados, nada gravado: {sorted(faltando)}")
+    req("POST", f"/wp/v2/pages/{pid}", data={"meta": {"_elementor_data": json.dumps(dados, ensure_ascii=False)}})
+    lido = json.loads(req("GET", f"/wp/v2/pages/{pid}?context=edit")["meta"]["_elementor_data"])
+    print(f"{len(achados)} widgets editados, conferido={'OK' if lido == dados else 'DIFERENTE'}")
+    if spec.get("rank_math"):
+        r = req("POST", "/rankmath/v1/updateMeta",
+                data={"objectType": "post", "objectID": pid, "meta": spec["rank_math"]})
+        print("Rank Math:", r)
+    cache()
+
+
 def instalar_cache():
     """Instala e ativa o Cache Enabler (wordpress.org). Desfazer: desativar o plugin."""
     ja = [p for p in req("GET", "/wp/v2/plugins") if p["plugin"].startswith("cache-enabler/")]
@@ -255,6 +304,9 @@ if __name__ == "__main__":
     cmds = {"status": status, "upload": upload, "trocar": trocar, "plugins-off": plugins_off,
             "cache": cache, "desfazer": desfazer, "instalar-cache": instalar_cache,
             "fundo-mobile": fundo_mobile, "destaque": destaque}
-    if len(sys.argv) != 2 or sys.argv[1] not in cmds:
-        sys.exit("uso: aplicar.py " + "|".join(cmds))
-    cmds[sys.argv[1]]()
+    if len(sys.argv) == 3 and sys.argv[1] == "editar":
+        editar(sys.argv[2])
+    elif len(sys.argv) != 2 or sys.argv[1] not in cmds:
+        sys.exit("uso: aplicar.py " + "|".join(cmds) + "|editar <conteudo.json>")
+    else:
+        cmds[sys.argv[1]]()
