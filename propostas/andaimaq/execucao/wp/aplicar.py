@@ -282,6 +282,34 @@ def editar(arquivo):
     cache()
 
 
+def criar_pagina(arquivo):
+    """Cria (ou atualiza) uma página de equipamento como RASCUNHO, a partir de paginas/<x>.json."""
+    sys.path.insert(0, AQUI)
+    from modelo_equipamento import construir
+    c = json.load(open(arquivo))
+    dados = construir(c)
+    corpo = {"title": c["titulo_pagina"], "slug": c["slug"], "status": "draft", "template": "",
+             "featured_media": c["imagem_id"],
+             "meta": {"_elementor_edit_mode": "builder", "_elementor_template_type": "wp-page",
+                      "_elementor_page_settings": {"hide_title": "yes"},
+                      "_elementor_data": json.dumps(dados, ensure_ascii=False)}}
+    existe = req("GET", f"/wp/v2/pages?slug={c['slug']}&status=draft,publish,private&context=edit")
+    if existe:
+        pid = existe[0]["id"]
+        corpo.pop("status")  # não muda o status de uma página que já existe
+        req("POST", f"/wp/v2/pages/{pid}", data=corpo)
+    else:
+        pid = req("POST", "/wp/v2/pages", data=corpo)["id"]
+    p = req("GET", f"/wp/v2/pages/{pid}?context=edit")
+    ok = json.loads(p["meta"]["_elementor_data"]) == dados
+    print(f"página {pid} '{p['slug']}' status={p['status']} conferido={'OK' if ok else 'DIFERENTE'}")
+    if c.get("rank_math"):
+        req("POST", "/rankmath/v1/updateMeta", data={"objectType": "post", "objectID": pid, "meta": c["rank_math"]})
+        print("Rank Math atualizado")
+    print("pré-visualizar:", f"https://andaimaq.com.br/?page_id={pid}&preview=true")
+    cache()
+
+
 def instalar_cache():
     """Instala e ativa o Cache Enabler (wordpress.org). Desfazer: desativar o plugin."""
     ja = [p for p in req("GET", "/wp/v2/plugins") if p["plugin"].startswith("cache-enabler/")]
@@ -306,6 +334,8 @@ if __name__ == "__main__":
             "fundo-mobile": fundo_mobile, "destaque": destaque}
     if len(sys.argv) == 3 and sys.argv[1] == "editar":
         editar(sys.argv[2])
+    elif len(sys.argv) == 3 and sys.argv[1] == "criar-pagina":
+        criar_pagina(sys.argv[2])
     elif len(sys.argv) != 2 or sys.argv[1] not in cmds:
         sys.exit("uso: aplicar.py " + "|".join(cmds) + "|editar <conteudo.json>")
     else:

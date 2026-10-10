@@ -1,0 +1,65 @@
+{
+ "slug": "aluguel-de-betoneira",
+ "titulo_pagina": "Aluguel de Betoneira em São Paulo",
+ "nome": "betoneira",
+ "kicker": "LOCAÇÃO DE BETONEIRA · GRANDE SÃO PAULO",
+ "h1": "Aluguel de Betoneira em São Paulo",
+ "subtitulo": "Betoneira para obra e reforma com entrega e retirada no endereço da sua obra. Você mistura concreto e argamassa sem precisar comprar o equipamento.",
+ "whats_msg": "Olá! Quero um orçamento de aluguel de betoneira.",
+ "imagem_id": 321,
+ "imagem_url": "https://andaimaq.com.br/wp-content/uploads/2026/10/3.webp",
+ "h2_modelos": "Betoneiras para alugar",
+ "intro_modelos": "Diga o tamanho da obra e indicamos a betoneira certa para o volume de concreto e argamassa do seu serviço.",
+ "modelos": [
+  {
+   "nome": "Betoneira para reformas",
+   "descricao": "Compacta e fácil de transportar, para quem precisa preparar concreto e argamassa em volumes menores.",
+   "indicado": [
+    "Reformas e pequenas obras",
+    "Contrapiso e reboco",
+    "Calçadas e muros"
+   ]
+  },
+  {
+   "nome": "Betoneira para obras",
+   "descricao": "Maior capacidade por batida, para quem precisa de produção contínua no canteiro de obras.",
+   "indicado": [
+    "Obras de médio e grande porte",
+    "Lajes e fundações",
+    "Produção contínua de concreto"
+   ]
+  }
+ ],
+ "h2_uso": "Para que serve a betoneira",
+ "texto_uso": "<p>A <strong>betoneira</strong> mistura cimento, areia, brita e água de forma uniforme, deixando o concreto e a argamassa com a consistência certa. Comparada à mistura manual, ela economiza tempo e mão de obra e evita desperdício de material.</p><p>Com o <strong>aluguel de betoneira</strong>, você usa o equipamento só durante a obra, sem gastar com compra, manutenção ou espaço para guardar. Precisa também de andaime? Veja o <a href=\"https://andaimaq.com.br/locacao-de-andaime/\">aluguel de andaime</a> da Andaimaq.</p>",
+ "h2_preco": "Quanto custa alugar uma betoneira?",
+ "texto_preco": "<p>O valor do <strong>aluguel de betoneira</strong> depende de:</p><ul><li><strong>Tamanho da betoneira:</strong> para reforma ou para obra maior.</li><li><strong>Tempo de locação:</strong> períodos maiores costumam sair mais em conta por dia.</li><li><strong>Local da obra:</strong> a distância entra no cálculo da entrega e da retirada.</li></ul><p>Peça um orçamento sem compromisso pelo WhatsApp <a href=\"https://wa.me/5511997405191?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20aluguel%20de%20betoneira.\">(11) 99740-5191</a>.</p>",
+ "faq": [
+  [
+   "Vocês entregam a betoneira na obra?",
+   "Sim. A Andaimaq entrega e retira a betoneira no endereço da obra, na capital e na Grande São Paulo."
+  ],
+  [
+   "Qual betoneira alugar para uma reforma?",
+   "Para reformas, contrapiso e reboco, uma betoneira compacta costuma ser suficiente. Para lajes e obras maiores, o ideal é uma betoneira de maior capacidade. Conte o serviço pelo WhatsApp que indicamos o modelo."
+  ],
+  [
+   "A betoneira precisa de energia elétrica?",
+   "A maioria das betoneiras de locação funciona ligada na energia elétrica da obra. Ao pedir o orçamento, informe a voltagem disponível no local."
+  ],
+  [
+   "Por quanto tempo posso alugar a betoneira?",
+   "O período é combinado no orçamento, conforme a duração do seu serviço. Se precisar de mais tempo, fale com a gente para estender a locação."
+  ],
+  [
+   "Como peço um orçamento?",
+   "Pelo WhatsApp (11) 99740-5191 ou pela página de contato. Informe o tipo de serviço, o endereço da obra e por quanto tempo vai precisar."
+  ]
+ ],
+ "cta_final": "Peça seu orçamento de betoneira agora",
+ "rank_math": {
+  "rank_math_title": "Aluguel de Betoneira em SP | Entrega na Obra | Andaimaq",
+  "rank_math_description": "Aluguel de betoneira em São Paulo para obras e reformas, com entrega e retirada na obra. Peça seu orçamento pelo WhatsApp (11) 99740-5191.",
+  "rank_math_focus_keyword": "aluguel de betoneira,locação de betoneira,aluguel de betoneira preço"
+ }
+}
