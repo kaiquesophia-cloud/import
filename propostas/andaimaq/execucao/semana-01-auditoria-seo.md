@@ -109,3 +109,7 @@ Medições de laboratório variam ±0,5 s entre rodadas. Ainda pendente no celul
 Os cards Andaimes, Betoneira, Martelete e Escoramentos (home, andaime, preço, equipamentos e
 2 modelos do Elementor) agora levam às páginas de cada equipamento.
 Provisório até o cliente enviar: modelos reais de cada equipamento e fotos próprias.
+| `/aluguel-de-andaimes-preco/` | otimizada (título "Tabela 2026", H1, tabela de referência, FAQ de preço) | aluguel de andaime preço |
+
+Corrigido também: o card Martelete mostrava o texto da Betoneira na home, equipamentos, preço,
+andaime e em 2 modelos do Elementor. Removido o trecho que mandava o visitante "comparar empresas".

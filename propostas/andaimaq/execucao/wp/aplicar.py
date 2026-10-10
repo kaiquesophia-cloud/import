@@ -255,7 +255,8 @@ def editar(arquivo):
     """Aplica um arquivo de conteúdo (conteudo/*.json): textos de widgets + meta do Rank Math."""
     spec = json.load(open(arquivo))
     pid = spec["page_id"]
-    atual = req("GET", f"/wp/v2/pages/{pid}?context=edit")
+    rb = rest_base(spec["tipo"]) if spec.get("tipo") else "pages"
+    atual = req("GET", f"/wp/v2/{rb}/{pid}?context=edit")
     dados = json.loads(atual["meta"]["_elementor_data"])
     copia = os.path.join(BACKUP, f"page-{pid}-antes-{time.strftime('%Y%m%d-%H%M%S')}.json")
     json.dump(dados, open(copia, "w"), ensure_ascii=False, indent=1)
@@ -272,9 +273,9 @@ def editar(arquivo):
     faltando = set(spec["widgets"]) - achados
     if faltando:
         sys.exit(f"widgets não encontrados, nada gravado: {sorted(faltando)}")
-    req("POST", f"/wp/v2/pages/{pid}", data={"meta": {"_elementor_data": json.dumps(dados, ensure_ascii=False)}})
-    lido = json.loads(req("GET", f"/wp/v2/pages/{pid}?context=edit")["meta"]["_elementor_data"])
-    print(f"{len(achados)} widgets editados, conferido={'OK' if lido == dados else 'DIFERENTE'}")
+    req("POST", f"/wp/v2/{rb}/{pid}", data={"meta": {"_elementor_data": json.dumps(dados, ensure_ascii=False)}})
+    lido = json.loads(req("GET", f"/wp/v2/{rb}/{pid}?context=edit")["meta"]["_elementor_data"])
+    print(f"{rb}/{pid}: {len(achados)} widgets editados, conferido={'OK' if lido == dados else 'DIFERENTE'}")
     if spec.get("rank_math"):
         r = req("POST", "/rankmath/v1/updateMeta",
                 data={"objectType": "post", "objectID": pid, "meta": spec["rank_math"]})
