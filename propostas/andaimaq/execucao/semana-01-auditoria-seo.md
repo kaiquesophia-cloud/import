@@ -96,3 +96,16 @@ Para desfazer a troca de imagens: `python3 -I propostas/andaimaq/execucao/wp/apl
 Medições de laboratório variam ±0,5 s entre rodadas. Ainda pendente no celular: CSS sem uso
 (~450 ms, vem do Elementor/ElementsKit) e o redirecionamento de entrada (~630 ms, provável
 `http`→`https` no servidor; quem chega pelo Google já cai no `https`).
+
+## Páginas de SEO (10/10/2026)
+
+| Página | Status | Palavra-chave principal |
+|---|---|---|
+| `/locacao-de-andaime/` | otimizada (título, H1, conteúdo, FAQ) | aluguel andaime |
+| `/aluguel-de-betoneira/` (id 326) | nova, modelo de conversão | aluguel de betoneira |
+| `/aluguel-de-martelete/` (id 328) | nova, modelo de conversão | aluguel de martelete |
+| `/aluguel-de-escora-metalica/` (id 329) | nova, modelo de conversão | aluguel de escora para laje |
+
+Os cards Andaimes, Betoneira, Martelete e Escoramentos (home, andaime, preço, equipamentos e
+2 modelos do Elementor) agora levam às páginas de cada equipamento.
+Provisório até o cliente enviar: modelos reais de cada equipamento e fotos próprias.
