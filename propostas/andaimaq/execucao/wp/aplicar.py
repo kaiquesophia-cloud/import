@@ -344,6 +344,65 @@ def ligar_card(titulo_card, url, texto_botao):
     cache()
 
 
+RASTREIO_ID = "aqtrack"   # id fixo do widget, para atualizar sem duplicar
+CABECALHO_ID = 22         # modelo de cabeçalho global do Elementor Pro (include/general)
+
+
+def rastreio(ads_json=None):
+    """Instala/atualiza no cabeçalho global o rastreio de cliques em WhatsApp e telefone.
+    ads_json (opcional): '{"whatsapp": "AW-.../...", "telefone": "AW-.../..."}' liga as conversões do Ads."""
+    lib = rest_base("elementor_library")
+    js = open(os.path.join(AQUI, "rastreio.js")).read()
+    pre = ""
+    if ads_json:
+        ads = json.loads(ads_json)
+        tag = ads["whatsapp"].split("/")[0]
+        pre = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={tag}"></script>'
+               f"<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}"
+               f"gtag('js',new Date());gtag('config','{tag}');window.AQ_ADS_CONV={json.dumps(ads)};</script>")
+    html = pre + "<script>" + js + "</script>"
+    widget = {"id": RASTREIO_ID, "elType": "widget", "widgetType": "html", "elements": [],
+              "settings": {"html": html, "_position": "absolute", "_element_width": "initial",
+                           "_margin": {"unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": True}}}
+
+    def tira(lista):
+        lista[:] = [el for el in lista if el.get("id") != RASTREIO_ID]
+        for el in lista:
+            tira(el.get("elements", []))
+
+    def primeiro(lista):
+        for el in lista:
+            if el.get("elType") in ("column", "container"):
+                el.setdefault("elements", []).append(widget)
+                return True
+            if primeiro(el.get("elements", [])):
+                return True
+        return False
+
+    # o cabeçalho que aparece no site é do ElementsKit (fora da API): instala em cada página publicada
+    alvos = [("pages", p["id"], p["slug"], True) for p in req("GET", "/wp/v2/pages?per_page=100&status=publish&context=edit")]
+    alvos.append((lib, CABECALHO_ID, "modelo-22 (não usado)", False))
+    for rb, pid, slug, instalar in alvos:
+        bruto = req("GET", f"/wp/v2/{rb}/{pid}?context=edit")["meta"].get("_elementor_data")
+        if not bruto:
+            print(slug, "sem Elementor, pulado")
+            continue
+        dados = json.loads(bruto)
+        antes = json.dumps(dados, sort_keys=True)
+        tira(dados)
+        if instalar and not primeiro(dados):
+            print(slug, "sem coluna/container, pulado")
+            continue
+        if json.dumps(dados, sort_keys=True) == antes:
+            print(slug, "já estava atualizado")
+            continue
+        json.dump(json.loads(bruto), open(os.path.join(BACKUP, f"{rb}-{pid}-antes-rastreio-{time.strftime('%Y%m%d-%H%M%S')}.json"), "w"), ensure_ascii=False)
+        req("POST", f"/wp/v2/{rb}/{pid}", data={"meta": {"_elementor_data": json.dumps(dados, ensure_ascii=False)}})
+        lido = json.loads(req("GET", f"/wp/v2/{rb}/{pid}?context=edit")["meta"]["_elementor_data"])
+        print(f"{slug}: rastreio {'instalado' if instalar else 'removido'} | Ads: {'ligado' if ads_json else 'ainda não'} | conferido: {'OK' if lido == dados else 'DIFERENTE'}")
+    cache()
+
+
 def instalar_cache():
     """Instala e ativa o Cache Enabler (wordpress.org). Desfazer: desativar o plugin."""
     ja = [p for p in req("GET", "/wp/v2/plugins") if p["plugin"].startswith("cache-enabler/")]
@@ -372,6 +431,8 @@ if __name__ == "__main__":
         criar_pagina(sys.argv[2])
     elif len(sys.argv) == 5 and sys.argv[1] == "ligar-card":
         ligar_card(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif sys.argv[1:2] == ["rastreio"] and len(sys.argv) in (2, 3):
+        rastreio(sys.argv[2] if len(sys.argv) == 3 else None)
     elif len(sys.argv) == 3 and sys.argv[1] == "publicar":
         r = req("POST", f"/wp/v2/pages/{int(sys.argv[2])}", data={"status": "publish"})
         print(r["id"], r["status"], r["link"])
