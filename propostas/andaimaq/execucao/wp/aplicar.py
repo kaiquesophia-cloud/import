@@ -310,6 +310,39 @@ def criar_pagina(arquivo):
     cache()
 
 
+def ligar_card(titulo_card, url, texto_botao):
+    """Aponta o botão dos cards (elementskit-image-box) com esse título para a página do equipamento."""
+    lib = rest_base("elementor_library")
+    alvos = [("pages", p["id"], p["slug"]) for p in req("GET", "/wp/v2/pages?per_page=100&context=edit")]
+    alvos += [(lib, p["id"], p["slug"]) for p in req("GET", f"/wp/v2/{lib}?per_page=100&context=edit")]
+    for rb, pid, slug in alvos:
+        item = req("GET", f"/wp/v2/{rb}/{pid}?context=edit")
+        bruto = (item.get("meta") or {}).get("_elementor_data")
+        if not bruto or titulo_card not in bruto:
+            continue
+        dados = json.loads(bruto)
+        n = [0]
+
+        def walk(lista):
+            for el in lista:
+                st = el.get("settings")
+                if (el.get("widgetType") == "elementskit-image-box" and isinstance(st, dict)
+                        and st.get("ekit_image_box_title_text", "").strip() == titulo_card):
+                    st["ekit_image_box_btn_url"] = {"url": url, "is_external": "", "nofollow": "",
+                                                    "custom_attributes": ""}
+                    st["ekit_image_box_btn_text"] = texto_botao
+                    n[0] += 1
+                walk(el.get("elements", []))
+        walk(dados)
+        if not n[0]:
+            continue
+        json.dump(json.loads(bruto), open(os.path.join(BACKUP, f"{rb}-{pid}-antes-card-{time.strftime('%Y%m%d-%H%M%S')}.json"), "w"), ensure_ascii=False)
+        req("POST", f"/wp/v2/{rb}/{pid}", data={"meta": {"_elementor_data": json.dumps(dados, ensure_ascii=False)}})
+        lido = json.loads(req("GET", f"/wp/v2/{rb}/{pid}?context=edit")["meta"]["_elementor_data"])
+        print(f"{slug} ({rb}/{pid}): {n[0]} card(s), conferido={'OK' if lido == dados else 'DIFERENTE'}")
+    cache()
+
+
 def instalar_cache():
     """Instala e ativa o Cache Enabler (wordpress.org). Desfazer: desativar o plugin."""
     ja = [p for p in req("GET", "/wp/v2/plugins") if p["plugin"].startswith("cache-enabler/")]
@@ -336,6 +369,12 @@ if __name__ == "__main__":
         editar(sys.argv[2])
     elif len(sys.argv) == 3 and sys.argv[1] == "criar-pagina":
         criar_pagina(sys.argv[2])
+    elif len(sys.argv) == 5 and sys.argv[1] == "ligar-card":
+        ligar_card(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif len(sys.argv) == 3 and sys.argv[1] == "publicar":
+        r = req("POST", f"/wp/v2/pages/{int(sys.argv[2])}", data={"status": "publish"})
+        print(r["id"], r["status"], r["link"])
+        cache()
     elif len(sys.argv) != 2 or sys.argv[1] not in cmds:
         sys.exit("uso: aplicar.py " + "|".join(cmds) + "|editar <conteudo.json>")
     else:
