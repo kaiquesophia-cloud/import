@@ -1,6 +1,6 @@
 (function () {
-  // Conversões do Google Ads (preencher quando a conta da Andaimaq existir):
-  // ex.: {whatsapp: "AW-123456789/AbCdEf", telefone: "AW-123456789/GhIjKl"}
+  // Conversões do Google Ads (conta 716-122-9165), injetadas por `aplicar.py rastreio '<json>'`:
+  // {whatsapp: "AW-.../...", telefone: "AW-.../...", formulario: "AW-.../..."}
   var ADS = window.AQ_ADS_CONV || {};
 
   function enviar(tipo, origem) {
@@ -11,6 +11,13 @@
     });
     if (ADS[tipo]) window.gtag("event", "conversion", {send_to: ADS[tipo]});
   }
+
+  // Formulário: só conta quando o Contact Form 7 confirma o envio (o GA4 já recebe pelo Site Kit)
+  document.addEventListener("wpcf7mailsent", function () {
+    if (typeof window.gtag === "function" && ADS.formulario) {
+      window.gtag("event", "conversion", {send_to: ADS.formulario});
+    }
+  });
 
   document.addEventListener("click", function (e) {
     var alvo = e.target && e.target.closest && e.target.closest("a[href], #ht-ctc-chat");
