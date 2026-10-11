@@ -14,6 +14,7 @@
 		modal: null,
 		tick: 0,
 		sidebar: false,
+		demo: !!D.demo,
 		counts: Object.assign({ solicitacoes: 0, atrasados: 0 }, D.contagens || {}),
 	});
 
@@ -1975,8 +1976,22 @@
 			<div class="page-head"><h1>Configurações</h1><div class="actions"><a v-if="wpAdmin" class="btn" :href="wpAdmin">Painel do WordPress</a><button class="btn btn-primary" :disabled="!s || busy" @click="save"><Ic n="check"/> Salvar</button></div></div>
 			<div v-if="!s" class="empty"><span class="spinner dark"></span></div>
 			<template v-else>
-				<div class="tabs"><button v-for="(f, sec) in s.secoes" :key="sec" :class="{ on: tab === sec }" @click="tab = sec">{{ sec }}</button></div>
-				<section class="card">
+				<div class="tabs"><button v-for="(f, sec) in s.secoes" :key="sec" :class="{ on: tab === sec }" @click="tab = sec">{{ sec }}</button><button :class="{ on: tab === 'demo' }" @click="tab = 'demo'; loadDemo()">Demonstração</button></div>
+				<section v-if="tab === 'demo'" class="card demo-card">
+					<h3><Ic n="star"/> Dados de demonstração</h3>
+					<div v-if="!demo" class="empty"><span class="spinner dark"></span></div>
+					<template v-else-if="!demo.ativo">
+						<p>Preenche o sistema com uma locadora fictícia em funcionamento, para apresentar ou treinar a equipe: <b>23 equipamentos</b>, <b>12 clientes</b>, seis meses de histórico, locações em andamento (uma atrasada, devoluções do dia, obras por medição), reservas, orçamentos, pedidos do site, rota do dia, ordens de serviço, vendas e o financeiro.</p>
+						<p class="notice warning">Os dados ficam misturados aos reais enquanto estiverem carregados. Use antes de começar a operar, ou num site de teste, e apague antes de cadastrar clientes de verdade.</p>
+						<button class="btn btn-primary" :disabled="busy" @click="runDemo('carregar')"><span v-if="busy" class="spinner"></span><Ic v-else n="plus"/> Carregar dados de demonstração</button>
+					</template>
+					<template v-else>
+						<p class="notice info">Demonstração carregada em {{ when(demo.criado_em) }}: {{ demo.contagens.contratos }} locações, {{ demo.contagens.clientes }} clientes, {{ demo.contagens.equipamentos }} equipamentos e {{ demo.contagens.financeiro }} lançamentos financeiros.</p>
+						<p>"Apagar" remove só o que a demonstração criou. Registros que vocês cadastraram depois continuam, e a numeração de contratos volta ao ponto de antes (se nenhum contrato real foi criado).</p>
+						<button class="btn btn-danger" :disabled="busy" @click="runDemo('apagar')"><span v-if="busy" class="spinner"></span><Ic v-else n="trash"/> Apagar dados de demonstração</button>
+					</template>
+				</section>
+				<section v-else class="card">
 					<div class="form-grid">
 						<label v-for="(f, k) in s.secoes[tab]" :key="k" class="field" :class="{ full: f[1] === 'textarea' || f[1] === 'longtext', check: f[1] === 'checkbox' }">
 							<template v-if="f[1] === 'checkbox'"><input type="checkbox" :checked="Number(v[k]) === 1" @change="v[k] = $event.target.checked ? 1 : 0"><span>{{ f[0] }}</span></template>
@@ -1994,9 +2009,21 @@
 				</section>
 			</template>
 		</div>`,
-		data: function () { return { s: null, v: {}, tab: 'Empresa', busy: false, wpAdmin: D.wpAdmin }; },
+		data: function () { return { s: null, v: {}, tab: 'Empresa', busy: false, wpAdmin: D.wpAdmin, demo: null }; },
 		created: async function () { try { this.s = await get('settings'); this.v = Object.assign({}, this.s.valores); } catch (e) { toast(e.message, 'error'); } },
 		methods: {
+			when: function (s) { return s ? fmt.date(s) + ' ' + s.slice(11, 16) : ''; },
+			loadDemo: async function () { try { this.demo = await get('demo'); } catch (e) { toast(e.message, 'error'); } },
+			runDemo: async function (op) {
+				const q = op === 'carregar' ? 'Carregar os dados de demonstração? Leva alguns segundos.' : 'Apagar todos os dados de demonstração? Não tem desfazer.';
+				if (!window.confirm(q)) { return; }
+				this.busy = true;
+				try {
+					const r = await post('demo', { op: op });
+					this.demo = r; D.demo = r.ativo; store.demo = r.ativo; toast(r.mensagem); store.tick++;
+				} catch (e) { toast(e.message, 'error'); }
+				this.busy = false;
+			},
 			save: async function () {
 				this.busy = true;
 				try { const r = await post('settings', { valores: this.v }); toast(r.mensagem); this.s.valores = r.valores; this.v.fiscal_token = ''; } catch (e) { toast(e.message, 'error'); }
@@ -2075,6 +2102,7 @@
 			</aside>
 			<div v-if="s.sidebar" class="drawer-ov" @click="s.sidebar = false"></div>
 			<div class="main">
+				<div v-if="s.demo" class="demo-bar"><Ic n="star"/> Modo demonstração: os dados são fictícios.<a v-if="user.config" href="#/configuracoes" @click="goDemo">Apagar quando terminar</a></div>
 				<header class="topbar">
 					<button class="btn btn-ghost menu-btn" @click="s.sidebar = true" aria-label="Menu"><Ic n="menu"/></button>
 					<GlobalSearch/>
@@ -2099,6 +2127,7 @@
 			<div class="toasts" aria-live="polite"><div v-for="t in s.toasts" :key="t.id" class="toast" :class="t.type"><Ic :n="t.type === 'error' ? 'alert' : 'check'"/><span>{{ t.message }}</span></div></div>
 		</div>`,
 		data: function () { return { s: store, logo: D.logo, criador: D.criador, empresa: D.empresa.nome, user: D.usuario, logout: D.logoutUrl, modals: ACTION_MODALS }; },
+		methods: { goDemo: function () { setTimeout(function () { const b = [...document.querySelectorAll('.tabs button')].find(function (x) { return x.textContent === 'Demonstração'; }); if (b) { b.click(); } }, 600); } },
 		computed: {
 			r: function () { return store.route; },
 			section: function () {

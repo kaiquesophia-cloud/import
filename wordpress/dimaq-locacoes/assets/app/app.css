@@ -409,6 +409,11 @@ table.t td.n, table.t th.n { text-align: right; white-space: nowrap; }
 .hello { font-size: 24px; font-weight: 800; letter-spacing: -.02em; margin: 0; }
 .ic { width: 18px; height: 18px; display: inline-block; vertical-align: middle; }
 
+/* ---------- demonstração ---------- */
+.demo-bar { background: repeating-linear-gradient(135deg, #fff3cd 0 14px, #ffe9a8 14px 28px); color: #7a4b00; font-weight: 700; font-size: 13px; padding: 7px 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #f3d27a; }
+.demo-bar a { margin-left: auto; color: #7a4b00; }
+.demo-card p { max-width: 760px; line-height: 1.55; }
+
 /* ---------- rota do dia ---------- */
 .route-sum { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
 .route-prog { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 8px; }

@@ -145,6 +145,13 @@ API pública: `GET /wp-json/dimaq/v1/equipamentos` e
 | Operador de locação | clientes, equipamentos, locações, OS, vendas, estoque (sem financeiro) |
 | Cliente da locadora | só a área do cliente no site |
 
+### Dados de demonstração
+Em **Configurações → Demonstração**, um botão preenche o sistema com uma locadora fictícia em
+funcionamento (frota, clientes com CPF/CNPJ válidos, seis meses de histórico recebido, locações em
+andamento, medição, rota do dia, OS, vendas e despesas), tudo criado pelas regras do próprio sistema.
+Uma faixa no topo avisa que os dados são fictícios. "Apagar" remove só a faixa de ids que a
+demonstração criou em cada tabela e devolve a numeração de contratos. Código em `class-dl-demo.php`.
+
 ## Para quem for mexer no código
 
 - `includes/class-dl-app.php`: o endereço `/sistema`, o login e a página da aplicação.

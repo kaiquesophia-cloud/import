@@ -154,6 +154,7 @@ class DL_App {
 			'logo'       => DL_URL . 'assets/app/logo-dimaq.png',
 			'criador'    => self::credit(),
 			'hoje'       => dl_today(),
+			'demo'       => DL_Demo::active(),
 			'inclusivo'  => DL_Contracts::inclusive(),
 			'empresa'    => array(
 				'nome'     => dl_opt( 'empresa_nome' ),

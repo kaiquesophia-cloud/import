@@ -65,6 +65,8 @@ class DL_API {
 		self::route( 'fiscal', 'POST', array( __CLASS__, 'fiscal_emit' ), 'dl_financeiro' );
 		self::route( 'client/(?P<id>\d+)/access', 'POST', array( __CLASS__, 'client_access' ) );
 		self::route( 'report/(?P<key>[a-z_]+)', 'GET', array( __CLASS__, 'report' ) );
+		self::route( 'demo', 'GET', array( __CLASS__, 'demo_status' ), 'dl_config' );
+		self::route( 'demo', 'POST', array( __CLASS__, 'demo_action' ), 'dl_config' );
 		self::route( 'settings', 'GET', array( __CLASS__, 'get_settings' ), 'dl_config' );
 		self::route( 'settings', 'POST', array( __CLASS__, 'save_settings' ), 'dl_config' );
 	}
@@ -89,6 +91,18 @@ class DL_API {
 
 	private static function date_param( $v, $default ) {
 		return is_string( $v ) && preg_match( '/^\d{4}-\d{2}-\d{2}$/', $v ) ? $v : $default;
+	}
+
+	/* ------------------------------------------------------------- demonstração */
+
+	public static function demo_status() {
+		return DL_Demo::status();
+	}
+
+	public static function demo_action( WP_REST_Request $req ) {
+		$op = sanitize_key( self::body( $req )['op'] ?? '' );
+		$r  = 'carregar' === $op ? DL_Demo::load() : ( 'apagar' === $op ? DL_Demo::remove() : new WP_Error( 'op', 'Ação inválida.' ) );
+		return is_wp_error( $r ) ? $r : array_merge( array( 'mensagem' => $r['message'] ), DL_Demo::status() );
 	}
 
 	/* ------------------------------------------------------------- rota do dia */
