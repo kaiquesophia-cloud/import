@@ -351,7 +351,7 @@ table.t td.n, table.t th.n { text-align: right; white-space: nowrap; }
 .doclinks a { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 9px; text-decoration: none; background: #f7f7f8; font-weight: 600; }
 .doclinks a:hover { background: #fff3cf; }
 .doclinks .ic { width: 16px; height: 16px; color: var(--muted); }
-.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 16px; overflow-x: auto; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
 .tabs button { border: 0; background: transparent; padding: 10px 14px; font-weight: 700; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; }
 .tabs button.on { color: var(--ink); border-bottom-color: var(--accent); }
 
@@ -413,6 +413,9 @@ table.t td.n, table.t th.n { text-align: right; white-space: nowrap; }
 .demo-bar { background: repeating-linear-gradient(135deg, #fff3cd 0 14px, #ffe9a8 14px 28px); color: #7a4b00; font-weight: 700; font-size: 13px; padding: 7px 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; border-bottom: 1px solid #f3d27a; }
 .demo-bar a { margin-left: auto; color: #7a4b00; }
 .demo-card p { max-width: 760px; line-height: 1.55; }
+.demo-invite { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; border: 1px dashed var(--accent); background: #fffaf0; margin-bottom: 16px; }
+.demo-invite > div { flex: 1; min-width: 240px; }
+.demo-invite p { margin: 0; line-height: 1.5; }
 
 /* ---------- rota do dia ---------- */
 .route-sum { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }

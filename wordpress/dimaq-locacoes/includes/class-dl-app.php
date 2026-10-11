@@ -155,6 +155,7 @@ class DL_App {
 			'criador'    => self::credit(),
 			'hoje'       => dl_today(),
 			'demo'       => DL_Demo::active(),
+			'vazio'      => ! DL_Demo::active() && ! (int) $GLOBALS['wpdb']->get_var( 'SELECT COUNT(*) FROM ' . dl_table( 'contratos' ) ), // phpcs:ignore WordPress.DB.PreparedSQL
 			'inclusivo'  => DL_Contracts::inclusive(),
 			'empresa'    => array(
 				'nome'     => dl_opt( 'empresa_nome' ),

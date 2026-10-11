@@ -15,6 +15,7 @@
 		tick: 0,
 		sidebar: false,
 		demo: !!D.demo,
+		vazio: !!D.vazio,
 		counts: Object.assign({ solicitacoes: 0, atrasados: 0 }, D.contagens || {}),
 	});
 
@@ -902,6 +903,10 @@
 					<a class="btn" href="#/frota"><Ic n="calendar"/> Agenda da frota</a>
 				</div>
 			</div>
+			<section v-if="vazio && canConfig" class="card demo-invite">
+				<div><h3><Ic n="star"/> O sistema ainda está vazio</h3><p>Quer ver como ele fica funcionando? Carregue os <b>dados de demonstração</b>: uma locadora fictícia com frota, clientes, locações, rota, OS e financeiro. Depois é só apagar em Configurações → Demonstração.</p></div>
+				<button class="btn btn-primary" :disabled="demoBusy" @click="loadDemo"><span v-if="demoBusy" class="spinner"></span><Ic v-else n="plus"/> Carregar dados de demonstração</button>
+			</section>
 			<div v-if="!data" class="empty"><span class="spinner dark"></span></div>
 			<template v-else>
 				<div class="kpis">
@@ -998,9 +1003,11 @@
 		data: function () {
 			let view = 'cards';
 			try { view = localStorage.getItem('dl_view') || 'cards'; } catch (e) {}
-			return { data: null, filter: 'todas', q: '', sort: 'urgencia', view: view };
+			return { data: null, filter: 'todas', q: '', sort: 'urgencia', view: view, demoBusy: false };
 		},
 		computed: {
+			vazio: function () { return store.vazio; },
+			canConfig: function () { return D.usuario.config; },
 			k: function () { return this.data.kpis; },
 			fin: function () { return D.usuario.financeiro; },
 			firstName: function () { return D.usuario.nome.split(' ')[0]; },
@@ -1065,6 +1072,12 @@
 		},
 		unmounted: function () { clearInterval(this.timer); this.stop(); },
 		methods: {
+			loadDemo: async function () {
+				if (!window.confirm('Carregar os dados de demonstração? Eles podem ser apagados depois em Configurações → Demonstração.')) { return; }
+				this.demoBusy = true;
+				try { const r = await post('demo', { op: 'carregar' }); store.demo = r.ativo; store.vazio = false; toast(r.mensagem); store.tick++; } catch (e) { toast(e.message, 'error'); }
+				this.demoBusy = false;
+			},
 			money: fmt.money, num: fmt.num, date: fmt.date, short: fmt.short, go: go,
 			act: function (c, op) { runContractAction(c, op); },
 			load: async function () {
