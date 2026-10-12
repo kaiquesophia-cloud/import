@@ -1,0 +1,456 @@
+{
+ "conta": "716-122-9165",
+ "mcc_login": "345-448-9258",
+ "regras": [
+  "Criar TUDO como PAUSED",
+  "Nao mexer em nenhuma outra conta",
+  "Cada palavra-chave em correspondencia de FRASE e EXATA"
+ ],
+ "configuracao_padrao": {
+  "tipo": "SEARCH",
+  "redes": "Somente Pesquisa Google (sem Parceiros de Pesquisa, sem Display)",
+  "lance": "MAXIMIZE_CONVERSIONS sem CPA desejado",
+  "idioma": "Portugues",
+  "local_opcao": "PRESENCE (somente pessoas que estao no local)",
+  "locais": [
+   "Sao Paulo (cidade)",
+   "Osasco",
+   "Barueri",
+   "Carapicuiba",
+   "Cotia",
+   "Embu das Artes",
+   "Taboao da Serra",
+   "Itapecerica da Serra",
+   "Santo Andre",
+   "Sao Bernardo do Campo",
+   "Sao Caetano do Sul",
+   "Diadema",
+   "Maua",
+   "Guarulhos"
+  ],
+  "programacao": "Seg a Sab, 07:00 as 19:00 (confirmar horario de atendimento com a Andaimaq)",
+  "metas_de_conversao": [
+   "WhatsApp - clique",
+   "Telefone - clique no site",
+   "Formulario - contato"
+  ],
+  "recomendacoes_automaticas": "desligadas"
+ },
+ "extensoes_conta": {
+  "ligacao": "+55 11 99740-5191",
+  "sitelinks": [
+   [
+    "Aluguel de Andaime",
+    "https://andaimaq.com.br/locacao-de-andaime/"
+   ],
+   [
+    "Preço do Aluguel",
+    "https://andaimaq.com.br/aluguel-de-andaimes-preco/"
+   ],
+   [
+    "Aluguel de Betoneira",
+    "https://andaimaq.com.br/aluguel-de-betoneira/"
+   ],
+   [
+    "Aluguel de Martelete",
+    "https://andaimaq.com.br/aluguel-de-martelete/"
+   ],
+   [
+    "Escora Metálica",
+    "https://andaimaq.com.br/aluguel-de-escora-metalica/"
+   ],
+   [
+    "Fale Conosco",
+    "https://andaimaq.com.br/contato/"
+   ]
+  ],
+  "frases_de_destaque": [
+   "Entrega na Obra",
+   "Retirada na Obra",
+   "Grande São Paulo",
+   "Orçamento no WhatsApp",
+   "Sem Compromisso"
+  ],
+  "snippet_estruturado": {
+   "cabecalho": "Tipos",
+   "valores": [
+    "Andaime",
+    "Betoneira",
+    "Martelete",
+    "Escora Metálica"
+   ]
+  }
+ },
+ "campanhas": [
+  {
+   "nome": "Andaime | Pesquisa | SP",
+   "status": "PAUSED",
+   "orcamento_diario_centavos": 2000,
+   "ad_groups": [
+    {
+     "nome": "Aluguel de andaime",
+     "url_final": "https://andaimaq.com.br/locacao-de-andaime/",
+     "palavras_chave": [
+      "aluguel andaime",
+      "aluguel de andaime",
+      "aluguel de andaimes",
+      "aluguel de andaime são paulo",
+      "alugar andaime"
+     ],
+     "titulo_fixado_posicao_1": "Aluguel de Andaime em SP"
+    },
+    {
+     "nome": "Locação de andaime",
+     "url_final": "https://andaimaq.com.br/locacao-de-andaime/",
+     "palavras_chave": [
+      "locação de andaime",
+      "andaime locação",
+      "locação de andaimes",
+      "locadora de andaime"
+     ],
+     "titulo_fixado_posicao_1": "Locação de Andaime em SP"
+    },
+    {
+     "nome": "Preço de andaime",
+     "url_final": "https://andaimaq.com.br/aluguel-de-andaimes-preco/",
+     "palavras_chave": [
+      "aluguel de andaime preço",
+      "preço aluguel de andaime",
+      "aluguel de andaime valor",
+      "quanto custa aluguel de andaime",
+      "preço locação de andaimes"
+     ],
+     "titulo_fixado_posicao_1": "Aluguel de Andaime: Preço"
+    }
+   ],
+   "negativas_campanha": [
+    "venda",
+    "vende",
+    "vendo",
+    "comprar",
+    "compra",
+    "usado",
+    "usada",
+    "usados",
+    "seminovo",
+    "olx",
+    "mercado livre",
+    "shopee",
+    "como montar",
+    "como fazer",
+    "curso",
+    "pdf",
+    "manual",
+    "emprego",
+    "vaga",
+    "vagas",
+    "trabalhe conosco",
+    "salario",
+    "gratis",
+    "grátis",
+    "fabricante",
+    "fabrica",
+    "dwg",
+    "desenho",
+    "miniatura",
+    "brinquedo",
+    "betoneira",
+    "martelete",
+    "rompedor",
+    "escora"
+   ],
+   "titulos_comuns": [
+    "Entrega e Retirada na Obra",
+    "Andaime Tubular e Fachadeiro",
+    "Atendemos a Grande SP",
+    "Orçamento pelo WhatsApp",
+    "Andaimaq Locações",
+    "Andaime para Obra e Reforma",
+    "Peça Seu Orçamento Agora",
+    "Andaime Suspenso",
+    "Locadora na Zona Sul de SP",
+    "Calculamos as Peças p/ Você",
+    "Alugue Sem Comprar",
+    "Orçamento Sem Compromisso",
+    "Fale Direto Conosco",
+    "Andaime para Fachada"
+   ],
+   "descricoes": [
+    "Andaime tubular, fachadeiro e suspenso para obras e reformas. Entregamos na sua obra.",
+    "Informe a altura e o comprimento da área e calculamos as peças do seu andaime.",
+    "Entrega e retirada na obra em toda a Grande São Paulo. Peça seu orçamento pelo WhatsApp.",
+    "Andaimaq: locação de equipamentos para obra e reforma. Orçamento rápido e sem compromisso."
+   ]
+  },
+  {
+   "nome": "Betoneira | Pesquisa | SP",
+   "status": "PAUSED",
+   "orcamento_diario_centavos": 1000,
+   "ad_groups": [
+    {
+     "nome": "Aluguel de betoneira",
+     "url_final": "https://andaimaq.com.br/aluguel-de-betoneira/",
+     "palavras_chave": [
+      "aluguel de betoneira",
+      "alugar betoneira",
+      "betoneira aluguel",
+      "aluguel betoneira"
+     ],
+     "titulo_fixado_posicao_1": "Aluguel de Betoneira em SP"
+    },
+    {
+     "nome": "Locação de betoneira",
+     "url_final": "https://andaimaq.com.br/aluguel-de-betoneira/",
+     "palavras_chave": [
+      "locação de betoneira",
+      "locadora de betoneira",
+      "betoneira locação"
+     ],
+     "titulo_fixado_posicao_1": "Locação de Betoneira em SP"
+    },
+    {
+     "nome": "Preço de betoneira",
+     "url_final": "https://andaimaq.com.br/aluguel-de-betoneira/",
+     "palavras_chave": [
+      "aluguel de betoneira preço",
+      "preço aluguel betoneira",
+      "aluguel de betoneira valor"
+     ],
+     "titulo_fixado_posicao_1": "Betoneira: Preço do Aluguel"
+    }
+   ],
+   "negativas_campanha": [
+    "venda",
+    "vende",
+    "vendo",
+    "comprar",
+    "compra",
+    "usado",
+    "usada",
+    "usados",
+    "seminovo",
+    "olx",
+    "mercado livre",
+    "shopee",
+    "como montar",
+    "como fazer",
+    "curso",
+    "pdf",
+    "manual",
+    "emprego",
+    "vaga",
+    "vagas",
+    "trabalhe conosco",
+    "salario",
+    "gratis",
+    "grátis",
+    "fabricante",
+    "fabrica",
+    "dwg",
+    "desenho",
+    "miniatura",
+    "brinquedo",
+    "andaime",
+    "martelete",
+    "rompedor",
+    "escora"
+   ],
+   "titulos_comuns": [
+    "Entrega e Retirada na Obra",
+    "Betoneira para Obra e Reforma",
+    "Atendemos a Grande SP",
+    "Orçamento pelo WhatsApp",
+    "Andaimaq Locações",
+    "Concreto e Argamassa",
+    "Peça Seu Orçamento Agora",
+    "Locadora na Zona Sul de SP",
+    "Alugue Sem Comprar",
+    "Orçamento Sem Compromisso",
+    "Fale Direto Conosco",
+    "Betoneira para Contrapiso",
+    "Betoneira para Laje",
+    "Indicamos o Modelo Certo"
+   ],
+   "descricoes": [
+    "Betoneira para preparar concreto e argamassa na obra, sem precisar comprar o equipamento.",
+    "Conte o serviço e indicamos a betoneira certa para o volume da sua obra.",
+    "Entrega e retirada na obra em toda a Grande São Paulo. Peça seu orçamento pelo WhatsApp.",
+    "Andaimaq: locação de equipamentos para obra e reforma. Orçamento rápido e sem compromisso."
+   ]
+  },
+  {
+   "nome": "Martelete | Pesquisa | SP",
+   "status": "PAUSED",
+   "orcamento_diario_centavos": 1250,
+   "ad_groups": [
+    {
+     "nome": "Aluguel de martelete",
+     "url_final": "https://andaimaq.com.br/aluguel-de-martelete/",
+     "palavras_chave": [
+      "aluguel de martelete",
+      "alugar martelete",
+      "locação de martelete",
+      "aluguel de martelete preço"
+     ],
+     "titulo_fixado_posicao_1": "Aluguel de Martelete em SP"
+    },
+    {
+     "nome": "Rompedor",
+     "url_final": "https://andaimaq.com.br/aluguel-de-martelete/",
+     "palavras_chave": [
+      "aluguel de rompedor",
+      "aluguel de martelo rompedor",
+      "locação de rompedor",
+      "aluguel de martelete rompedor"
+     ],
+     "titulo_fixado_posicao_1": "Aluguel de Rompedor em SP"
+    }
+   ],
+   "negativas_campanha": [
+    "venda",
+    "vende",
+    "vendo",
+    "comprar",
+    "compra",
+    "usado",
+    "usada",
+    "usados",
+    "seminovo",
+    "olx",
+    "mercado livre",
+    "shopee",
+    "como montar",
+    "como fazer",
+    "curso",
+    "pdf",
+    "manual",
+    "emprego",
+    "vaga",
+    "vagas",
+    "trabalhe conosco",
+    "salario",
+    "gratis",
+    "grátis",
+    "fabricante",
+    "fabrica",
+    "dwg",
+    "desenho",
+    "miniatura",
+    "brinquedo",
+    "andaime",
+    "betoneira",
+    "escora"
+   ],
+   "titulos_comuns": [
+    "Entrega e Retirada na Obra",
+    "Martelete para Demolição",
+    "Atendemos a Grande SP",
+    "Orçamento pelo WhatsApp",
+    "Andaimaq Locações",
+    "Perfurador e Rompedor",
+    "Peça Seu Orçamento Agora",
+    "Locadora na Zona Sul de SP",
+    "Alugue Sem Comprar",
+    "Orçamento Sem Compromisso",
+    "Fale Direto Conosco",
+    "Quebra de Concreto",
+    "Ideal para Reformas",
+    "Indicamos o Modelo Certo"
+   ],
+   "descricoes": [
+    "Martelete perfurador e rompedor para demolição, rasgos e quebra de concreto e alvenaria.",
+    "Potência profissional na sua obra só pelo tempo do serviço. Entregamos e buscamos.",
+    "Entrega e retirada na obra em toda a Grande São Paulo. Peça seu orçamento pelo WhatsApp.",
+    "Andaimaq: locação de equipamentos para obra e reforma. Orçamento rápido e sem compromisso."
+   ]
+  },
+  {
+   "nome": "Escora | Pesquisa | SP",
+   "status": "PAUSED",
+   "orcamento_diario_centavos": 750,
+   "ad_groups": [
+    {
+     "nome": "Escora para laje",
+     "url_final": "https://andaimaq.com.br/aluguel-de-escora-metalica/",
+     "palavras_chave": [
+      "aluguel de escora para laje",
+      "escora para laje aluguel",
+      "aluguel de escoras para laje"
+     ],
+     "titulo_fixado_posicao_1": "Escora para Laje: Aluguel"
+    },
+    {
+     "nome": "Escora metálica",
+     "url_final": "https://andaimaq.com.br/aluguel-de-escora-metalica/",
+     "palavras_chave": [
+      "aluguel de escora metálica",
+      "aluguel de escoras",
+      "aluguel de escora",
+      "locação de escoras",
+      "escora metálica aluguel",
+      "aluguel de escoramento"
+     ],
+     "titulo_fixado_posicao_1": "Aluguel de Escora Metálica"
+    }
+   ],
+   "negativas_campanha": [
+    "venda",
+    "vende",
+    "vendo",
+    "comprar",
+    "compra",
+    "usado",
+    "usada",
+    "usados",
+    "seminovo",
+    "olx",
+    "mercado livre",
+    "shopee",
+    "como montar",
+    "como fazer",
+    "curso",
+    "pdf",
+    "manual",
+    "emprego",
+    "vaga",
+    "vagas",
+    "trabalhe conosco",
+    "salario",
+    "gratis",
+    "grátis",
+    "fabricante",
+    "fabrica",
+    "dwg",
+    "desenho",
+    "miniatura",
+    "brinquedo",
+    "andaime",
+    "betoneira",
+    "martelete",
+    "rompedor"
+   ],
+   "titulos_comuns": [
+    "Entrega e Retirada na Obra",
+    "Escora Metálica Regulável",
+    "Atendemos a Grande SP",
+    "Orçamento pelo WhatsApp",
+    "Andaimaq Locações",
+    "Escoras para Laje e Vigas",
+    "Peça Seu Orçamento Agora",
+    "Locadora na Zona Sul de SP",
+    "Alugue Sem Comprar",
+    "Orçamento Sem Compromisso",
+    "Fale Direto Conosco",
+    "Calculamos a Quantidade",
+    "Para Sua Concretagem",
+    "Mais Rápida que Madeira"
+   ],
+   "descricoes": [
+    "Escoras metálicas reguláveis para laje, vigas e formas. Entregamos na sua obra.",
+    "Informe a área da laje e o pé-direito e ajudamos a calcular a quantidade de escoras.",
+    "Entrega e retirada na obra em toda a Grande São Paulo. Peça seu orçamento pelo WhatsApp.",
+    "Andaimaq: locação de equipamentos para obra e reforma. Orçamento rápido e sem compromisso."
+   ]
+  }
+ ]
+}
