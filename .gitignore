@@ -8,3 +8,6 @@ __pycache__/
 *.pyc
 .venv/
 saidas/
+
+# permissões locais do Claude Code
+.claude/settings.local.json

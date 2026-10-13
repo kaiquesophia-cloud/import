@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cronograma Andaimaq</title>
+<style>
+  :root {
+    --navy: #0f2742;
+    --navy-2: #1b3a5c;
+    --accent: #f2a900;
+    --accent-soft: #fff4d6;
+    --ink: #1d2733;
+    --muted: #5d6b7a;
+    --line: #dfe5ec;
+    --bg-soft: #f5f7fa;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Liberation Sans", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: #e9edf2;
+    font-size: 10.5pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto 12px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    padding: 20mm 18mm 22mm;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  @media print { body { background: #fff; } .page { margin: 0; } }
+
+  /* ---------- logos ---------- */
+  .logo { display: inline-flex; align-items: center; }
+  .logo img { display: block; max-height: 100%; max-width: 100%; object-fit: contain; }
+  .wordmark { display: none; align-items: center; gap: 8px; font-weight: 700; letter-spacing: -0.02em; white-space: nowrap; }
+  .wordmark .mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 8px; font-weight: 800; color: #fff;
+  }
+  .wm-seo .mark { background: linear-gradient(135deg, #1e6bff, #00b3c7); }
+  .wm-seo .t1 { color: inherit; }
+  .wm-seo .t2 { color: #00b3c7; }
+  .wm-and .mark { background: var(--accent); color: var(--navy); }
+  .wm-and .t2 { color: var(--accent); }
+
+  /* ---------- running header/footer ---------- */
+  .run-head {
+    position: absolute; top: 0; left: 0; right: 0; height: 14mm;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 18mm; border-bottom: 1px solid var(--line);
+    font-size: 8.5pt; color: var(--muted);
+  }
+  .run-head .logo { height: 10mm; background: var(--navy); border-radius: 6px; padding: 1.5mm 3mm; }
+  .run-head .logo:has(img[style*="none"]) { background: none; padding: 0; }
+  .run-head .wordmark { font-size: 11pt; color: var(--navy); }
+  .run-head .wordmark .mark { width: 20px; height: 20px; font-size: 9pt; border-radius: 5px; }
+  .run-foot {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 12mm;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 18mm; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line);
+  }
+  .content { padding-top: 4mm; }
+
+  /* ---------- cover ---------- */
+  .cover { padding: 0; background: var(--navy); color: #fff; }
+  .cover-top { padding: 20mm 18mm 0; display: flex; justify-content: space-between; align-items: center; }
+  .cover .logo { height: 16mm; }
+  .cover .logo img { max-width: 70mm; height: auto; }
+  .cover .wordmark { font-size: 20pt; color: #fff; }
+  .cover .wordmark .mark { width: 40px; height: 40px; font-size: 16pt; }
+  .cover-x { font-size: 18pt; color: rgba(255,255,255,.45); font-weight: 300; }
+  .cover-body { padding: 48mm 18mm 0; }
+  .cover-kicker { color: var(--accent); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; font-size: 10pt; }
+  .cover h1 { font-size: 34pt; line-height: 1.08; margin: 6mm 0 6mm; letter-spacing: -0.02em; font-weight: 800; }
+  .cover h1 span { color: var(--accent); }
+  .cover-sub { font-size: 13pt; color: rgba(255,255,255,.8); max-width: 150mm; }
+  .cover-stripe {
+    position: absolute; left: 0; right: 0; bottom: 60mm; height: 6mm;
+    background: repeating-linear-gradient(-45deg, var(--accent) 0 12px, var(--navy) 12px 24px);
+    opacity: .9;
+  }
+  .cover-meta {
+    position: absolute; left: 18mm; right: 18mm; bottom: 20mm;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8mm;
+    border-top: 1px solid rgba(255,255,255,.2); padding-top: 6mm; font-size: 9.5pt;
+  }
+  .cover-meta b { display: block; color: var(--accent); font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1mm; }
+
+  /* ---------- typography ---------- */
+  h2 { font-size: 20pt; color: var(--navy); margin: 0 0 2mm; letter-spacing: -0.01em; }
+  h2 .num { color: var(--accent); margin-right: 3mm; }
+  .lead { color: var(--muted); font-size: 11pt; margin: 0 0 7mm; }
+  h3 { font-size: 12pt; color: var(--navy); margin: 5.5mm 0 2mm; }
+  p { margin: 0 0 3mm; }
+  ul { margin: 0 0 3mm; padding-left: 5mm; }
+  li { margin-bottom: 1.4mm; }
+  .small { font-size: 8.5pt; color: var(--muted); }
+
+  /* ---------- components ---------- */
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 2mm 0 6mm; }
+  .kpi { background: var(--bg-soft); border-radius: 8px; padding: 4mm; border-top: 3px solid var(--navy); }
+  .kpi .v { font-size: 20pt; font-weight: 800; color: var(--navy); line-height: 1.1; }
+  .kpi .l { font-size: 8.5pt; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  th { text-align: left; background: var(--navy); color: #fff; font-weight: 600; padding: 2.2mm 3mm; }
+  td { padding: 2mm 3mm; border-bottom: 1px solid var(--line); }
+  tr:nth-child(even) td { background: var(--bg-soft); }
+  td.r, th.r { text-align: right; }
+  .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); padding: 4mm 5mm; border-radius: 0 8px 8px 0; margin: 5mm 0; }
+  .callout b { color: var(--navy); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .card { border: 1px solid var(--line); border-radius: 10px; padding: 3.5mm 4.5mm; }
+  .card h4 { margin: 0 0 2mm; font-size: 10.5pt; color: var(--navy); display: flex; align-items: center; gap: 2.5mm; }
+  .card h4 .dot { width: 7mm; height: 7mm; border-radius: 6px; background: var(--navy); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 9pt; flex: none; }
+  .card ul { margin: 0; font-size: 9.5pt; }
+  .card li { margin-bottom: 1mm; }
+
+  .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .phase { background: var(--bg-soft); border-radius: 10px; padding: 4.5mm; position: relative; }
+  .phase .when { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); background: var(--navy); display: inline-block; padding: .8mm 2.5mm; border-radius: 4px; }
+  .phase h4 { margin: 2.5mm 0 1.5mm; color: var(--navy); font-size: 10.5pt; }
+  .phase ul { font-size: 9pt; margin: 0; padding-left: 4mm; }
+
+  .price { border: 2px solid var(--navy); border-radius: 12px; overflow: hidden; }
+  .price-row { display: flex; justify-content: space-between; align-items: center; padding: 5mm 6mm; border-bottom: 1px solid var(--line); }
+  .price-row .name { font-weight: 700; color: var(--navy); font-size: 11.5pt; }
+  .price-row .desc { font-size: 9pt; color: var(--muted); }
+  .price-row .val { font-size: 16pt; font-weight: 800; color: var(--navy); white-space: nowrap; }
+  .price-row .val small { font-size: 9pt; font-weight: 400; color: var(--muted); }
+  .price-total { background: var(--navy); color: #fff; }
+  .price-total .name, .price-total .val { color: #fff; }
+  .price-total .val { color: var(--accent); font-size: 22pt; }
+  .price-total .desc { color: rgba(255,255,255,.7); }
+
+  .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; margin-top: 18mm; }
+  .sign div { border-top: 1px solid var(--ink); padding-top: 2mm; font-size: 9pt; }
+  .sign b { display: block; color: var(--navy); }
+
+  /* ---------- cronograma ---------- */
+  .chips { display: flex; gap: 3mm; margin-top: 9mm; flex-wrap: wrap; }
+  .chip { display: inline-flex; align-items: center; gap: 2.5mm; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 1.8mm 4.5mm 1.8mm 2mm; font-weight: 700; font-size: 11pt; }
+  .chip b { width: 7mm; height: 7mm; border-radius: 50%; background: var(--accent); color: var(--navy); display: inline-flex; align-items: center; justify-content: center; font-size: 9.5pt; }
+  .bars { background: var(--bg-soft); border-radius: 10px; padding: 5mm 6mm 4mm; margin-bottom: 5mm; }
+  .bar-row { display: grid; grid-template-columns: 30mm 1fr 16mm; align-items: center; gap: 3mm; margin-bottom: 3mm; }
+  .bar-name { font-weight: 700; color: var(--navy); display: flex; align-items: center; gap: 2mm; }
+  .bar-name b { width: 5.5mm; height: 5.5mm; border-radius: 50%; background: var(--navy); color: var(--accent); font-size: 8pt; display: inline-flex; align-items: center; justify-content: center; }
+  .bar-track { height: 7mm; display: block; border-bottom: 1px solid var(--line); }
+  .bar { display: block; height: 100%; background: #2f6db5; border-radius: 0 4px 4px 0; }
+  .bar-val { font-weight: 700; color: var(--ink); font-size: 11pt; }
+  .bar-caption { font-size: 8pt; color: var(--muted); margin-top: 1mm; }
+  .kpi-accent { border-top-color: var(--accent); background: var(--accent-soft); }
+  tr.hl td { background: var(--accent-soft) !important; }
+  .grid2.tight { gap: 3mm; } .grid2.tight .card { padding: 2.8mm 4mm; } .grid2.tight .card h4 { margin-bottom: 1mm; }
+  .cardp { margin: 0; font-size: 9.2pt; color: var(--ink); }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+  .mini { background: var(--bg-soft); border-radius: 8px; padding: 3.5mm 4mm; font-size: 9pt; }
+  .mini b { display: block; color: var(--navy); margin-bottom: 1mm; font-size: 9.8pt; }
+  table.pages td { vertical-align: top; font-size: 9pt; }
+  table.pages td b { color: var(--navy); }
+  table.pages td:first-child { white-space: nowrap; }
+  .url { display: block; font-size: 7.8pt; color: var(--muted); margin-top: .6mm; }
+  .vol { display: inline-block; background: var(--accent-soft); color: var(--navy); font-weight: 700; font-size: 8pt; padding: 0 1.6mm; border-radius: 3px; margin-left: 1mm; }
+  td.wk { font-weight: 800; color: var(--navy); width: 12mm; text-align: center; }
+  tr.sep td { border-top: 2px solid var(--navy); }
+  table.compact { font-size: 8.8pt; }
+  table.compact td, table.compact th { padding: 1.2mm 3mm; }
+  table.weeks td { padding: .9mm 3mm; font-size: 8.9pt; line-height: 1.4; }
+  tr.tot td { font-weight: 800; color: var(--navy); border-top: 2px solid var(--navy); background: #fff !important; }
+  .th-sub { font-weight: 400; font-size: 7.8pt; opacity: .75; }
+  .negs { display: flex; flex-wrap: wrap; gap: 1.8mm; margin: 0 0 2mm; }
+  .negs span { border: 1px solid var(--line); background: var(--bg-soft); border-radius: 4px; padding: .6mm 2.4mm; font-size: 8.8pt; }
+  .negs span::before { content: "−"; color: #b3261e; font-weight: 800; margin-right: 1.2mm; }
+  .phases { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .ph { border: 1px solid var(--line); border-radius: 10px; padding: 3.5mm 4.5mm; display: flex; flex-direction: column; }
+  .ph-head { display: flex; flex-direction: column; gap: 1.5mm; margin-bottom: 1.5mm; }
+  .ph .when { align-self: flex-start; font-size: 7.8pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); background: var(--navy); padding: .6mm 2.5mm; border-radius: 4px; }
+  .ph h4 { margin: 0; color: var(--navy); font-size: 10.5pt; }
+  .ph ul { font-size: 8.8pt; margin: 0 0 2mm; padding-left: 4mm; flex: 1; }
+  .ph li { margin-bottom: .8mm; }
+  .gate { font-size: 8.3pt; background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 1.5mm 2.5mm; border-radius: 0 5px 5px 0; color: var(--navy); font-weight: 600; }
+  .legend { display: flex; gap: 6mm; font-size: 8.8pt; color: var(--muted); margin-bottom: 3mm; }
+  .legend span { display: inline-flex; align-items: center; gap: 1.8mm; }
+  .sw { display: inline-block; width: 6mm; height: 3mm; border-radius: 2px; font-style: normal; }
+  .sw-seo { background: #2f6db5; } .sw-ads { background: #c98a00; }
+  .sw-mk { width: auto; height: auto; color: var(--navy); font-size: 10pt; }
+  .gantt { font-size: 8.6pt; border: 1px solid var(--line); border-radius: 10px; padding: 3mm 4mm 2mm; }
+  .g-head, .g-weeks, .g-row { display: grid; grid-template-columns: 58mm repeat(12, 1fr); align-items: center; }
+  .g-head span { grid-column: span 4; text-align: center; font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--navy); padding-bottom: .8mm; margin: 0 .6mm; }
+  .g-head span:first-child { grid-column: 1; border: 0; }
+  .g-weeks span { text-align: center; color: var(--muted); font-size: 7.8pt; padding: .8mm 0; }
+  .g-group { font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: .1em; font-size: 7.8pt; margin: 2mm 0 .6mm; padding-top: 1.5mm; border-top: 1px solid var(--line); }
+  .g-row { height: 5.6mm; background: repeating-linear-gradient(90deg, transparent 0 calc((100% - 58mm)/12 - 1px), var(--line) calc((100% - 58mm)/12 - 1px) calc((100% - 58mm)/12)) 58mm 0 / calc(100% - 58mm) 100% no-repeat; }
+  .g-label { grid-column: 1; grid-row: 1; padding-right: 2mm; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .g-bar { grid-row: 1; grid-column: calc(var(--s) + 1) / calc(var(--e) + 1); height: 3.4mm; border-radius: 4px; margin: 0 1px; }
+  .g-bar.seo { background: #2f6db5; } .g-bar.ads { background: #c98a00; }
+  .g-bar.light { background: repeating-linear-gradient(45deg, #c98a00 0 3px, #f3dfae 3px 6px); }
+  .g-mk { grid-row: 1; grid-column: calc(var(--s) + 1); text-align: center; font-size: 10pt; line-height: 1; }
+  .g-mk.seo { color: #2f6db5; } .g-mk.ads { color: #c98a00; } .g-mk.both { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- Logos: coloque os arquivos em logos/seoamplify.png e logos/andaimaq.png.
+     Se o arquivo não existir, a página mostra uma marca tipográfica no lugar. -->
+<template id="logo-seo">
+  <span class="logo"><img src="logos/seoamplify.png" alt="SEO Amplify" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="wordmark wm-seo"><span class="mark">S</span><span><span class="t1">SEO</span><span class="t2">Amplify</span></span></span></span>
+</template>
+<template id="logo-and">
+  <span class="logo"><img src="logos/andaimaq.png" alt="Andaimaq Locações" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"><span class="wordmark wm-and"><span class="mark">A</span><span><span class="t1">Andai</span><span class="t2">maq</span></span></span></span>
+</template>
+
+<!-- ===================== CAPA ===================== -->
+<section class="page cover">
+  <div class="cover-top">
+    <span data-logo="seo"></span>
+    <span class="cover-x">×</span>
+    <span data-logo="and"></span>
+  </div>
+  <div class="cover-body">
+    <div class="cover-kicker">Plano de execução · 90 dias</div>
+    <h1>Cronograma<br><span>Google Ads + SEO</span></h1>
+    <p class="cover-sub">Ordem das páginas, estratégia das campanhas e o caminho do teste até a campanha validada, com foco nos quatro equipamentos prioritários da Andaimaq.</p>
+    <div class="chips">
+      <span class="chip"><b>1</b>Andaime</span>
+      <span class="chip"><b>2</b>Betoneira</span>
+      <span class="chip"><b>3</b>Martelete</span>
+      <span class="chip"><b>4</b>Escora</span>
+    </div>
+  </div>
+  <div class="cover-stripe"></div>
+  <div class="cover-meta">
+    <div><b>Cliente</b>Andaimaq Locações<br>andaimaq.com.br</div>
+    <div><b>Execução</b>SEO Amplify<br>seoamplify.com.br</div>
+    <div><b>Data · Região</b>8 de outubro de 2026<br>Grande São Paulo</div>
+  </div>
+</section>
+
+<!-- ===================== 01 PRIORIDADES ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Cronograma · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">01</span>Os quatro equipamentos prioritários</h2>
+    <p class="lead">Quanto cada um é procurado no Google, só na cidade de São Paulo, e quanto custa o clique.</p>
+
+    <div class="bars" role="img" aria-label="Buscas por mês na cidade de São Paulo: Andaime 1.850, Betoneira 480, Martelete 670, Escora 130">
+      <div class="bar-row"><span class="bar-name"><b>1</b>Andaime</span><span class="bar-track"><span class="bar" style="width:100%"></span></span><span class="bar-val">1.850</span></div>
+      <div class="bar-row"><span class="bar-name"><b>2</b>Betoneira</span><span class="bar-track"><span class="bar" style="width:25.9%"></span></span><span class="bar-val">480</span></div>
+      <div class="bar-row"><span class="bar-name"><b>3</b>Martelete</span><span class="bar-track"><span class="bar" style="width:36.2%"></span></span><span class="bar-val">670</span></div>
+      <div class="bar-row"><span class="bar-name"><b>4</b>Escora</span><span class="bar-track"><span class="bar" style="width:7%"></span></span><span class="bar-val">130</span></div>
+      <div class="bar-caption">Buscas por mês na cidade de São Paulo, somando as variações de cada equipamento (aluguel, locação, preço)</div>
+    </div>
+
+    <table>
+      <thead><tr><th style="white-space:nowrap">Prioridade</th><th>Principais buscas</th><th class="r">Buscas/mês</th><th class="r" style="white-space:nowrap">Clique médio</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap"><b>1 · Andaime</b></td><td>aluguel andaime (880) · aluguel de andaime são paulo (320) · andaime locação (210) · aluguel de andaime preço (140)</td><td class="r">1.850</td><td class="r">R$ 7 a 12</td></tr>
+        <tr><td style="white-space:nowrap"><b>2 · Betoneira</b></td><td>aluguel de betoneira (320) · locação de betoneira (110) · aluguel de betoneira preço (50)</td><td class="r">480</td><td class="r">R$ 6 a 10</td></tr>
+        <tr><td style="white-space:nowrap"><b>3 · Martelete</b></td><td>aluguel de martelete (480) · locação de martelete (140) · aluguel de rompedor (20)</td><td class="r">670</td><td class="r">R$ 6 a 10</td></tr>
+        <tr><td style="white-space:nowrap"><b>4 · Escora</b></td><td>aluguel de escora para laje (70) · aluguel de escora (20) · locação de escoras (20) · escora metálica aluguel (20)</td><td class="r">130</td><td class="r">R$ 7 a 10</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">Fonte: Ubersuggest, cidade de São Paulo, média de set/2025 a ago/2026. As demais cidades da Grande São Paulo somam demanda a esses números.</p>
+
+    <h3>O que os números dizem</h3>
+    <div class="grid2">
+      <div class="card"><h4><span class="dot">!</span>Martelete procura mais que betoneira</h4><p class="cardp">A ordem de prioridade da Andaimaq é mantida nas páginas. No Google Ads, o martelete recebe um pouco mais de verba que a betoneira porque tem 40% mais buscas.</p></div>
+      <div class="card"><h4><span class="dot">!</span>Escora é busca de nicho</h4><p class="cardp">São poucas buscas, mas de quem vai concretar laje, um cliente que costuma alugar em quantidade. Ganha uma página forte no SEO e uma verba menor no Google Ads.</p></div>
+      <div class="card"><h4><span class="dot">!</span>A página de preço é a vitória mais rápida</h4><p class="cardp">O site já aparece entre a 39ª e a 48ª posição para "aluguel de andaime preço" e variações. É a página mais perto de subir, por isso é otimizada logo no início.</p></div>
+      <div class="card"><h4><span class="dot">!</span>Os dois canais se alimentam</h4><p class="cardp">Cada página criada no SEO vira o destino do anúncio daquele equipamento. E os termos que geram contato no Google Ads indicam os próximos conteúdos do SEO.</p></div>
+    </div>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>2</span></footer>
+</section>
+
+<!-- ===================== 02 SEO — PLANO DE PÁGINAS ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Cronograma · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">02</span>SEO — Plano de páginas</h2>
+    <p class="lead">Uma página forte por equipamento, na ordem de prioridade, e depois as páginas por região.</p>
+
+    <table class="pages">
+      <thead><tr><th>Sem.</th><th>Página</th><th>Palavra-chave principal</th><th>Buscas que ela também cobre</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">3</td><td><b>Aluguel de Andaime em SP</b><span class="url">/aluguel-de-andaime-sp/</span></td><td>aluguel andaime <span class="vol">880</span></td><td>aluguel de andaime são paulo (320), andaime locação (210), locadora de andaime (40)</td></tr>
+        <tr><td class="wk">4</td><td><b>Preço do aluguel de andaime</b><span class="url">/aluguel-de-andaimes-preco/ · otimizar a que já existe</span></td><td>aluguel de andaime preço <span class="vol">140</span></td><td>preço locação de andaimes (90), aluguel de andaimes preço sp (90), valor (50), quanto custa (30)</td></tr>
+        <tr><td class="wk">5</td><td><b>Aluguel de Betoneira</b><span class="url">/aluguel-de-betoneira/</span></td><td>aluguel de betoneira <span class="vol">320</span></td><td>locação de betoneira (110), aluguel de betoneira preço (50)</td></tr>
+        <tr><td class="wk">6</td><td><b>Aluguel de Martelete e Rompedor</b><span class="url">/aluguel-de-martelete/</span></td><td>aluguel de martelete <span class="vol">480</span></td><td>locação de martelete (140), aluguel de rompedor (20), martelete preço (20)</td></tr>
+        <tr><td class="wk">7</td><td><b>Aluguel de Escora Metálica</b><span class="url">/aluguel-de-escora-metalica/</span></td><td>aluguel de escora para laje <span class="vol">70</span></td><td>aluguel de escora (20), locação de escoras (20), escora metálica aluguel (20)</td></tr>
+        <tr class="sep"><td class="wk">8</td><td><b>Região 1: Zona Sul de SP</b><span class="url">bairro da unidade (Jardim Ângela) e entorno</span></td><td colspan="2">"aluguel de andaime zona sul" e variações por equipamento + bairro</td></tr>
+        <tr><td class="wk">10</td><td><b>Região 2</b><span class="url">a definir com a Andaimaq</span></td><td colspan="2">sugestão: Taboão da Serra, Embu das Artes e Itapecerica da Serra, as cidades vizinhas da unidade</td></tr>
+        <tr><td class="wk">11</td><td><b>Região 3</b><span class="url">a definir com a Andaimaq</span></td><td colspan="2">a região de entrega com mais pedidos fora da capital</td></tr>
+      </tbody>
+    </table>
+
+    <h3>O que toda página de equipamento leva</h3>
+    <div class="grid3">
+      <div class="mini"><b>Conteúdo</b>Modelos e medidas disponíveis, para que serve, como funciona a locação (prazo, entrega e retirada na obra) e perguntas frequentes.</div>
+      <div class="mini"><b>Conversão</b>Botão de WhatsApp e telefone no topo e no fim da página, mais um formulário curto de orçamento.</div>
+      <div class="mini"><b>Técnico</b>Título e descrição otimizados, fotos reais com texto alternativo, dados estruturados e links para os outros equipamentos.</div>
+    </div>
+
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>3</span></footer>
+</section>
+
+<!-- ===================== 03 SEO — CRONOGRAMA + ESTIMATIVA ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Cronograma · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">03</span>SEO — Semana a semana</h2>
+    <p class="lead">A semana 1 começa quando recebermos os acessos ao site e ao Google.</p>
+
+    <table class="weeks">
+      <thead><tr><th>Semana</th><th>Entregas</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">1</td><td>Auditoria técnica: velocidade, versão para celular, indexação, erros e redirecionamentos. Search Console e Google Analytics 4 configurados.</td></tr>
+        <tr><td class="wk">2</td><td>Correção dos erros técnicos prioritários. Revisão do Perfil da Empresa no Google: categorias, serviços, fotos e horário.</td></tr>
+        <tr><td class="wk">3</td><td><b>Página Andaime</b> no ar. 1º conteúdo de apoio. Estratégia de avaliações no Google iniciada.</td></tr>
+        <tr><td class="wk">4</td><td><b>Página de preço do andaime</b> otimizada. Relatório do mês 1.</td></tr>
+        <tr><td class="wk">5</td><td><b>Página Betoneira</b> no ar. 2º conteúdo de apoio.</td></tr>
+        <tr><td class="wk">6</td><td><b>Página Martelete</b> no ar. Ligações internas entre os equipamentos.</td></tr>
+        <tr><td class="wk">7</td><td><b>Página Escora</b> no ar. 3º conteúdo de apoio.</td></tr>
+        <tr><td class="wk">8</td><td><b>Página Região 1</b> (Zona Sul) no ar. Relatório do mês 2 com as primeiras posições.</td></tr>
+        <tr><td class="wk">9</td><td>Cadastro da empresa em diretórios do setor e da região. 4º conteúdo de apoio.</td></tr>
+        <tr><td class="wk">10</td><td><b>Página Região 2</b> no ar. Ajustes nas páginas de equipamento conforme as buscas que já trazem visita.</td></tr>
+        <tr><td class="wk">11</td><td><b>Página Região 3</b> no ar. 5º conteúdo de apoio.</td></tr>
+        <tr><td class="wk">12</td><td>6º conteúdo de apoio. Relatório do trimestre e plano dos próximos 90 dias.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Conteúdos de apoio (2 por mês)</h3>
+    <table class="compact">
+      <thead><tr><th>Sem.</th><th>Tema</th><th>Leva para</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">3</td><td>Quantos andaimes a sua obra precisa? Como calcular por metro de fachada</td><td>Andaime</td></tr>
+        <tr><td class="wk">5</td><td>Andaime e a NR-18: o que a norma exige na obra</td><td>Andaime</td></tr>
+        <tr><td class="wk">7</td><td>Betoneira de 150, 250 ou 400 litros: qual alugar para cada obra</td><td>Betoneira</td></tr>
+        <tr><td class="wk">9</td><td>Martelete ou rompedor: qual a diferença e qual alugar</td><td>Martelete</td></tr>
+        <tr><td class="wk">11</td><td>Quantas escoras por m² de laje? Guia para concretagem</td><td>Escora</td></tr>
+        <tr><td class="wk">12</td><td>Checklist de equipamentos para reforma: o que alugar e por quanto tempo</td><td>Todos</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Estimativa de visitas orgânicas no 6º mês</h3>
+    <table class="compact">
+      <thead><tr><th>Equipamento</th><th class="r">Buscas/mês</th><th class="r">Cenário conservador</th><th class="r">Cenário bom</th></tr></thead>
+      <tbody>
+        <tr><td>1 · Andaime</td><td class="r">1.850</td><td class="r">75</td><td class="r">280</td></tr>
+        <tr><td>2 · Betoneira</td><td class="r">480</td><td class="r">20</td><td class="r">70</td></tr>
+        <tr><td>3 · Martelete</td><td class="r">670</td><td class="r">25</td><td class="r">100</td></tr>
+        <tr><td>4 · Escora</td><td class="r">130</td><td class="r">5</td><td class="r">20</td></tr>
+        <tr class="tot"><td>Total por mês</td><td class="r">3.130</td><td class="r">125</td><td class="r">470</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">Conservador: páginas entre a 4ª e a 10ª posição (cerca de 4% de cliques). Bom: páginas entre as 3 primeiras (cerca de 15% de cliques). Só a cidade de São Paulo; as visitas do resto da Grande SP vêm por cima. É estimativa, não garantia: o resultado depende da concorrência de cada termo.</p>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>4</span></footer>
+</section>
+
+<!-- ===================== 04 ADS — ESTRATÉGIA ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Cronograma · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">04</span>Google Ads — Nossa estratégia</h2>
+    <p class="lead">Uma campanha por equipamento, para controlar a verba de cada prioridade separadamente.</p>
+
+    <table class="pages">
+      <thead><tr><th>Campanha</th><th>Grupos de anúncio (um tema por grupo)</th><th>Página de destino</th></tr></thead>
+      <tbody>
+        <tr><td><b>1 · Andaime</b></td><td><b>Aluguel</b>: aluguel andaime, aluguel de andaime são paulo<br><b>Locação</b>: andaime locação, locadora de andaime<br><b>Preço</b>: aluguel de andaime preço, valor, quanto custa</td><td>Página Andaime · a página de preço para o grupo Preço</td></tr>
+        <tr><td><b>2 · Betoneira</b></td><td><b>Aluguel</b>: aluguel de betoneira<br><b>Locação</b>: locação de betoneira<br><b>Preço</b>: aluguel de betoneira preço</td><td>Página Betoneira</td></tr>
+        <tr><td><b>3 · Martelete</b></td><td><b>Martelete</b>: aluguel e locação de martelete<br><b>Rompedor</b>: aluguel de rompedor, martelo rompedor</td><td>Página Martelete</td></tr>
+        <tr><td><b>4 · Escora</b></td><td><b>Laje</b>: aluguel de escora para laje<br><b>Escora metálica</b>: aluguel e locação de escoras</td><td>Página Escora</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">Até a página nova de cada equipamento ir ao ar no SEO, o anúncio usa a melhor página que já existe no site. Na semana em que a página nova é publicada, ela vira o destino do anúncio.</p>
+
+    <h3>Configurações de todas as campanhas</h3>
+    <table class="compact">
+      <thead><tr><th>Item</th><th>Como fica</th><th>Por quê</th></tr></thead>
+      <tbody>
+        <tr><td>Rede</td><td>Só Pesquisa do Google</td><td>Display e parceiros de pesquisa gastam com clique de baixa qualidade</td></tr>
+        <tr><td>Região</td><td>Grande São Paulo, só para quem está na região</td><td>Não paga por clique de quem só pesquisou sobre São Paulo estando fora</td></tr>
+        <tr><td>Palavras-chave</td><td>Correspondência de frase e exata</td><td>Controla quais buscas mostram o anúncio</td></tr>
+        <tr><td>Lance</td><td>Maximizar conversões; após 30 contatos, custo por contato alvo</td><td>O Google aprende com contatos reais antes de receber uma meta</td></tr>
+        <tr><td>Horário</td><td>Seg a sáb, horário comercial, lance reduzido fora dele</td><td>Locadora atende em horário comercial</td></tr>
+        <tr><td>Anúncios</td><td>3 anúncios responsivos por grupo, 15 títulos e 4 descrições</td><td>Testa mensagens: preço, entrega na obra, rapidez</td></tr>
+        <tr><td>Extensões</td><td>Ligação, WhatsApp, endereço, links por equipamento, destaques</td><td>Anúncio maior e contato com um toque</td></tr>
+        <tr><td>Conversões</td><td>Clique no WhatsApp, ligação pelo anúncio e pelo site, formulário</td><td>Cada real gasto ligado a um contato</td></tr>
+        <tr><td>Recomendações automáticas</td><td>Desligadas</td><td>Nenhuma mudança na conta sem passar por nós e pela Andaimaq</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>5</span></footer>
+</section>
+
+<!-- ===================== 05 ADS — VERBA + ESTIMATIVA ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Cronograma · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">05</span>Google Ads — Verba e estimativa</h2>
+    <p class="lead">Começa com verba de teste; sobe para a recomendada só depois de validada e com a aprovação da Andaimaq.</p>
+
+    <table class="compact">
+      <thead><tr><th>Campanha</th><th class="r">Peso</th><th class="r">Teste<br><span class="th-sub">R$ 1.500/mês</span></th><th class="r">Validada<br><span class="th-sub">R$ 2.500/mês</span></th><th class="r">Por dia<br><span class="th-sub">validada</span></th></tr></thead>
+      <tbody>
+        <tr><td>1 · Andaime</td><td class="r">40%</td><td class="r">R$ 600</td><td class="r">R$ 1.000</td><td class="r">R$ 33</td></tr>
+        <tr><td>2 · Betoneira</td><td class="r">20%</td><td class="r">R$ 300</td><td class="r">R$ 500</td><td class="r">R$ 17</td></tr>
+        <tr><td>3 · Martelete</td><td class="r">25%</td><td class="r">R$ 375</td><td class="r">R$ 625</td><td class="r">R$ 21</td></tr>
+        <tr><td>4 · Escora</td><td class="r">15%</td><td class="r">R$ 225</td><td class="r">R$ 375</td><td class="r">R$ 12</td></tr>
+        <tr class="tot"><td>Total</td><td class="r">100%</td><td class="r">R$ 1.500</td><td class="r">R$ 2.500</td><td class="r">R$ 83</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">A verba é paga direto ao Google pela Andaimaq. Se uma campanha não conseguir gastar o previsto por falta de buscas (o risco maior é na Escora), a sobra vai para a campanha com menor custo por contato, sempre com o seu OK.</p>
+
+    <h3>Estimativa com a campanha validada (R$ 2.500/mês)</h3>
+    <table class="compact">
+      <thead><tr><th>Campanha</th><th class="r">Cliques/mês<br><span class="th-sub">conservador</span></th><th class="r">Contatos/mês<br><span class="th-sub">conservador</span></th><th class="r">Cliques/mês<br><span class="th-sub">realista</span></th><th class="r">Contatos/mês<br><span class="th-sub">realista</span></th></tr></thead>
+      <tbody>
+        <tr><td>1 · Andaime</td><td class="r">~110</td><td class="r">~11</td><td class="r">~180</td><td class="r">~32</td></tr>
+        <tr><td>2 · Betoneira</td><td class="r">~60</td><td class="r">~6</td><td class="r">~90</td><td class="r">~16</td></tr>
+        <tr><td>3 · Martelete</td><td class="r">~75</td><td class="r">~8</td><td class="r">~115</td><td class="r">~20</td></tr>
+        <tr><td>4 · Escora</td><td class="r">~30</td><td class="r">~3</td><td class="r">~30</td><td class="r">~5</td></tr>
+        <tr class="tot"><td>Total</td><td class="r">~275</td><td class="r">~28</td><td class="r">~415</td><td class="r">~73</td></tr>
+        <tr class="hl"><td><b>Custo por contato</b></td><td class="r" colspan="2"><b>R$ 75 a R$ 110</b></td><td class="r" colspan="2"><b>R$ 25 a R$ 40</b></td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">Contato = WhatsApp, ligação ou formulário. <b>Conservador:</b> clique de R$ 8 a R$ 9 (o preço do topo da página, segundo o Ubersuggest) e 8% a 12% dos cliques virando contato. <b>Realista:</b> clique de R$ 5 a R$ 6, com anúncio bem avaliado pelo Google, e 15% a 20% virando contato, comum quando o contato é um toque no WhatsApp pelo celular. A Escora é limitada pela procura (~30 cliques/mês); a verba que sobrar vai para outra campanha. O número real sai do teste.</p>
+
+    <h3>Negativas iniciais</h3>
+    <p class="negs"><span>venda</span><span>comprar</span><span>usado</span><span>usada</span><span>olx</span><span>mercado livre</span><span>como montar</span><span>curso</span><span>pdf</span><span>manual</span><span>emprego</span><span>vagas</span><span>trabalho</span><span>grátis</span><span>fabricante</span><span>dwg</span></p>
+    <p class="small">A lista cresce toda semana com a revisão termo a termo do que as pessoas pesquisaram. Nada é negativado em lote sem revisão.</p>
+
+    <div class="callout">
+      <b>Meta: até R$ 45 por contato.</b> O cenário realista (R$ 25 a R$ 40) fica dentro da meta; o conservador (R$ 75 a R$ 110) fica acima. O mês de teste mostra qual dos dois vale para a Andaimaq, e a verba só sobe se a meta for batida. A conta está na próxima página.
+    </div>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>6</span></footer>
+</section>
+
+<!-- ===================== 06 VIABILIDADE ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Cronograma · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">06</span>Quanto um contato pode custar</h2>
+    <p class="lead">Com os números da Andaimaq: R$ 150 por equipamento alugado, e o cliente volta a alugar cerca de 3 vezes.</p>
+
+    <div class="kpis">
+      <div class="kpi"><div class="v">R$ 150</div><div class="l">por equipamento alugado</div></div>
+      <div class="kpi"><div class="v">~3</div><div class="l">locações por cliente ao longo do tempo</div></div>
+      <div class="kpi"><div class="v">R$ 450</div><div class="l">valor de um cliente novo</div></div>
+      <div class="kpi kpi-accent"><div class="v">R$ 45</div><div class="l">meta inicial de custo por contato</div></div>
+    </div>
+
+    <h3>A regra: a primeira locação paga o anúncio</h3>
+    <p>Um cliente novo pode custar em anúncio, no máximo, o valor da primeira locação (<b>R$ 150</b>); as seguintes ficam para a Andaimaq. O custo máximo por contato depende de quantos contatos viram locação:</p>
+    <table class="compact">
+      <thead><tr><th>De cada 10 contatos, viram locação</th><th class="r">Custo máximo por contato</th></tr></thead>
+      <tbody>
+        <tr><td>2 (20%)</td><td class="r">R$ 30</td></tr>
+        <tr class="hl"><td><b>3 (30%) · referência até termos o dado real</b></td><td class="r"><b>R$ 45</b></td></tr>
+        <tr><td>4 (40%)</td><td class="r">R$ 60</td></tr>
+        <tr><td>5 (50%)</td><td class="r">R$ 75</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">A taxa real sai do teste: cada contato é anotado numa planilha simples, com a informação de se virou locação.</p>
+
+    <h3>O mês de teste (R$ 1.500 de verba) em três cenários</h3>
+    <table class="compact">
+      <thead><tr><th>Cenário</th><th class="r">Custo por contato</th><th class="r">Contatos</th><th class="r">Clientes novos*</th><th class="r">1ª locação</th><th class="r">Valor dos clientes</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap">Conservador</td><td class="r">R$ 90</td><td class="r">~17</td><td class="r">5</td><td class="r">R$ 750</td><td class="r">R$ 2.250</td></tr>
+        <tr class="hl"><td><b>Meta</b></td><td class="r"><b>R$ 45</b></td><td class="r"><b>~33</b></td><td class="r"><b>10</b></td><td class="r"><b>R$ 1.500</b></td><td class="r"><b>R$ 4.500</b></td></tr>
+        <tr><td>Realista</td><td class="r">R$ 32</td><td class="r">~46</td><td class="r">14</td><td class="r">R$ 2.100</td><td class="r">R$ 6.300</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:2mm">* Com 30% dos contatos virando locação. "Valor dos clientes" soma as cerca de 3 locações de cada cliente ao longo do tempo. Pedidos com mais de um equipamento aumentam esses valores.</p>
+
+    <h3>Como chegamos à meta</h3>
+    <div class="grid2 tight">
+      <div class="card"><h4><span class="dot">1</span>Pedido grande primeiro</h4><p class="cardp">Lance maior nas buscas de obra e quantidade ("escora para laje", "andaime para fachada"), menor nas de uso rápido de um equipamento só.</p></div>
+      <div class="card"><h4><span class="dot">2</span>Cortar cedo o que não fecha</h4><p class="cardp">Palavra ou horário que gera contato sem virar locação perde verba já na fase de otimização.</p></div>
+      <div class="card"><h4><span class="dot">3</span>Verba só sobe com a meta batida</h4><p class="cardp">R$ 2.500/mês só depois de o custo por contato ficar na meta. Fora dela, a verba fica em R$ 1.500 ou menos.</p></div>
+      <div class="card"><h4><span class="dot">4</span>SEO como canal principal</h4><p class="cardp">O clique orgânico não tem custo. No 6º mês, 125 a 470 visitas podem render cerca de 6 a 24 contatos por mês sem pagar por clique.</p></div>
+    </div>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>7</span></footer>
+</section>
+
+<!-- ===================== 07 ADS — TESTE → VALIDADA ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Cronograma · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">07</span>Do teste à campanha validada</h2>
+    <p class="lead">Quatro fases em 12 semanas. Cada fase só começa quando a anterior cumpriu o que precisava.</p>
+
+    <div class="phases">
+      <div class="ph">
+        <div class="ph-head"><span class="when">Semana 1</span><h4>Fase 0 · Preparação</h4></div>
+        <ul>
+          <li>Conversões configuradas e testadas: WhatsApp, ligação, formulário</li>
+          <li>Google Analytics 4 ligado ao Google Ads</li>
+          <li>As 4 campanhas montadas <b>pausadas</b>, com anúncios e negativas</li>
+          <li>Andaimaq revisa e aprova os anúncios</li>
+        </ul>
+        <div class="gate">Avança quando: conversões registrando e anúncios aprovados por você</div>
+      </div>
+      <div class="ph">
+        <div class="ph-head"><span class="when">Semanas 2 a 5</span><h4>Fase 1 · Teste</h4></div>
+        <ul>
+          <li>Semana 2: ativação de <b>Andaime e Betoneira</b> (prioridades 1 e 2)</li>
+          <li>Semana 3: ativação de <b>Martelete e Escora</b></li>
+          <li>Verba de teste: R$ 1.500/mês</li>
+          <li>Sem mexer em lances nos primeiros 7 a 10 dias: é o período de aprendizado do Google</li>
+          <li>Revisão dos termos pesquisados 2 vezes por semana</li>
+        </ul>
+        <div class="gate">Avança quando: 30 dias de dados, 10 contatos e a taxa de fechamento medida</div>
+      </div>
+      <div class="ph">
+        <div class="ph-head"><span class="when">Semanas 6 a 9</span><h4>Fase 2 · Otimização</h4></div>
+        <ul>
+          <li>Pausa das palavras que gastaram sem gerar contato</li>
+          <li>Anúncio vencedor mantido, perdedor substituído</li>
+          <li>Ajuste de lance por horário, dia, celular ou computador e região</li>
+          <li>Verba redistribuída para o equipamento com menor custo por contato</li>
+          <li>Página nova de cada equipamento entra como destino</li>
+        </ul>
+        <div class="gate">Avança quando: custo por contato caindo ou estável por 2 semanas</div>
+      </div>
+      <div class="ph">
+        <div class="ph-head"><span class="when">Semanas 10 a 12</span><h4>Fase 3 · Validação</h4></div>
+        <ul>
+          <li>Conferência dos critérios abaixo, campanha por campanha</li>
+          <li>Campanha validada passa para lance com custo por contato alvo</li>
+          <li>Se o custo por contato estiver na meta: proposta de subir para R$ 2.500/mês, para a Andaimaq decidir. Se não: verba fica em R$ 1.500 ou menos e o peso vai para o SEO</li>
+          <li>Campanha não validada volta para a fase 2 com novo teste</li>
+        </ul>
+        <div class="gate">Fim: campanha validada. Escala de até +20% de verba por semana, com sua aprovação</div>
+      </div>
+    </div>
+
+    <h3>Quando uma campanha está validada</h3>
+    <table class="compact">
+      <thead><tr><th>Critério</th><th>Meta</th></tr></thead>
+      <tbody>
+        <tr><td>Tempo de dados</td><td>Pelo menos 30 dias rodando, para não decidir com poucos dias</td></tr>
+        <tr><td>Volume de contatos</td><td>15 contatos ou mais na campanha (30 na conta)</td></tr>
+        <tr><td>Custo por contato</td><td>Até R$ 45 (meta inicial, revista com a taxa de fechamento real) e estável por 14 dias</td></tr>
+        <tr><td>Taxa de fechamento</td><td>Medida com a planilha da Andaimaq: quantos contatos viraram locação</td></tr>
+        <tr><td>Qualidade do contato</td><td>A Andaimaq confirma que os contatos pedem orçamento de verdade</td></tr>
+        <tr><td>Índice de Qualidade</td><td>Nota 6 ou mais nas palavras-chave principais</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>8</span></footer>
+</section>
+
+<!-- ===================== 07 VISÃO GERAL (GANTT) ===================== -->
+<section class="page">
+  <header class="run-head"><span data-logo="seo"></span><span>Cronograma · Andaimaq</span></header>
+  <div class="content">
+    <h2><span class="num">08</span>Visão geral das 12 semanas</h2>
+    <p class="lead">Os dois serviços lado a lado.</p>
+
+    <div class="legend"><span><i class="sw sw-seo"></i>SEO</span><span><i class="sw sw-ads"></i>Google Ads</span><span><i class="sw sw-mk">◆</i>Entrega pontual</span></div>
+
+    <div class="gantt">
+      <div class="g-head"><span></span><span>Mês 1</span><span>Mês 2</span><span>Mês 3</span></div>
+      <div class="g-weeks"><span></span>
+        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span>
+      </div>
+
+      <div class="g-group">SEO</div>
+      <div class="g-row"><span class="g-label">Auditoria e correções técnicas</span><span class="g-bar seo" style="--s:1;--e:3"></span></div>
+      <div class="g-row"><span class="g-label">Perfil da Empresa no Google</span><span class="g-bar seo" style="--s:2;--e:4"></span></div>
+      <div class="g-row"><span class="g-label">1 · Página Andaime + página de preço</span><span class="g-bar seo" style="--s:3;--e:5"></span></div>
+      <div class="g-row"><span class="g-label">2 · Página Betoneira</span><span class="g-bar seo" style="--s:5;--e:6"></span></div>
+      <div class="g-row"><span class="g-label">3 · Página Martelete</span><span class="g-bar seo" style="--s:6;--e:7"></span></div>
+      <div class="g-row"><span class="g-label">4 · Página Escora</span><span class="g-bar seo" style="--s:7;--e:8"></span></div>
+      <div class="g-row"><span class="g-label">Páginas por região (3)</span><span class="g-bar seo" style="--s:8;--e:12"></span></div>
+      <div class="g-row"><span class="g-label">Conteúdos de apoio</span><span class="g-mk seo" style="--s:3">◆</span><span class="g-mk seo" style="--s:5">◆</span><span class="g-mk seo" style="--s:7">◆</span><span class="g-mk seo" style="--s:9">◆</span><span class="g-mk seo" style="--s:11">◆</span><span class="g-mk seo" style="--s:12">◆</span></div>
+      <div class="g-row"><span class="g-label">Diretórios e links locais</span><span class="g-bar seo" style="--s:9;--e:13"></span></div>
+
+      <div class="g-group">Google Ads</div>
+      <div class="g-row"><span class="g-label">Fase 0 · Preparação e aprovação</span><span class="g-bar ads" style="--s:1;--e:2"></span></div>
+      <div class="g-row"><span class="g-label">Ativação Andaime e Betoneira</span><span class="g-mk ads" style="--s:2">◆</span></div>
+      <div class="g-row"><span class="g-label">Ativação Martelete e Escora</span><span class="g-mk ads" style="--s:3">◆</span></div>
+      <div class="g-row"><span class="g-label">Fase 1 · Teste (R$ 1.500/mês)</span><span class="g-bar ads" style="--s:2;--e:6"></span></div>
+      <div class="g-row"><span class="g-label">Fase 2 · Otimização</span><span class="g-bar ads" style="--s:6;--e:10"></span></div>
+      <div class="g-row"><span class="g-label">Fase 3 · Validação</span><span class="g-bar ads" style="--s:10;--e:13"></span></div>
+      <div class="g-row"><span class="g-label">Revisão de termos e negativas</span><span class="g-bar ads light" style="--s:2;--e:13"></span></div>
+
+      <div class="g-group">Os dois</div>
+      <div class="g-row"><span class="g-label">Relatório e reunião mensal</span><span class="g-mk both" style="--s:4">◆</span><span class="g-mk both" style="--s:8">◆</span><span class="g-mk both" style="--s:12">◆</span></div>
+    </div>
+
+    <h3>O que precisamos da Andaimaq</h3>
+    <table class="compact">
+      <thead><tr><th>Quando</th><th>O quê</th></tr></thead>
+      <tbody>
+        <tr><td>Semana 1</td><td>Acesso ao site, ao Google Ads e ao Perfil da Empresa no Google.</td></tr>
+        <tr><td>Semanas 1 e 2</td><td>Fotos reais dos quatro equipamentos e de obras atendidas. Modelos, medidas e regiões de entrega.</td></tr>
+        <tr><td>Semana 2</td><td>Aprovação dos anúncios antes de qualquer campanha ser ativada.</td></tr>
+        <tr><td>Toda semana</td><td>Planilha simples de contatos: cada contato que chegou e se virou locação. É o dado que define a meta da campanha.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <footer class="run-foot"><span>SEO Amplify · seoamplify.com.br</span><span>9</span></footer>
+</section>
+
+<script>
+  document.querySelectorAll('[data-logo]').forEach(function (el) {
+    var tpl = document.getElementById('logo-' + el.getAttribute('data-logo'));
+    el.replaceWith(tpl.content.cloneNode(true));
+  });
+</script>
+</body>
+</html>

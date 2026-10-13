@@ -1,0 +1,65 @@
+{
+ "slug": "aluguel-de-martelete",
+ "titulo_pagina": "Aluguel de Martelete em São Paulo",
+ "nome": "martelete",
+ "kicker": "LOCAÇÃO DE MARTELETE · GRANDE SÃO PAULO",
+ "h1": "Aluguel de Martelete em São Paulo",
+ "subtitulo": "Martelete para demolição, quebra de concreto e abertura de rasgos, com entrega e retirada no endereço da sua obra.",
+ "whats_msg": "Olá! Quero um orçamento de aluguel de martelete.",
+ "imagem_id": 322,
+ "imagem_url": "https://andaimaq.com.br/wp-content/uploads/2026/10/4.webp",
+ "h2_modelos": "Marteletes para alugar",
+ "intro_modelos": "Conte o serviço e indicamos o martelete com a potência certa para o trabalho.",
+ "modelos": [
+  {
+   "nome": "Martelete perfurador",
+   "descricao": "Mais leve, para furar e fazer pequenas quebras em concreto e alvenaria com controle.",
+   "indicado": [
+    "Furos em concreto e alvenaria",
+    "Rasgos para elétrica e hidráulica",
+    "Pequenas quebras e retiradas de piso"
+   ]
+  },
+  {
+   "nome": "Martelete rompedor",
+   "descricao": "Mais pesado e potente, para demolição e quebra de concreto em volume maior.",
+   "indicado": [
+    "Demolição de paredes e pisos",
+    "Quebra de concreto e contrapiso",
+    "Reformas grandes"
+   ]
+  }
+ ],
+ "h2_uso": "Para que serve o martelete",
+ "texto_uso": "<p>O <strong>martelete</strong> combina impacto e rotação para furar, quebrar e demolir concreto e alvenaria com muito menos esforço que a marreta. É o equipamento certo para abrir rasgos para tubulação e fiação, retirar pisos e revestimentos e demolir paredes em reformas.</p><p>Com o <strong>aluguel de martelete</strong>, você tem a potência de um equipamento profissional só durante o serviço, sem gastar com compra e manutenção. Também alugamos <a href=\"https://andaimaq.com.br/aluguel-de-betoneira/\">betoneira</a> e <a href=\"https://andaimaq.com.br/locacao-de-andaime/\">andaime</a> para a sua obra.</p>",
+ "h2_preco": "Quanto custa alugar um martelete?",
+ "texto_preco": "<p>O valor do <strong>aluguel de martelete</strong> depende de:</p><ul><li><strong>Tipo de martelete:</strong> perfurador ou rompedor.</li><li><strong>Tempo de locação:</strong> períodos maiores costumam sair mais em conta por dia.</li><li><strong>Local da obra:</strong> a distância entra no cálculo da entrega e da retirada.</li></ul><p>Peça um orçamento sem compromisso pelo WhatsApp <a href=\"https://wa.me/5511997405191?text=Ol%C3%A1%21%20Quero%20um%20or%C3%A7amento%20de%20aluguel%20de%20martelete.\">(11) 99740-5191</a>.</p>",
+ "faq": [
+  [
+   "Vocês entregam o martelete na obra?",
+   "Sim. A Andaimaq entrega e retira o martelete no endereço da obra, na capital e na Grande São Paulo."
+  ],
+  [
+   "Qual a diferença entre martelete perfurador e rompedor?",
+   "O perfurador é mais leve e serve para furos e pequenas quebras. O rompedor é mais pesado e potente, indicado para demolição e quebra de concreto em volume maior."
+  ],
+  [
+   "Qual martelete alugar para demolir uma parede?",
+   "Para demolição de paredes e pisos, o mais indicado é o martelete rompedor. Conte o serviço pelo WhatsApp que confirmamos o modelo."
+  ],
+  [
+   "Preciso de algum cuidado para usar o martelete?",
+   "Use óculos de proteção, luvas e protetor auricular, e confira se não há fiação ou tubulação no local antes de quebrar."
+  ],
+  [
+   "Como peço um orçamento?",
+   "Pelo WhatsApp (11) 99740-5191 ou pela página de contato. Informe o tipo de serviço, o endereço da obra e por quanto tempo vai precisar."
+  ]
+ ],
+ "cta_final": "Peça seu orçamento de martelete agora",
+ "rank_math": {
+  "rank_math_title": "Aluguel de Martelete em SP | Entrega na Obra | Andaimaq",
+  "rank_math_description": "Aluguel de martelete perfurador e rompedor em São Paulo, com entrega e retirada na obra. Peça seu orçamento pelo WhatsApp (11) 99740-5191.",
+  "rank_math_focus_keyword": "aluguel de martelete,locação de martelete,aluguel de rompedor"
+ }
+}

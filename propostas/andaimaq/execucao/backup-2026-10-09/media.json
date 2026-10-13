@@ -1,0 +1,6358 @@
+[
+ {
+  "id": 314,
+  "date": "2025-11-19T14:00:20",
+  "date_gmt": "2025-11-19T14:00:20",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42.jpg"
+  },
+  "modified": "2025-11-19T14:00:20",
+  "modified_gmt": "2025-11-19T14:00:20",
+  "slug": "design-sem-nome-42",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/elementor-11/design-sem-nome-42/",
+  "title": {
+   "raw": "Design sem nome (42)",
+   "rendered": "Design sem nome (42)"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/elementor-11/%postname%/",
+  "generated_slug": "design-sem-nome-42",
+  "class_list": [
+   "post-314",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42.jpg'><img fetchpriority=\"high\" decoding=\"async\" width=\"300\" height=\"169\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-300x169.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-300x169.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-1024x576.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-768x432.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-1536x864.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1080,
+   "file": "2025/11/Design-sem-nome-42.jpg",
+   "filesize": 153978,
+   "sizes": {
+    "medium": {
+     "file": "Design-sem-nome-42-300x169.jpg",
+     "width": 300,
+     "height": 169,
+     "filesize": 16469,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-300x169.jpg"
+    },
+    "large": {
+     "file": "Design-sem-nome-42-1024x576.jpg",
+     "width": 1024,
+     "height": 576,
+     "filesize": 85124,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-1024x576.jpg"
+    },
+    "thumbnail": {
+     "file": "Design-sem-nome-42-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 10209,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "Design-sem-nome-42-768x432.jpg",
+     "width": 768,
+     "height": 432,
+     "filesize": 55595,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-768x432.jpg"
+    },
+    "1536x1536": {
+     "file": "Design-sem-nome-42-1536x864.jpg",
+     "width": 1536,
+     "height": 864,
+     "filesize": 158428,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42-1536x864.jpg"
+    },
+    "full": {
+     "file": "Design-sem-nome-42.jpg",
+     "width": 1920,
+     "height": 1080,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "1",
+    "keywords": []
+   }
+  },
+  "post": 11,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/11/Design-sem-nome-42.jpg",
+  "missing_image_sizes": [],
+  "filename": "Design-sem-nome-42.jpg",
+  "filesize": 153978,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/314",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=314"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "page",
+     "id": 11,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/pages/11"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/314"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/314"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 301,
+  "date": "2025-08-12T14:18:54",
+  "date_gmt": "2025-08-12T14:18:54",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png"
+  },
+  "modified": "2025-08-12T14:19:09",
+  "modified_gmt": "2025-08-12T14:19:09",
+  "slug": "chatgpt-image-12-de-ago-de-2025-11_14_38",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/aluguel-de-andaimes-preco/chatgpt-image-12-de-ago-de-2025-11_14_38/",
+  "title": {
+   "raw": "aluguel de andaimes sp preço",
+   "rendered": "aluguel de andaimes sp preço"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/aluguel-de-andaimes-preco/%postname%/",
+  "generated_slug": "aluguel-de-andaimes-sp-preco",
+  "class_list": [
+   "post-301",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "aluguel de andaimes sp preço",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png'><img decoding=\"async\" width=\"300\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38-300x300.png\" class=\"attachment-medium size-medium\" alt=\"aluguel de andaimes sp preço\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38-300x300.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38-150x150.png 150w, https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38-768x768.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png 1024w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n<p>aluguel de andaimes sp preço</p>\n"
+  },
+  "caption": {
+   "raw": "aluguel de andaimes sp preço",
+   "rendered": "<p>aluguel de andaimes sp preço</p>\n"
+  },
+  "alt_text": "aluguel de andaimes sp preço",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1024,
+   "height": 1024,
+   "file": "2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png",
+   "filesize": 1906701,
+   "sizes": {
+    "medium": {
+     "file": "ChatGPT-Image-12-de-ago.-de-2025-11_14_38-300x300.png",
+     "width": 300,
+     "height": 300,
+     "filesize": 70050,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38-300x300.png"
+    },
+    "thumbnail": {
+     "file": "ChatGPT-Image-12-de-ago.-de-2025-11_14_38-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 20218,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38-150x150.png"
+    },
+    "medium_large": {
+     "file": "ChatGPT-Image-12-de-ago.-de-2025-11_14_38-768x768.png",
+     "width": 768,
+     "height": 768,
+     "filesize": 409457,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38-768x768.png"
+    },
+    "full": {
+     "file": "ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png",
+     "width": 1024,
+     "height": 1024,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": 295,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png",
+  "missing_image_sizes": [],
+  "filename": "ChatGPT-Image-12-de-ago.-de-2025-11_14_38.png",
+  "filesize": 1906701,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/301",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=301"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "page",
+     "id": 295,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/pages/295"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/301"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/301"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 253,
+  "date": "2025-08-05T14:11:25",
+  "date_gmt": "2025-08-05T14:11:25",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape.png"
+  },
+  "modified": "2025-08-05T14:11:25",
+  "modified_gmt": "2025-08-05T14:11:25",
+  "slug": "builderon-subscribe-shape-png",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/builderon-subscribe-shape-png/",
+  "title": {
+   "raw": "builderon-subscribe-shape.png",
+   "rendered": "builderon-subscribe-shape.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=253",
+  "generated_slug": "builderon-subscribe-shape-png",
+  "class_list": [
+   "post-253",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape.png'><img decoding=\"async\" width=\"300\" height=\"100\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape-300x100.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape-300x100.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape-1024x341.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape-768x256.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape.png 1200w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1200,
+   "height": 400,
+   "file": "2025/08/builderon-subscribe-shape.png",
+   "filesize": 3957,
+   "sizes": {
+    "medium": {
+     "file": "builderon-subscribe-shape-300x100.png",
+     "width": 300,
+     "height": 100,
+     "filesize": 1497,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape-300x100.png"
+    },
+    "large": {
+     "file": "builderon-subscribe-shape-1024x341.png",
+     "width": 1024,
+     "height": 341,
+     "filesize": 5285,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape-1024x341.png"
+    },
+    "thumbnail": {
+     "file": "builderon-subscribe-shape-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 1441,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape-150x150.png"
+    },
+    "medium_large": {
+     "file": "builderon-subscribe-shape-768x256.png",
+     "width": 768,
+     "height": 256,
+     "filesize": 3688,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape-768x256.png"
+    },
+    "full": {
+     "file": "builderon-subscribe-shape.png",
+     "width": 1200,
+     "height": 400,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-subscribe-shape.png",
+  "missing_image_sizes": [],
+  "filename": "builderon-subscribe-shape.png",
+  "filesize": 3957,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/253",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=253"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/253"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/253"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 252,
+  "date": "2025-08-05T14:11:23",
+  "date_gmt": "2025-08-05T14:11:23",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23.png"
+  },
+  "modified": "2025-08-05T14:11:23",
+  "modified_gmt": "2025-08-05T14:11:23",
+  "slug": "builderon-img23-png",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/builderon-img23-png/",
+  "title": {
+   "raw": "builderon-img23.png",
+   "rendered": "builderon-img23.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=252",
+  "generated_slug": "builderon-img23-png",
+  "class_list": [
+   "post-252",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23.png'><img loading=\"lazy\" decoding=\"async\" width=\"197\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23-197x300.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23-197x300.png 197w, https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23.png 600w\" sizes=\"(max-width: 197px) 100vw, 197px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 600,
+   "height": 916,
+   "file": "2025/08/builderon-img23.png",
+   "filesize": 145139,
+   "sizes": {
+    "medium": {
+     "file": "builderon-img23-197x300.png",
+     "width": 197,
+     "height": 300,
+     "filesize": 30836,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23-197x300.png"
+    },
+    "thumbnail": {
+     "file": "builderon-img23-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 14546,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23-150x150.png"
+    },
+    "full": {
+     "file": "builderon-img23.png",
+     "width": 600,
+     "height": 916,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/builderon-img23.png",
+  "missing_image_sizes": [],
+  "filename": "builderon-img23.png",
+  "filesize": 145139,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/252",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=252"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/252"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/252"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 246,
+  "date": "2025-08-05T13:50:10",
+  "date_gmt": "2025-08-05T13:50:10",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5.jpg"
+  },
+  "modified": "2025-08-05T14:41:15",
+  "modified_gmt": "2025-08-05T14:41:15",
+  "slug": "design-sem-nome-5",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/locacao-de-andaime/design-sem-nome-5/",
+  "title": {
+   "raw": "Locação de Andaime",
+   "rendered": "Locação de Andaime"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/locacao-de-andaime/%postname%/",
+  "generated_slug": "locacao-de-andaime-2",
+  "class_list": [
+   "post-246",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "Locação de Andaime",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"Locação de Andaime\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n<p>Locação de Andaime</p>\n"
+  },
+  "caption": {
+   "raw": "Locação de Andaime",
+   "rendered": "<p>Locação de Andaime</p>\n"
+  },
+  "alt_text": "Locação de Andaime",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/08/Design-sem-nome-5.jpg",
+   "filesize": 402168,
+   "sizes": {
+    "medium": {
+     "file": "Design-sem-nome-5-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 22938,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-300x200.jpg"
+    },
+    "large": {
+     "file": "Design-sem-nome-5-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 149942,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "Design-sem-nome-5-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 12774,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "Design-sem-nome-5-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 94753,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "Design-sem-nome-5-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 276785,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5-1536x1024.jpg"
+    },
+    "full": {
+     "file": "Design-sem-nome-5.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "1",
+    "keywords": []
+   }
+  },
+  "post": 239,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/Design-sem-nome-5.jpg",
+  "missing_image_sizes": [],
+  "filename": "Design-sem-nome-5.jpg",
+  "filesize": 402168,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/246",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=246"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "page",
+     "id": 239,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/pages/239"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/246"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/246"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 241,
+  "date": "2025-08-05T13:07:57",
+  "date_gmt": "2025-08-05T13:07:57",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder.png"
+  },
+  "modified": "2025-08-05T13:07:57",
+  "modified_gmt": "2025-08-05T13:07:57",
+  "slug": "placeholder-png-3",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/placeholder-png-3/",
+  "title": {
+   "raw": "placeholder.png",
+   "rendered": "placeholder.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=241",
+  "generated_slug": "placeholder-png-3",
+  "class_list": [
+   "post-241",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder.png 1200w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1200,
+   "height": 800,
+   "file": "2025/08/placeholder.png",
+   "filesize": 6146,
+   "sizes": {
+    "medium": {
+     "file": "placeholder-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 1712,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder-300x200.png"
+    },
+    "large": {
+     "file": "placeholder-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 6521,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "placeholder-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 1014,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder-150x150.png"
+    },
+    "medium_large": {
+     "file": "placeholder-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 4694,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder-768x512.png"
+    },
+    "full": {
+     "file": "placeholder.png",
+     "width": 1200,
+     "height": 800,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/08/placeholder.png",
+  "missing_image_sizes": [],
+  "filename": "placeholder.png",
+  "filesize": 6146,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/241",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=241"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/241"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/241"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 175,
+  "date": "2025-03-16T20:52:59",
+  "date_gmt": "2025-03-16T20:52:59",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3.jpg"
+  },
+  "modified": "2025-03-16T20:52:59",
+  "modified_gmt": "2025-03-16T20:52:59",
+  "slug": "team3-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/team3-jpg/",
+  "title": {
+   "raw": "team3.jpg",
+   "rendered": "team3.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=175",
+  "generated_slug": "team3-jpg",
+  "class_list": [
+   "post-175",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/team3.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"200\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team3-200x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team3-200x300.jpg 200w, https://andaimaq.com.br/wp-content/uploads/2025/03/team3-683x1024.jpg 683w, https://andaimaq.com.br/wp-content/uploads/2025/03/team3-768x1152.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/team3-1024x1536.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/team3.jpg 1280w\" sizes=\"(max-width: 200px) 100vw, 200px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1280,
+   "height": 1920,
+   "file": "2025/03/team3.jpg",
+   "filesize": 202143,
+   "sizes": {
+    "medium": {
+     "file": "team3-200x300.jpg",
+     "width": 200,
+     "height": 300,
+     "filesize": 10687,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3-200x300.jpg"
+    },
+    "large": {
+     "file": "team3-683x1024.jpg",
+     "width": 683,
+     "height": 1024,
+     "filesize": 64690,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3-683x1024.jpg"
+    },
+    "thumbnail": {
+     "file": "team3-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 5852,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "team3-768x1152.jpg",
+     "width": 768,
+     "height": 1152,
+     "filesize": 78750,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3-768x1152.jpg"
+    },
+    "1536x1536": {
+     "file": "team3-1024x1536.jpg",
+     "width": 1024,
+     "height": 1536,
+     "filesize": 127316,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3-1024x1536.jpg"
+    },
+    "full": {
+     "file": "team3.jpg",
+     "width": 1280,
+     "height": 1920,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team3.jpg",
+  "missing_image_sizes": [],
+  "filename": "team3.jpg",
+  "filesize": 202143,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/175",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=175"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/175"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/175"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 174,
+  "date": "2025-03-16T20:52:53",
+  "date_gmt": "2025-03-16T20:52:53",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2.jpg"
+  },
+  "modified": "2025-03-16T20:52:53",
+  "modified_gmt": "2025-03-16T20:52:53",
+  "slug": "team2-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/team2-jpg/",
+  "title": {
+   "raw": "team2.jpg",
+   "rendered": "team2.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=174",
+  "generated_slug": "team2-jpg",
+  "class_list": [
+   "post-174",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/team2.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"200\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team2-200x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team2-200x300.jpg 200w, https://andaimaq.com.br/wp-content/uploads/2025/03/team2-683x1024.jpg 683w, https://andaimaq.com.br/wp-content/uploads/2025/03/team2-768x1152.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/team2-1024x1536.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/team2.jpg 1280w\" sizes=\"(max-width: 200px) 100vw, 200px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1280,
+   "height": 1920,
+   "file": "2025/03/team2.jpg",
+   "filesize": 186791,
+   "sizes": {
+    "medium": {
+     "file": "team2-200x300.jpg",
+     "width": 200,
+     "height": 300,
+     "filesize": 10341,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2-200x300.jpg"
+    },
+    "large": {
+     "file": "team2-683x1024.jpg",
+     "width": 683,
+     "height": 1024,
+     "filesize": 52054,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2-683x1024.jpg"
+    },
+    "thumbnail": {
+     "file": "team2-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 5768,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "team2-768x1152.jpg",
+     "width": 768,
+     "height": 1152,
+     "filesize": 61098,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2-768x1152.jpg"
+    },
+    "1536x1536": {
+     "file": "team2-1024x1536.jpg",
+     "width": 1024,
+     "height": 1536,
+     "filesize": 90698,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2-1024x1536.jpg"
+    },
+    "full": {
+     "file": "team2.jpg",
+     "width": 1280,
+     "height": 1920,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team2.jpg",
+  "missing_image_sizes": [],
+  "filename": "team2.jpg",
+  "filesize": 186791,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/174",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=174"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/174"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/174"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 173,
+  "date": "2025-03-16T20:52:48",
+  "date_gmt": "2025-03-16T20:52:48",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1.jpg"
+  },
+  "modified": "2025-03-16T20:52:48",
+  "modified_gmt": "2025-03-16T20:52:48",
+  "slug": "team1-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/team1-jpg/",
+  "title": {
+   "raw": "team1.jpg",
+   "rendered": "team1.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=173",
+  "generated_slug": "team1-jpg",
+  "class_list": [
+   "post-173",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/team1.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"200\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team1-200x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team1-200x300.jpg 200w, https://andaimaq.com.br/wp-content/uploads/2025/03/team1-683x1024.jpg 683w, https://andaimaq.com.br/wp-content/uploads/2025/03/team1-768x1152.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/team1-1024x1536.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/team1.jpg 1280w\" sizes=\"(max-width: 200px) 100vw, 200px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1280,
+   "height": 1920,
+   "file": "2025/03/team1.jpg",
+   "filesize": 206990,
+   "sizes": {
+    "medium": {
+     "file": "team1-200x300.jpg",
+     "width": 200,
+     "height": 300,
+     "filesize": 13215,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1-200x300.jpg"
+    },
+    "large": {
+     "file": "team1-683x1024.jpg",
+     "width": 683,
+     "height": 1024,
+     "filesize": 73857,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1-683x1024.jpg"
+    },
+    "thumbnail": {
+     "file": "team1-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 7515,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "team1-768x1152.jpg",
+     "width": 768,
+     "height": 1152,
+     "filesize": 86566,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1-768x1152.jpg"
+    },
+    "1536x1536": {
+     "file": "team1-1024x1536.jpg",
+     "width": 1024,
+     "height": 1536,
+     "filesize": 128750,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1-1024x1536.jpg"
+    },
+    "full": {
+     "file": "team1.jpg",
+     "width": 1280,
+     "height": 1920,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team1.jpg",
+  "missing_image_sizes": [],
+  "filename": "team1.jpg",
+  "filesize": 206990,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/173",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=173"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/173"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/173"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 169,
+  "date": "2025-03-16T20:51:31",
+  "date_gmt": "2025-03-16T20:51:31",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62.png"
+  },
+  "modified": "2025-03-16T20:51:31",
+  "modified_gmt": "2025-03-16T20:51:31",
+  "slug": "design-sem-nome-62",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/equipamentos/design-sem-nome-62/",
+  "title": {
+   "raw": "Design sem nome (62)",
+   "rendered": "Design sem nome (62)"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/equipamentos/%postname%/",
+  "generated_slug": "design-sem-nome-62",
+  "class_list": [
+   "post-169",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-1536x1024.png 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62.png 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/Design-sem-nome-62.png",
+   "filesize": 3136597,
+   "sizes": {
+    "medium": {
+     "file": "Design-sem-nome-62-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 93355,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-300x200.png"
+    },
+    "large": {
+     "file": "Design-sem-nome-62-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 895452,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "Design-sem-nome-62-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 37355,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-150x150.png"
+    },
+    "medium_large": {
+     "file": "Design-sem-nome-62-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 522831,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-768x512.png"
+    },
+    "1536x1536": {
+     "file": "Design-sem-nome-62-1536x1024.png",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 1871724,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62-1536x1024.png"
+    },
+    "full": {
+     "file": "Design-sem-nome-62.png",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": 124,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-62.png",
+  "missing_image_sizes": [],
+  "filename": "Design-sem-nome-62.png",
+  "filesize": 3136597,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/169",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=169"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "page",
+     "id": 124,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/pages/124"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/169"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/169"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 156,
+  "date": "2025-03-16T20:41:02",
+  "date_gmt": "2025-03-16T20:41:02",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg"
+  },
+  "modified": "2025-03-16T20:41:02",
+  "modified_gmt": "2025-03-16T20:41:02",
+  "slug": "two-men-dressed-in-shirts-orange-work-vests-and-he-t8h39nk-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/two-men-dressed-in-shirts-orange-work-vests-and-he-t8h39nk-jpg/",
+  "title": {
+   "raw": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg",
+   "rendered": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=156",
+  "generated_slug": "two-men-dressed-in-shirts-orange-work-vests-and-he-t8h39nk-jpg",
+  "class_list": [
+   "post-156",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg",
+   "filesize": 248880,
+   "sizes": {
+    "medium": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 15267,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-300x200.jpg"
+    },
+    "large": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 98615,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 7913,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 62543,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 182681,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK-1536x1024.jpg"
+    },
+    "full": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg",
+  "missing_image_sizes": [],
+  "filename": "two-men-dressed-in-shirts-orange-work-vests-and-he-T8H39NK.jpg",
+  "filesize": 248880,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/156",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=156"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/156"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/156"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 136,
+  "date": "2025-03-16T20:06:30",
+  "date_gmt": "2025-03-16T20:06:30",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint.png"
+  },
+  "modified": "2025-03-16T20:06:30",
+  "modified_gmt": "2025-03-16T20:06:30",
+  "slug": "blueprint-png",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/blueprint-png/",
+  "title": {
+   "raw": "blueprint.png",
+   "rendered": "blueprint.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=136",
+  "generated_slug": "blueprint-png",
+  "class_list": [
+   "post-136",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-1536x1024.png 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint.png 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/blueprint.png",
+   "filesize": 360899,
+   "sizes": {
+    "medium": {
+     "file": "blueprint-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 23819,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-300x200.png"
+    },
+    "large": {
+     "file": "blueprint-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 164965,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "blueprint-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 10674,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-150x150.png"
+    },
+    "medium_large": {
+     "file": "blueprint-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 103051,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-768x512.png"
+    },
+    "1536x1536": {
+     "file": "blueprint-1536x1024.png",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 316639,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-1536x1024.png"
+    },
+    "full": {
+     "file": "blueprint.png",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint.png",
+  "missing_image_sizes": [],
+  "filename": "blueprint.png",
+  "filesize": 360899,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/136",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=136"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/136"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/136"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 78,
+  "date": "2025-03-16T18:36:58",
+  "date_gmt": "2025-03-16T18:36:58",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/4.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/4.png"
+  },
+  "modified": "2025-03-16T18:36:58",
+  "modified_gmt": "2025-03-16T18:36:58",
+  "slug": "",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/elementor-11//",
+  "title": {
+   "raw": "",
+   "rendered": ""
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/elementor-11/%postname%/",
+  "generated_slug": "78",
+  "class_list": [
+   "post-78",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/4.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/4-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/4-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/4-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/4-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/4-1536x1024.png 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/4.png 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/4.png",
+   "filesize": 2395581,
+   "sizes": {
+    "medium": {
+     "file": "4-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 127303,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/4-300x200.png"
+    },
+    "large": {
+     "file": "4-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 919324,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/4-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "4-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 52186,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/4-150x150.png"
+    },
+    "medium_large": {
+     "file": "4-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 598014,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/4-768x512.png"
+    },
+    "1536x1536": {
+     "file": "4-1536x1024.png",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 1655773,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/4-1536x1024.png"
+    },
+    "full": {
+     "file": "4.png",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/4.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": 11,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/4.png",
+  "missing_image_sizes": [],
+  "filename": "4.png",
+  "filesize": 2395581,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/78",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=78"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "page",
+     "id": 11,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/pages/11"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/78"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/78"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 77,
+  "date": "2025-03-16T18:36:30",
+  "date_gmt": "2025-03-16T18:36:30",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/3.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/3.png"
+  },
+  "modified": "2025-03-16T18:36:30",
+  "modified_gmt": "2025-03-16T18:36:30",
+  "slug": "",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/elementor-11//",
+  "title": {
+   "raw": "",
+   "rendered": ""
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/elementor-11/%postname%/",
+  "generated_slug": "77",
+  "class_list": [
+   "post-77",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/3.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/3-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/3-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/3-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/3-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/3-1536x1024.png 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/3.png 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/3.png",
+   "filesize": 3531056,
+   "sizes": {
+    "medium": {
+     "file": "3-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 122025,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/3-300x200.png"
+    },
+    "large": {
+     "file": "3-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 1031611,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/3-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "3-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 48970,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/3-150x150.png"
+    },
+    "medium_large": {
+     "file": "3-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 624645,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/3-768x512.png"
+    },
+    "1536x1536": {
+     "file": "3-1536x1024.png",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 2098317,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/3-1536x1024.png"
+    },
+    "full": {
+     "file": "3.png",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/3.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": 11,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/3.png",
+  "missing_image_sizes": [],
+  "filename": "3.png",
+  "filesize": 3531056,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/77",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=77"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "page",
+     "id": 11,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/pages/11"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/77"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/77"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 76,
+  "date": "2025-03-16T18:36:09",
+  "date_gmt": "2025-03-16T18:36:09",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/2.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/2.png"
+  },
+  "modified": "2025-03-16T18:36:09",
+  "modified_gmt": "2025-03-16T18:36:09",
+  "slug": "",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/elementor-11//",
+  "title": {
+   "raw": "",
+   "rendered": ""
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/elementor-11/%postname%/",
+  "generated_slug": "76",
+  "class_list": [
+   "post-76",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/2.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/2-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/2-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/2-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/2-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/2-1536x1024.png 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/2.png 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/2.png",
+   "filesize": 4409699,
+   "sizes": {
+    "medium": {
+     "file": "2-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 132763,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/2-300x200.png"
+    },
+    "large": {
+     "file": "2-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 1323232,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/2-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "2-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 49528,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/2-150x150.png"
+    },
+    "medium_large": {
+     "file": "2-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 781700,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/2-768x512.png"
+    },
+    "1536x1536": {
+     "file": "2-1536x1024.png",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 2719339,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/2-1536x1024.png"
+    },
+    "full": {
+     "file": "2.png",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/2.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": 11,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/2.png",
+  "missing_image_sizes": [],
+  "filename": "2.png",
+  "filesize": 4409699,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/76",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=76"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "page",
+     "id": 11,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/pages/11"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/76"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/76"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 71,
+  "date": "2025-03-16T16:56:52",
+  "date_gmt": "2025-03-16T16:56:52",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61.png"
+  },
+  "modified": "2025-08-06T12:59:59",
+  "modified_gmt": "2025-08-06T12:59:59",
+  "slug": "design-sem-nome-61",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/elementor-11/design-sem-nome-61/",
+  "title": {
+   "raw": "andaimaq",
+   "rendered": "andaimaq"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/elementor-11/%postname%/",
+  "generated_slug": "andaimaq",
+  "class_list": [
+   "post-71",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "andaimaq",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-300x200.png\" class=\"attachment-medium size-medium\" alt=\"Andaimaq\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-1536x1024.png 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61.png 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n<p>andaimaq</p>\n"
+  },
+  "caption": {
+   "raw": "andaimaq",
+   "rendered": "<p>andaimaq</p>\n"
+  },
+  "alt_text": "Andaimaq",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/Design-sem-nome-61.png",
+   "filesize": 3847808,
+   "sizes": {
+    "medium": {
+     "file": "Design-sem-nome-61-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 115721,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-300x200.png"
+    },
+    "large": {
+     "file": "Design-sem-nome-61-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 1133172,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "Design-sem-nome-61-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 43477,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-150x150.png"
+    },
+    "medium_large": {
+     "file": "Design-sem-nome-61-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 664375,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-768x512.png"
+    },
+    "1536x1536": {
+     "file": "Design-sem-nome-61-1536x1024.png",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 2346538,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61-1536x1024.png"
+    },
+    "full": {
+     "file": "Design-sem-nome-61.png",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": 11,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-61.png",
+  "missing_image_sizes": [],
+  "filename": "Design-sem-nome-61.png",
+  "filesize": 3847808,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/71",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=71"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "page",
+     "id": 11,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/pages/11"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/71"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/71"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 66,
+  "date": "2025-03-16T16:34:33",
+  "date_gmt": "2025-03-16T16:34:33",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60.png"
+  },
+  "modified": "2025-03-16T16:34:33",
+  "modified_gmt": "2025-03-16T16:34:33",
+  "slug": "design-sem-nome-60",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/?attachment_id=66",
+  "title": {
+   "raw": "Design sem nome (60)",
+   "rendered": "Design sem nome (60)"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=66",
+  "generated_slug": "design-sem-nome-60",
+  "class_list": [
+   "post-66",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"68\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60-300x68.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60-300x68.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60.png 700w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 700,
+   "height": 159,
+   "file": "2025/03/Design-sem-nome-60.png",
+   "filesize": 70687,
+   "sizes": {
+    "medium": {
+     "file": "Design-sem-nome-60-300x68.png",
+     "width": 300,
+     "height": 68,
+     "filesize": 18385,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60-300x68.png"
+    },
+    "thumbnail": {
+     "file": "Design-sem-nome-60-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 17473,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60-150x150.png"
+    },
+    "full": {
+     "file": "Design-sem-nome-60.png",
+     "width": 700,
+     "height": 159,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": 21,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/Design-sem-nome-60.png",
+  "missing_image_sizes": [],
+  "filename": "Design-sem-nome-60.png",
+  "filesize": 70687,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/66",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=66"
+    }
+   ],
+   "wp:attached-to": [
+    {
+     "embeddable": true,
+     "post_type": "elementskit_template",
+     "id": 21,
+     "href": "https://andaimaq.com.br/wp-json/"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/66"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/66"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 56,
+  "date": "2025-03-16T16:28:21",
+  "date_gmt": "2025-03-16T16:28:21",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/logo.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/logo.png"
+  },
+  "modified": "2025-03-16T16:28:21",
+  "modified_gmt": "2025-03-16T16:28:21",
+  "slug": "logo-png",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/logo-png/",
+  "title": {
+   "raw": "logo.png",
+   "rendered": "logo.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=56",
+  "generated_slug": "logo-png",
+  "class_list": [
+   "post-56",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/logo.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"68\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/logo-300x68.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/logo-300x68.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/logo.png 700w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 700,
+   "height": 159,
+   "file": "2025/03/logo.png",
+   "filesize": 13616,
+   "sizes": {
+    "medium": {
+     "file": "logo-300x68.png",
+     "width": 300,
+     "height": 68,
+     "filesize": 6325,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/logo-300x68.png"
+    },
+    "thumbnail": {
+     "file": "logo-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 4195,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/logo-150x150.png"
+    },
+    "full": {
+     "file": "logo.png",
+     "width": 700,
+     "height": 159,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/logo.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/logo.png",
+  "missing_image_sizes": [],
+  "filename": "logo.png",
+  "filesize": 13616,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/56",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=56"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/56"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/56"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 48,
+  "date": "2025-03-16T16:23:56",
+  "date_gmt": "2025-03-16T16:23:56",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png"
+  },
+  "modified": "2025-03-16T16:23:56",
+  "modified_gmt": "2025-03-16T16:23:56",
+  "slug": "smiling-pretty-asian-female-architect-industrial-w-n3tqcqq-png",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/smiling-pretty-asian-female-architect-industrial-w-n3tqcqq-png/",
+  "title": {
+   "raw": "smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png",
+   "rendered": "smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=48",
+  "generated_slug": "smiling-pretty-asian-female-architect-industrial-w-n3tqcqq-png",
+  "class_list": [
+   "post-48",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png'><img loading=\"lazy\" decoding=\"async\" width=\"244\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ-244x300.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ-244x300.png 244w, https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png 332w\" sizes=\"(max-width: 244px) 100vw, 244px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 332,
+   "height": 408,
+   "file": "2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png",
+   "filesize": 108327,
+   "sizes": {
+    "medium": {
+     "file": "smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ-244x300.png",
+     "width": 244,
+     "height": 300,
+     "filesize": 59120,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ-244x300.png"
+    },
+    "thumbnail": {
+     "file": "smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 23753,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ-150x150.png"
+    },
+    "full": {
+     "file": "smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png",
+     "width": 332,
+     "height": 408,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png",
+  "missing_image_sizes": [],
+  "filename": "smiling-pretty-asian-female-architect-industrial-w-N3TQCQQ.png",
+  "filesize": 108327,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/48",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=48"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/48"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/48"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 47,
+  "date": "2025-03-16T16:23:50",
+  "date_gmt": "2025-03-16T16:23:50",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid.png"
+  },
+  "modified": "2025-03-16T16:23:50",
+  "modified_gmt": "2025-03-16T16:23:50",
+  "slug": "liquid-png",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/liquid-png/",
+  "title": {
+   "raw": "liquid.png",
+   "rendered": "liquid.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=47",
+  "generated_slug": "liquid-png",
+  "class_list": [
+   "post-47",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/liquid.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-1536x1024.png 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/liquid.png 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/liquid.png",
+   "filesize": 280072,
+   "sizes": {
+    "medium": {
+     "file": "liquid-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 26565,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-300x200.png"
+    },
+    "large": {
+     "file": "liquid-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 125811,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "liquid-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 13608,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-150x150.png"
+    },
+    "medium_large": {
+     "file": "liquid-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 87228,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-768x512.png"
+    },
+    "1536x1536": {
+     "file": "liquid-1536x1024.png",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 211764,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid-1536x1024.png"
+    },
+    "full": {
+     "file": "liquid.png",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/liquid.png",
+  "missing_image_sizes": [],
+  "filename": "liquid.png",
+  "filesize": 280072,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/47",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=47"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/47"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/47"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 46,
+  "date": "2025-03-16T16:23:45",
+  "date_gmt": "2025-03-16T16:23:45",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg"
+  },
+  "modified": "2025-03-16T16:23:45",
+  "modified_gmt": "2025-03-16T16:23:45",
+  "slug": "structural-engineer-and-architect-dressed-in-shirt-wz4r8u7-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/structural-engineer-and-architect-dressed-in-shirt-wz4r8u7-jpg/",
+  "title": {
+   "raw": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg",
+   "rendered": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=46",
+  "generated_slug": "structural-engineer-and-architect-dressed-in-shirt-wz4r8u7-jpg",
+  "class_list": [
+   "post-46",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg",
+   "filesize": 253977,
+   "sizes": {
+    "medium": {
+     "file": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 17418,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-300x200.jpg"
+    },
+    "large": {
+     "file": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 129826,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 7436,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 79431,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 246961,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7-1536x1024.jpg"
+    },
+    "full": {
+     "file": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg",
+  "missing_image_sizes": [],
+  "filename": "structural-engineer-and-architect-dressed-in-shirt-WZ4R8U7.jpg",
+  "filesize": 253977,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/46",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=46"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/46"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/46"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 45,
+  "date": "2025-03-16T16:23:42",
+  "date_gmt": "2025-03-16T16:23:42",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-2.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-2.jpg"
+  },
+  "modified": "2025-03-16T16:23:42",
+  "modified_gmt": "2025-03-16T16:23:42",
+  "slug": "team-2-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/team-2-jpg/",
+  "title": {
+   "raw": "team-2.jpg",
+   "rendered": "team-2.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=45",
+  "generated_slug": "team-2-jpg",
+  "class_list": [
+   "post-45",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/team-2.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team-2-300x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team-2-300x300.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-2-150x150.jpg 150w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-2-768x768.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-2.jpg 800w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 800,
+   "height": 800,
+   "file": "2025/03/team-2.jpg",
+   "filesize": 93869,
+   "sizes": {
+    "medium": {
+     "file": "team-2-300x300.jpg",
+     "width": 300,
+     "height": 300,
+     "filesize": 21888,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-2-300x300.jpg"
+    },
+    "thumbnail": {
+     "file": "team-2-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 8359,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-2-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "team-2-768x768.jpg",
+     "width": 768,
+     "height": 768,
+     "filesize": 86251,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-2-768x768.jpg"
+    },
+    "full": {
+     "file": "team-2.jpg",
+     "width": 800,
+     "height": 800,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-2.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-2.jpg",
+  "missing_image_sizes": [],
+  "filename": "team-2.jpg",
+  "filesize": 93869,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/45",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=45"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/45"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/45"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 44,
+  "date": "2025-03-16T16:23:40",
+  "date_gmt": "2025-03-16T16:23:40",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-3.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-3.jpg"
+  },
+  "modified": "2025-03-16T16:23:40",
+  "modified_gmt": "2025-03-16T16:23:40",
+  "slug": "team-3-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/team-3-jpg/",
+  "title": {
+   "raw": "team-3.jpg",
+   "rendered": "team-3.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=44",
+  "generated_slug": "team-3-jpg",
+  "class_list": [
+   "post-44",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/team-3.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team-3-300x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team-3-300x300.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-3-150x150.jpg 150w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-3-768x768.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-3.jpg 800w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 800,
+   "height": 800,
+   "file": "2025/03/team-3.jpg",
+   "filesize": 61349,
+   "sizes": {
+    "medium": {
+     "file": "team-3-300x300.jpg",
+     "width": 300,
+     "height": 300,
+     "filesize": 13173,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-3-300x300.jpg"
+    },
+    "thumbnail": {
+     "file": "team-3-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 5650,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-3-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "team-3-768x768.jpg",
+     "width": 768,
+     "height": 768,
+     "filesize": 54019,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-3-768x768.jpg"
+    },
+    "full": {
+     "file": "team-3.jpg",
+     "width": 800,
+     "height": 800,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-3.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-3.jpg",
+  "missing_image_sizes": [],
+  "filename": "team-3.jpg",
+  "filesize": 61349,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/44",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=44"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/44"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/44"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 43,
+  "date": "2025-03-16T16:23:38",
+  "date_gmt": "2025-03-16T16:23:38",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-4.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-4.jpg"
+  },
+  "modified": "2025-03-16T16:23:38",
+  "modified_gmt": "2025-03-16T16:23:38",
+  "slug": "team-4-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/team-4-jpg/",
+  "title": {
+   "raw": "team-4.jpg",
+   "rendered": "team-4.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=43",
+  "generated_slug": "team-4-jpg",
+  "class_list": [
+   "post-43",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/team-4.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team-4-300x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team-4-300x300.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-4-150x150.jpg 150w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-4-768x768.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-4.jpg 800w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 800,
+   "height": 800,
+   "file": "2025/03/team-4.jpg",
+   "filesize": 76961,
+   "sizes": {
+    "medium": {
+     "file": "team-4-300x300.jpg",
+     "width": 300,
+     "height": 300,
+     "filesize": 13634,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-4-300x300.jpg"
+    },
+    "thumbnail": {
+     "file": "team-4-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 5432,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-4-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "team-4-768x768.jpg",
+     "width": 768,
+     "height": 768,
+     "filesize": 64604,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-4-768x768.jpg"
+    },
+    "full": {
+     "file": "team-4.jpg",
+     "width": 800,
+     "height": 800,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-4.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-4.jpg",
+  "missing_image_sizes": [],
+  "filename": "team-4.jpg",
+  "filesize": 76961,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/43",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=43"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/43"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/43"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 42,
+  "date": "2025-03-16T16:23:35",
+  "date_gmt": "2025-03-16T16:23:35",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1.png"
+  },
+  "modified": "2025-03-16T16:23:35",
+  "modified_gmt": "2025-03-16T16:23:35",
+  "slug": "placeholder-png-2",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/placeholder-png-2/",
+  "title": {
+   "raw": "placeholder.png",
+   "rendered": "placeholder.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=42",
+  "generated_slug": "placeholder-png-2",
+  "class_list": [
+   "post-42",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1.png 1200w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1200,
+   "height": 800,
+   "file": "2025/03/placeholder-1.png",
+   "filesize": 6146,
+   "sizes": {
+    "medium": {
+     "file": "placeholder-1-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 2008,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1-300x200.png"
+    },
+    "large": {
+     "file": "placeholder-1-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 7510,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "placeholder-1-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 1207,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1-150x150.png"
+    },
+    "medium_large": {
+     "file": "placeholder-1-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 5345,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1-768x512.png"
+    },
+    "full": {
+     "file": "placeholder-1.png",
+     "width": 1200,
+     "height": 800,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1.png",
+  "missing_image_sizes": [],
+  "filename": "placeholder-1.png",
+  "filesize": 6146,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/42",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=42"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/42"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/42"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 41,
+  "date": "2025-03-16T16:23:34",
+  "date_gmt": "2025-03-16T16:23:34",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-1.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-1.jpg"
+  },
+  "modified": "2025-03-16T16:23:34",
+  "modified_gmt": "2025-03-16T16:23:34",
+  "slug": "team-1-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/team-1-jpg/",
+  "title": {
+   "raw": "team-1.jpg",
+   "rendered": "team-1.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=41",
+  "generated_slug": "team-1-jpg",
+  "class_list": [
+   "post-41",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/team-1.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team-1-300x300.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/team-1-300x300.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-1-150x150.jpg 150w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-1-768x768.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/team-1.jpg 800w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 800,
+   "height": 800,
+   "file": "2025/03/team-1.jpg",
+   "filesize": 81603,
+   "sizes": {
+    "medium": {
+     "file": "team-1-300x300.jpg",
+     "width": 300,
+     "height": 300,
+     "filesize": 15166,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-1-300x300.jpg"
+    },
+    "thumbnail": {
+     "file": "team-1-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 5674,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-1-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "team-1-768x768.jpg",
+     "width": 768,
+     "height": 768,
+     "filesize": 70756,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-1-768x768.jpg"
+    },
+    "full": {
+     "file": "team-1.jpg",
+     "width": 800,
+     "height": 800,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-1.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/team-1.jpg",
+  "missing_image_sizes": [],
+  "filename": "team-1.jpg",
+  "filesize": 81603,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/41",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=41"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/41"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/41"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 40,
+  "date": "2025-03-16T16:23:29",
+  "date_gmt": "2025-03-16T16:23:29",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947.jpg"
+  },
+  "modified": "2025-03-16T16:23:29",
+  "modified_gmt": "2025-03-16T16:23:29",
+  "slug": "home-renovation-xs55947-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/home-renovation-xs55947-jpg/",
+  "title": {
+   "raw": "home-renovation-XS55947.jpg",
+   "rendered": "home-renovation-XS55947.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=40",
+  "generated_slug": "home-renovation-xs55947-jpg",
+  "class_list": [
+   "post-40",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/home-renovation-XS55947.jpg",
+   "filesize": 170713,
+   "sizes": {
+    "medium": {
+     "file": "home-renovation-XS55947-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 13861,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-300x200.jpg"
+    },
+    "large": {
+     "file": "home-renovation-XS55947-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 77016,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "home-renovation-XS55947-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 7094,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "home-renovation-XS55947-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 51138,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "home-renovation-XS55947-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 136673,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947-1536x1024.jpg"
+    },
+    "full": {
+     "file": "home-renovation-XS55947.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/home-renovation-XS55947.jpg",
+  "missing_image_sizes": [],
+  "filename": "home-renovation-XS55947.jpg",
+  "filesize": 170713,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/40",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=40"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/40"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/40"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 39,
+  "date": "2025-03-16T16:23:28",
+  "date_gmt": "2025-03-16T16:23:28",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV.png"
+  },
+  "modified": "2025-03-16T16:23:28",
+  "modified_gmt": "2025-03-16T16:23:28",
+  "slug": "portrait-of-young-bearded-man-construction-worker-uv4hcmv-png",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/portrait-of-young-bearded-man-construction-worker-uv4hcmv-png/",
+  "title": {
+   "raw": "portrait-of-young-bearded-man-construction-worker-UV4HCMV.png",
+   "rendered": "portrait-of-young-bearded-man-construction-worker-UV4HCMV.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=39",
+  "generated_slug": "portrait-of-young-bearded-man-construction-worker-uv4hcmv-png",
+  "class_list": [
+   "post-39",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV.png'><img loading=\"lazy\" decoding=\"async\" width=\"200\" height=\"300\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV-200x300.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV-200x300.png 200w, https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV.png 408w\" sizes=\"(max-width: 200px) 100vw, 200px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 408,
+   "height": 612,
+   "file": "2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV.png",
+   "filesize": 229463,
+   "sizes": {
+    "medium": {
+     "file": "portrait-of-young-bearded-man-construction-worker-UV4HCMV-200x300.png",
+     "width": 200,
+     "height": 300,
+     "filesize": 52376,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV-200x300.png"
+    },
+    "thumbnail": {
+     "file": "portrait-of-young-bearded-man-construction-worker-UV4HCMV-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 25139,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV-150x150.png"
+    },
+    "full": {
+     "file": "portrait-of-young-bearded-man-construction-worker-UV4HCMV.png",
+     "width": 408,
+     "height": 612,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/portrait-of-young-bearded-man-construction-worker-UV4HCMV.png",
+  "missing_image_sizes": [],
+  "filename": "portrait-of-young-bearded-man-construction-worker-UV4HCMV.png",
+  "filesize": 229463,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/39",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=39"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/39"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/39"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 38,
+  "date": "2025-03-16T16:23:23",
+  "date_gmt": "2025-03-16T16:23:23",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3.jpg"
+  },
+  "modified": "2025-03-16T16:23:23",
+  "modified_gmt": "2025-03-16T16:23:23",
+  "slug": "blueprint-architect-career-structure-construction-p4wctc3-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/blueprint-architect-career-structure-construction-p4wctc3-jpg/",
+  "title": {
+   "raw": "blueprint-architect-career-structure-construction-P4WCTC3.jpg",
+   "rendered": "blueprint-architect-career-structure-construction-P4WCTC3.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=38",
+  "generated_slug": "blueprint-architect-career-structure-construction-p4wctc3-jpg",
+  "class_list": [
+   "post-38",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/blueprint-architect-career-structure-construction-P4WCTC3.jpg",
+   "filesize": 206162,
+   "sizes": {
+    "medium": {
+     "file": "blueprint-architect-career-structure-construction-P4WCTC3-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 15128,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-300x200.jpg"
+    },
+    "large": {
+     "file": "blueprint-architect-career-structure-construction-P4WCTC3-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 87096,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "blueprint-architect-career-structure-construction-P4WCTC3-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 7410,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "blueprint-architect-career-structure-construction-P4WCTC3-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 56487,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "blueprint-architect-career-structure-construction-P4WCTC3-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 158823,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3-1536x1024.jpg"
+    },
+    "full": {
+     "file": "blueprint-architect-career-structure-construction-P4WCTC3.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/blueprint-architect-career-structure-construction-P4WCTC3.jpg",
+  "missing_image_sizes": [],
+  "filename": "blueprint-architect-career-structure-construction-P4WCTC3.jpg",
+  "filesize": 206162,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/38",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=38"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/38"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/38"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 37,
+  "date": "2025-03-16T16:23:18",
+  "date_gmt": "2025-03-16T16:23:18",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg"
+  },
+  "modified": "2025-03-16T16:23:18",
+  "modified_gmt": "2025-03-16T16:23:18",
+  "slug": "civil-engineer-and-construction-manager-in-orange-7f23akz-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/civil-engineer-and-construction-manager-in-orange-7f23akz-jpg/",
+  "title": {
+   "raw": "civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg",
+   "rendered": "civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=37",
+  "generated_slug": "civil-engineer-and-construction-manager-in-orange-7f23akz-jpg",
+  "class_list": [
+   "post-37",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg",
+   "filesize": 247427,
+   "sizes": {
+    "medium": {
+     "file": "civil-engineer-and-construction-manager-in-orange-7F23AKZ-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 13483,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-300x200.jpg"
+    },
+    "large": {
+     "file": "civil-engineer-and-construction-manager-in-orange-7F23AKZ-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 95003,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "civil-engineer-and-construction-manager-in-orange-7F23AKZ-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 6851,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "civil-engineer-and-construction-manager-in-orange-7F23AKZ-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 59841,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "civil-engineer-and-construction-manager-in-orange-7F23AKZ-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 177254,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ-1536x1024.jpg"
+    },
+    "full": {
+     "file": "civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg",
+  "missing_image_sizes": [],
+  "filename": "civil-engineer-and-construction-manager-in-orange-7F23AKZ.jpg",
+  "filesize": 247427,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/37",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=37"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/37"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/37"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 36,
+  "date": "2025-03-16T16:23:12",
+  "date_gmt": "2025-03-16T16:23:12",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg"
+  },
+  "modified": "2025-03-16T16:23:12",
+  "modified_gmt": "2025-03-16T16:23:12",
+  "slug": "two-men-dressed-in-shirts-orange-work-vests-and-he-ke9jmu2-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/two-men-dressed-in-shirts-orange-work-vests-and-he-ke9jmu2-jpg/",
+  "title": {
+   "raw": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg",
+   "rendered": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=36",
+  "generated_slug": "two-men-dressed-in-shirts-orange-work-vests-and-he-ke9jmu2-jpg",
+  "class_list": [
+   "post-36",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg",
+   "filesize": 252616,
+   "sizes": {
+    "medium": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 16299,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-300x200.jpg"
+    },
+    "large": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 106215,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 8631,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 67362,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 200499,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2-1536x1024.jpg"
+    },
+    "full": {
+     "file": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg",
+  "missing_image_sizes": [],
+  "filename": "two-men-dressed-in-shirts-orange-work-vests-and-he-KE9JMU2.jpg",
+  "filesize": 252616,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/36",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=36"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/36"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/36"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 35,
+  "date": "2025-03-16T16:23:07",
+  "date_gmt": "2025-03-16T16:23:07",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW.jpg"
+  },
+  "modified": "2025-03-16T16:23:07",
+  "modified_gmt": "2025-03-16T16:23:07",
+  "slug": "house-renovation-concept-8esvbzw-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/house-renovation-concept-8esvbzw-jpg/",
+  "title": {
+   "raw": "house-renovation-concept-8ESVBZW.jpg",
+   "rendered": "house-renovation-concept-8ESVBZW.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=35",
+  "generated_slug": "house-renovation-concept-8esvbzw-jpg",
+  "class_list": [
+   "post-35",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/house-renovation-concept-8ESVBZW.jpg",
+   "filesize": 232076,
+   "sizes": {
+    "medium": {
+     "file": "house-renovation-concept-8ESVBZW-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 15195,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-300x200.jpg"
+    },
+    "large": {
+     "file": "house-renovation-concept-8ESVBZW-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 109876,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "house-renovation-concept-8ESVBZW-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 7296,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "house-renovation-concept-8ESVBZW-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 68666,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "house-renovation-concept-8ESVBZW-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 207195,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW-1536x1024.jpg"
+    },
+    "full": {
+     "file": "house-renovation-concept-8ESVBZW.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/house-renovation-concept-8ESVBZW.jpg",
+  "missing_image_sizes": [],
+  "filename": "house-renovation-concept-8ESVBZW.jpg",
+  "filesize": 232076,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/35",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=35"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/35"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/35"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 34,
+  "date": "2025-03-16T16:23:02",
+  "date_gmt": "2025-03-16T16:23:02",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg"
+  },
+  "modified": "2025-03-16T16:23:02",
+  "modified_gmt": "2025-03-16T16:23:02",
+  "slug": "closeup-of-a-blue-print-architects-drawing-with-re-7l5nsg8-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/closeup-of-a-blue-print-architects-drawing-with-re-7l5nsg8-jpg/",
+  "title": {
+   "raw": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg",
+   "rendered": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=34",
+  "generated_slug": "closeup-of-a-blue-print-architects-drawing-with-re-7l5nsg8-jpg",
+  "class_list": [
+   "post-34",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg",
+   "filesize": 214171,
+   "sizes": {
+    "medium": {
+     "file": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 14901,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-300x200.jpg"
+    },
+    "large": {
+     "file": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 92987,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 6940,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 60662,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 165775,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8-1536x1024.jpg"
+    },
+    "full": {
+     "file": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg",
+  "missing_image_sizes": [],
+  "filename": "closeup-of-a-blue-print-architects-drawing-with-re-7L5NSG8.jpg",
+  "filesize": 214171,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/34",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=34"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/34"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/34"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 33,
+  "date": "2025-03-16T16:22:57",
+  "date_gmt": "2025-03-16T16:22:57",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg"
+  },
+  "modified": "2025-03-16T16:22:57",
+  "modified_gmt": "2025-03-16T16:22:57",
+  "slug": "structural-engineer-and-construction-manager-dress-gj7ulbe-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/structural-engineer-and-construction-manager-dress-gj7ulbe-jpg/",
+  "title": {
+   "raw": "structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg",
+   "rendered": "structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=33",
+  "generated_slug": "structural-engineer-and-construction-manager-dress-gj7ulbe-jpg",
+  "class_list": [
+   "post-33",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg",
+   "filesize": 250444,
+   "sizes": {
+    "medium": {
+     "file": "structural-engineer-and-construction-manager-dress-GJ7ULBE-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 15097,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-300x200.jpg"
+    },
+    "large": {
+     "file": "structural-engineer-and-construction-manager-dress-GJ7ULBE-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 97000,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "structural-engineer-and-construction-manager-dress-GJ7ULBE-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 7670,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "structural-engineer-and-construction-manager-dress-GJ7ULBE-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 61471,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "structural-engineer-and-construction-manager-dress-GJ7ULBE-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 181325,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE-1536x1024.jpg"
+    },
+    "full": {
+     "file": "structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg",
+  "missing_image_sizes": [],
+  "filename": "structural-engineer-and-construction-manager-dress-GJ7ULBE.jpg",
+  "filesize": 250444,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/33",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=33"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/33"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/33"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 32,
+  "date": "2025-03-16T16:22:52",
+  "date_gmt": "2025-03-16T16:22:52",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg"
+  },
+  "modified": "2025-03-16T16:22:52",
+  "modified_gmt": "2025-03-16T16:22:52",
+  "slug": "structural-engineer-and-architect-dressed-in-orang-tedp8yt-jpg",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/structural-engineer-and-architect-dressed-in-orang-tedp8yt-jpg/",
+  "title": {
+   "raw": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg",
+   "rendered": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=32",
+  "generated_slug": "structural-engineer-and-architect-dressed-in-orang-tedp8yt-jpg",
+  "class_list": [
+   "post-32",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-300x200.jpg\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-300x200.jpg 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-1024x683.jpg 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-768x512.jpg 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-1536x1024.jpg 1536w, https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg 1920w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/jpeg",
+  "media_details": {
+   "width": 1920,
+   "height": 1280,
+   "file": "2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg",
+   "filesize": 231304,
+   "sizes": {
+    "medium": {
+     "file": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT-300x200.jpg",
+     "width": 300,
+     "height": 200,
+     "filesize": 15133,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-300x200.jpg"
+    },
+    "large": {
+     "file": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT-1024x683.jpg",
+     "width": 1024,
+     "height": 683,
+     "filesize": 93075,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-1024x683.jpg"
+    },
+    "thumbnail": {
+     "file": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT-150x150.jpg",
+     "width": 150,
+     "height": 150,
+     "filesize": 7629,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-150x150.jpg"
+    },
+    "medium_large": {
+     "file": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT-768x512.jpg",
+     "width": 768,
+     "height": 512,
+     "filesize": 59212,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-768x512.jpg"
+    },
+    "1536x1536": {
+     "file": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT-1536x1024.jpg",
+     "width": 1536,
+     "height": 1024,
+     "filesize": 177924,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT-1536x1024.jpg"
+    },
+    "full": {
+     "file": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg",
+     "width": 1920,
+     "height": 1280,
+     "mime_type": "image/jpeg",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg",
+  "missing_image_sizes": [],
+  "filename": "structural-engineer-and-architect-dressed-in-orang-TEDP8YT.jpg",
+  "filesize": 231304,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/32",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=32"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/32"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/32"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ },
+ {
+  "id": 14,
+  "date": "2025-03-16T16:10:38",
+  "date_gmt": "2025-03-16T16:10:38",
+  "guid": {
+   "rendered": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder.png",
+   "raw": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder.png"
+  },
+  "modified": "2025-03-16T16:10:38",
+  "modified_gmt": "2025-03-16T16:10:38",
+  "slug": "placeholder-png",
+  "status": "inherit",
+  "type": "attachment",
+  "link": "https://andaimaq.com.br/placeholder-png/",
+  "title": {
+   "raw": "placeholder.png",
+   "rendered": "placeholder.png"
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "closed",
+  "template": "",
+  "meta": [],
+  "permalink_template": "https://andaimaq.com.br/?attachment_id=14",
+  "generated_slug": "placeholder-png",
+  "class_list": [
+   "post-14",
+   "attachment",
+   "type-attachment",
+   "status-inherit",
+   "hentry"
+  ],
+  "description": {
+   "raw": "",
+   "rendered": "<p class=\"attachment\"><a href='https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder.png'><img loading=\"lazy\" decoding=\"async\" width=\"300\" height=\"200\" src=\"https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-300x200.png\" class=\"attachment-medium size-medium\" alt=\"\" srcset=\"https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-300x200.png 300w, https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1024x683.png 1024w, https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-768x512.png 768w, https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder.png 1200w\" sizes=\"(max-width: 300px) 100vw, 300px\" /></a></p>\n"
+  },
+  "caption": {
+   "raw": "",
+   "rendered": ""
+  },
+  "alt_text": "",
+  "media_type": "image",
+  "mime_type": "image/png",
+  "media_details": {
+   "width": 1200,
+   "height": 800,
+   "file": "2025/03/placeholder.png",
+   "filesize": 6146,
+   "sizes": {
+    "medium": {
+     "file": "placeholder-300x200.png",
+     "width": 300,
+     "height": 200,
+     "filesize": 2008,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-300x200.png"
+    },
+    "large": {
+     "file": "placeholder-1024x683.png",
+     "width": 1024,
+     "height": 683,
+     "filesize": 7510,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-1024x683.png"
+    },
+    "thumbnail": {
+     "file": "placeholder-150x150.png",
+     "width": 150,
+     "height": 150,
+     "filesize": 1207,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-150x150.png"
+    },
+    "medium_large": {
+     "file": "placeholder-768x512.png",
+     "width": 768,
+     "height": 512,
+     "filesize": 5345,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder-768x512.png"
+    },
+    "full": {
+     "file": "placeholder.png",
+     "width": 1200,
+     "height": 800,
+     "mime_type": "image/png",
+     "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder.png"
+    }
+   },
+   "image_meta": {
+    "aperture": "0",
+    "credit": "",
+    "camera": "",
+    "caption": "",
+    "created_timestamp": "0",
+    "copyright": "",
+    "focal_length": "0",
+    "iso": "0",
+    "shutter_speed": "0",
+    "title": "",
+    "orientation": "0",
+    "keywords": []
+   }
+  },
+  "post": null,
+  "source_url": "https://andaimaq.com.br/wp-content/uploads/2025/03/placeholder.png",
+  "missing_image_sizes": [],
+  "filename": "placeholder.png",
+  "filesize": 6146,
+  "exif_orientation": 1,
+  "image_output_format": null,
+  "image_save_progressive": false,
+  "image_quality": {
+   "default": 82,
+   "sizes": []
+  },
+  "_links": {
+   "self": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/14",
+     "targetHints": {
+      "allow": [
+       "GET",
+       "POST",
+       "PUT",
+       "PATCH",
+       "DELETE"
+      ]
+     }
+    }
+   ],
+   "collection": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media"
+    }
+   ],
+   "about": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/types/attachment"
+    }
+   ],
+   "author": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/users/1"
+    }
+   ],
+   "replies": [
+    {
+     "embeddable": true,
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/comments?post=14"
+    }
+   ],
+   "wp:action-unfiltered-html": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/14"
+    }
+   ],
+   "wp:action-assign-author": [
+    {
+     "href": "https://andaimaq.com.br/wp-json/wp/v2/media/14"
+    }
+   ],
+   "curies": [
+    {
+     "name": "wp",
+     "href": "https://api.w.org/{rel}",
+     "templated": true
+    }
+   ]
+  }
+ }
+]
