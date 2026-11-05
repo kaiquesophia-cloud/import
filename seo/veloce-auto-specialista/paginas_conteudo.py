@@ -614,7 +614,7 @@ def revisao(pai_slug, pai_nome, marca, arquivo, title, description, foto, lead, 
             {"h2": "Itens que valem atenção", "cards": atencao},
             {"h2": f"Quanto custa a revisão {marca}", "p": [
                 "O valor depende do modelo, do motor e da quilometragem, e de quais itens vencem naquela revisão. Uma "
-                "revisão de óleo e filtros custa bem menos que uma que inclui velas, fluido de freio e outros itens com prazo próprio.",
+                "revisão de óleo e filtros custa bem menos que uma que inclui velas, fluido de freio e óleo do câmbio.",
                 "Por isso passamos o orçamento detalhado depois de avaliar o carro, e você aprova item por item.",
             ]},
             {"h2": "Sinais de que a revisão está atrasada", "check": sinais},
@@ -642,7 +642,7 @@ SUBPAGINAS += [
             {"h2": "Como funciona a revisão do Volvo", "p": [
                 "A Volvo define a revisão por tempo ou por quilometragem, o que vencer primeiro, e o painel avisa quando ela "
                 "se aproxima. Cada revisão tem itens próprios: em umas é óleo e filtros, em outras entram velas, fluido de "
-                "freio ou filtro de combustível.",
+                "freio, filtro de combustível ou óleo do câmbio.",
                 "Na Veloce seguimos o plano do seu modelo e motor, fazemos o que está vencido ou perto de vencer e, no fim, "
                 "atualizamos o aviso no painel.",
             ]},
@@ -654,39 +654,39 @@ SUBPAGINAS += [
              ("Volvo XC40", "Motores turbo a gasolina. Atenção a arrefecimento e ao estado dos freios no uso urbano."),
              ("Volvo XC90", "Mais peso e mais eletrônica: inspeção completa de suspensão, freios e sistemas de assistência."),
              ("S60 e V60", "Sedã e perua com os mesmos motores turbo: revisão pelo plano da montadora.")],
-            [("Suspensão", "Buracos e lombadas cansam buchas e amortecedores: a suspensão é inspecionada em toda revisão."),
+            [("Óleo do câmbio", "O câmbio automático também tem óleo com prazo: trocar no tempo certo evita trancos."),
              ("Freios", "No trânsito de São Paulo, pastilhas e discos se desgastam antes do previsto."),
              ("Bateria", "Os Volvo têm muita eletrônica: bateria fraca gera avisos em vários sistemas e é testada em toda revisão."),
              ("Versões híbridas", "As versões Recharge têm itens próprios: consulte o plano do seu modelo pelo WhatsApp.")],
-            ["Aviso de revisão no painel", "Marcha lenta irregular ou motor menos suave", "Pedal de freio mais longo", "Ruídos na suspensão em lombadas"],
+            ["Aviso de revisão no painel", "Marcha lenta irregular ou motor menos suave", "Pedal de freio mais longo", "Trancos nas trocas de marcha"],
             [("Vocês atendem Volvo XC60 e XC90?", "Sim. Atendemos XC40, XC60, XC90, S60, V60 e os demais modelos Volvo.")]),
 
     revisao("oficina-audi", "Oficina Audi", "Audi", "oficina-audi-revisao",
             "Revisão Audi em São Paulo: A3, Q3 e Q5 | Veloce",
-            "Revisão Audi em São Paulo para A3, A4, Q3, Q5 e mais: óleo VW/Audi correto, filtros, velas, fluido de freio e reset do aviso. Peças genuínas. Agende.",
+            "Revisão Audi em São Paulo para A3, A4, Q3, Q5 e mais: óleo VW/Audi correto, filtros, fluido do S tronic e reset do aviso. Peças genuínas. Agende.",
             FOTO_MOTOR,
-            "Revisão do seu Audi no padrão da montadora, com peças genuínas, leitura de todas as centrais, reset do aviso de "
+            "Revisão do seu Audi no padrão da montadora, com peças genuínas, atenção ao câmbio S tronic, reset do aviso de "
             "revisão e relatório técnico de tudo o que foi feito.",
             {"h2": "Como funciona a revisão do Audi", "p": [
                 "O Audi avisa no painel quando a troca de óleo e a inspeção estão chegando, por tempo ou por quilometragem. "
-                "Além delas, alguns itens têm prazo próprio, como o fluido de freio e as velas.",
+                "Além delas, alguns itens têm prazo próprio, como o fluido de freio, as velas e o óleo do câmbio S tronic.",
                 "Na Veloce seguimos o plano do seu modelo e motor, fazemos o que está vencido ou perto de vencer e, no fim, "
                 "atualizamos o aviso no painel.",
             ]},
             ["Óleo com a especificação VW/Audi correta para o seu motor", "Filtros de óleo, ar e cabine conforme o plano",
              "Velas de ignição no intervalo indicado", "Fluido de freio, que vence por tempo",
-             "Inspeção de freios, suspensão, direção e pneus", "Leitura de todas as centrais e falhas registradas",
+             "Óleo do câmbio S tronic ou automático quando vencido", "Leitura de todas as centrais e falhas registradas",
              "Reset do aviso de revisão no painel", "Teste de rodagem e relatório técnico"],
-            [("Audi A3", "Sedã e Sportback com motores turbo e câmbio S tronic: atenção ao arrefecimento e ao consumo de óleo."),
-             ("Audi Q3", "Revisão inclui checagem da suspensão e dos freios, que trabalham mais no uso urbano."),
+            [("Audi A3", "Sedã e Sportback com motores turbo e câmbio S tronic: atenção ao óleo do câmbio."),
+             ("Audi Q3", "Revisão inclui checagem da suspensão e do câmbio, que trabalha mais no uso urbano."),
              ("Audi A4 e A5", "Motores 2.0 turbo: atenção a consumo de óleo e ao sistema de arrefecimento."),
              ("Audi Q5 e Q7", "SUVs com tração quattro: revisão inclui a inspeção da tração e da suspensão.")],
-            [("Freios", "No trânsito de São Paulo, pastilhas e discos se desgastam antes do previsto."),
+            [("Câmbio S tronic", "O óleo e o filtro do câmbio de dupla embreagem têm intervalo próprio e não podem atrasar."),
              ("Consumo de óleo", "Alguns motores turbo consomem óleo entre as revisões: checamos o nível e a causa."),
              ("Arrefecimento", "Bomba d'água e termostato são pontos de atenção em vários motores Audi."),
-             ("Tração quattro", "Nos modelos quattro, a revisão inclui a inspeção da tração.")],
-            ["Aviso de troca de óleo ou inspeção no painel", "Ruídos na suspensão em lombadas", "Luz de nível de óleo acendendo", "Pedal de freio mais longo"],
-            [("Vocês atendem Audi A3, Q3 e Q5?", "Sim. Atendemos A3, A4, A5, Q3, Q5, Q7 e os demais modelos Audi.")]),
+             ("Tração quattro", "Nos modelos quattro, o óleo da tração também vence.")],
+            ["Aviso de troca de óleo ou inspeção no painel", "Trancos ou hesitação no câmbio S tronic", "Luz de nível de óleo acendendo", "Pedal de freio mais longo"],
+            [("Vocês fazem a troca de óleo do câmbio S tronic?", "Sim. O óleo e o filtro do S tronic entram na revisão quando estão vencidos.")]),
 
     revisao("oficina-mercedes-benz", "Oficina Mercedes-Benz", "Mercedes-Benz", "oficina-mercedes-benz-revisao",
             "Revisão Mercedes-Benz em SP: C180, GLA e GLC | Veloce",
@@ -704,15 +704,15 @@ SUBPAGINAS += [
              "Fluido de freio, que vence por tempo", "Velas de ignição no intervalo indicado",
              "Inspeção de freios, suspensão, direção e pneus", "Leitura de todas as centrais e falhas registradas",
              "Reset do ASSYST no painel", "Teste de rodagem e relatório técnico"],
-            [("Classe C (C180, C200, C300)", "O Mercedes mais comum no Brasil. Atenção ao arrefecimento e à suspensão."),
-             ("GLA e Classe A", "Motores turbo: atenção ao arrefecimento e aos freios no uso urbano."),
+            [("Classe C (C180, C200, C300)", "O Mercedes mais comum no Brasil. Atenção ao câmbio automático e ao arrefecimento."),
+             ("GLA e Classe A", "Motores turbo e câmbio de dupla embreagem: atenção ao óleo do câmbio."),
              ("GLC", "SUV com tração 4MATIC em muitas versões: revisão inclui a inspeção da tração."),
              ("Classe E e GLE", "Mais conforto e eletrônica: inspeção completa de suspensão e sistemas de assistência.")],
-            [("Freios", "No trânsito de São Paulo, pastilhas e discos se desgastam antes do previsto."),
+            [("Óleo do câmbio", "Câmbios automáticos e de dupla embreagem também têm prazo de troca do óleo."),
              ("Coxins e buchas", "Ruídos em lombadas e vibrações costumam vir de coxins e buchas cansados."),
              ("Bateria", "Bateria fraca gera avisos em vários sistemas: é testada em toda revisão."),
              ("Uso severo", "No trânsito de São Paulo, vale conversar sobre encurtar o intervalo do óleo.")],
-            ["Aviso de serviço A ou B no painel", "Marcha lenta irregular", "Ruídos na suspensão em lombadas", "Pedal de freio mais longo"],
+            ["Aviso de serviço A ou B no painel", "Trancos nas trocas de marcha", "Ruídos na suspensão em lombadas", "Pedal de freio mais longo"],
             [("Qual a diferença entre o serviço A e o B?", "O serviço A é a revisão mais simples, com óleo, filtro e inspeção. O B é mais completo e inclui filtros, fluido de freio e mais itens de inspeção.")]),
 ]
 

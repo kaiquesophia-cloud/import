@@ -314,8 +314,8 @@ SERVICOS = [
                 "Teste de rodagem e relatório técnico",
             ]},
             {"h2": "Itens que a concessionária nem sempre lembra", "cards": [
-                ("Filtro de cabine", "Fica esquecido entre as revisões e é o que garante ar limpo e ar-condicionado "
-                 "funcionando bem dentro do carro."),
+                ("Óleo do câmbio", "Muitos câmbios automáticos são vendidos como \"lubrificados para a vida toda\", "
+                 "mas a troca do fluido no tempo certo evita trancos e reparos caros."),
                 ("Fluido de freio", "Absorve umidade com o tempo e perde eficiência. A troca é por tempo, mesmo com "
                  "pouca quilometragem."),
                 ("Diferenciais e tração", "Carros com tração integral têm óleos de diferencial e caixa de "
