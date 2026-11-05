@@ -598,4 +598,191 @@ SUBPAGINAS = [
     },
 ]
 
+
+def revisao(pai_slug, pai_nome, marca, arquivo, title, description, foto, lead, como, itens, modelos, atencao, sinais, faq_extra):
+    """Subpágina /oficina-<marca>/revisao/ no mesmo molde das revisões BMW e Land Rover."""
+    return {
+        "slug": "revisao", "pai": {"slug": pai_slug, "nome": pai_nome}, "arquivo": arquivo,
+        "title": title, "description": description, "h1": f"Revisão {marca} em São Paulo", "foto": foto, "lead": lead,
+        "botao": f"Agendar revisão {marca} no WhatsApp", "whatsapp_msg": f"Olá, quero agendar a revisão do meu {marca}. Modelo/ano/km: ",
+        "botao_alt": (f"Ver a oficina {marca}", f"/{pai_slug}/"), "breadcrumb": f"Revisão {marca}",
+        "servico": f"Revisão {marca}", "servico_tipo": f"Revisão periódica de veículos {marca}",
+        "secoes": [
+            como,
+            {"h2": f"O que entra na revisão {marca}", "check": itens},
+            {"h2": "Revisão por modelo", "cards": modelos},
+            {"h2": "Itens que valem atenção", "cards": atencao},
+            {"h2": f"Quanto custa a revisão {marca}", "p": [
+                "O valor depende do modelo, do motor e da quilometragem, e de quais itens vencem naquela revisão. Uma "
+                "revisão de óleo e filtros custa bem menos que uma que inclui velas, fluido de freio e óleo do câmbio.",
+                "Por isso passamos o orçamento detalhado depois de avaliar o carro, e você aprova item por item.",
+            ]},
+            {"h2": "Sinais de que a revisão está atrasada", "check": sinais},
+            ATENDE,
+        ],
+        "faq_h2": f"Perguntas frequentes sobre revisão {marca}",
+        "faq": [(f"Fazer a revisão do {marca} fora da concessionária perde a garantia?",
+                 "Se o carro está na garantia de fábrica, consulte as condições do manual de garantia. Fora dela, a revisão "
+                 "segue o plano da montadora, com peças genuínas e registro do serviço."),
+                (f"Quanto custa a revisão de um {marca}?", "Depende do modelo, do motor e da quilometragem. Mande os dados pelo WhatsApp que passamos o orçamento."),
+                ] + faq_extra + [
+                ("Vocês zeram o aviso de revisão no painel?", "Sim. Ao final da revisão o aviso é atualizado."),
+                ("Usam peças originais?", f"Sim. Somente peças genuínas {marca}, com procedência informada no orçamento.")],
+        "cta_h2": f"Agende a revisão do seu {marca}", "cta_p": "Mande o modelo, o ano e a quilometragem. Um especialista responde pelo WhatsApp.",
+    }
+
+
+SUBPAGINAS += [
+    revisao("oficina-volvo", "Oficina Volvo", "Volvo", "oficina-volvo-revisao",
+            "Revisão Volvo em São Paulo: XC40, XC60 e XC90 | Veloce",
+            "Revisão Volvo em São Paulo para XC40, XC60, XC90, S60 e V60: óleo com especificação Volvo, filtros, fluidos e reset do aviso. Peças genuínas. Agende.",
+            FOTO_OFICINA,
+            "Revisão do seu Volvo no padrão da montadora, com peças genuínas, leitura de todas as centrais, reset do aviso "
+            "de revisão e relatório técnico de tudo o que foi feito.",
+            {"h2": "Como funciona a revisão do Volvo", "p": [
+                "A Volvo define a revisão por tempo ou por quilometragem, o que vencer primeiro, e o painel avisa quando ela "
+                "se aproxima. Cada revisão tem itens próprios: em umas é óleo e filtros, em outras entram velas, fluido de "
+                "freio, filtro de combustível ou óleo do câmbio.",
+                "Na Veloce seguimos o plano do seu modelo e motor, fazemos o que está vencido ou perto de vencer e, no fim, "
+                "atualizamos o aviso no painel.",
+            ]},
+            ["Óleo com a especificação Volvo correta para o seu motor", "Filtros de óleo, ar e cabine conforme o plano",
+             "Velas de ignição no intervalo indicado", "Fluido de freio, que vence por tempo",
+             "Inspeção de freios, suspensão, direção e pneus", "Leitura de todas as centrais e falhas registradas",
+             "Reset do aviso de revisão no painel", "Teste de rodagem e relatório técnico"],
+            [("Volvo XC60", "O SUV mais comum da marca. Revisão inclui checagem da suspensão e do câmbio automático."),
+             ("Volvo XC40", "Motores turbo a gasolina. Atenção a arrefecimento e ao estado dos freios no uso urbano."),
+             ("Volvo XC90", "Mais peso e mais eletrônica: inspeção completa de suspensão, freios e sistemas de assistência."),
+             ("S60 e V60", "Sedã e perua com os mesmos motores turbo: revisão pelo plano da montadora.")],
+            [("Óleo do câmbio", "O câmbio automático também tem óleo com prazo: trocar no tempo certo evita trancos."),
+             ("Freios", "No trânsito de São Paulo, pastilhas e discos se desgastam antes do previsto."),
+             ("Bateria", "Os Volvo têm muita eletrônica: bateria fraca gera avisos em vários sistemas e é testada em toda revisão."),
+             ("Versões híbridas", "As versões Recharge têm itens próprios: consulte o plano do seu modelo pelo WhatsApp.")],
+            ["Aviso de revisão no painel", "Marcha lenta irregular ou motor menos suave", "Pedal de freio mais longo", "Trancos nas trocas de marcha"],
+            [("Vocês atendem Volvo XC60 e XC90?", "Sim. Atendemos XC40, XC60, XC90, S60, V60 e os demais modelos Volvo.")]),
+
+    revisao("oficina-audi", "Oficina Audi", "Audi", "oficina-audi-revisao",
+            "Revisão Audi em São Paulo: A3, Q3 e Q5 | Veloce",
+            "Revisão Audi em São Paulo para A3, A4, Q3, Q5 e mais: óleo VW/Audi correto, filtros, fluido do S tronic e reset do aviso. Peças genuínas. Agende.",
+            FOTO_MOTOR,
+            "Revisão do seu Audi no padrão da montadora, com peças genuínas, atenção ao câmbio S tronic, reset do aviso de "
+            "revisão e relatório técnico de tudo o que foi feito.",
+            {"h2": "Como funciona a revisão do Audi", "p": [
+                "O Audi avisa no painel quando a troca de óleo e a inspeção estão chegando, por tempo ou por quilometragem. "
+                "Além delas, alguns itens têm prazo próprio, como o fluido de freio, as velas e o óleo do câmbio S tronic.",
+                "Na Veloce seguimos o plano do seu modelo e motor, fazemos o que está vencido ou perto de vencer e, no fim, "
+                "atualizamos o aviso no painel.",
+            ]},
+            ["Óleo com a especificação VW/Audi correta para o seu motor", "Filtros de óleo, ar e cabine conforme o plano",
+             "Velas de ignição no intervalo indicado", "Fluido de freio, que vence por tempo",
+             "Óleo do câmbio S tronic ou automático quando vencido", "Leitura de todas as centrais e falhas registradas",
+             "Reset do aviso de revisão no painel", "Teste de rodagem e relatório técnico"],
+            [("Audi A3", "Sedã e Sportback com motores turbo e câmbio S tronic: atenção ao óleo do câmbio."),
+             ("Audi Q3", "Revisão inclui checagem da suspensão e do câmbio, que trabalha mais no uso urbano."),
+             ("Audi A4 e A5", "Motores 2.0 turbo: atenção a consumo de óleo e ao sistema de arrefecimento."),
+             ("Audi Q5 e Q7", "SUVs com tração quattro: revisão inclui a inspeção da tração e da suspensão.")],
+            [("Câmbio S tronic", "O óleo e o filtro do câmbio de dupla embreagem têm intervalo próprio e não podem atrasar."),
+             ("Consumo de óleo", "Alguns motores turbo consomem óleo entre as revisões: checamos o nível e a causa."),
+             ("Arrefecimento", "Bomba d'água e termostato são pontos de atenção em vários motores Audi."),
+             ("Tração quattro", "Nos modelos quattro, o óleo da tração também vence.")],
+            ["Aviso de troca de óleo ou inspeção no painel", "Trancos ou hesitação no câmbio S tronic", "Luz de nível de óleo acendendo", "Pedal de freio mais longo"],
+            [("Vocês fazem a troca de óleo do câmbio S tronic?", "Sim. O óleo e o filtro do S tronic entram na revisão quando estão vencidos.")]),
+
+    revisao("oficina-mercedes-benz", "Oficina Mercedes-Benz", "Mercedes-Benz", "oficina-mercedes-benz-revisao",
+            "Revisão Mercedes-Benz em SP: C180, GLA e GLC | Veloce",
+            "Revisão Mercedes-Benz em São Paulo: serviço A e B do ASSYST, óleo MB aprovado, filtros, fluido de freio e reset no painel. Peças genuínas. Agende.",
+            FOTO_OFICINA,
+            "Revisão do seu Mercedes-Benz no padrão da montadora, seguindo o serviço A ou B que o painel pede, com peças "
+            "genuínas, reset do aviso e relatório técnico de tudo o que foi feito.",
+            {"h2": "Como funciona a revisão Mercedes (serviço A e B)", "p": [
+                "Os Mercedes-Benz usam o ASSYST, que avisa no painel quando a revisão vence e se é um serviço A ou B. O "
+                "serviço A é o mais simples, com óleo, filtro e inspeção; o serviço B é mais completo e inclui filtros de "
+                "ar e de cabine, fluido de freio e mais itens de inspeção.",
+                "Na Veloce lemos o que o painel pede, fazemos o serviço indicado e, no fim, atualizamos o ASSYST.",
+            ]},
+            ["Óleo com aprovação Mercedes-Benz (MB) para o seu motor", "Filtro de óleo e, no serviço B, filtros de ar e de cabine",
+             "Fluido de freio, que vence por tempo", "Velas de ignição no intervalo indicado",
+             "Inspeção de freios, suspensão, direção e pneus", "Leitura de todas as centrais e falhas registradas",
+             "Reset do ASSYST no painel", "Teste de rodagem e relatório técnico"],
+            [("Classe C (C180, C200, C300)", "O Mercedes mais comum no Brasil. Atenção ao câmbio automático e ao arrefecimento."),
+             ("GLA e Classe A", "Motores turbo e câmbio de dupla embreagem: atenção ao óleo do câmbio."),
+             ("GLC", "SUV com tração 4MATIC em muitas versões: revisão inclui a inspeção da tração."),
+             ("Classe E e GLE", "Mais conforto e eletrônica: inspeção completa de suspensão e sistemas de assistência.")],
+            [("Óleo do câmbio", "Câmbios automáticos e de dupla embreagem também têm prazo de troca do óleo."),
+             ("Coxins e buchas", "Ruídos em lombadas e vibrações costumam vir de coxins e buchas cansados."),
+             ("Bateria", "Bateria fraca gera avisos em vários sistemas: é testada em toda revisão."),
+             ("Uso severo", "No trânsito de São Paulo, vale conversar sobre encurtar o intervalo do óleo.")],
+            ["Aviso de serviço A ou B no painel", "Trancos nas trocas de marcha", "Ruídos na suspensão em lombadas", "Pedal de freio mais longo"],
+            [("Qual a diferença entre o serviço A e o B?", "O serviço A é a revisão mais simples, com óleo, filtro e inspeção. O B é mais completo e inclui filtros, fluido de freio e mais itens de inspeção.")]),
+]
+
+ARTIGOS.append(art(
+    "o-que-e-dinamometro", "O que é Dinamômetro Automotivo e Para que Serve | Veloce",
+    "O que é dinamômetro automotivo, o que ele mede, para que serve e como é feita a medição de potência e torque do carro. Guia da Veloce, com dinamômetro próprio.",
+    "O que é dinamômetro automotivo e para que serve",
+    "O dinamômetro automotivo mede a potência e o torque reais de um carro. Neste guia você entende o que ele mede, "
+    "como é feita a medição e quando vale a pena levar o seu carro para medir.",
+    "Blog · Dinamômetro", 5, FOTO_911,
+    [
+        {"h2": "Dinamômetro em uma frase", "p": [
+            "Dinamômetro é o equipamento que mede a força. No carro, ele mede quanta potência e quanto torque o motor "
+            "entrega, em toda a faixa de rotação, e mostra isso em um gráfico: a curva de potência.",
+            "Existem dinamômetros para outras coisas, como o de mão usado na fisioterapia. Neste artigo falamos do "
+            "dinamômetro automotivo, usado em oficinas e em preparação de carros.",
+        ]},
+        {"h2": "O que o dinamômetro mede", "cards": [
+            ("Potência", "Em cv: a força máxima que o carro entrega, normalmente perto do fim das rotações."),
+            ("Torque", "Em kgfm ou Nm: a força nas retomadas e nas saídas, que é o que você sente no dia a dia."),
+            ("Curva", "Como potência e torque se comportam do início ao fim das rotações, e não só o número máximo."),
+            ("Comparação", "O antes e o depois de um remap ou de uma peça, medidos no mesmo equipamento."),
+        ]},
+        {"h2": "Para que serve medir o carro", "check": [
+            "Conferir o ganho real de um remap, em vez de confiar em um número de catálogo",
+            "Comparar o carro antes e depois de trocar escapamento, admissão ou turbo",
+            "Investigar perda de potência que o scanner não explica",
+            "Saber quanto o seu carro rende hoje, mesmo sem fazer nenhuma modificação",
+        ]},
+        {"h2": "Como é feita a medição, passo a passo", "steps": [
+            ("Checagem do carro.", "Pneus, níveis e temperatura do motor são conferidos antes de começar."),
+            ("Fixação.", "O carro é preso com cintas para ficar seguro durante a aceleração."),
+            ("Puxadas.", "O carro acelera em uma marcha fixa, do início ao fim das rotações, algumas vezes."),
+            ("Correção.", "O resultado é corrigido para temperatura e pressão do ar, para poder comparar medições."),
+            ("Relatório.", "Você recebe a curva de potência e torque e a explicação do que ela mostra."),
+        ]},
+        {"h2": "Potência na roda e potência no motor", "p": [
+            "O dinamômetro de chassi mede a força que chega às rodas. Entre o motor e as rodas existem câmbio, "
+            "diferencial e pneus, que consomem parte da potência. Por isso o número na roda é menor que o do catálogo, "
+            "e isso é normal.",
+            "O que importa é comparar medições feitas no mesmo equipamento e nas mesmas condições: é assim que se vê se "
+            "o carro ganhou ou perdeu potência.",
+        ]},
+        {"h2": "Por que o resultado pode variar", "table": [
+            ["Fator", "O que acontece"],
+            ["Temperatura do ar", "Ar quente tem menos oxigênio, e o motor rende menos"],
+            ["Combustível", "Gasolina de octanagem diferente muda o resultado nos motores turbo"],
+            ["Temperatura do motor", "Motor frio ou superaquecido não mostra o rendimento real"],
+            ["Pneus e fixação", "Pressão dos pneus e cintas mal presas alteram a leitura"],
+        ], "p_depois": ["Por isso a medição é corrigida e repetida algumas vezes, para chegar a um resultado confiável."]},
+        {"h2": "O dinamômetro da Veloce", "p": [
+            "A Veloce tem dinamômetro próprio na oficina da Av. Casa Verde, na Zona Norte de São Paulo. Usamos para medir "
+            "o antes e o depois de cada remap e também fazemos a medição avulsa, para quem quer conhecer o rendimento do carro.",
+            'Veja como funciona o <a href="/dinamometro/">serviço de dinamômetro</a> e o <a href="/remap/">remap com ganho medido</a>.',
+        ], "fotos": [("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/porsche-911-dinamometro-veloce.webp", "Porsche 911 Carrera Cabriolet no dinamômetro da Veloce", 1200, 1600),
+                   ("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/golf-gti-dinamometro-veloce.webp", "Volkswagen Golf GTI no dinamômetro da Veloce", 1200, 1600)]},
+        leia(L_OQUE, L_STAGE, L_ESTRAGA),
+    ],
+    [("O dinamômetro mede potência ou torque?", "Os dois. Ele mede a força nas rodas em cada rotação e calcula a potência e o torque em toda a faixa."),
+     ("Por que o carro deu menos potência que o catálogo?", "Porque o dinamômetro de chassi mede na roda, depois das perdas do câmbio e dos pneus. O importante é comparar medições no mesmo equipamento."),
+     ("Medir no dinamômetro faz mal ao carro?", "Não, se o carro estiver em bom estado. São poucas acelerações, com o carro preso e monitorado."),
+     ("Posso medir o carro sem fazer remap?", 'Sim. A Veloce faz a medição avulsa. Veja o <a href="/dinamometro/">serviço de dinamômetro</a>.'),
+     ("Onde tem dinamômetro em São Paulo?", "A Veloce tem dinamômetro próprio na Av. Casa Verde, 3010, Zona Norte de São Paulo.")],
+    "Quer saber quanto o seu carro rende?", "/dinamometro/", "Ver o serviço de dinamômetro",
+    "Olá, li o artigo sobre dinamômetro e quero medir o meu carro. Modelo/ano: "))
+ARTIGOS[-1]["publicado"] = "2026-11-05"
+
+L_DINAMO = ("O que é dinamômetro?", "/blog/o-que-e-dinamometro/", "O que ele mede e como é feita a medição do carro.")
+BLOG_HUB["secoes"].insert(1, {"h2": "Dinamômetro", "cards": [(L_DINAMO[0], f'{L_DINAMO[2]} <a href="{L_DINAMO[1]}">Ler o artigo</a>.')]})
+BLOG_HUB["secoes"][-1]["chips"] += ['<a href="/oficina-volvo/revisao/">Revisão Volvo</a>', '<a href="/oficina-audi/revisao/">Revisão Audi</a>',
+                                    '<a href="/oficina-mercedes-benz/revisao/">Revisão Mercedes-Benz</a>']
+
 CONTEUDO = ARTIGOS + [BLOG_HUB] + SUBPAGINAS

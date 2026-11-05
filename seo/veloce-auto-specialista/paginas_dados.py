@@ -443,11 +443,14 @@ from paginas_servicos import SERVICOS  # noqa: E402
 
 PAGINAS += SERVICOS
 
-# Land Rover: o card de revisão aponta para a subpágina /oficina-land-rover/revisao/
+# O card de revisão das marcas com subpágina própria aponta para /oficina-<marca>/revisao/
+REVISAO_PROPRIA = {"oficina-land-rover": "revisão Land Rover", "oficina-volvo": "revisão Volvo",
+                   "oficina-audi": "revisão Audi", "oficina-mercedes-benz": "revisão Mercedes-Benz"}
 for _p in PAGINAS:
-    if _p["slug"] == "oficina-land-rover":
+    if _p["slug"] in REVISAO_PROPRIA:
         _t, _d = _p["secoes"][2]["cards"][0]
-        _p["secoes"][2]["cards"][0] = (_t, _d.replace(f"Ver {PREVENTIVA}.", 'Ver <a href="/oficina-land-rover/revisao/">revisão Land Rover</a>.'))
+        assert _t.startswith("Revisão"), _p["slug"]
+        _p["secoes"][2]["cards"][0] = (_t, _d.replace(f"Ver {PREVENTIVA}.", f'Ver <a href="/{_p["slug"]}/revisao/">{REVISAO_PROPRIA[_p["slug"]]}</a>.'))
 
 from paginas_conteudo import CONTEUDO  # noqa: E402
 
