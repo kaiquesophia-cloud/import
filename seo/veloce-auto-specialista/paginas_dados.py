@@ -165,8 +165,8 @@ PAGINAS = [
           "consumo e checar o sistema de respiro do motor vem antes de qualquer conclusão."),
          ("Vazamentos de óleo", "Retentores e juntas ressecam com o tempo. O cheiro de queimado depois de rodar é o "
           "primeiro aviso de óleo pingando no escapamento."),
-         ("Câmbio com trancos", "Trocas duras ou demoradas no câmbio automático costumam melhorar com a troca do "
-          "fluido no intervalo certo, mesmo quando o manual fala em óleo de longa duração."),
+         ("Câmbio com trancos", "Trocas duras ou demoradas no câmbio automático "
+          "pedem diagnóstico pela leitura da central do câmbio antes de qualquer conclusão."),
          ("Arrefecimento", "Bomba d'água, termostato e reservatório de expansão merecem atenção. Aviso de temperatura "
           "exige parar e diagnosticar, não completar água e seguir."),
          ("Falhas de ignição", "Motor tremendo e luz de injeção acesa costumam ser bobinas ou velas. Na injeção "
@@ -208,8 +208,8 @@ PAGINAS = [
           "eletroímãs do comando variável podem vazar óleo para o chicote. Trocar cedo protege a parte elétrica."),
          ("Corrente de comando", "Ruído metálico na partida a frio pode indicar desgaste da corrente ou do tensor, "
           "principalmente em motores mais antigos. É reparo para fazer logo, não para esperar."),
-         ("Câmbio com trancos", "Nos câmbios automáticos 7G e 9G, trocas duras costumam melhorar com a troca do fluido "
-          "no intervalo certo. O diagnóstico vem antes de qualquer reparo maior."),
+         ("Câmbio com trancos", "Nos câmbios automáticos 7G e 9G, trocas duras "
+          "pedem diagnóstico pela leitura da central do câmbio antes de qualquer conclusão."),
          ("Arrefecimento", "Termostato, bomba d'água e conexões plásticas são pontos de atenção. Aviso de temperatura "
           "exige parar o carro."),
          ("Suspensão a ar (Airmatic)", "Carro baixando parado ou aviso de suspensão indicam vazamento. Tratar logo "
@@ -226,7 +226,7 @@ PAGINAS = [
         "Oficina especializada em Audi, com diagnóstico completo da eletrônica, peças genuínas e relatório técnico em "
         "cada entrega. A3, A4, A5, Q3, Q5, Q7 e os esportivos S e RS cuidados por quem trabalha só com carros premium.",
         "Os Audi têm motores TFSI turbo com injeção direta, câmbios S tronic e tiptronic e tração quattro: tecnologia "
-        "que entrega desempenho e pede manutenção precisa. Óleo fora da especificação, fluido do câmbio vencido ou um "
+        "que entrega desempenho e pede manutenção precisa. Óleo fora da especificação, fluido de freio vencido ou um "
         "diagnóstico apressado custam caro depois. Na Veloce, o seu Audi é diagnosticado com scanner, orçado item por "
         "item e entregue com relatório técnico.",
         [("Diagnóstico de verdade", "Leitura completa das centrais (motor, câmbio, quattro, freios, conforto) para "
@@ -244,7 +244,7 @@ PAGINAS = [
             "fluido de freio e inspeção completa.",
             "Reprogramação de motor feita aqui na oficina, com leitura da ECU antes e depois. Muito procurada para "
             "A3, S3, A4 e Q3.",
-            ("Câmbio S tronic", "Troca de óleo do câmbio no intervalo correto e diagnóstico de trancos pela leitura "
+            ("Câmbio S tronic", "Diagnóstico de trancos e falhas pela leitura "
              "da central do câmbio.")),
         "Os defeitos que mais chegam à oficina nos Audi com motor TFSI. Nenhum é motivo para pânico se tratado cedo.",
         [("Consumo de óleo", "Algumas gerações do motor 2.0 TFSI (EA888) ficaram conhecidas por consumir óleo. Medir "
@@ -253,8 +253,8 @@ PAGINAS = [
           "Cheiro adocicado e nível de água baixando são os sinais."),
          ("Corrente e tensor", "Ruído metálico de poucos segundos na partida a frio pede verificação do tensor da "
           "corrente de comando, principalmente nos motores mais antigos."),
-         ("Câmbio com trancos", "No S tronic, solavancos em baixa velocidade e trocas hesitantes pedem diagnóstico e "
-          "troca do fluido antes de se pensar na mecatrônica."),
+         ("Câmbio com trancos", "No S tronic, solavancos em baixa velocidade e trocas hesitantes "
+          "pedem diagnóstico pela leitura da central do câmbio antes de qualquer conclusão."),
          ("Falhas de ignição", "Motor tremendo e luz de injeção piscando costumam ser bobinas ou velas. A carbonização "
           "das válvulas, comum na injeção direta, também entra no diagnóstico."),
          ("Vazamentos de óleo", "Juntas da tampa de válvulas, do cárter e do filtro de óleo ressecam com o tempo. "
@@ -286,7 +286,7 @@ PAGINAS = [
             "para o seu motor, filtros, velas, fluido de freio e inspeção completa.",
             "Reprogramação de motor feita aqui na oficina, com leitura da ECU antes e depois e responsabilidade técnica, "
             "muito procurada para Macan e Cayenne.",
-            ("Câmbio PDK", "Troca de fluido no intervalo correto e diagnóstico de trancos pela leitura da central do câmbio.")),
+            ("Câmbio PDK", "Diagnóstico de trancos e falhas pela leitura da central do câmbio.")),
         "Os pontos que mais pedem atenção nos Porsche. Prevenção sai muito mais barato que reparo.",
         [("Arrefecimento", "Em alguns Cayenne V8 de gerações anteriores, os tubos de arrefecimento sob o coletor são "
           "um ponto conhecido de vazamento. Nos modelos atuais, termostato e bomba d'água merecem atenção."),
@@ -334,8 +334,8 @@ PAGINAS = [
           "depois de rodar é o primeiro sinal."),
          ("Diesel e filtro de partículas", "Nas versões diesel, uso só urbano satura o filtro de partículas. Aviso no "
           "painel e perda de potência pedem diagnóstico logo."),
-         ("Câmbio com trancos", "Trocas duras no câmbio automático costumam melhorar com a troca do fluido no "
-          "intervalo certo."),
+         ("Câmbio com trancos", "Trocas duras no câmbio automático "
+          "pedem diagnóstico pela leitura da central do câmbio antes de qualquer conclusão."),
          ("Avisos elétricos", "Bateria fraca gera avisos em vários sistemas ao mesmo tempo. O diagnóstico separa "
           "defeito real de tensão baixa."),
          ("Ruídos na suspensão", "Batidas e estalos em lombadas geralmente são buchas e bieletas. Revisar cedo "
