@@ -26,6 +26,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 580 | [/oficina-audi/revisao/](https://veloceautospecialista.com.br/oficina-audi/revisao/) | revisão audi |
 | 581 | [/oficina-mercedes-benz/revisao/](https://veloceautospecialista.com.br/oficina-mercedes-benz/revisao/) | revisão mercedes |
 | 563 | [/remap/cambio/](https://veloceautospecialista.com.br/remap/cambio/) | remap de câmbio |
+| 601 | [/troca-de-oleo-cambio-automatico/](https://veloceautospecialista.com.br/troca-de-oleo-cambio-automatico/) | troca de óleo câmbio automático |
 | 554 | [/blog/](https://veloceautospecialista.com.br/blog/) | (página que reúne os artigos) |
 | 555 | [/blog/o-que-e-remap/](https://veloceautospecialista.com.br/blog/o-que-e-remap/) | o que é remap |
 | 556 | [/blog/vistoria-cautelar-ou-inspecao-pre-compra/](https://veloceautospecialista.com.br/blog/vistoria-cautelar-ou-inspecao-pre-compra/) | vistoria cautelar |
@@ -58,7 +59,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 ## Ajustes pendentes
 
-- **Pronta, não publicada:** `/troca-de-oleo-cambio-automatico/` (`troca-de-oleo-cambio-automatico.html`, gerada de `../paginas_servicos.py`). Palavra-chave: troca de óleo câmbio automático (~2.900/mês + variações). Publicar com `--slug troca-de-oleo-cambio-automatico --title "Troca de Óleo do Câmbio Automático em SP"` depois do "pode" do dono.
+- Perguntar ao dono: usam máquina de troca de óleo de câmbio (~480 buscas/mês)? Trocam filtro e juntas do câmbio? A /oficina-importados-zona-norte/ cita "câmbio" em manutenção corretiva: confirmar, porque não fazem conserto de câmbio.
 - Home (página 123): cards 01–03 do "processo" corrigidos em 05/11/2026 (o 01 repetia o texto do 02). Backup em `../backup-elementor/123-antes-processo.json`.
 
 - Rank Math gera `Article` para as páginas e `Person + Organization` para o site. O ideal é: Configurações →
