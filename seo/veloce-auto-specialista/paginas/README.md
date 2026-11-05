@@ -33,6 +33,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 558 | [/blog/remap-stage-1-e-stage-2/](https://veloceautospecialista.com.br/blog/remap-stage-1-e-stage-2/) | remap stage 1 / stage 2 |
 | 559 | [/blog/remap-estraga-o-motor/](https://veloceautospecialista.com.br/blog/remap-estraga-o-motor/) | remap estraga o motor |
 | 560 | [/blog/remap-perde-garantia/](https://veloceautospecialista.com.br/blog/remap-perde-garantia/) | remap perde garantia |
+| 590 | [/blog/o-que-e-dinamometro/](https://veloceautospecialista.com.br/blog/o-que-e-dinamometro/) | o que é dinamômetro, dinamômetro automotivo |
 
 `/pvads/` (433, landing dos anúncios) recebeu `noindex, follow` no Rank Math.
 
@@ -52,12 +53,12 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
   inspeção pré-compra, diesel Land Rover/Jaguar, Volvo Recharge e Lamborghini Aventador/Gallardo.
 - **A Veloce tem dinamômetro próprio e faz medição avulsa** (confirmado 06/10/2026): página `/dinamometro/`;: está no /remap/ (seção com fotos + FAQ) e nos cards de remap de todas as marcas.
 - **Fazem remap de câmbio** (reprogramação da central do câmbio, confirmado 07/10/2026): página `/remap/cambio/`. Continua valendo: **não** fazem adaptação do câmbio pelo scanner.
-- **Não** fazem troca de óleo do câmbio automático, conserto de câmbio nem remap diesel (confirmado 05/11/2026). Tirado das revisões Volvo/Audi/Mercedes (publicadas assim em 05/11/2026) e dos arquivos de BMW, Audi, Mercedes, Volvo, Jaguar, Porsche e manutenção preventiva. **Essas 7 páginas ainda estão no ar com o texto antigo**: republicar quando o dono liberar. Ler falhas do câmbio pelo scanner (diagnóstico) e checar o câmbio na inspeção continuam valendo.
+- **Não** fazem troca de óleo do câmbio automático, conserto de câmbio nem remap diesel (confirmado 05/11/2026). Tirado das revisões Volvo/Audi/Mercedes (publicadas assim em 05/11/2026) e dos arquivos de BMW, Audi, Mercedes, Volvo, Jaguar, Porsche e manutenção preventiva. Republicadas em 05/11/2026. Ler falhas do câmbio pelo scanner (diagnóstico) e checar o câmbio na inspeção continuam valendo.
 - Já confirmados antes: só peça genuína, sem registro de bateria, sem vistoria cautelar, remap sem preço publicado.
 
 ## Ajustes pendentes
 
-- Prontos, esperando o "pode" do dono: artigo `/blog/o-que-e-dinamometro/`, republicação de `/blog/` e das páginas de marca/manutenção acima, e o texto repetido dos cards 01–03 do processo na home (página 123).
+- Home (página 123): cards 01–03 do "processo" corrigidos em 05/11/2026 (o 01 repetia o texto do 02). Backup em `../backup-elementor/123-antes-processo.json`.
 
 - Rank Math gera `Article` para as páginas e `Person + Organization` para o site. O ideal é: Configurações →
   Títulos e Meta → Páginas → Schema padrão = **Nenhum**; Local SEO → tipo **Organização / AutoRepair**.
