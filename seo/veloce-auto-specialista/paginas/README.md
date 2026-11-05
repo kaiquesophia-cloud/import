@@ -58,6 +58,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 ## Ajustes pendentes
 
+- **Pronta, não publicada:** `/troca-de-oleo-cambio-automatico/` (`troca-de-oleo-cambio-automatico.html`, gerada de `../paginas_servicos.py`). Palavra-chave: troca de óleo câmbio automático (~2.900/mês + variações). Publicar com `--slug troca-de-oleo-cambio-automatico --title "Troca de Óleo do Câmbio Automático em SP"` depois do "pode" do dono.
 - Home (página 123): cards 01–03 do "processo" corrigidos em 05/11/2026 (o 01 repetia o texto do 02). Backup em `../backup-elementor/123-antes-processo.json`.
 
 - Rank Math gera `Article` para as páginas e `Person + Organization` para o site. O ideal é: Configurações →

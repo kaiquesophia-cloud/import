@@ -438,3 +438,105 @@ SERVICOS = [
         "cta_p": "Mande o modelo, o ano e o que precisa. Respondemos pelo WhatsApp.",
     },
 ]
+
+# ------------------------------------------------------------------ TROCA DE ÓLEO DO CÂMBIO AUTOMÁTICO
+# Confirmado com o dono em 05/11/2026: fazem a troca. NÃO fazem conserto de câmbio nem adaptação pelo scanner,
+# e o preço não é publicado. Não escrever que usam máquina de troca sem o dono confirmar.
+SERVICOS.append({
+    "slug": "troca-de-oleo-cambio-automatico",
+    "title": "Troca de Óleo do Câmbio Automático em SP | Veloce",
+    "description": "Troca de óleo do câmbio automático em São Paulo para BMW, Audi, Mercedes, Volvo, Land Rover e Porsche: óleo da especificação da montadora e peças genuínas.",
+    "h1": "Troca de óleo do câmbio automático em São Paulo",
+    "lead": "O câmbio automático do seu carro premium também tem óleo com prazo. Na Veloce, na Zona Norte de São Paulo, "
+            "a troca é feita com o óleo da especificação da montadora, peças genuínas e leitura da central do câmbio "
+            "antes e depois do serviço.",
+    "botao": "Pedir orçamento da troca no WhatsApp",
+    "whatsapp_msg": "Olá, quero um orçamento de troca de óleo do câmbio automático. Carro (modelo/ano/km): ",
+    "breadcrumb": "Troca de óleo do câmbio automático",
+    "servico": "Troca de óleo do câmbio automático",
+    "servico_tipo": "Troca de óleo de câmbio automático e de dupla embreagem em carros importados",
+    "secoes": [
+        {"h2": "Óleo de câmbio \"vitalício\" não existe", "p": [
+            "Muitos câmbios automáticos saem de fábrica com a informação de que o óleo dura a vida toda. Na prática, o "
+            "óleo perde as propriedades com o calor, o tempo e o trânsito pesado de São Paulo, e o câmbio começa a dar "
+            "sinais: trocas mais duras, trancos e demora para engatar.",
+            "Trocar o óleo no tempo certo é a manutenção mais barata que um câmbio automático pode receber. Ela não "
+            "conserta peça quebrada, mas evita que o desgaste chegue lá.",
+        ]},
+        {"h2": "Quando trocar o óleo do câmbio automático", "cards": [
+            ("Pelo plano da montadora", "Alguns fabricantes indicam a troca por quilometragem; outros não indicam "
+             "nenhuma. Avaliamos o seu modelo e o seu uso."),
+            ("Uso severo", "Trânsito de São Paulo, anda e para, subidas e carro carregado esquentam o óleo e encurtam "
+             "a vida útil dele."),
+            ("Carro usado sem histórico", "Se você não sabe se o óleo do câmbio já foi trocado, vale avaliar logo "
+             "depois da compra."),
+            ("Primeiros sinais", "Trocas mais duras ou demora para engatar o D e o R pedem avaliação antes de o "
+             "problema crescer."),
+        ]},
+        {"h2": "Sinais de que o câmbio pede atenção", "check": [
+            "Trancos nas trocas de marcha, principalmente em baixa velocidade",
+            "Demora para engatar ao colocar em D ou R",
+            "Rotação sobe e o carro demora a responder",
+            "Trocas mais duras com o câmbio frio",
+            "Aviso de falha do câmbio no painel",
+            "Manchas de óleo embaixo do carro",
+        ], "p_depois": [
+            "Esses sinais nem sempre se resolvem só com a troca do óleo. Por isso a leitura da central do câmbio vem "
+            "antes: você sabe o que esperar antes de aprovar o serviço."]},
+        {"h2": "Como é feita a troca na Veloce", "steps": [
+            ("Leitura da central do câmbio.", "Scanner profissional para ver falhas registradas antes de qualquer serviço."),
+            ("Orçamento detalhado.", "Óleo, filtro e juntas que o seu câmbio usa, com a procedência de cada peça."),
+            ("Troca com o óleo da especificação da montadora.", "Cada câmbio tem o seu óleo: usar o errado causa "
+             "trancos e desgaste."),
+            ("Nível conferido do jeito que o fabricante manda.", "Em muitos câmbios o nível só é certo com o óleo na "
+             "temperatura indicada pela montadora."),
+            ("Teste de rodagem e relatório.", "Conferimos as trocas de marcha rodando e você recebe o registro do serviço."),
+        ]},
+        {"h2": "Câmbios que atendemos", "table": [
+            ["Tipo de câmbio", "Onde aparece"],
+            ["Automático convencional (conversor de torque)", "BMW, Mercedes-Benz (7G e 9G), Land Rover, Jaguar, Volvo e Audi tiptronic"],
+            ["Dupla embreagem", "Audi S tronic, Porsche PDK, Mercedes de tração dianteira e MINI"],
+        ]},
+        {"h2": "Troca de óleo do câmbio por marca", "p": [
+            "Cada marca usa câmbios e óleos próprios. Veja a página da sua:"],
+         "chips": list(MARCAS_LINKS)},
+        {"h2": "Quanto custa a troca de óleo do câmbio automático", "p": [
+            "O valor depende do câmbio do seu carro: a quantidade de óleo varia muito de um câmbio para outro, alguns "
+            "têm filtro e juntas que são trocados junto, e o óleo de cada montadora tem preço diferente.",
+            "Por isso o orçamento é feito para o seu modelo. Mande o modelo, o ano e a quilometragem pelo WhatsApp que "
+            "respondemos com o valor, peça por peça.",
+        ]},
+        {"h2": "Serviços relacionados", "cards": [
+            ("Revisão completa", 'O óleo do câmbio entra no plano de manutenção junto com os outros itens. '
+             '<a href="/manutencao-preventiva/">Ver revisão de importados</a>.'),
+            ("Remap de câmbio", 'Reprogramação da central do câmbio para trocas mais rápidas. '
+             '<a href="/remap/cambio/">Ver remap de câmbio</a>.'),
+            ("Inspeção pré-compra", 'Vai comprar um usado? Avaliamos o câmbio antes do negócio. '
+             '<a href="/inspecao-pre-compra/">Ver inspeção pré-compra</a>.'),
+        ]},
+        ATENDIMENTO,
+    ],
+    "faq_h2": "Perguntas frequentes sobre troca de óleo do câmbio",
+    "faq": [
+        ("Óleo de câmbio automático precisa ser trocado?",
+         "Sim. Mesmo quando o manual fala em óleo de longa duração, o óleo perde as propriedades com o tempo e o calor. "
+         "No uso severo de São Paulo, a troca no tempo certo evita trancos e desgaste."),
+        ("De quanto em quanto tempo trocar o óleo do câmbio automático?",
+         "Depende do câmbio e do uso. Seguimos o que a montadora indica para o seu modelo e avaliamos o uso do carro: "
+         "trânsito pesado costuma pedir um intervalo menor."),
+        ("Quanto custa a troca de óleo do câmbio automático?",
+         "Depende do modelo, da quantidade de óleo e de o câmbio ter filtro e juntas. Mande o modelo, o ano e a "
+         "quilometragem pelo WhatsApp que respondemos com o orçamento."),
+        ("A troca de óleo resolve o tranco no câmbio?",
+         "Em muitos casos melhora, mas nem todo tranco é do óleo. Por isso lemos a central do câmbio antes e dizemos "
+         "o que esperar antes de você aprovar o serviço."),
+        ("Vocês trocam o óleo do câmbio de dupla embreagem (S tronic, PDK)?",
+         "Sim. Os câmbios de dupla embreagem têm óleo e filtro com intervalo próprio, e a troca segue a especificação "
+         "da montadora."),
+        ("Qual óleo vocês usam?",
+         "O óleo da especificação indicada pela montadora para o seu câmbio, com peças genuínas. Você sabe a "
+         "procedência de tudo antes de aprovar."),
+    ],
+    "cta_h2": "Agende a troca de óleo do câmbio",
+    "cta_p": "Mande o modelo, o ano e a quilometragem. Um especialista responde pelo WhatsApp com o orçamento.",
+})
