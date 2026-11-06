@@ -1,5 +1,7 @@
 # Google Meu Negócio: Veloce Auto Specialista
 
+✅ **Preenchido pelo dono em 06/11/2026** (pelo Claude in Chrome, seguindo este roteiro).
+
 Roteiro para preencher o perfil da empresa no Google (Google Meu Negócio / Perfil da Empresa) pela extensão
 Claude in Chrome. Copie o bloco "Mensagem para colar" numa conversa do Claude no Chrome, logado na conta Google
 que administra o perfil da Veloce.
