@@ -51,8 +51,8 @@ L_CAUTELAR = ("Vistoria cautelar ou inspeção pré-compra?", "/blog/vistoria-ca
 
 ARTIGOS = [
     # ------------------------------------------------------------------ O QUE É REMAP
-    art("o-que-e-remap", "O que é Remap? Como Funciona e Quando Vale a Pena | Veloce",
-        "O que é remap, como funciona a reprogramação da central do motor, o que muda no carro e quando vale a pena. Guia da Veloce, com dinamômetro próprio.",
+    art("o-que-e-remap", "O que é Remap no Carro? Como Funciona e Quando Vale a Pena",
+        "Remap é a reprogramação da central do motor para ganhar potência e torque. Veja como funciona, o que muda no carro, os riscos e quando vale a pena.",
         "O que é remap e como ele funciona",
         "Remap é a reprogramação do software que controla o motor. Neste guia você entende o que muda no carro, como o "
         "processo é feito com segurança e quando ele vale a pena.",
@@ -230,8 +230,8 @@ ARTIGOS = [
         "Peça o orçamento do remap para o seu carro", "/remap/", "Ver o serviço de remap",
         "Olá, quero um orçamento de remap. Carro (modelo/ano/motor): "),
     # ------------------------------------------------------------------ STAGE 1 x STAGE 2
-    art("remap-stage-1-e-stage-2", "Remap Stage 1 x Stage 2: Diferença e Qual Escolher | Veloce",
-        "Stage 1 ou stage 2? Veja a diferença entre os níveis de remap, o que cada um exige do carro e qual faz sentido para o seu uso. Guia da Veloce.",
+    art("remap-stage-1-e-stage-2", "Stage 1 e Stage 2 no Carro: O que é e Qual a Diferença",
+        "Stage 1 é o remap só no software; stage 2 exige peças de apoio, como admissão e escapamento. Veja o ganho, os riscos e qual faz sentido para o seu carro.",
         "Remap stage 1 x stage 2: qual a diferença?",
         "Stage é o nível do projeto de remap. O stage 1 mexe só no software; o stage 2 soma peças de apoio para ir além. "
         "Veja o que muda em cada um e como escolher.",

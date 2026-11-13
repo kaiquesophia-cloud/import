@@ -59,6 +59,8 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 ## Ajustes pendentes
 
+- 13/11/2026: título e descrição do Google trocados em /blog/remap-stage-1-e-stage-2/ (558) e /blog/o-que-e-remap/ (555). Motivo: no Search Console (18/10–10/11) os dois somavam 7.388 impressões e 10 cliques (CTR 0,1–0,2%). Comparar o CTR em dezembro.
+- /author/kaique/ já redireciona (301) para a home (Rank Math: arquivos de autor desativados); some do Google sozinha.
 - Perguntar ao dono: usam máquina de troca de óleo de câmbio (~480 buscas/mês)? Trocam filtro e juntas do câmbio? A /oficina-importados-zona-norte/ cita "câmbio" em manutenção corretiva: confirmar, porque não fazem conserto de câmbio.
 - /sobre/ (página 256): os 4 botões "Ver detalhes" iam para `/services#...` (404). Agora vão para /remap/, /inspecao-pre-compra/, /manutencao-preventiva/ e /servicos/ (06/11/2026). Backup em `../backup-elementor/256-antes-links-sobre.json`.
 - Sitemap do Rank Math: o dono clicou em Rank Math → Sitemap → Salvar em 06/11/2026; agora lista 33 páginas, inclusive 579, 580, 581, 590 e 601. Se faltar página nova de novo, é o mesmo clique.
