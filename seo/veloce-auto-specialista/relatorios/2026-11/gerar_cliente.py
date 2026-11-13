@@ -1,263 +1,138 @@
 #!/usr/bin/env python3
-"""Gera o relatório de performance SEO da Veloce (HTML -> PDF)."""
-import base64, html, os, sys
+"""Relatório de SEO de novembro para enviar à Veloce: visitas reais (Search Console) + posições (Ubersuggest).
+
+  python3 gerar_cliente.py   -> relatorio-cliente.html (o PDF sai do Chromium, ver README do relatório)
+"""
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import gerar as base
+from dados_search_console import TOTAIS, PAGINAS, CONSULTAS_CLIQUE, CONSULTAS_SEM_CLIQUE, DISPOSITIVOS, DIAS, PERIODO
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-SAIDA_HTML = os.path.join(AQUI, "relatorio-cliente.html")
+SAIDA = os.path.join(AQUI, "relatorio-cliente.html")
+TOTAL_PAGS = 7
+e, fmt = base.e, base.fmt
 
-def b64(nome):
-    with open(os.path.join(AQUI, "img", nome), "rb") as f:
-        return "data:image/webp;base64," + base64.b64encode(f.read()).decode()
+def br(x, casas=1):
+    return f"{x:.{casas}f}".replace(".", ",")
 
-# Ubersuggest, rank tracking do projeto (Brasil, celular). Leituras de 04/11 e 11/11/2026.
-# (busca, buscas/mês no Brasil, posição 04/11, posição 11/11, página)
-POS = [
-    ("remap stage 1", 170, None, 6, "/blog/remap-stage-1-e-stage-2/"),
-    ("remap estraga o motor", 110, 17, 10, "/blog/remap-estraga-o-motor/"),
-    ("remap automotivo", 1000, 18, 12, "/blog/o-que-e-remap/"),
-    ("remap carro", 1300, 9, 13, "/blog/o-que-e-remap/"),
-    ("revisão land rover", 210, None, 18, "/oficina-land-rover/revisao/"),
-    ("revisão bmw 320i", 50, None, 23, "/oficina-bmw/revisao/"),
-    ("vistoria cautelar ou pré compra", 0, 24, 27, "/blog/vistoria-cautelar-ou-…/"),
-    ("oficina volvo sp", 40, None, 32, "/oficina-volvo/revisao/"),
-    ("oficina mercedes benz", 210, 33, 35, "/oficina-mercedes-benz/"),
-    ("oficina especializada em volvo", 260, None, 36, "/oficina-volvo/"),
-    ("oficina land rover", 320, 40, 36, "/oficina-land-rover/"),
-    ("oficina bmw", 590, 41, 41, "/oficina-bmw/"),
-    ("remap perde garantia", 90, 46, 41, "/blog/remap-estraga-o-motor/"),
-    ("oficina especializada bmw", 210, 65, 48, "/oficina-bmw/"),
-    ("oficina porsche são paulo", 30, None, 52, "/ (home)"),
-]
-SAIRAM = [
-    ("auto veloce", 210, 2, "/ (home)"),
-    ("oficina lamborghini", 40, 5, "/oficina-lamborghini/"),
-    ("oficina jaguar", 140, 21, "/oficina-jaguar/"),
-    ("dinamômetro automotivo", 590, 24, "/dinamometro/"),
-    ("oficina zona norte", 140, 25, "/ (home)"),
-    ("mecânica bmw", 110, 36, "/oficina-bmw/"),
-    ("oficina mercedes", 170, 38, "/oficina-mercedes-benz/"),
-    ("oficina especializada land rover", 170, 42, "/oficina-land-rover/"),
-]
-ACOMPANHADAS = 41
+# ------------------------------------------------------------ números derivados
+out = [d for d in DIAS if d[0].endswith("/10")]
+nov = [d for d in DIAS if d[0].endswith("/11")]
+imp_dia_out = sum(d[2] for d in out) / len(out)
+imp_dia_nov = sum(d[2] for d in nov) / len(nov)
+cli_dia_out = sum(d[1] for d in out) / len(out)
+cli_dia_nov = sum(d[1] for d in nov) / len(nov)
+var_imp = (imp_dia_nov / imp_dia_out - 1) * 100
+var_cli = (cli_dia_nov / cli_dia_out - 1) * 100
+MARCA = {"veloce auto specialista", "veloce", "auto veloce", "veloce auto"}
+cli_marca = sum(c for q, c, *_ in CONSULTAS_CLIQUE if q in MARCA)
+cli_remap = sum(c for q, c, *_ in CONSULTAS_CLIQUE if "remap" in q or "stage" in q)
+cli_ident = sum(c for _, c, *_ in CONSULTAS_CLIQUE)
+REMAP_PAGS = ("/blog/remap-stage-1-e-stage-2/", "/blog/o-que-e-remap/")
+imp_remap = sum(p[2] for p in PAGINAS if p[0] in REMAP_PAGS)
+cli_remap_pags = sum(p[1] for p in PAGINAS if p[0] in REMAP_PAGS)
+dias = len(DIAS)
 
-# Taxa de clique média por posição (referência de mercado, aproximada).
-def ctr(p):
-    if p is None: return 0
-    t = {1: .28, 2: .15, 3: .11, 4: .08, 5: .07, 6: .05, 7: .04, 8: .03, 9: .025, 10: .02}
-    return t.get(p, .01 if p <= 20 else 0)
+# ------------------------------------------------------------ gráfico diário
+def grafico_dias():
+    W, H, left, right = 680, 250, 40, 12
+    t1, b1 = 16, 120          # impressões
+    t2, b2 = 150, 214         # cliques
+    n = len(DIAS)
+    slot = (W - left - right) / n
+    bw = slot * 0.62
+    mi = 800; mc = 6
+    o = [f'<svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-label="Impressões e cliques por dia de {PERIODO[0]} a {PERIODO[1]}">']
+    for v in (0, 400, 800):
+        y = b1 - (b1 - t1) * v / mi
+        o.append(f'<line x1="{left}" x2="{W-right}" y1="{y:.1f}" y2="{y:.1f}" class="grid"/><text x="{left-6}" y="{y+3.5:.1f}" class="tick" text-anchor="end">{v}</text>')
+    for v in (0, 3, 6):
+        y = b2 - (b2 - t2) * v / mc
+        o.append(f'<line x1="{left}" x2="{W-right}" y1="{y:.1f}" y2="{y:.1f}" class="grid"/><text x="{left-6}" y="{y+3.5:.1f}" class="tick" text-anchor="end">{v}</text>')
+    o.append(f'<text x="{left}" y="{t1-5}" class="lab" style="font-size:10px">Impressões por dia</text>')
+    o.append(f'<text x="{left}" y="{t2-5}" class="lab" style="font-size:10px">Cliques (visitas) por dia</text>')
+    for i, (dia, c, imp, *_r) in enumerate(DIAS):
+        x = left + slot * i + (slot - bw) / 2
+        h1 = (b1 - t1) * imp / mi
+        h2 = (b2 - t2) * c / mc
+        o.append(f'<rect x="{x:.1f}" y="{b1-h1:.1f}" width="{bw:.1f}" height="{h1:.1f}" rx="1.5" fill="var(--muted2)" opacity=".55"/>')
+        if c:
+            o.append(f'<rect x="{x:.1f}" y="{b2-h2:.1f}" width="{bw:.1f}" height="{h2:.1f}" rx="1.5" fill="var(--acc)"/>')
+            o.append(f'<text x="{x+bw/2:.1f}" y="{b2-h2-3:.1f}" text-anchor="middle" class="tick" style="font-size:8px;fill:var(--ink)">{c}</text>')
+        if i % 3 == 0 or i == n - 1:
+            o.append(f'<text x="{x+bw/2:.1f}" y="{b2+14}" text-anchor="middle" class="tick">{dia}</text>')
+    # separação outubro / novembro
+    xs = left + slot * len(out)
+    o.append(f'<line x1="{xs:.1f}" x2="{xs:.1f}" y1="{t1-2}" y2="{b2+4}" stroke="var(--ink)" stroke-dasharray="3 3" stroke-width="1"/>')
+    o.append(f'<text x="{xs+5:.1f}" y="{t1+8}" class="tick" style="fill:var(--ink)">novembro</text>')
+    o.append("</svg>")
+    return "".join(o)
 
-vis_novo = sum(v * ctr(n) for _, v, _, n, _ in POS)
-vis_antigo = sum(v * ctr(o) for _, v, o, _, _ in POS) + sum(v * ctr(o) for _, v, o, _ in SAIRAM)
-top100_antigo = sum(1 for r in POS if r[2]) + len(SAIRAM)
-top100_novo = len(POS)
-top10_novo = sum(1 for r in POS if r[3] <= 10)
-paginas = 29
+def barras_dispositivo():
+    tot = sum(d[1] for d in DISPOSITIVOS)
+    partes = []
+    for nome, c, imp, ctr, pos in DISPOSITIVOS:
+        if not c: continue
+        partes.append(f"<div class='dv'><span>{nome}</span><div class='bar'><i style='width:{100*c/tot:.0f}%'></i></div><b>{c}</b></div>")
+    return "".join(partes)
 
-def fmt(n):
-    return f"{n:,.0f}".replace(",", ".")
+def tabela_paginas():
+    nomes = {"/": "Página inicial", "/blog/remap-stage-1-e-stage-2/": "Artigo: stage 1 x stage 2",
+             "/oficina-mercedes-benz/": "Oficina Mercedes-Benz", "/blog/o-que-e-remap/": "Artigo: o que é remap",
+             "/oficina-land-rover/": "Oficina Land Rover", "/oficina-audi/": "Oficina Audi",
+             "/blog/remap-estraga-o-motor/": "Artigo: remap estraga o motor?", "/blog/quanto-custa-um-remap/": "Artigo: quanto custa um remap",
+             "/sobre/": "Sobre", "/remap/": "Remap", "/servicos/": "Serviços", "/oficina-porsche/": "Oficina Porsche",
+             "/contato/": "Contato", "/oficina-audi/revisao/": "Revisão Audi"}
+    linhas = [p for p in PAGINAS if p[1] > 0]
+    return "".join(f"<tr><td class='kwc'>{e(nomes.get(u, u))}<div class='url'>{e(u)}</div></td><td class='num strong'>{c}</td>"
+                   f"<td class='num'>{fmt(i)}</td><td class='num'>{br(p)}</td></tr>" for u, c, i, _ctr, p in linhas)
 
-def e(s):
-    return html.escape(str(s))
+def tabela_consultas():
+    return "".join(f"<tr><td class='kwc'>{e(q)}</td><td class='num strong'>{c}</td><td class='num'>{fmt(i)}</td><td class='num'>{br(p)}</td></tr>"
+                   for q, c, i, _ctr, p in CONSULTAS_CLIQUE)
 
-# ---------------------------------------------------------------- gráficos
-def grafico_evolucao():
-    dados = [("Antes do projeto", "set–out/2026", 2), ("1ª leitura", "04/11/2026", top100_antigo), ("2ª leitura", "11/11/2026", top100_novo)]
-    W, H, base, topo = 400, 215, 170, 26
-    maxv = 20
-    bw, gap = 84, 34
-    x0 = (W - (3 * bw + 2 * gap)) / 2
-    out = [f'<svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-label="Buscas em que o site aparece entre os 100 primeiros: 2 antes do projeto, {top100_antigo} em 04/11 e {top100_novo} em 11/11">']
-    for v in (0, 5, 10, 15, 20):
-        y = base - (base - topo) * v / maxv
-        out.append(f'<line x1="40" x2="{W-10}" y1="{y:.1f}" y2="{y:.1f}" class="grid"/><text x="32" y="{y+4:.1f}" class="tick" text-anchor="end">{v}</text>')
-    for i, (rot, sub, v) in enumerate(dados):
-        x = x0 + i * (bw + gap)
-        h = (base - topo) * v / maxv
-        cor = "var(--acc)" if i else "var(--muted2)"
-        out.append(f'<rect x="{x:.1f}" y="{base-h:.1f}" width="{bw}" height="{h:.1f}" rx="3" fill="{cor}"/>')
-        out.append(f'<text x="{x+bw/2:.1f}" y="{base-h-8:.1f}" text-anchor="middle" class="val">{v}</text>')
-        out.append(f'<text x="{x+bw/2:.1f}" y="{base+18}" text-anchor="middle" class="lab">{rot}</text>')
-        out.append(f'<text x="{x+bw/2:.1f}" y="{base+33}" text-anchor="middle" class="tick">{sub}</text>')
-    out.append("</svg>")
-    return "".join(out)
+def tabela_sem_clique():
+    return "".join(f"<tr><td class='kwc'>{e(q)}</td><td class='num'>{fmt(i)}</td><td class='num'>{br(p)}</td></tr>"
+                   for q, i, p in CONSULTAS_SEM_CLIQUE[:10])
 
-def grafico_posicoes():
-    linhas = sorted(POS, key=lambda r: r[3])
-    W, rowh, left, right, top = 680, 26, 220, 20, 34
-    H = top + rowh * len(linhas) + 16
-    x = lambda p: left + (W - left - right) * (p - 1) / 69  # escala 1..70
-    out = [f'<svg viewBox="0 0 {W} {H}" width="100%" role="img" aria-label="Posição no Google de cada busca em 04/11 e 11/11">']
-    for p in (1, 10, 20, 30, 40, 50, 60, 70):
-        out.append(f'<line x1="{x(p):.1f}" x2="{x(p):.1f}" y1="{top-6}" y2="{H-10}" class="grid"/><text x="{x(p):.1f}" y="{top-12}" text-anchor="middle" class="tick">{p}º</text>')
-    out.append(f'<rect x="{x(1):.1f}" y="{top-6}" width="{x(10)-x(1):.1f}" height="{H-top-4}" class="pg1"/>')
-    out.append(f'<text x="{(x(1)+x(10))/2:.1f}" y="{H-1}" text-anchor="middle" class="tick">1ª página</text>')
-    for i, (k, v, o, n, _) in enumerate(linhas):
-        y = top + rowh * i + rowh / 2
-        out.append(f'<text x="{left-12}" y="{y+4:.1f}" text-anchor="end" class="kw">{e(k)}</text>')
-        if o:
-            cor = "var(--ok)" if n < o else ("var(--bad)" if n > o else "var(--muted2)")
-            out.append(f'<line x1="{x(o):.1f}" x2="{x(n):.1f}" y1="{y:.1f}" y2="{y:.1f}" stroke="{cor}" stroke-width="3" stroke-linecap="round"/>')
-            out.append(f'<circle cx="{x(o):.1f}" cy="{y:.1f}" r="4.5" fill="var(--paper)" stroke="var(--muted2)" stroke-width="2"/>')
-        out.append(f'<circle cx="{x(n):.1f}" cy="{y:.1f}" r="5.5" fill="var(--acc)"/>')
-        out.append(f'<text x="{x(max(n, o or n))+10:.1f}" y="{y+4:.1f}" class="val-s">{n}º</text>')
-    out.append("</svg>")
-    return "".join(out)
+def tabela_marcas():
+    nomes = {"/oficina-mercedes-benz/": "Mercedes-Benz", "/oficina-audi/": "Audi", "/oficina-jaguar/": "Jaguar",
+             "/oficina-porsche/": "Porsche", "/oficina-land-rover/": "Land Rover", "/oficina-volvo/": "Volvo",
+             "/oficina-bmw/": "BMW", "/oficina-lamborghini/": "Lamborghini"}
+    linhas = sorted((p for p in PAGINAS if p[0] in nomes), key=lambda p: p[4])
+    return "".join(f"<tr><td class='kwc'>{nomes[u]}</td><td class='num'>{c}</td><td class='num'>{fmt(i)}</td><td class='num'>{br(p)}</td></tr>"
+                   for u, c, i, _ctr, p in linhas)
 
-# ---------------------------------------------------------------- tabelas
-def var_txt(o, n):
-    if o is None: return '<span class="pill novo">entrou</span>'
-    d = o - n
-    if d > 0: return f'<span class="pill up">▲ {d}</span>'
-    if d < 0: return f'<span class="pill down">▼ {-d}</span>'
-    return '<span class="pill eq">=</span>'
-
-def tabela_pos():
-    rows = []
-    for k, v, o, n, url in sorted(POS, key=lambda r: r[3]):
-        rows.append(f"<tr><td class='kwc'>{e(k)}</td><td class='num'>{fmt(v) if v else '–'}</td>"
-                    f"<td class='num'>{str(o)+'º' if o else '–'}</td><td class='num strong'>{n}º</td>"
-                    f"<td>{var_txt(o, n)}</td><td class='url'>{e(url)}</td></tr>")
-    return "".join(rows)
-
-def tabela_sairam():
-    return "".join(f"<tr><td class='kwc'>{e(k)}</td><td class='num'>{fmt(v)}</td><td class='num'>{o}º</td>"
-                   f"<td><span class='pill down'>fora dos 100</span></td><td class='url'>{e(u)}</td></tr>" for k, v, o, u in SAIRAM)
-
-ENTREGAS = [
-    ("05/10", "Plano de SEO", "Pesquisa de palavras-chave no Ubersuggest, mapa do site por marca e serviço, cronograma."),
-    ("06/10", "Base técnica", "Rank Math instalado, limpeza do WooCommerce e páginas padrão, /contato/, imagens em WebP, textos alternativos, imagem de compartilhamento e telefone clicável."),
-    ("06/10", "13 páginas de marca e serviço", "BMW, Land Rover, Volvo, Mercedes-Benz, Audi, Porsche, Jaguar, MINI, Lamborghini, remap, inspeção pré-compra, manutenção preventiva e Zona Norte. Página /dinamometro/ no mesmo dia."),
-    ("07/10", "Blog e páginas de aprofundamento", "Blog com 6 artigos (remap, stage 1 e 2, garantia, custo, cautelar), revisão BMW, revisão Land Rover e remap de câmbio."),
-    ("07/10", "Velocidade", "Tempo para mostrar o conteúdo principal da home caiu de 11,6 s para 5,5 s."),
-    ("05/11", "Novas páginas", "Revisão Volvo, Audi e Mercedes-Benz, artigo “O que é dinamômetro” e troca de óleo do câmbio automático. Texto repetido da home corrigido."),
-    ("06/11", "Google e fora do site", "Google Meu Negócio completo (serviços, descrição, fotos), links quebrados da página Sobre corrigidos, mapa do site atualizado e pedido de indexação."),
-]
-
-def timeline():
-    return "".join(f"<li><span class='dt'>{d}</span><div><b>{e(t)}</b><p>{e(x)}</p></div></li>" for d, t, x in ENTREGAS)
-
-# ---------------------------------------------------------------- página
-CSS = r"""
-@page { size: A4; margin: 0 }
-:root{
-  /* Identidade da Veloce: laranja do site, grafite e papel levemente quente */
-  --acc:#D16527; --acc-d:#A94E1B; --acc-soft:#FBEDE4;
-  --ink:#161616; --ink2:#242424; --paper:#FFFFFF; --soft:#F6F3F0;
-  --muted:#5E5953; --muted2:#A8A19A; --line:#E7E1DB;
-  --ok:#2E8B57; --ok-soft:#E5F3EA; --bad:#C0392B; --bad-soft:#F8E5E2;
-  --display:"Chakra Petch", "Arial Narrow", Arial, sans-serif;
-  --body:"Mulish", "Segoe UI", Arial, sans-serif;
-}
-*{box-sizing:border-box}
-html,body{margin:0;background:#888}
-body{font-family:var(--body);color:var(--ink);font-size:10.2pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.page{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--paper);page-break-after:always;margin:0 auto}
-.page:last-child{page-break-after:auto}
-.in{padding:18mm 17mm 22mm}
-h1,h2,h3{font-family:var(--display);margin:0;line-height:1.1;text-wrap:balance}
-h2{font-size:21pt;font-weight:600;margin-bottom:3mm}
-h3{font-size:12pt;font-weight:600;margin:0 0 2mm}
-p{margin:0 0 3mm}
-.eyebrow{font-family:var(--display);font-size:8.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);font-weight:600;margin-bottom:2.5mm}
-.lead{font-size:11.5pt;color:var(--ink2);max-width:150mm}
-.muted{color:var(--muted)}
-.rule{height:3px;width:16mm;background:var(--acc);margin:0 0 6mm}
-/* topo/rodapé das páginas internas */
-.head{display:flex;justify-content:space-between;align-items:center;padding:9mm 17mm 0;font-family:var(--display);font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.head .brand{color:var(--ink);font-weight:700}
-.head .brand i{color:var(--acc);font-style:normal}
-.foot{position:absolute;left:17mm;right:17mm;bottom:9mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--muted2);border-top:1px solid var(--line);padding-top:2.5mm}
-/* capa */
-.cover{background:var(--ink);color:#fff}
-.cover .photo{position:absolute;inset:0 0 auto 0;height:170mm;background-size:cover;background-position:center}
-.cover .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.25) 0%,rgba(18,18,18,.55) 55%,#121212 100%)}
-.cover .brandbar{position:absolute;top:14mm;left:17mm;right:17mm;display:flex;justify-content:space-between;align-items:center;z-index:2}
-.wordmark{font-family:var(--display);font-weight:700;font-size:15pt;letter-spacing:.06em;color:#fff}
-.wordmark span{color:var(--acc)}
-.wordmark small{display:block;font-size:6.8pt;letter-spacing:.42em;font-weight:500;color:#cfc9c3;margin-top:1mm}
-.cover .tag{font-family:var(--display);font-size:8pt;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(255,255,255,.45);padding:1.5mm 3mm;border-radius:2px}
-.cover .title{position:absolute;left:17mm;right:17mm;top:150mm;z-index:2}
-.cover h1{font-size:40pt;font-weight:700;letter-spacing:-.01em}
-.cover h1 em{font-style:normal;color:var(--acc)}
-.cover .sub{font-size:12.5pt;color:#d9d3cd;margin-top:5mm;max-width:150mm}
-.cover .meta{position:absolute;left:17mm;right:17mm;bottom:16mm;display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;border-top:1px solid rgba(255,255,255,.18);padding-top:6mm;z-index:2}
-.cover .meta b{display:block;font-family:var(--display);font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:1mm;font-weight:600}
-.cover .meta span{font-size:10pt;color:#eee}
-.stripe{position:absolute;right:0;top:118mm;width:58mm;height:3mm;background:var(--acc);z-index:2}
-/* kpis */
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin:7mm 0 7mm}
-.kpi{background:var(--soft);border-radius:3px;padding:4.5mm 4mm 4mm;border-top:3px solid var(--acc)}
-.kpi .n{font-family:var(--display);font-size:25pt;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
-.kpi .l{font-size:8.6pt;color:var(--muted);margin-top:2mm;line-height:1.35}
-.kpi .d{font-size:8pt;margin-top:2mm;font-weight:700}
-.kpi.dark{background:var(--ink);color:#fff;border-top-color:var(--acc)}
-.kpi.dark .l{color:#cfc9c3}
-.up-t{color:var(--ok)} .down-t{color:var(--bad)}
-.box{border:1px solid var(--line);border-radius:3px;padding:5mm 5.5mm}
-.callout{background:var(--acc-soft);border-left:3px solid var(--acc);padding:4mm 5mm;border-radius:0 3px 3px 0;margin:5mm 0}
-.callout p:last-child{margin:0}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
-/* charts */
-svg text{font-family:var(--body)}
-.grid{stroke:var(--line);stroke-width:1}
-.tick{font-size:9px;fill:var(--muted)}
-.lab{font-size:11px;fill:var(--ink);font-weight:700}
-.val{font-family:var(--display);font-size:20px;font-weight:700;fill:var(--ink)}
-.val-s{font-size:10px;font-weight:700;fill:var(--ink)}
-.kw{font-size:10.5px;fill:var(--ink)}
-.pg1{fill:var(--acc-soft)}
-.legend{display:flex;gap:6mm;font-size:8.3pt;color:var(--muted);margin-top:2mm}
-.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:1.5mm;vertical-align:-1px}
-/* tabela */
-table{width:100%;border-collapse:collapse;font-size:8.5pt}
-th{font-family:var(--display);font-size:7.6pt;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:600;border-bottom:2px solid var(--ink);padding:0 2mm 1.8mm}
-td{padding:1.15mm 2mm;border-bottom:1px solid var(--line);vertical-align:middle}
-td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
-td.strong{font-weight:800}
-td.kwc{font-weight:600}
-td.url{color:var(--muted);font-size:7.5pt;white-space:nowrap}
-.pill{display:inline-block;font-size:7.4pt;font-weight:800;padding:.6mm 2mm;border-radius:10px;white-space:nowrap}
-.pill.up{background:var(--ok-soft);color:var(--ok)} .pill.down{background:var(--bad-soft);color:var(--bad)}
-.pill.novo{background:var(--acc-soft);color:var(--acc-d)} .pill.eq{background:var(--soft);color:var(--muted)}
-/* timeline */
-.tl{list-style:none;margin:6mm 0 0;padding:0;position:relative}
-.tl:before{content:"";position:absolute;left:13mm;top:2mm;bottom:2mm;width:2px;background:var(--line)}
-.tl li{display:grid;grid-template-columns:26mm 1fr;gap:0;margin-bottom:5mm;position:relative}
-.tl li:after{content:"";position:absolute;left:12mm;top:1.6mm;width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--paper)}
-.tl .dt{font-family:var(--display);font-weight:700;font-size:10pt;color:var(--acc);padding-top:.2mm}
-.tl b{font-family:var(--display);font-size:11pt;font-weight:600}
-.tl p{margin:1mm 0 0;color:var(--muted);font-size:9.3pt}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-top:3mm}
-.fact{background:var(--ink);color:#fff;border-radius:3px;padding:4mm}
-.fact .n{font-family:var(--display);font-size:20pt;font-weight:700;color:var(--acc);line-height:1}
-.fact .l{font-size:8.5pt;color:#d9d3cd;margin-top:1.5mm}
-/* próximos passos */
-.steps{counter-reset:s;list-style:none;padding:0;margin:5mm 0 0;display:grid;gap:4mm}
-.steps li{counter-increment:s;display:grid;grid-template-columns:11mm 1fr;align-items:start;border:1px solid var(--line);border-radius:3px;padding:4mm 4.5mm}
-.steps li:before{content:counter(s);font-family:var(--display);font-weight:700;font-size:16pt;color:var(--acc);line-height:1}
-.steps b{font-family:var(--display);font-size:11pt;font-weight:600}
-.steps p{margin:1mm 0 0;font-size:9.3pt;color:var(--muted)}
-.owner{display:inline-block;font-size:7.3pt;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--soft);color:var(--ink2);padding:.5mm 2mm;border-radius:2px;margin-left:2mm;vertical-align:1px}
-.notes{font-size:8.3pt;color:var(--muted)}
-.notes li{margin-bottom:1.5mm}
+EXTRA_CSS = """
+.dv{display:grid;grid-template-columns:24mm 1fr 8mm;align-items:center;gap:3mm;font-size:9pt;margin-bottom:2mm}
+.dv .bar{height:7px;background:var(--soft);border-radius:4px;overflow:hidden}
+.dv .bar i{display:block;height:100%;background:var(--acc)}
+.dv b{text-align:right;font-variant-numeric:tabular-nums}
+td .url{font-weight:400;color:var(--muted);font-size:7.3pt}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:4mm}
+.cmp div{background:var(--soft);border-radius:3px;padding:3.5mm 4mm}
+.cmp b{font-family:var(--display);font-size:15pt;display:block;line-height:1.1}
+.cmp span{font-size:8.5pt;color:var(--muted)}
+.big{font-family:var(--display);font-size:30pt;font-weight:700;color:var(--acc);line-height:1}
 """
 
 def head(n):
-    return (f'<div class="head"><span class="brand">Veloce <i>Auto</i> Specialista</span>'
-            f'<span>Relatório de SEO · Novembro 2026</span></div>')
+    return ('<div class="head"><span class="brand">Veloce <i>Auto</i> Specialista</span>'
+            '<span>Relatório de SEO · Novembro 2026</span></div>')
 
-def foot(n):
-    return (f'<div class="foot"><span>Dados: Ubersuggest (Brasil, celular), leituras de 04/11 e 11/11/2026 · Histórico do projeto</span>'
-            f'<span>{n} / 6</span></div>')
+def foot(n, fonte):
+    return f'<div class="foot"><span>{fonte}</span><span>{n} / {TOTAL_PAGS}</span></div>'
+
+GSC = f"Dados: Google Search Console, {PERIODO[0]} a {PERIODO[1]}"
+UBER = "Dados: Ubersuggest (Brasil, celular), leituras de 04/11 e 11/11/2026"
 
 def main():
-    capa = b64("oficina-veloce-carros-premium-zona-norte-sp.webp")
-    dif = round(vis_novo - vis_antigo)
+    capa = base.b64("oficina-veloce-carros-premium-zona-norte-sp.webp")
     doc = f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
 <title>Relatório SEO Veloce · Novembro 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>{CSS}</style></head><body>
+<style>{base.CSS}{EXTRA_CSS}</style></head><body>
 
 <section class="page cover">
   <div class="photo" style="background-image:url('{capa}')"></div>
@@ -266,7 +141,7 @@ def main():
   <div class="title">
     <div class="eyebrow">Performance no Google</div>
     <h1>Relatório de SEO<br><em>Novembro 2026</em></h1>
-    <p class="sub">Como o site da Veloce está aparecendo no Google, quanta visita isso traz e tudo o que foi feito pelo site da oficina desde o início do projeto.</p>
+    <p class="sub">Quantas pessoas chegaram ao site da Veloce pelo Google, o que elas procuraram e tudo o que foi feito no site da oficina desde o início do projeto.</p>
   </div>
   <div class="meta">
     <div><b>Período</b><span>05/10 a 13/11/2026</span></div>
@@ -277,98 +152,123 @@ def main():
 
 <section class="page">{head(2)}<div class="in">
   <div class="eyebrow">Resumo</div>
-  <h2>O site saiu do zero e já aparece em {top100_novo} buscas</h2>
+  <h2>{TOTAIS['cliques']} visitas vindas do Google nos primeiros {dias} dias</h2>
   <div class="rule"></div>
-  <p class="lead">Antes do projeto, o Google só mostrava o site da Veloce para quem já digitava o nome da oficina. Hoje ele aparece em {top100_novo} das {ACOMPANHADAS} buscas que acompanhamos, e em {top10_novo} delas já está na primeira página. O projeto tem cerca de 5 semanas: é a fase em que o Google ainda está conhecendo as páginas novas, e as posições oscilam de uma semana para outra.</p>
+  <p class="lead">Desde que o Google começou a registrar o site, em {PERIODO[0]}, a Veloce apareceu {fmt(TOTAIS['impressoes'])} vezes nos resultados de busca e recebeu {TOTAIS['cliques']} visitas. Em novembro o ritmo está maior que em outubro, tanto em aparições quanto em visitas.</p>
   <div class="kpis">
-    <div class="kpi dark"><div class="n">{paginas}</div><div class="l">páginas novas publicadas no site</div><div class="d" style="color:var(--acc)">desde 06/10</div></div>
-    <div class="kpi"><div class="n">{top100_novo}</div><div class="l">buscas em que o site aparece entre os 100 primeiros</div><div class="d up-t">antes do projeto: 2</div></div>
-    <div class="kpi"><div class="n">{top10_novo}</div><div class="l">buscas na 1ª página do Google</div><div class="d muted">remap stage 1 (6º) e remap estraga o motor (10º)</div></div>
-    <div class="kpi"><div class="n">~{round(vis_novo)}</div><div class="l">visitas por mês estimadas vindas dessas buscas</div><div class="d down-t">na leitura de 04/11: ~{round(vis_antigo)}</div></div>
+    <div class="kpi dark"><div class="n">{TOTAIS['cliques']}</div><div class="l">visitas vindas do Google (cliques)</div><div class="d" style="color:var(--acc)">{PERIODO[0]} a {PERIODO[1]}</div></div>
+    <div class="kpi"><div class="n">11,6 mil</div><div class="l">vezes em que o site apareceu numa busca (impressões)</div><div class="d up-t">+{var_imp:.0f}% por dia em novembro</div></div>
+    <div class="kpi"><div class="n">{br(TOTAIS['posicao'])}</div><div class="l">posição média nos resultados</div><div class="d muted">até o 10º é a 1ª página</div></div>
+    <div class="kpi"><div class="n">{base.paginas}</div><div class="l">páginas novas publicadas no site</div><div class="d muted">desde 06/10</div></div>
   </div>
-  <div class="two">
-    <div>
-      <h3>Buscas em que o site aparece (top 100)</h3>
-      <p class="muted" style="font-size:8.8pt">Contagem entre as {ACOMPANHADAS} buscas acompanhadas no Ubersuggest.</p>
-      {grafico_evolucao()}
-    </div>
-    <div>
-      <h3>Quanto tráfego do Google veio este mês?</h3>
-      <p>O número exato de visitas aparece no Google Search Console, a ferramenta gratuita do Google para donos de site. Assim que a Veloce liberar o acesso, ele entra nos próximos relatórios. Por enquanto usamos uma <b>estimativa</b>: o volume de cada busca multiplicado pela taxa média de clique da posição em que o site aparece.</p>
-      <p>Pela leitura de 11/11, as buscas acompanhadas trazem <b>cerca de {round(vis_novo)} visitas por mês</b>. Na leitura de 04/11 eram cerca de {round(vis_antigo)}. A queda vem quase toda de duas buscas: o nome “auto veloce”, que estava em 2º e não apareceu nesta leitura, e “remap carro”, que foi do 9º para o 13º.</p>
-      <p class="muted" style="font-size:8.8pt">A base mensal do Ubersuggest, que se atualiza só uma vez por mês, ainda mostra o site com tráfego perto de zero. Ela vai até outubro e ainda não reflete as páginas novas.</p>
-    </div>
+  {grafico_dias()}
+  <div class="cmp">
+    <div><b>{imp_dia_out:.0f} → {imp_dia_nov:.0f}</b><span>impressões por dia, média de outubro → média de novembro (+{var_imp:.0f}%)</span></div>
+    <div><b>{br(cli_dia_out)} → {br(cli_dia_nov)}</b><span>visitas por dia, média de outubro → média de novembro (+{var_cli:.0f}%)</span></div>
   </div>
-  <div class="callout"><p><b>Importante saber:</b> SEO é um trabalho de médio prazo. Com 2 leituras de posição, separadas por uma semana, ainda é cedo para tirar conclusões. Páginas novas sobem e descem nas primeiras semanas. O normal é o resultado aparecer entre 60 e 120 dias depois da publicação, ou seja, de dezembro de 2026 a fevereiro de 2027.</p></div>
-</div>{foot(2)}</section>
+  <div class="callout"><p><b>Importante saber:</b> são os primeiros {dias} dias de dados, e os números diários ainda são pequenos. Um dia com 6 visitas já muda a média. O normal é o resultado de SEO aparecer entre 60 e 120 dias depois da publicação das páginas, de dezembro de 2026 a fevereiro de 2027.</p></div>
+</div>{foot(2, GSC)}</section>
 
 <section class="page">{head(3)}<div class="in">
-  <div class="eyebrow">Posições no Google</div>
-  <h2>Onde o site aparece hoje</h2>
+  <div class="eyebrow">De onde vêm as visitas</div>
+  <h2>As páginas e as buscas que trouxeram gente</h2>
   <div class="rule"></div>
-  <p class="lead" style="margin-bottom:4mm">Cada linha é uma busca. O círculo laranja é a posição em 11/11, o círculo vazio é a posição em 04/11. Verde: subiu. Vermelho: caiu. Quanto mais perto do 1º, melhor.</p>
-  {grafico_posicoes()}
+  <div class="two">
+    <div style="min-width:0">
+      <h3>Páginas que receberam visitas</h3>
+      <table><thead><tr><th>Página</th><th class="num">Visitas</th><th class="num">Impr.</th><th class="num">Posição</th></tr></thead>
+      <tbody>{tabela_paginas()}</tbody></table>
+    </div>
+    <div style="min-width:0">
+      <h3>O que as pessoas pesquisaram</h3>
+      <p class="muted" style="font-size:8.6pt">Das {TOTAIS['cliques']} visitas, o Google mostra a busca de {cli_ident}. As outras vêm de buscas raras, que o Google não revela por privacidade.</p>
+      <table><thead><tr><th>Busca</th><th class="num">Visitas</th><th class="num">Impr.</th><th class="num">Posição</th></tr></thead>
+      <tbody>{tabela_consultas()}</tbody></table>
+      <div class="cmp" style="grid-template-columns:1fr 1fr">
+        <div><b>{cli_marca}</b><span>visitas de quem buscou o nome da oficina</span></div>
+        <div><b>{cli_remap}</b><span>visitas de quem buscou remap e stage, sem conhecer a Veloce</span></div>
+      </div>
+      <h3 style="margin-top:6mm">Celular ou computador</h3>
+      {barras_dispositivo()}
+    </div>
+  </div>
+</div>{foot(3, GSC)}</section>
+
+<section class="page">{head(4)}<div class="in">
+  <div class="eyebrow">Oportunidades</div>
+  <h2>Muita gente vê os artigos de remap, pouca gente clica</h2>
+  <div class="rule"></div>
+  <div class="two">
+    <div>
+      <div class="big">{fmt(imp_remap)}</div>
+      <p class="muted" style="margin-top:1.5mm">vezes em que os artigos “stage 1 x stage 2” e “o que é remap” apareceram no Google, {imp_remap*100//11627}% de todas as aparições do site. Eles trouxeram só {cli_remap_pags} visitas.</p>
+      <p>Os dois já estão perto da primeira página (posição 8), mas o título e a descrição que aparecem no Google não estão convencendo a pessoa a clicar. <b>Ajustar esses textos é a mudança com maior retorno agora</b>: não precisa criar nada novo, e o efeito costuma aparecer em poucas semanas.</p>
+      <h3 style="margin-top:6mm">Páginas de marca ainda longe do topo</h3>
+      <p>Nas buscas do tipo “oficina bmw” e “oficina land rover”, o site ainda aparece entre a 15ª e a 60ª posição. É o esperado para páginas com cerca de 5 semanas. O que mais ajuda aqui são as <b>avaliações no Google</b>, que fazem a oficina aparecer no mapa dessas buscas.</p>
+    </div>
+    <div style="min-width:0">
+      <h3>Buscas que mostram o site, mas ainda sem clique</h3>
+      <table><thead><tr><th>Busca</th><th class="num">Impressões</th><th class="num">Posição</th></tr></thead>
+      <tbody>{tabela_sem_clique()}</tbody></table>
+      <h3 style="margin-top:7mm">Páginas de marca no Google</h3>
+      <table><thead><tr><th>Página</th><th class="num">Visitas</th><th class="num">Impr.</th><th class="num">Posição média</th></tr></thead>
+      <tbody>{tabela_marcas()}</tbody></table>
+    </div>
+  </div>
+</div>{foot(4, GSC)}</section>
+
+<section class="page">{head(5)}<div class="in">
+  <div class="eyebrow">Posições acompanhadas</div>
+  <h2>Onde o site aparece nas buscas mais importantes</h2>
+  <div class="rule"></div>
+  <p class="lead" style="margin-bottom:4mm">Acompanhamos 41 buscas toda semana. Cada linha é uma delas: o círculo laranja é a posição em 11/11, o círculo vazio é a posição em 04/11. Verde: subiu. Vermelho: caiu.</p>
+  {base.grafico_posicoes()}
   <div class="legend"><span><i style="background:var(--acc)"></i>11/11/2026</span><span><i style="background:var(--paper);border:2px solid var(--muted2)"></i>04/11/2026</span><span><i style="background:var(--ok)"></i>subiu</span><span><i style="background:var(--bad)"></i>caiu</span><span><i style="background:var(--acc-soft)"></i>1ª página</span></div>
   <div class="two" style="margin-top:6mm">
     <div class="box"><h3 class="up-t">O que avançou</h3>
-      <p style="font-size:9.3pt">O <b>blog de remap</b> é o que mais cresce: “remap stage 1” entrou direto em 6º, “remap estraga o motor” subiu para 10º, e “remap automotivo” (1.000 buscas por mês) foi de 18º para 12º. As <b>páginas de revisão</b> estrearam bem: “revisão land rover” em 18º e “revisão bmw 320i” em 23º. A página da Volvo passou a aparecer em 2 buscas.</p></div>
-    <div class="box"><h3 class="down-t">O que pede atenção</h3>
-      <p style="font-size:9.3pt"><b>8 buscas saíram dos 100 primeiros</b> nesta leitura, entre elas o nome “auto veloce” (era 2º), “oficina lamborghini” (era 5º) e “dinamômetro automotivo” (era 24º). Oscilação assim é comum em site novo. Estamos acompanhando de perto: se o nome da oficina continuar fora na leitura de 18/11, investigamos a causa.</p></div>
+      <p style="font-size:9.3pt">O blog de remap é o que mais cresce: “remap stage 1” entrou em 6º, “remap estraga o motor” subiu para 10º e “remap automotivo” (1.000 buscas por mês) foi de 18º para 12º. As páginas de revisão estrearam bem: “revisão land rover” em 18º e “revisão bmw 320i” em 23º.</p></div>
+    <div class="box"><h3 class="down-t">O que estamos acompanhando</h3>
+      <p style="font-size:9.3pt">8 buscas saíram dos 100 primeiros nesta leitura semanal, entre elas “oficina lamborghini” e “dinamômetro automotivo”. É comum em site novo. No Search Console, a busca pelo nome da oficina segue em 1º lugar, com 9 visitas.</p></div>
   </div>
-</div>{foot(3)}</section>
+</div>{foot(5, UBER)}</section>
 
-<section class="page">{head(4)}<div class="in">
-  <div class="eyebrow">Detalhe das posições</div>
-  <h2>Todas as buscas acompanhadas que aparecem</h2>
-  <div class="rule"></div>
-  <p class="muted" style="font-size:8.8pt;margin-bottom:3mm">“Buscas/mês” é a média mensal no Brasil, segundo o Ubersuggest, arredondada em faixas. As outras {ACOMPANHADAS - top100_novo - len(SAIRAM)} buscas acompanhadas ainda não aparecem entre os 100 primeiros em nenhuma das duas leituras.</p>
-  <table>
-    <thead><tr><th>Busca</th><th class="num">Buscas/mês</th><th class="num">04/11</th><th class="num">11/11</th><th>Variação</th><th>Página</th></tr></thead>
-    <tbody>{tabela_pos()}</tbody>
-  </table>
-  <h3 style="margin:5.5mm 0 2mm">Saíram dos 100 primeiros nesta leitura</h3>
-  <table>
-    <thead><tr><th>Busca</th><th class="num">Buscas/mês</th><th class="num">04/11</th><th>11/11</th><th>Página</th></tr></thead>
-    <tbody>{tabela_sairam()}</tbody>
-  </table>
-</div>{foot(4)}</section>
-
-<section class="page">{head(5)}<div class="in">
+<section class="page">{head(6)}<div class="in">
   <div class="eyebrow">O avanço até hoje</div>
   <h2>O que foi feito desde 05/10</h2>
   <div class="rule"></div>
   <div class="facts">
-    <div class="fact"><div class="n">{paginas}</div><div class="l">páginas novas: 9 de marca, 5 de revisão, 7 de serviço, 7 artigos e o blog</div></div>
-    <div class="fact"><div class="n">11,6 → 5,5 s</div><div class="l">tempo para a home mostrar o conteúdo principal</div></div>
+    <div class="fact"><div class="n">{base.paginas}</div><div class="l">páginas novas: 9 de marca, 5 de revisão, 7 de serviço, 7 artigos e o blog</div></div>
+    <div class="fact"><div class="n">11,6 → 5,5 s</div><div class="l">tempo para a página inicial mostrar o conteúdo principal</div></div>
     <div class="fact"><div class="n">21</div><div class="l">serviços cadastrados no Google Meu Negócio, cada um com link para o site</div></div>
   </div>
-  <ul class="tl">{timeline()}</ul>
-</div>{foot(5)}</section>
+  <ul class="tl">{base.timeline()}</ul>
+</div>{foot(6, "Histórico do projeto")}</section>
 
-<section class="page">{head(6)}<div class="in">
+<section class="page">{head(7)}<div class="in">
   <div class="eyebrow">Próximos passos</div>
   <h2>O que vem agora</h2>
   <div class="rule"></div>
-  <p class="lead">Dois passos ficam com a Veloce e dois com a nossa equipe. Os dois primeiros são os que mais aceleram o resultado, e levam poucos minutos.</p>
+  <p class="lead">Um passo fica com a Veloce e três com a nossa equipe.</p>
   <ol class="steps">
-    <li><div><b>Liberar o acesso ao Google Search Console</b><span class="owner">Veloce</span><p>Com ele o relatório passa a mostrar as visitas reais vindas do Google, e não só uma estimativa. Ajudamos no passo a passo.</p></div></li>
-    <li><div><b>Pedir avaliação a todo cliente no Google</b><span class="owner">Veloce</span><p>É o que mais pesa para a oficina aparecer no mapa em “oficina bmw” e nas outras buscas de marca. A mensagem pronta para o WhatsApp já foi enviada.</p></div></li>
-    <li><div><b>3 artigos sobre câmbio automático</b><span class="owner">Equipe de SEO</span><p>Apoiam a página de troca de óleo, que mira cerca de 8 mil buscas por mês somando as variações.</p></div></li>
-    <li><div><b>Nova leitura em 18/11 e relatório em dezembro</b><span class="owner">Equipe de SEO</span><p>Confirmar se o nome “auto veloce” volta ao topo e acompanhar a subida das páginas de marca.</p></div></li>
+    <li><div><b>Novos títulos para os artigos de remap e stage</b><span class="owner">Equipe de SEO</span><p>Reescrever o título e a descrição que aparecem no Google para os 2 artigos que mais aparecem, para transformar as {fmt(imp_remap)} aparições em visitas.</p></div></li>
+    <li><div><b>Pedir avaliação a todo cliente no Google</b><span class="owner">Veloce</span><p>É o que mais pesa para a oficina aparecer no mapa em “oficina bmw”, “oficina land rover” e nas outras buscas de marca.</p></div></li>
+    <li><div><b>3 artigos sobre câmbio automático</b><span class="owner">Equipe de SEO</span><p>Apoiam a página de troca de óleo do câmbio, que mira cerca de 8 mil buscas por mês somando as variações.</p></div></li>
+    <li><div><b>Relatório de dezembro</b><span class="owner">Equipe de SEO</span><p>Com o primeiro mês inteiro de Search Console, para comparar novembro com dezembro.</p></div></li>
   </ol>
   <div class="eyebrow" style="margin-top:9mm">Como ler este relatório</div>
   <ul class="notes">
-    <li><b>Posição</b> é o lugar do site na lista do Google para aquela busca, medido pelo Ubersuggest no Brasil, no celular, uma vez por semana. Até o 10º lugar é a primeira página.</li>
-    <li><b>Buscas por mês</b> é a média de vezes que a busca é feita no Brasil. O Ubersuggest arredonda esse número em faixas, então ele serve para comparar buscas entre si, não como número exato.</li>
-    <li><b>Visitas estimadas</b> = buscas por mês × taxa média de clique da posição (cerca de 5% no 6º lugar, 2% no 10º, 1% do 11º ao 20º e quase zero depois do 20º). Conta só as {ACOMPANHADAS} buscas acompanhadas. As visitas reais podem ser maiores (outras buscas, mapa do Google) ou menores.</li>
-    <li>Buscas da região, como “oficina bmw” feita em São Paulo, também mostram o mapa do Google com 3 oficinas acima dos sites. Esse espaço vem do Google Meu Negócio e não entra nas posições acima.</li>
-    <li>O projeto do Ubersuggest acompanha {ACOMPANHADAS} buscas. A próxima leitura é em 18/11/2026.</li>
+    <li><b>Impressão</b> é cada vez que o site aparece numa página de resultados do Google, mesmo que a pessoa não clique.</li>
+    <li><b>Clique</b> é cada vez que alguém clica no resultado e entra no site. É o número de visitas vindas do Google.</li>
+    <li><b>Posição média</b> é o lugar médio do site na lista de resultados. Até o 10º lugar é a primeira página.</li>
+    <li>Os dados de visitas vêm do Google Search Console, a ferramenta oficial do Google. As posições semanais vêm do Ubersuggest, que mede as buscas no Brasil pelo celular.</li>
+    <li>Buscas da região, como “oficina bmw” feita em São Paulo, também mostram o mapa do Google com 3 oficinas. Esse espaço vem do Google Meu Negócio.</li>
   </ul>
-</div>{foot(6)}</section>
+</div>{foot(7, "Veloce Auto Specialista · Relatório de SEO")}</section>
 
 </body></html>"""
-    with open(SAIDA_HTML, "w", encoding="utf-8") as f:
+    with open(SAIDA, "w", encoding="utf-8") as f:
         f.write(doc)
-    print(f"ok: visitas estimadas {vis_antigo:.1f} -> {vis_novo:.1f}; top100 {top100_antigo} -> {top100_novo}")
+    print(f"ok: imp/dia {imp_dia_out:.0f}->{imp_dia_nov:.0f} ({var_imp:+.0f}%), cli/dia {cli_dia_out:.2f}->{cli_dia_nov:.2f} ({var_cli:+.0f}%), marca {cli_marca}, remap {cli_remap}, imp remap {imp_remap}")
 
-main()
+if __name__ == "__main__":
+    main()

@@ -371,4 +371,5 @@ def main():
         f.write(doc)
     print(f"ok: visitas estimadas {vis_antigo:.1f} -> {vis_novo:.1f}; top100 {top100_antigo} -> {top100_novo}")
 
-main()
+if __name__ == "__main__":
+    main()
