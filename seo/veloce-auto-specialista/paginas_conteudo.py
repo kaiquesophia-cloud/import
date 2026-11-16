@@ -785,4 +785,187 @@ BLOG_HUB["secoes"].insert(1, {"h2": "Dinamômetro", "cards": [(L_DINAMO[0], f'{L
 BLOG_HUB["secoes"][-1]["chips"] += ['<a href="/oficina-volvo/revisao/">Revisão Volvo</a>', '<a href="/oficina-audi/revisao/">Revisão Audi</a>',
                                     '<a href="/oficina-mercedes-benz/revisao/">Revisão Mercedes-Benz</a>']
 
+# ------------------------------------------------------------------ CÂMBIO AUTOMÁTICO (preparados em 16/11/2026)
+# Confirmado com o dono: FAZEM troca de óleo do câmbio automático. NÃO fazem conserto de câmbio nem adaptação pelo
+# scanner. Não escrever que usam máquina de troca (não confirmado). Sem preço.
+L_TROCA = ("Troca de óleo do câmbio automático", "/troca-de-oleo-cambio-automatico/", "Como a Veloce faz a troca, com o óleo da especificação da montadora.")
+L_QUANDO = ("Quando trocar o óleo do câmbio automático?", "/blog/quando-trocar-oleo-cambio-automatico/", "Intervalos, uso severo e os sinais de que passou da hora.")
+L_OLEO = ("Qual o óleo certo para câmbio automático?", "/blog/oleo-de-cambio-automatico/", "Por que cada câmbio tem o seu óleo e o risco de usar o errado.")
+L_TRANCO = ("Câmbio automático dando tranco: o que pode ser?", "/blog/cambio-automatico-dando-tranco/", "As causas mais comuns e o que fazer primeiro.")
+
+ARTIGOS.append(art(
+    "quando-trocar-oleo-cambio-automatico", "Quando Trocar o Óleo do Câmbio Automático? Guia Completo",
+    "Câmbio automático precisa trocar óleo? Veja quando trocar, o que muda no uso severo, os sinais de óleo vencido e por que o “vitalício” engana.",
+    "Quando trocar o óleo do câmbio automático?",
+    "O óleo do câmbio automático também vence, mesmo quando o manual fala em óleo para a vida toda. Neste guia você "
+    "entende quando trocar, o que encurta esse prazo e quais sinais mostram que passou da hora.",
+    "Blog · Câmbio automático", 5, FOTO_OFICINA,
+    [
+        {"h2": "Câmbio automático precisa trocar óleo?", "p": [
+            "Precisa. O óleo do câmbio automático faz três trabalhos ao mesmo tempo: lubrifica as engrenagens, resfria o "
+            "câmbio e transmite pressão para as trocas de marcha. Com o calor e o tempo, ele perde essas propriedades.",
+            "Muitos carros saem de fábrica com a informação de que o óleo do câmbio dura a vida toda. Na prática, essa "
+            "\"vida toda\" costuma ser o período de garantia do carro. Depois disso, o óleo velho é uma das causas mais "
+            "comuns de trancos e desgaste.",
+        ]},
+        {"h2": "De quanto em quanto tempo trocar", "p": [
+            "Não existe um número único: cada câmbio tem o seu plano. Como referência, muitos fabricantes de câmbio "
+            "indicam a troca entre 60 mil e 100 mil km nos automáticos convencionais. Alguns câmbios de dupla embreagem "
+            "banhados a óleo têm troca prevista no plano da montadora a cada 60 mil km.",
+            "O primeiro passo é sempre o manual e o plano de manutenção do seu modelo. O segundo é olhar para o uso do carro.",
+        ], "table": [
+            ["Tipo de câmbio", "Referência comum", "Exemplos"],
+            ["Automático convencional", "60 mil a 100 mil km, ou antes no uso severo", "BMW, Mercedes-Benz 7G e 9G, Land Rover, Volvo"],
+            ["Dupla embreagem banhada a óleo", "Em muitos casos, a cada 60 mil km", "Audi S tronic, Porsche PDK"],
+        ], "p_depois": ["Os valores são uma referência geral. O que vale é o plano do seu câmbio, conferido na avaliação."]},
+        {"h2": "O que encurta a vida do óleo", "cards": [
+            ("Trânsito pesado", "O anda e para de São Paulo esquenta o câmbio muito mais que a estrada."),
+            ("Calor", "Dias quentes e congestionamento somados são o pior cenário para o óleo."),
+            ("Carro com remap", "Mais torque passa pelo câmbio, que trabalha mais quente."),
+            ("Subidas e carga", "Serra, carro cheio e reboque forçam o câmbio e o óleo."),
+        ]},
+        {"h2": "Sinais de que o óleo passou da hora", "check": [
+            "Trocas mais duras ou com tranco, principalmente em baixa velocidade",
+            "Demora para engatar ao colocar em D ou R",
+            "Rotação que sobe antes de o carro responder",
+            "Câmbio que piora quando está quente",
+            "Carro usado sem nenhum registro de troca do óleo do câmbio",
+        ], "p_depois": [
+            'Esses sinais nem sempre são só do óleo. Veja as causas mais comuns em <a href="/blog/cambio-automatico-dando-tranco/">câmbio automático dando tranco</a>.']},
+        {"h2": "Troca parcial e troca completa", "p": [
+            "Em muitos câmbios automáticos, quando o óleo é drenado, só uma parte dele sai: o resto fica no conversor de "
+            "torque e nas galerias do câmbio. Por isso alguns câmbios pedem mais de uma troca seguida, ou outro método, "
+            "para renovar a maior parte do óleo.",
+            "O método certo depende do câmbio. Na Veloce, a troca segue o que a montadora indica para o seu câmbio, com o "
+            "nível conferido na temperatura que o fabricante manda.",
+        ]},
+        {"h2": "Como é a troca na Veloce", "p": [
+            "Antes da troca, lemos a central do câmbio com o scanner para ver se há falhas registradas. Depois trocamos "
+            "o óleo da especificação da montadora, com peças genuínas, e conferimos as trocas de marcha num teste de rodagem.",
+            'Veja como funciona a <a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio automático na Veloce</a>.',
+        ]},
+        leia(L_OLEO, L_TRANCO, ("Revisão de importados", "/manutencao-preventiva/", "O plano completo de manutenção do seu carro.")),
+    ],
+    [("Óleo de câmbio automático vence?", "Vence. Ele perde as propriedades com o calor e o tempo, mesmo quando o manual fala em óleo para a vida toda."),
+     ("Posso trocar só o óleo do motor e deixar o do câmbio?", "São óleos e prazos diferentes. O do motor vence bem antes, mas o do câmbio também tem prazo e não deve ser esquecido."),
+     ("Trocar o óleo de um câmbio que nunca foi trocado faz mal?", "Depende do estado do câmbio. Por isso a avaliação vem antes: lemos a central e vemos o histórico antes de recomendar a troca."),
+     ("Quanto custa trocar o óleo do câmbio automático?", "Depende do câmbio, da quantidade de óleo e de o câmbio ter filtro e juntas. Mande o modelo, o ano e a quilometragem pelo WhatsApp que respondemos com o orçamento."),
+     ("A Veloce faz a troca?", 'Sim. Veja a <a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio automático</a>.')],
+    "Quer saber se está na hora de trocar?", "/troca-de-oleo-cambio-automatico/", "Ver a troca de óleo do câmbio",
+    "Olá, li o artigo sobre troca de óleo do câmbio. Quero saber se está na hora no meu carro. Modelo/ano/km: "))
+
+ARTIGOS.append(art(
+    "oleo-de-cambio-automatico", "Óleo de Câmbio Automático: Qual Usar e Por que Importa",
+    "Qual óleo usar no câmbio automático? Entenda por que cada câmbio pede um óleo próprio, o que acontece com o errado e como saber o certo para o seu carro.",
+    "Óleo de câmbio automático: qual usar no seu carro",
+    "Não existe um óleo de câmbio automático que sirva para todos. Neste guia você entende por que cada câmbio pede "
+    "o seu óleo, o que acontece quando se usa o errado e como descobrir o certo para o seu carro.",
+    "Blog · Câmbio automático", 5, FOTO_MOTOR,
+    [
+        {"h2": "Por que o óleo do câmbio é diferente do óleo do motor", "p": [
+            "O óleo do motor lubrifica e protege peças que giram e deslizam. O óleo do câmbio automático faz isso e mais: "
+            "ele também é o fluido hidráulico que comanda as trocas de marcha e controla o atrito das embreagens internas.",
+            "Por isso a fórmula de cada óleo é pensada para um câmbio específico. Um detalhe no atrito do óleo muda a forma "
+            "como a marcha entra.",
+        ]},
+        {"h2": "Os tipos de óleo de câmbio", "cards": [
+            ("ATF", "Óleo dos automáticos convencionais, com conversor de torque. Cada fabricante de câmbio tem a sua norma."),
+            ("Óleo de dupla embreagem", "Para câmbios como o S tronic e o PDK. Tem atrito próprio para as embreagens banhadas a óleo."),
+            ("Óleo de CVT", "Para o câmbio de polias e correia metálica. Não serve em automático convencional, nem o contrário."),
+            ("Óleo de diferencial e tração", "Alguns carros têm óleo separado na tração ou no diferencial, com prazo próprio."),
+        ]},
+        {"h2": "O que acontece com o óleo errado", "check": [
+            "Trancos e trocas de marcha duras ou demoradas",
+            "Patinação das embreagens internas, que aquecem e se desgastam",
+            "Superaquecimento do câmbio no trânsito",
+            "Desgaste acelerado de peças caras, como o corpo de válvulas e a mecatrônica",
+        ], "p_depois": [
+            "Óleo \"universal\" ou \"compatível com tudo\" é um risco em câmbio de carro premium: ele pode até funcionar no "
+            "começo, mas não tem o atrito exato que o câmbio espera."]},
+        {"h2": "Como saber qual é o óleo certo", "steps": [
+            ("Identifique o câmbio.", "O mesmo modelo de carro pode ter câmbios diferentes conforme o ano e o motor."),
+            ("Consulte a norma do fabricante.", "Cada câmbio tem uma especificação de óleo, definida pela montadora ou pelo fabricante do câmbio."),
+            ("Confira a quantidade.", "Ela muda muito de um câmbio para outro, e o nível certo depende da temperatura do óleo."),
+            ("Use óleo genuíno ou aprovado.", "Na Veloce usamos o óleo da especificação da montadora, com peças genuínas."),
+        ]},
+        {"h2": "Tabela de óleo de câmbio: cuidado", "p": [
+            "Tabelas na internet que indicam um óleo por modelo ajudam a ter uma ideia, mas erram com frequência: o mesmo "
+            "carro pode ter câmbios diferentes conforme o ano e o motor. Em carro premium, o certo é confirmar pelo câmbio "
+            "instalado no seu carro.",
+        ]},
+        {"h2": "Troca de óleo do câmbio na Veloce", "p": [
+            "Identificamos o câmbio do seu carro, lemos a central com o scanner, trocamos o óleo da especificação da "
+            "montadora e conferimos o nível do jeito que o fabricante manda.",
+            'Veja como funciona a <a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio automático na Veloce</a>.',
+        ]},
+        leia(L_QUANDO, L_TRANCO, L_TROCA),
+    ],
+    [("Posso usar qualquer óleo ATF no meu câmbio?", "Não. Cada câmbio tem a sua especificação. Um ATF de outra norma pode causar trancos e desgaste."),
+     ("Óleo de câmbio de dupla embreagem é igual ao do automático?", "Não. O câmbio de dupla embreagem usa um óleo com atrito próprio para as embreagens. Os dois não são intercambiáveis."),
+     ("Óleo genuíno é melhor?", "O óleo genuíno ou aprovado pela montadora garante a especificação que o câmbio espera. É o que a Veloce usa."),
+     ("Quanto óleo leva um câmbio automático?", "Varia muito de um câmbio para outro. Por isso o orçamento é feito para o seu modelo."),
+     ("A Veloce troca o óleo do câmbio?", 'Sim, com o óleo da especificação da montadora. Veja a <a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio automático</a>.')],
+    "Quer saber qual óleo o seu câmbio usa?", "/troca-de-oleo-cambio-automatico/", "Ver a troca de óleo do câmbio",
+    "Olá, li o artigo sobre óleo de câmbio. Quero saber qual o óleo certo para o meu carro. Modelo/ano/motor: "))
+
+ARTIGOS.append(art(
+    "cambio-automatico-dando-tranco", "Câmbio Automático Dando Tranco: O que Pode Ser",
+    "Câmbio automático dando tranco ao engatar ou trocar de marcha? Veja as causas mais comuns, do óleo aos coxins, e o que fazer antes de o problema crescer.",
+    "Câmbio automático dando tranco: o que pode ser?",
+    "Tranco no câmbio automático é um aviso. Às vezes a causa é simples, como o óleo vencido; às vezes é outra peça "
+    "que só parece ser o câmbio. Neste guia você vê as causas mais comuns e o que fazer primeiro.",
+    "Blog · Câmbio automático", 5, FOTO_EVOQUE,
+    [
+        {"h2": "Quando o tranco aparece", "cards": [
+            ("Ao engatar D ou R", "Pancada ao tirar do P ou do N, com o carro parado."),
+            ("Em baixa velocidade", "Solavanco nas trocas entre a 1ª, a 2ª e a 3ª, no anda e para."),
+            ("Com o câmbio frio", "Trocas duras nos primeiros minutos, que melhoram depois."),
+            ("Com o câmbio quente", "Trocas que pioram no trânsito ou depois de rodar bastante."),
+        ], "p_depois": ["Anotar quando o tranco acontece ajuda muito no diagnóstico."]},
+        {"h2": "As causas mais comuns", "table": [
+            ["Causa", "O que acontece", "Sinal típico"],
+            ["Óleo vencido ou nível errado", "O óleo perde o atrito certo e a pressão das trocas", "Trocas duras que pioram quando o câmbio esquenta"],
+            ["Coxins do motor e do câmbio gastos", "O conjunto se mexe e a troca vira pancada", "Tranco forte ao engatar D ou R"],
+            ["Falha elétrica ou de sensor", "A central do câmbio recebe informação errada", "Luz no painel ou falha gravada na central"],
+            ["Bateria fraca", "Tensão baixa confunde as centrais eletrônicas", "Vários avisos no painel ao mesmo tempo"],
+            ["Desgaste interno", "Embreagens e válvulas do câmbio gastas", "Patinação: a rotação sobe e o carro não responde"],
+        ]},
+        {"h2": "O que fazer primeiro", "steps": [
+            ("Não ignore.", "Tranco que aparece e some costuma voltar maior. Quanto antes avaliar, mais barato tende a ser."),
+            ("Leia a central do câmbio.", "Um scanner profissional mostra falhas gravadas e ajuda a separar defeito elétrico de mecânico."),
+            ("Confira o óleo.", "Nível, estado e histórico de troca. Óleo vencido é uma das causas mais comuns."),
+            ("Olhe os coxins.", "Coxim gasto dá tranco que parece ser do câmbio e é bem mais simples de resolver."),
+        ]},
+        {"h2": "A troca de óleo resolve o tranco?", "p": [
+            "Em muitos casos melhora, principalmente quando o óleo está vencido ou nunca foi trocado. Mas não resolve "
+            "peça gasta nem defeito elétrico. Por isso a leitura da central e a avaliação vêm antes: você sabe o que "
+            "esperar antes de aprovar qualquer serviço.",
+            "Se a avaliação mostrar desgaste interno do câmbio, a gente explica o que foi encontrado e qual é o próximo passo.",
+        ]},
+        {"h2": "Remap de câmbio resolve tranco?", "p": [
+            'Não é para isso. O <a href="/remap/cambio/">remap de câmbio</a> muda o comportamento de um câmbio em bom '
+            "estado, para trocas mais rápidas e para acompanhar um motor com mais torque. Tranco por defeito ou óleo "
+            "vencido precisa de diagnóstico, não de reprogramação.",
+        ]},
+        {"h2": "Diagnóstico na Veloce", "p": [
+            "Na Veloce lemos a central do câmbio com scanner profissional, avaliamos o óleo e os coxins, fazemos um teste "
+            "de rodagem e explicamos o que foi encontrado antes de qualquer serviço.",
+            'Quando a causa é o óleo, fazemos a <a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio automático</a> '
+            "com o óleo da especificação da montadora.",
+        ]},
+        leia(L_QUANDO, L_OLEO, L_TROCA),
+    ],
+    [("Câmbio automático dando tranco é grave?", "Nem sempre, mas é um aviso. Pode ser óleo vencido ou um coxim gasto, que são simples, ou o começo de um desgaste. Avaliar cedo evita que piore."),
+     ("Tranco ao engatar a ré é do câmbio?", "Pode ser, mas coxins gastos são uma causa muito comum desse sintoma. A avaliação separa uma coisa da outra."),
+     ("Trocar o óleo resolve o tranco?", "Melhora em muitos casos, principalmente com óleo vencido. Não resolve peça gasta nem defeito elétrico, por isso a avaliação vem antes."),
+     ("Posso continuar rodando com o câmbio dando tranco?", "Por pouco tempo e com cuidado. Se houver patinação ou luz no painel, o ideal é avaliar logo."),
+     ("A Veloce faz o diagnóstico?", 'Sim. Lemos a central do câmbio, avaliamos óleo e coxins e explicamos o que foi encontrado. Veja a <a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio automático</a>.')],
+    "O seu câmbio está dando tranco?", "/troca-de-oleo-cambio-automatico/", "Ver a troca de óleo do câmbio",
+    "Olá, meu câmbio automático está dando tranco. Modelo/ano/km e quando acontece: "))
+for _a in ARTIGOS[-3:]:
+    _a["publicado"] = "2026-11-16"
+
+BLOG_HUB["secoes"].insert(2, {"h2": "Câmbio automático", "cards": [(t, f'{d} <a href="{h}">Ler o artigo</a>.') for t, h, d in (L_QUANDO, L_OLEO, L_TRANCO)]})
+BLOG_HUB["secoes"][-1]["chips"].append('<a href="/troca-de-oleo-cambio-automatico/">Troca de óleo do câmbio</a>')
+
 CONTEUDO = ARTIGOS + [BLOG_HUB] + SUBPAGINAS

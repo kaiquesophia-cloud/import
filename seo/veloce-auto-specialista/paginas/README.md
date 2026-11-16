@@ -59,6 +59,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 ## Ajustes pendentes
 
+- **Prontos, não publicados (16/11/2026):** artigos /blog/quando-trocar-oleo-cambio-automatico/, /blog/oleo-de-cambio-automatico/ e /blog/cambio-automatico-dando-tranco/ (pai `blog`), mais /blog/ e /troca-de-oleo-cambio-automatico/ com links para eles. Publicar após o "pode".
 - 13/11/2026: título e descrição do Google trocados em /blog/remap-stage-1-e-stage-2/ (558) e /blog/o-que-e-remap/ (555). Motivo: no Search Console (18/10–10/11) os dois somavam 7.388 impressões e 10 cliques (CTR 0,1–0,2%). Comparar o CTR em dezembro.
 - /author/kaique/ já redireciona (301) para a home (Rank Math: arquivos de autor desativados); some do Google sozinha.
 - Perguntar ao dono: usam máquina de troca de óleo de câmbio (~480 buscas/mês)? Trocam filtro e juntas do câmbio? A /oficina-importados-zona-norte/ cita "câmbio" em manutenção corretiva: confirmar, porque não fazem conserto de câmbio.

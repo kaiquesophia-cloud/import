@@ -514,6 +514,14 @@ SERVICOS.append({
             ("Inspeção pré-compra", 'Vai comprar um usado? Avaliamos o câmbio antes do negócio. '
              '<a href="/inspecao-pre-compra/">Ver inspeção pré-compra</a>.'),
         ]},
+        {"h2": "Para saber mais sobre câmbio automático", "cards": [
+            ("Quando trocar o óleo do câmbio automático?", 'Intervalos, uso severo e os sinais de que passou da hora. '
+             '<a href="/blog/quando-trocar-oleo-cambio-automatico/">Ler o artigo</a>.'),
+            ("Qual o óleo certo para câmbio automático?", 'Por que cada câmbio tem o seu óleo e o risco de usar o errado. '
+             '<a href="/blog/oleo-de-cambio-automatico/">Ler o artigo</a>.'),
+            ("Câmbio automático dando tranco: o que pode ser?", 'As causas mais comuns e o que fazer primeiro. '
+             '<a href="/blog/cambio-automatico-dando-tranco/">Ler o artigo</a>.'),
+        ]},
         ATENDIMENTO,
     ],
     "faq_h2": "Perguntas frequentes sobre troca de óleo do câmbio",
