@@ -27,6 +27,9 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 581 | [/oficina-mercedes-benz/revisao/](https://veloceautospecialista.com.br/oficina-mercedes-benz/revisao/) | revisão mercedes |
 | 563 | [/remap/cambio/](https://veloceautospecialista.com.br/remap/cambio/) | remap de câmbio |
 | 601 | [/troca-de-oleo-cambio-automatico/](https://veloceautospecialista.com.br/troca-de-oleo-cambio-automatico/) | troca de óleo câmbio automático |
+| 604 | [/blog/quando-trocar-oleo-cambio-automatico/](https://veloceautospecialista.com.br/blog/quando-trocar-oleo-cambio-automatico/) | quando trocar o óleo do câmbio automático |
+| 605 | [/blog/oleo-de-cambio-automatico/](https://veloceautospecialista.com.br/blog/oleo-de-cambio-automatico/) | óleo de câmbio automático |
+| 606 | [/blog/cambio-automatico-dando-tranco/](https://veloceautospecialista.com.br/blog/cambio-automatico-dando-tranco/) | câmbio automático dando tranco |
 | 554 | [/blog/](https://veloceautospecialista.com.br/blog/) | (página que reúne os artigos) |
 | 555 | [/blog/o-que-e-remap/](https://veloceautospecialista.com.br/blog/o-que-e-remap/) | o que é remap |
 | 556 | [/blog/vistoria-cautelar-ou-inspecao-pre-compra/](https://veloceautospecialista.com.br/blog/vistoria-cautelar-ou-inspecao-pre-compra/) | vistoria cautelar |
@@ -59,7 +62,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 ## Ajustes pendentes
 
-- **Prontos, não publicados (16/11/2026):** artigos /blog/quando-trocar-oleo-cambio-automatico/, /blog/oleo-de-cambio-automatico/ e /blog/cambio-automatico-dando-tranco/ (pai `blog`), mais /blog/ e /troca-de-oleo-cambio-automatico/ com links para eles. Publicar após o "pode".
+- Sitemap: faltam 604, 605 e 606 (16/11/2026). Dono precisa clicar em Rank Math → Sitemap → Salvar.
 - 13/11/2026: título e descrição do Google trocados em /blog/remap-stage-1-e-stage-2/ (558) e /blog/o-que-e-remap/ (555). Motivo: no Search Console (18/10–10/11) os dois somavam 7.388 impressões e 10 cliques (CTR 0,1–0,2%). Comparar o CTR em dezembro.
 - /author/kaique/ já redireciona (301) para a home (Rank Math: arquivos de autor desativados); some do Google sozinha.
 - Perguntar ao dono: usam máquina de troca de óleo de câmbio (~480 buscas/mês)? Trocam filtro e juntas do câmbio? A /oficina-importados-zona-norte/ cita "câmbio" em manutenção corretiva: confirmar, porque não fazem conserto de câmbio.
