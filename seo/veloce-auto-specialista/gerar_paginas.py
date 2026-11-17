@@ -73,6 +73,11 @@ CSS = """<style>
 .vlc .fotos img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:6px;border:1px solid var(--line);display:block}
 .vlc .fotos figcaption{font-size:14px;color:var(--txt);margin-top:8px}
 .vlc .map{width:100%;height:320px;border:0;border-radius:6px;margin-top:22px}
+.vlc .cta-meio{margin-top:28px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:6px;padding:20px 22px;display:flex;gap:16px 24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.vlc .cta-meio div{flex:1 1 320px;min-width:0}
+.vlc .cta-meio strong{display:block;font-family:"Chakra Petch",sans-serif;color:var(--head)!important;font-size:19px;line-height:1.3;margin-bottom:4px}
+.vlc .cta-meio p{margin:0}
+.vlc .cta-meio .btn{margin:0;white-space:nowrap}
 @media (max-width:600px){.vlc section{padding:48px 16px}.vlc .btn{display:block;text-align:center;margin-right:0}}
 /* ---------- efeitos e interatividade ---------- */
 .vlc .hero{position:relative;overflow:hidden;isolation:isolate;min-height:560px;display:flex;align-items:center}
@@ -285,8 +290,16 @@ def gerar(pg):
         "</section>",
         "",
     ]
+    meio = pg.get("cta_meio")
+    k = max(1, len(pg["secoes"]) // 2 - 1)
     for i, sec in enumerate(pg["secoes"]):
-        partes.append(bloco(sec, i))
+        b = bloco(sec, i)
+        if meio and i == k:
+            caixa = (f'    <div class="cta-meio"><div><strong>{meio["titulo"]}</strong><p>{meio["texto"]}</p></div>'
+                     f'<a class="btn" href="{html.escape(wa(meio["msg"]))}" rel="nofollow">{meio["botao"]}</a></div>')
+            topo, fim = b.rsplit("  </div>\n</section>", 1)
+            b = topo + caixa + "\n  </div>\n</section>" + fim
+        partes.append(b)
     faq_cls = ' class="alt-bg"' if len(pg["secoes"]) % 2 else ""
     partes += [f"<section{faq_cls}>", '  <div class="wrap">', f"    <h2>{pg['faq_h2']}</h2>"]
     for q, a in pg["faq"]:

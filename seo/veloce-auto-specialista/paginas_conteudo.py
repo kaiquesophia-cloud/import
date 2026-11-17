@@ -968,4 +968,43 @@ for _a in ARTIGOS[-3:]:
 BLOG_HUB["secoes"].insert(2, {"h2": "Câmbio automático", "cards": [(t, f'{d} <a href="{h}">Ler o artigo</a>.') for t, h, d in (L_QUANDO, L_OLEO, L_TRANCO)]})
 BLOG_HUB["secoes"][-1]["chips"].append('<a href="/troca-de-oleo-cambio-automatico/">Troca de óleo do câmbio</a>')
 
+# ------------------------------------------------------------------ CHAMADA NO MEIO DOS ARTIGOS (17/11/2026)
+# O GA4 mostrou que o blog atrai visitas e quase não gera contato. A mensagem começa com "li o artigo sobre…"
+# para separar, no WhatsApp e no GA4 (linkUrl), o contato que veio do blog.
+CTA_MEIO = {
+    "o-que-e-remap": ("Quer saber quanto o seu carro pode ganhar com remap?",
+        "Mande o modelo, o ano e o motor. Um especialista diz o que dá para fazer com segurança no seu carro.",
+        "Olá, li o artigo sobre remap e quero saber quanto o meu carro pode ganhar. Modelo/ano/motor: "),
+    "vistoria-cautelar-ou-inspecao-pre-compra": ("Vai comprar um importado usado?",
+        "Antes de fechar negócio, a inspeção pré-compra mostra o estado real do motor, do câmbio e da eletrônica.",
+        "Olá, li o artigo sobre vistoria cautelar e quero agendar uma inspeção pré-compra. Carro (modelo/ano): "),
+    "quanto-custa-um-remap": ("Quer o orçamento do remap para o seu carro?",
+        "O valor depende do motor e do stage. Mande o modelo, o ano e o motor que respondemos com o orçamento.",
+        "Olá, li o artigo sobre quanto custa um remap e quero um orçamento. Modelo/ano/motor: "),
+    "remap-stage-1-e-stage-2": ("Stage 1 ou stage 2: qual faz sentido no seu carro?",
+        "Mande o modelo, o motor e o que você quer melhorar. Um especialista indica o caminho mais seguro.",
+        "Olá, li o artigo sobre stage 1 e stage 2 e quero saber qual faz sentido no meu carro. Modelo/ano/motor: "),
+    "remap-estraga-o-motor": ("Quer fazer remap sem colocar o motor em risco?",
+        "Avaliamos o carro antes, guardamos o software original e medimos o resultado no nosso dinamômetro.",
+        "Olá, li o artigo sobre remap e segurança do motor e quero avaliar o meu carro. Modelo/ano/motor: "),
+    "remap-perde-garantia": ("O seu carro ainda está na garantia?",
+        "Conte o modelo e o ano. Explicamos o que considerar antes de fazer o remap.",
+        "Olá, li o artigo sobre remap e garantia. Meu carro (modelo/ano): "),
+    "o-que-e-dinamometro": ("Quer saber quantos cavalos o seu carro tem de verdade?",
+        "A Veloce tem dinamômetro próprio e faz a medição avulsa, com ou sem remap.",
+        "Olá, li o artigo sobre dinamômetro e quero medir o meu carro. Modelo/ano: "),
+    "quando-trocar-oleo-cambio-automatico": ("Não sabe quando o óleo do câmbio foi trocado?",
+        "Mande o modelo, o ano e a quilometragem. Dizemos se está na hora, antes de virar problema.",
+        "Olá, li o artigo sobre troca de óleo do câmbio e quero saber se está na hora no meu carro. Modelo/ano/km: "),
+    "oleo-de-cambio-automatico": ("Quer saber qual óleo o câmbio do seu carro usa?",
+        "Identificamos o câmbio pelo modelo, o ano e o motor, e indicamos o óleo da especificação da montadora.",
+        "Olá, li o artigo sobre óleo de câmbio e quero saber o óleo certo para o meu carro. Modelo/ano/motor: "),
+    "cambio-automatico-dando-tranco": ("O seu câmbio está dando tranco?",
+        "Conte quando acontece. A leitura da central e a avaliação mostram a causa antes de qualquer serviço.",
+        "Olá, li o artigo sobre câmbio dando tranco. Meu carro (modelo/ano/km) e quando acontece: "),
+}
+for _a in ARTIGOS:
+    _t, _x, _m = CTA_MEIO[_a["slug"]]
+    _a["cta_meio"] = {"titulo": _t, "texto": _x, "botao": "Falar com um especialista", "msg": _m}
+
 CONTEUDO = ARTIGOS + [BLOG_HUB] + SUBPAGINAS
