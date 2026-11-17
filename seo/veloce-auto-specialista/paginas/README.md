@@ -62,6 +62,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 ## Ajustes pendentes
 
+- **Google Analytics 4 pela API (17/11/2026):** propriedade **559470561** (não é a 536774468 que o Ubersuggest mostra). Mesma conta de serviço, função Leitor. `GA_KEY_FILE=<JSON> python3 seo/ga.py relatorio --prop 559470561 --inicio ... --dims ...`. Dados desde 19/10/2026. Atenção: 113 de 140 sessões vêm como "Unassigned" e sem engajamento (provável banner de cookies barrando a medição), e nenhum evento está marcado como evento-chave (`contact_link_click` tem 26 disparos). Para tráfego orgânico, o Search Console é a fonte confiável.
 - **Search Console pela API (17/11/2026):** conta de serviço `veloce-auto-specialista@veloce-auto-specialista.iam.gserviceaccount.com` com acesso à propriedade `https://veloceautospecialista.com.br/`. Ler com `GSC_KEY_FILE=<caminho do JSON> python3 seo/gsc.py sites` e `... seo/gsc.py query --site https://veloceautospecialista.com.br/ --inicio AAAA-MM-DD --fim AAAA-MM-DD --dim page`. A chave JSON fica fora do repositório (o dono envia o arquivo na sessão).
 - 13/11/2026: título e descrição do Google trocados em /blog/remap-stage-1-e-stage-2/ (558) e /blog/o-que-e-remap/ (555). Motivo: no Search Console (18/10–10/11) os dois somavam 7.388 impressões e 10 cliques (CTR 0,1–0,2%). Comparar o CTR em dezembro.
 - /author/kaique/ já redireciona (301) para a home (Rank Math: arquivos de autor desativados); some do Google sozinha.
