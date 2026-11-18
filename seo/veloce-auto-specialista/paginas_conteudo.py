@@ -968,6 +968,85 @@ for _a in ARTIGOS[-3:]:
 BLOG_HUB["secoes"].insert(2, {"h2": "Câmbio automático", "cards": [(t, f'{d} <a href="{h}">Ler o artigo</a>.') for t, h, d in (L_QUANDO, L_OLEO, L_TRANCO)]})
 BLOG_HUB["secoes"][-1]["chips"].append('<a href="/troca-de-oleo-cambio-automatico/">Troca de óleo do câmbio</a>')
 
+# ------------------------------------------------------------------ S TRONIC (preparado em 18/11/2026)
+# Foco pedido pelo dono: Porsche e Audi. "câmbio s tronic" + variações ~740 buscas/mês (Ubersuggest).
+# Fazem troca de óleo e remap de câmbio. NÃO fazem conserto de câmbio (embreagem, mecatrônica) nem adaptação pelo scanner.
+L_STRONIC = ("Câmbio S tronic: como funciona e é bom?", "/blog/cambio-s-tronic/", "O câmbio de dupla embreagem da Audi e os cuidados que ele pede.")
+ARTIGOS.append(art(
+    "cambio-s-tronic", "Câmbio S tronic da Audi: Como Funciona, é Bom e Manutenção",
+    "Câmbio S tronic é bom? Entenda como funciona o câmbio de dupla embreagem da Audi, os cuidados no trânsito, os sinais de problema e a manutenção.",
+    "Câmbio S tronic: como funciona, é bom e qual a manutenção",
+    "O S tronic é o câmbio automático de dupla embreagem da Audi. Ele troca de marcha muito rápido e economiza "
+    "combustível, mas pede alguns cuidados. Neste guia você entende como ele funciona, se ele é bom e como fazer ele durar.",
+    "Blog · Audi", 6, FOTO_MOTOR,
+    [
+        {"h2": "O que é o câmbio S tronic", "p": [
+            "S tronic é o nome que a Audi dá ao seu câmbio automatizado de dupla embreagem. É da mesma família do DSG "
+            "da Volkswagen: por dentro ele parece um câmbio manual, mas quem troca as marchas é uma central eletrônica, "
+            "e não o motorista.",
+            "Ele aparece em boa parte da linha Audi vendida no Brasil, como A3, A4, A5, Q3 e Q5, e também nos "
+            "esportivos S e RS. Os modelos maiores, como Q7 e A6 em algumas versões, usam o tiptronic, que é outro tipo de câmbio.",
+        ]},
+        {"h2": "Como ele funciona", "p": [
+            "O S tronic tem duas embreagens. Uma cuida das marchas ímpares (1ª, 3ª, 5ª, 7ª) e a outra das pares "
+            "(2ª, 4ª, 6ª e ré). Enquanto você roda numa marcha, a próxima já fica engatada na outra embreagem, esperando.",
+            "Na hora da troca, uma embreagem solta e a outra fecha ao mesmo tempo. Por isso a troca é quase "
+            "instantânea e sem perda de força, bem mais rápida que num automático comum.",
+        ]},
+        {"h2": "S tronic x tiptronic", "table": [
+            ["", "S tronic", "Tiptronic"],
+            ["Tipo", "Dupla embreagem", "Automático com conversor de torque"],
+            ["Trocas", "Muito rápidas", "Suaves"],
+            ["No anda e para", "Pede mais cuidado", "Lida melhor"],
+            ["Onde aparece", "A3, A4, A5, Q3, Q5, S e RS", "Modelos maiores, como Q7 e algumas versões do A6"],
+        ], "p_depois": ["O câmbio exato depende do ano, do motor e da versão. Na avaliação conferimos qual é o do seu carro."]},
+        {"h2": "Câmbio S tronic é bom?", "p": [
+            "É um bom câmbio: rápido, eficiente e muito agradável de dirigir na estrada e em uso esportivo. O ponto de "
+            "atenção é o trânsito pesado. No anda e para, as embreagens trabalham muito, esquentam e se desgastam mais "
+            "rápido.",
+            "Com o uso certo e a manutenção no prazo, ele dura bastante. O problema costuma aparecer quando o óleo passa "
+            "da hora e o carro vive no congestionamento.",
+        ]},
+        {"h2": "Dois tipos de S tronic", "cards": [
+            ("Embreagem seca", "Usado nos motores menores, como alguns 1.4 TFSI. As embreagens trabalham a seco e o plano de manutenção do óleo é diferente."),
+            ("Embreagem banhada a óleo", "Usado nos motores mais fortes. O óleo resfria as embreagens, e a troca tem prazo próprio no plano da montadora."),
+        ], "p_depois": ["Saber qual dos dois o seu Audi tem muda os cuidados e a manutenção."]},
+        {"h2": "Cuidados no dia a dia", "check": [
+            "Na subida, segure o carro no freio, e não no acelerador: segurar no acelerador esquenta as embreagens",
+            "No anda e para, prefira andar e parar de vez, sem ficar rodando bem devagar com o pé no acelerador",
+            "Para manobrar, use o freio para controlar a velocidade",
+            "Não deixe a troca de óleo do câmbio atrasar",
+            "Se aparecer tranco ou aviso no painel, avalie logo, antes de o problema crescer",
+        ]},
+        {"h2": "Sinais de que o S tronic pede atenção", "check": [
+            "Trancos nas trocas da 1ª para a 2ª, em baixa velocidade",
+            "Solavanco ao sair com o carro parado",
+            "Demora para engatar a ré",
+            "Aviso de câmbio no painel ou câmbio em modo de emergência",
+            "Cheiro de queimado depois de muito anda e para",
+        ], "p_depois": ['Veja também as causas mais comuns de <a href="/blog/cambio-automatico-dando-tranco/">câmbio automático dando tranco</a>.']},
+        {"h2": "Manutenção do S tronic na Veloce", "p": [
+            "Lemos a central do câmbio com scanner profissional para ver as falhas registradas, avaliamos o óleo e "
+            "fazemos a troca com o óleo da especificação da Audi e peças genuínas, quando o plano pede.",
+            "Para quem quer trocas ainda mais rápidas ou fez remap no motor, também fazemos o "
+            '<a href="/remap/cambio/">remap de câmbio</a>, sempre num câmbio em bom estado. Se a avaliação mostrar '
+            "desgaste interno, explicamos o que foi encontrado e qual é o próximo passo.",
+            'Veja a <a href="/oficina-audi/">oficina Audi da Veloce</a> e a <a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio</a>.',
+        ]},
+        leia(L_TROCA, L_TRANCO, ("Revisão Audi", "/oficina-audi/revisao/", "O plano de revisão do seu Audi, modelo por modelo.")),
+    ],
+    [("O câmbio S tronic é confiável?", "É, com a manutenção no prazo e cuidado no trânsito pesado. A maior parte dos problemas vem de óleo vencido e de muito anda e para."),
+     ("Qual a diferença entre S tronic e DSG?", "São da mesma família: DSG é o nome usado pela Volkswagen e S tronic é o nome usado pela Audi."),
+     ("De quanto em quanto tempo trocar o óleo do S tronic?", "Depende do tipo de S tronic e do plano do seu modelo. Nos de embreagem banhada a óleo, a troca tem prazo próprio. Conferimos isso na avaliação."),
+     ("O S tronic aguenta remap?", "Depende do câmbio e do quanto o motor vai ganhar. Em vários casos o remap de câmbio entra junto. Avaliamos antes."),
+     ("A Veloce faz a manutenção do S tronic?", 'Fazemos a leitura da central, a troca de óleo e o remap de câmbio. Veja a <a href="/oficina-audi/">oficina Audi</a>.')],
+    "Tem um Audi com câmbio S tronic?", "/oficina-audi/", "Ver a oficina Audi",
+    "Olá, li o artigo sobre o câmbio S tronic e quero avaliar o meu Audi. Modelo/ano/km: "))
+ARTIGOS[-1]["publicado"] = "2026-11-18"
+for _s in BLOG_HUB["secoes"]:
+    if _s.get("h2") == "Câmbio automático":
+        _s["cards"].append((L_STRONIC[0], f'{L_STRONIC[2]} <a href="{L_STRONIC[1]}">Ler o artigo</a>.'))
+
 # ------------------------------------------------------------------ CHAMADA NO MEIO DOS ARTIGOS (17/11/2026)
 # O GA4 mostrou que o blog atrai visitas e quase não gera contato. A mensagem começa com "li o artigo sobre…"
 # para separar, no WhatsApp e no GA4 (linkUrl), o contato que veio do blog.
@@ -1002,6 +1081,9 @@ CTA_MEIO = {
     "cambio-automatico-dando-tranco": ("O seu câmbio está dando tranco?",
         "Conte quando acontece. A leitura da central e a avaliação mostram a causa antes de qualquer serviço.",
         "Olá, li o artigo sobre câmbio dando tranco. Meu carro (modelo/ano/km) e quando acontece: "),
+    "cambio-s-tronic": ("Tem um Audi com câmbio S tronic?",
+        "Mande o modelo, o ano e a quilometragem. Dizemos qual é o seu S tronic e a manutenção que ele pede.",
+        "Olá, li o artigo sobre o câmbio S tronic e quero avaliar o meu Audi. Modelo/ano/km: "),
 }
 for _a in ARTIGOS:
     _t, _x, _m = CTA_MEIO[_a["slug"]]

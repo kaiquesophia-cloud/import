@@ -245,7 +245,7 @@ PAGINAS = [
             "Reprogramação de motor feita aqui na oficina, com leitura da ECU antes e depois. Muito procurada para "
             "A3, S3, A4 e Q3.",
             ("Câmbio S tronic", "Troca de óleo do câmbio no intervalo correto e diagnóstico de trancos pela leitura "
-             "da central do câmbio.")),
+             'da central do câmbio. <a href="/blog/cambio-s-tronic/">Entenda o S tronic</a>.')),
         "Os defeitos que mais chegam à oficina nos Audi com motor TFSI. Nenhum é motivo para pânico se tratado cedo.",
         [("Consumo de óleo", "Algumas gerações do motor 2.0 TFSI (EA888) ficaram conhecidas por consumir óleo. Medir "
           "o consumo e revisar o sistema de respiro do motor vem antes de qualquer reparo grande."),
