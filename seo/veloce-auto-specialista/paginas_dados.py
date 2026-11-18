@@ -313,8 +313,8 @@ PAGINAS = [
                  "câmbio PDK de 8 marchas pedem óleo e fluido na especificação certa e leitura da central a cada revisão."),
                 ("Cayenne e Cayenne Coupé", "A 3ª geração, desde 2018 e atualizada em 2023. Câmbio Tiptronic S de 8 marchas, "
                  "tração integral e suspensão a ar: diagnóstico completo das centrais em toda revisão."),
-                ("Macan", "O Macan a combustão (Macan, T, S e GTS) usa câmbio PDK de 7 marchas e divide vários "
-                 "componentes com a Audi, o que facilita encontrar a peça genuína certa."),
+                ("Macan", "O Macan a combustão (Macan, T, S e GTS) usa câmbio PDK de 7 marchas, da mesma família do "
+                 '<a href="/blog/cambio-s-tronic/">S tronic da Audi</a>, e divide vários componentes com a Audi.'),
                 ("Panamera", "2ª geração (desde 2017) e 3ª geração (desde 2024), com PDK de 8 marchas e suspensão a ar, "
                  "que pede atenção às bolsas e ao compressor."),
                 ("718 Boxster e Cayman", "Inclusive GTS 4.0 e GT4. Motor central e câmbio PDK de 7 marchas ou manual: "
@@ -474,3 +474,26 @@ for _p in PAGINAS:
 from paginas_conteudo import CONTEUDO  # noqa: E402
 
 PAGINAS += CONTEUDO
+
+
+# ------------------------------------------------------------------ REFORÇO PORSCHE (18/11/2026, foco pedido pelo dono)
+_porsche = next(p for p in PAGINAS if p["slug"] == "oficina-porsche")
+_i = next(i for i, s in enumerate(_porsche["secoes"]) if s["h2"].startswith("Problemas comuns"))
+_porsche["secoes"].insert(_i, {"h2": "Remap e dinamômetro para Porsche", "p": [
+    "A Veloce faz o remap de Porsche na própria oficina, com leitura da central antes e depois, backup do software "
+    "original e ganho medido no nosso dinamômetro. É o serviço mais procurado para Macan e Cayenne.",
+    "Quem não quer remap também pode medir o carro: fazemos a medição avulsa no dinamômetro, para saber quanto a sua "
+    "Porsche entrega de verdade.",
+], "chips": ['<a href="/remap/">Remap</a>', '<a href="/remap/cambio/">Remap de câmbio</a>',
+             '<a href="/dinamometro/">Dinamômetro</a>', '<a href="/blog/remap-stage-1-e-stage-2/">Stage 1 e stage 2</a>']})
+_porsche["faq"] += [
+    ("Onde tem oficina Porsche em São Paulo?",
+     "A Veloce fica na Av. Casa Verde, 3010, na Zona Norte de São Paulo, perto da Marginal Tietê e de Santana. "
+     "Atendemos Porsche de toda a cidade."),
+    ("Vocês fazem a troca de óleo do câmbio PDK?",
+     'Sim. Trocamos o fluido do PDK na especificação da Porsche e lemos a central do câmbio. Veja a '
+     '<a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio</a>.'),
+    ("Vocês fazem remap em Porsche?",
+     'Sim, na própria oficina, com backup do software original e ganho medido no nosso dinamômetro. Veja o '
+     '<a href="/remap/">remap</a>.'),
+]

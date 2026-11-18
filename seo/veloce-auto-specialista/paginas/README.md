@@ -63,6 +63,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 ## Ajustes pendentes
 
+- 18/11/2026 (foco Porsche/Audi pedido pelo dono): /oficina-porsche/ (467) com a linha atual (911 992, Cayenne 3ª ger., Macan, Panamera, 718), seção "Remap e dinamômetro para Porsche", 3 FAQs novas (oficina Porsche em SP, PDK, remap) e palavras-chave no Rank Math. Links novos com âncora "oficina Porsche" no artigo do dinamômetro e no do S tronic. Pendente com o dono: atendem Porsche híbrido/elétrico? (hoje o texto diz "confirme pelo WhatsApp").
 - Sitemap: falta a 620 (18/11/2026). Dono: Rank Math → Sitemap → mudar "Links por sitemap" e voltar.
 - Atenção: o card "Manutenção corretiva" das páginas de marca (`servicos_marca` em `../paginas_dados.py`) e a /oficina-importados-zona-norte/ citam "câmbio". O dono disse que não fazem conserto de câmbio: confirmar antes de mexer.
 - 17/11/2026: /servicos/ (205, Elementor) ganhou a seção "Todos os serviços" (container `vsv0001`, gerada por `../servicos_vitrine.py`): 6 serviços, revisões por marca, artigos e WhatsApp ("vim pela página de serviços"). Dados estruturados com 11 serviços. Backup em `../backup-elementor/205-antes-servicos.json`.

@@ -766,7 +766,8 @@ ARTIGOS.append(art(
         {"h2": "O dinamômetro da Veloce", "p": [
             "A Veloce tem dinamômetro próprio na oficina da Av. Casa Verde, na Zona Norte de São Paulo. Usamos para medir "
             "o antes e o depois de cada remap e também fazemos a medição avulsa, para quem quer conhecer o rendimento do carro.",
-            'Veja como funciona o <a href="/dinamometro/">serviço de dinamômetro</a> e o <a href="/remap/">remap com ganho medido</a>.',
+            'Veja como funciona o <a href="/dinamometro/">serviço de dinamômetro</a> e o <a href="/remap/">remap com ganho medido</a>. '
+            'O Porsche 911 da foto é um dos carros que passam pela nossa <a href="/oficina-porsche/">oficina Porsche em São Paulo</a>.',
         ], "fotos": [("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/porsche-911-dinamometro-veloce.webp", "Porsche 911 Carrera Cabriolet no dinamômetro da Veloce", 1200, 1600),
                    ("https://veloceautospecialista.com.br/wp-content/uploads/2026/10/golf-gti-dinamometro-veloce.webp", "Volkswagen Golf GTI no dinamômetro da Veloce", 1200, 1600)]},
         leia(L_OQUE, L_STAGE, L_ESTRAGA),
@@ -986,6 +987,7 @@ ARTIGOS.append(art(
             "e não o motorista.",
             "Ele aparece em boa parte da linha Audi vendida no Brasil, como A3, A4, A5, Q3 e Q5, e também nos "
             "esportivos S e RS. Os modelos maiores, como Q7 e A6 em algumas versões, usam o tiptronic, que é outro tipo de câmbio.",
+            'O Porsche Macan a combustão usa um câmbio PDK da mesma família. Veja a <a href="/oficina-porsche/">oficina Porsche da Veloce</a>.',
         ]},
         {"h2": "Como ele funciona", "p": [
             "O S tronic tem duas embreagens. Uma cuida das marchas ímpares (1ª, 3ª, 5ª, 7ª) e a outra das pares "
