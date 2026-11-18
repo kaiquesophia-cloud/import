@@ -31,6 +31,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 605 | [/blog/oleo-de-cambio-automatico/](https://veloceautospecialista.com.br/blog/oleo-de-cambio-automatico/) | óleo de câmbio automático |
 | 606 | [/blog/cambio-automatico-dando-tranco/](https://veloceautospecialista.com.br/blog/cambio-automatico-dando-tranco/) | câmbio automático dando tranco |
 | 620 | [/blog/cambio-s-tronic/](https://veloceautospecialista.com.br/blog/cambio-s-tronic/) | câmbio s tronic |
+| 629 | [/blog/audi-q3-problemas-comuns/](https://veloceautospecialista.com.br/blog/audi-q3-problemas-comuns/) | audi q3 problemas |
 | 554 | [/blog/](https://veloceautospecialista.com.br/blog/) | (página que reúne os artigos) |
 | 555 | [/blog/o-que-e-remap/](https://veloceautospecialista.com.br/blog/o-que-e-remap/) | o que é remap |
 | 556 | [/blog/vistoria-cautelar-ou-inspecao-pre-compra/](https://veloceautospecialista.com.br/blog/vistoria-cautelar-ou-inspecao-pre-compra/) | vistoria cautelar |
@@ -65,7 +66,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 - 18/11/2026: /oficina-audi/ (466) reforçada: linha atual (A3 4ª ger., Q3 2ª ger., Q5, A4/A5/A6, Q7/Q8, S/RS), seção "Remap Audi: A3, S3, Q3 e Q5", 3 FAQs novas (oficina Audi em SP, troca de óleo do S tronic, remap A3/Q3) e palavras-chave no Rank Math. e-tron/híbridos com "confirme pelo WhatsApp" (pendente com o dono).
 - 18/11/2026 (foco Porsche/Audi pedido pelo dono): /oficina-porsche/ (467) com a linha atual (911 992, Cayenne 3ª ger., Macan, Panamera, 718), seção "Remap e dinamômetro para Porsche", 3 FAQs novas (oficina Porsche em SP, PDK, remap) e palavras-chave no Rank Math. Links novos com âncora "oficina Porsche" no artigo do dinamômetro e no do S tronic. Pendente com o dono: atendem Porsche híbrido/elétrico? (hoje o texto diz "confirme pelo WhatsApp").
-- Sitemap: falta a 620 (18/11/2026). Dono: Rank Math → Sitemap → mudar "Links por sitemap" e voltar.
+- Sitemap: faltam a 620 e a 629 (18/11/2026). Dono: Rank Math → Sitemap → mudar "Links por sitemap" e voltar.
 - Atenção: o card "Manutenção corretiva" das páginas de marca (`servicos_marca` em `../paginas_dados.py`) e a /oficina-importados-zona-norte/ citam "câmbio". O dono disse que não fazem conserto de câmbio: confirmar antes de mexer.
 - 17/11/2026: /servicos/ (205, Elementor) ganhou a seção "Todos os serviços" (container `vsv0001`, gerada por `../servicos_vitrine.py`): 6 serviços, revisões por marca, artigos e WhatsApp ("vim pela página de serviços"). Dados estruturados com 11 serviços. Backup em `../backup-elementor/205-antes-servicos.json`.
 - 17/11/2026: os 10 artigos do blog ganharam a caixa "Falar com um especialista" no meio do texto (`cta_meio` em `../paginas_conteudo.py`). A mensagem do WhatsApp começa com "Olá, li o artigo sobre…": contar no GA4 pelo `linkUrl` do evento `click`/`contact_link_click` e comparar com antes (de 19/10 a 17/11, 1 contato veio do blog).
