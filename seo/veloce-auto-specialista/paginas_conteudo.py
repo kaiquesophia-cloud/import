@@ -1049,6 +1049,73 @@ for _s in BLOG_HUB["secoes"]:
     if _s.get("h2") == "Câmbio automático":
         _s["cards"].append((L_STRONIC[0], f'{L_STRONIC[2]} <a href="{L_STRONIC[1]}">Ler o artigo</a>.'))
 
+# ------------------------------------------------------------------ AUDI Q3 (preparado em 18/11/2026)
+# "audi q3 problemas crônicos" ~170/mês. Só defeitos conhecidos dos TFSI e do câmbio; não afirmar o câmbio de cada
+# versão (varia por ano e motor). Sem conserto de câmbio.
+L_Q3 = ("Audi Q3: problemas mais comuns", "/blog/audi-q3-problemas-comuns/", "Os defeitos mais conhecidos do Q3 e como evitar cada um.")
+ARTIGOS.append(art(
+    "audi-q3-problemas-comuns", "Audi Q3: Problemas Mais Comuns e Como Evitar",
+    "Audi Q3 dá problema? Veja os problemas mais comuns do Q3, das duas gerações, os sinais de alerta e a manutenção que evita cada um deles.",
+    "Audi Q3: problemas mais comuns e como evitar",
+    "O Audi Q3 é um dos SUVs premium mais vendidos no Brasil. Como todo carro, ele tem pontos que pedem atenção. Neste "
+    "guia você vê os problemas mais comuns do Q3, os sinais de alerta e o que fazer para evitar cada um.",
+    "Blog · Audi", 6, FOTO_OFICINA,
+    [
+        {"h2": "O Audi Q3 dá muito problema?", "p": [
+            "Não. O Q3 é um carro bem construído, e os chamados problemas crônicos são, na maioria, pontos conhecidos "
+            "dos motores TFSI e do câmbio que aparecem quando a manutenção atrasa ou o carro roda muito no anda e para.",
+            "Conhecer esses pontos ajuda a cuidar do seu Q3 e também a avaliar um Q3 usado antes da compra.",
+        ]},
+        {"h2": "As gerações do Q3 no Brasil", "table": [
+            ["Geração", "Período", "O que saber"],
+            ["1ª geração", "Vendida até 2019", "Motores 1.4 e 2.0 TFSI. Os pontos de atenção mais conhecidos estão nessa geração"],
+            ["2ª geração", "Desde 2019, também na versão Sportback", "Mais eletrônica e assistências de condução. Pede a revisão sempre no prazo"],
+        ], "p_depois": ["O câmbio muda conforme a versão: S tronic ou tiptronic. Na avaliação confirmamos qual é o do seu Q3."]},
+        {"h2": "Os problemas mais comuns do Q3", "cards": [
+            ("Consumo de óleo", "Algumas versões do motor 2.0 TFSI das primeiras gerações ficaram conhecidas por consumir óleo. Medir o consumo vem antes de qualquer conclusão."),
+            ("Vazamento de água", "A carcaça plástica da bomba d'água e do termostato pode trincar com o calor. Cheiro adocicado e nível de água baixando são os sinais."),
+            ("Câmbio com trancos", 'Nas versões com S tronic, solavancos em baixa velocidade e trocas hesitantes são comuns no trânsito pesado. Veja o <a href="/blog/cambio-s-tronic/">guia do S tronic</a>.'),
+            ("Falhas de ignição", "Motor tremendo e luz de injeção piscando costumam ser bobinas ou velas. Nos motores com injeção só direta, a carbonização das válvulas também entra no diagnóstico."),
+            ("Ruídos na suspensão", "Buracos e lombadas de São Paulo cansam buchas, bieletas e amortecedores. Ruído seco em lombada é o primeiro aviso."),
+            ("Avisos elétricos", "Bateria fraca gera avisos em vários sistemas ao mesmo tempo. O diagnóstico separa defeito real de tensão baixa."),
+        ]},
+        {"h2": "Sinais de alerta no seu Q3", "check": [
+            "Aviso de nível de óleo acendendo entre as revisões",
+            "Nível do reservatório de água baixando ou cheiro adocicado depois de rodar",
+            "Trancos ao sair com o carro parado ou nas trocas da 1ª para a 2ª",
+            "Motor tremendo em marcha lenta ou luz de injeção acesa",
+            "Ruído seco na suspensão ao passar em lombadas",
+            "Vários avisos no painel ao mesmo tempo",
+        ]},
+        {"h2": "Como evitar os problemas", "steps": [
+            ("Óleo certo, no prazo.", "Use o óleo com a especificação VW/Audi para o seu motor e não deixe a troca atrasar."),
+            ("Câmbio também tem óleo.", 'O óleo do câmbio tem prazo próprio. Veja <a href="/blog/quando-trocar-oleo-cambio-automatico/">quando trocar</a>.'),
+            ("Arrefecimento em dia.", "Confira o nível de água com o motor frio e trate qualquer vazamento cedo."),
+            ("Leitura das centrais.", "Uma leitura com scanner na revisão mostra falhas antes de virarem defeito."),
+            ("Cuidado no anda e para.", "Na subida, segure o carro no freio, e não no acelerador."),
+        ]},
+        {"h2": "Vai comprar um Q3 usado?", "p": [
+            "Peça o histórico de revisões, confira se a troca do óleo do câmbio foi feita e faça uma avaliação antes de "
+            "fechar negócio. A leitura das centrais mostra falhas que não aparecem no test drive.",
+            'A Veloce faz a <a href="/inspecao-pre-compra/">inspeção pré-compra</a> de carros importados, com relatório técnico.',
+        ]},
+        {"h2": "O seu Q3 na Veloce", "p": [
+            "Na Veloce o seu Q3 passa por leitura completa das centrais, revisão pelo plano da Audi com peças genuínas e "
+            "relatório técnico de tudo o que foi feito.",
+            'Veja a <a href="/oficina-audi/">oficina Audi da Veloce</a> e a <a href="/oficina-audi/revisao/">revisão Audi</a>.',
+        ]},
+        leia(L_STRONIC, L_TRANCO, ("Inspeção pré-compra", "/inspecao-pre-compra/", "Avaliação completa antes de comprar um importado usado.")),
+    ],
+    [("O Audi Q3 é um carro confiável?", "É, com a manutenção no prazo. A maior parte dos problemas conhecidos aparece quando o óleo, o câmbio ou o arrefecimento ficam sem cuidado."),
+     ("Qual o problema mais comum do Audi Q3?", "Entre os mais conhecidos estão o consumo de óleo em algumas versões do 2.0 TFSI antigo, vazamentos no sistema de arrefecimento e trancos no câmbio no trânsito pesado."),
+     ("Q3 da 2ª geração tem os mesmos problemas?", "Os pontos mais conhecidos são da 1ª geração. A 2ª geração tem mais eletrônica e pede a revisão sempre no prazo."),
+     ("Vale a pena comprar um Audi Q3 usado?", "Pode valer, com histórico de revisões e uma avaliação antes da compra. A inspeção pré-compra mostra o estado real do carro."),
+     ("A Veloce atende Audi Q3?", 'Sim, das duas gerações. Veja a <a href="/oficina-audi/">oficina Audi</a>.')],
+    "Tem um Audi Q3?", "/oficina-audi/", "Ver a oficina Audi",
+    "Olá, li o artigo sobre problemas do Audi Q3 e quero avaliar o meu. Ano/km: "))
+ARTIGOS[-1]["publicado"] = "2026-11-18"
+BLOG_HUB["secoes"].insert(3, {"h2": "Audi", "cards": [(t, f'{d} <a href="{h}">Ler o artigo</a>.') for t, h, d in (L_Q3, L_STRONIC)]})
+
 # ------------------------------------------------------------------ CHAMADA NO MEIO DOS ARTIGOS (17/11/2026)
 # O GA4 mostrou que o blog atrai visitas e quase não gera contato. A mensagem começa com "li o artigo sobre…"
 # para separar, no WhatsApp e no GA4 (linkUrl), o contato que veio do blog.
@@ -1083,6 +1150,9 @@ CTA_MEIO = {
     "cambio-automatico-dando-tranco": ("O seu câmbio está dando tranco?",
         "Conte quando acontece. A leitura da central e a avaliação mostram a causa antes de qualquer serviço.",
         "Olá, li o artigo sobre câmbio dando tranco. Meu carro (modelo/ano/km) e quando acontece: "),
+    "audi-q3-problemas-comuns": ("O seu Q3 está dando algum desses sinais?",
+        "Mande o ano, a quilometragem e o que está acontecendo. Um especialista Audi responde pelo WhatsApp.",
+        "Olá, li o artigo sobre problemas do Audi Q3 e quero avaliar o meu. Ano/km e o que está acontecendo: "),
     "cambio-s-tronic": ("Tem um Audi com câmbio S tronic?",
         "Mande o modelo, o ano e a quilometragem. Dizemos qual é o seu S tronic e a manutenção que ele pede.",
         "Olá, li o artigo sobre o câmbio S tronic e quero avaliar o meu Audi. Modelo/ano/km: "),

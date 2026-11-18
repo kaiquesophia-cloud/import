@@ -270,8 +270,8 @@ PAGINAS = [
             "cards": [
                 ("A3 Sportback e Sedan", "A 4ª geração, no Brasil desde 2021. Motor TFSI turbo e câmbio "
                  '<a href="/blog/cambio-s-tronic/">S tronic</a>: óleo na especificação VW/Audi e câmbio sempre no prazo.'),
-                ("Q3 e Q3 Sportback", "A 2ª geração, desde 2019. Um dos Audi mais vendidos no Brasil e muito usado na cidade, onde o "
-                 "S tronic e o arrefecimento trabalham mais."),
+                ("Q3 e Q3 Sportback", "A 2ª geração, desde 2019. Um dos Audi mais vendidos no Brasil e muito usado na cidade. Veja os "
+                 '<a href="/blog/audi-q3-problemas-comuns/">problemas mais comuns do Q3</a>.'),
                 ("Q5 e Q5 Sportback", "Motor 2.0 TFSI, S tronic de 7 marchas e tração quattro. A revisão inclui a "
                  "inspeção da tração e da suspensão."),
                 ("A4, A5 e A6", "Sedãs e Sportback com S tronic ou tiptronic, conforme a versão. Atenção ao consumo de "
