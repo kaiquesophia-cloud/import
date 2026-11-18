@@ -224,7 +224,8 @@ PAGINAS = [
     marca(
         "oficina-audi", "Audi", "Audi", "Manutenção, diagnóstico e reparo de veículos Audi",
         "Oficina especializada em Audi, com diagnóstico completo da eletrônica, peças genuínas e relatório técnico em "
-        "cada entrega. A3, A4, A5, Q3, Q5, Q7 e os esportivos S e RS cuidados por quem trabalha só com carros premium.",
+        "cada entrega. A3, Q3, Q5, A4, A5, Q7, Q8 e os esportivos S e RS, dos modelos atuais às gerações anteriores, "
+        "cuidados por quem trabalha só com carros premium.",
         "Os Audi têm motores TFSI turbo com injeção direta, câmbios S tronic e tiptronic e tração quattro: tecnologia "
         "que entrega desempenho e pede manutenção precisa. Óleo fora da especificação, fluido do câmbio vencido ou um "
         "diagnóstico apressado custam caro depois. Na Veloce, o seu Audi é diagnosticado com scanner, orçado item por "
@@ -234,8 +235,9 @@ PAGINAS = [
          ("Peças genuínas", "Usamos somente peças genuínas Audi, com procedência informada no orçamento."),
          ("Relatório técnico", "Registro do que foi encontrado, do que foi trocado e do que acompanhar nas próximas revisões."),
          ("Orçamento sem surpresa", "Aprovação item por item, sem serviço feito sem o seu \"pode\".")],
-        ["A1", "A3 Sportback / Sedan", "A4 / A4 Avant", "A5 Sportback", "A6", "Q3", "Q5", "Q7", "Q8", "TT",
-         "S3 / S4 / S5", "RS3 / RS4 / RS5 / RS6 / RS Q3"],
+        ["A3 Sportback e Sedan (4ª geração)", "Q3 e Q3 Sportback (2ª geração)", "Q5 e Q5 Sportback",
+         "A4, A4 Avant e A5", "A6 e A7", "Q7 e Q8", "S3, S4 e S5", "RS3, RS4, RS5, RS6 e RS Q3",
+         "A1, TT e gerações anteriores de A3, A4, Q3 e Q5"],
         ["Atendemos a linha Audi vendida no Brasil, atual e de gerações anteriores:",
          f"Os Audi dividem motores e componentes com outras marcas do grupo, como {LINK['Porsche']} e "
          f"{LINK['Lamborghini']}, que também atendemos."],
@@ -262,6 +264,23 @@ PAGINAS = [
         ("Vocês atendem Audi S e RS?",
          "Sim. Atendemos as versões esportivas S e RS e os modelos de gerações anteriores. Fale com a gente pelo "
          "WhatsApp informando modelo e ano para confirmarmos a disponibilidade de peças."),
+        extra={"h2": "A linha Audi atual", "p": [
+            "Cada Audi tem motor, câmbio e tração próprios. Saber o que o seu modelo pede é o que separa uma revisão "
+            "bem feita de uma troca de óleo comum."],
+            "cards": [
+                ("A3 Sportback e Sedan", "A 4ª geração, no Brasil desde 2021. Motor TFSI turbo e câmbio "
+                 '<a href="/blog/cambio-s-tronic/">S tronic</a>: óleo na especificação VW/Audi e câmbio sempre no prazo.'),
+                ("Q3 e Q3 Sportback", "A 2ª geração, desde 2019. Um dos Audi mais vendidos no Brasil e muito usado na cidade, onde o "
+                 "S tronic e o arrefecimento trabalham mais."),
+                ("Q5 e Q5 Sportback", "Motor 2.0 TFSI, S tronic de 7 marchas e tração quattro. A revisão inclui a "
+                 "inspeção da tração e da suspensão."),
+                ("A4, A5 e A6", "Sedãs e Sportback com S tronic ou tiptronic, conforme a versão. Atenção ao consumo de "
+                 "óleo e ao sistema de arrefecimento."),
+                ("Q7 e Q8", "SUVs grandes com câmbio tiptronic de 8 marchas e, em muitas versões, suspensão a ar, que "
+                 "pede atenção às bolsas e ao compressor."),
+                ("S, RS e elétricos", "Os esportivos S e RS pedem freios e arrefecimento à altura. Para os e-tron e as "
+                 "versões híbridas, fale com a gente pelo WhatsApp com o modelo e o ano para confirmarmos o serviço."),
+            ]},
     ),
     # ------------------------------------------------------------------ PORSCHE
     marca(
@@ -449,7 +468,7 @@ DESCRICOES = {
     "oficina-land-rover": "Oficina especializada em Land Rover e Range Rover na Zona Norte de SP: suspensão a ar, diagnóstico, revisão e peças genuínas. Agende.",
     "oficina-volvo": "Oficina especializada em Volvo na Casa Verde, Zona Norte de SP: diagnóstico, revisão, reparos e peças genuínas Volvo. Relatório técnico.",
     "oficina-mercedes-benz": "Oficina especializada em Mercedes-Benz na Zona Norte de SP: diagnóstico, Service A e B, AMG e peças genuínas. Relatório técnico.",
-    "oficina-audi": "Oficina especializada em Audi na Casa Verde, Zona Norte de SP: diagnóstico, revisão, S tronic, remap e peças genuínas. Agende.",
+    "oficina-audi": "Oficina especializada em Audi em São Paulo: A3, Q3, Q5, A4, A5, Q7 e RS. Diagnóstico, câmbio S tronic, revisão, remap e peças genuínas.",
     "oficina-porsche": "Oficina especializada em Porsche em São Paulo: 911 (992), Cayenne, Macan, Panamera e 718. Diagnóstico, PDK, revisão e peças genuínas.",
     "oficina-jaguar": "Oficina especializada em Jaguar em São Paulo: F-Pace, E-Pace, XE, XF e F-Type. Diagnóstico, revisão e peças genuínas. Agende.",
     "oficina-mini": "Oficina especializada em MINI Cooper na Zona Norte de SP: diagnóstico, revisão, corrente de comando, remap e peças genuínas.",
@@ -494,6 +513,29 @@ _porsche["faq"] += [
      'Sim. Trocamos o fluido do PDK na especificação da Porsche e lemos a central do câmbio. Veja a '
      '<a href="/troca-de-oleo-cambio-automatico/">troca de óleo do câmbio</a>.'),
     ("Vocês fazem remap em Porsche?",
+     'Sim, na própria oficina, com backup do software original e ganho medido no nosso dinamômetro. Veja o '
+     '<a href="/remap/">remap</a>.'),
+]
+
+# ------------------------------------------------------------------ REFORÇO AUDI (18/11/2026, foco pedido pelo dono)
+_audi = next(p for p in PAGINAS if p["slug"] == "oficina-audi")
+_i = next(i for i, s in enumerate(_audi["secoes"]) if s["h2"].startswith("Problemas comuns"))
+_audi["secoes"].insert(_i, {"h2": "Remap Audi: A3, S3, Q3 e Q5", "p": [
+    "Os motores TFSI da Audi respondem muito bem ao remap. Fazemos a reprogramação na própria oficina, com leitura da "
+    "central antes e depois, backup do software original e ganho medido no nosso dinamômetro.",
+    "Com mais torque, o câmbio S tronic pode virar o limite: em vários casos o remap de câmbio entra junto. Avaliamos o "
+    "seu Audi antes de indicar o caminho.",
+], "chips": ['<a href="/remap/">Remap</a>', '<a href="/remap/cambio/">Remap de câmbio</a>',
+             '<a href="/dinamometro/">Dinamômetro</a>', '<a href="/blog/remap-stage-1-e-stage-2/">Stage 1 e stage 2</a>',
+             '<a href="/blog/cambio-s-tronic/">Câmbio S tronic</a>']})
+_audi["faq"] += [
+    ("Onde tem oficina Audi em São Paulo?",
+     "A Veloce fica na Av. Casa Verde, 3010, na Zona Norte de São Paulo, perto da Marginal Tietê e de Santana. "
+     "Atendemos Audi de toda a cidade."),
+    ("Vocês fazem a troca de óleo do câmbio S tronic?",
+     'Sim, com o óleo da especificação da Audi e leitura da central do câmbio. Entenda o '
+     '<a href="/blog/cambio-s-tronic/">câmbio S tronic</a>.'),
+    ("Vocês fazem remap em Audi A3 e Q3?",
      'Sim, na própria oficina, com backup do software original e ganho medido no nosso dinamômetro. Veja o '
      '<a href="/remap/">remap</a>.'),
 ]
