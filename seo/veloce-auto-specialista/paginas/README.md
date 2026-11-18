@@ -30,6 +30,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 604 | [/blog/quando-trocar-oleo-cambio-automatico/](https://veloceautospecialista.com.br/blog/quando-trocar-oleo-cambio-automatico/) | quando trocar o óleo do câmbio automático |
 | 605 | [/blog/oleo-de-cambio-automatico/](https://veloceautospecialista.com.br/blog/oleo-de-cambio-automatico/) | óleo de câmbio automático |
 | 606 | [/blog/cambio-automatico-dando-tranco/](https://veloceautospecialista.com.br/blog/cambio-automatico-dando-tranco/) | câmbio automático dando tranco |
+| 620 | [/blog/cambio-s-tronic/](https://veloceautospecialista.com.br/blog/cambio-s-tronic/) | câmbio s tronic |
 | 554 | [/blog/](https://veloceautospecialista.com.br/blog/) | (página que reúne os artigos) |
 | 555 | [/blog/o-que-e-remap/](https://veloceautospecialista.com.br/blog/o-que-e-remap/) | o que é remap |
 | 556 | [/blog/vistoria-cautelar-ou-inspecao-pre-compra/](https://veloceautospecialista.com.br/blog/vistoria-cautelar-ou-inspecao-pre-compra/) | vistoria cautelar |
@@ -62,7 +63,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 
 ## Ajustes pendentes
 
-- **Pronto, não publicado (18/11/2026):** /blog/cambio-s-tronic/ (foco Audi pedido pelo dono; ~740 buscas/mês). Publicar com /blog/ e /oficina-audi/ (ganham link para ele) após o "pode".
+- Sitemap: falta a 620 (18/11/2026). Dono: Rank Math → Sitemap → mudar "Links por sitemap" e voltar.
 - Atenção: o card "Manutenção corretiva" das páginas de marca (`servicos_marca` em `../paginas_dados.py`) e a /oficina-importados-zona-norte/ citam "câmbio". O dono disse que não fazem conserto de câmbio: confirmar antes de mexer.
 - 17/11/2026: /servicos/ (205, Elementor) ganhou a seção "Todos os serviços" (container `vsv0001`, gerada por `../servicos_vitrine.py`): 6 serviços, revisões por marca, artigos e WhatsApp ("vim pela página de serviços"). Dados estruturados com 11 serviços. Backup em `../backup-elementor/205-antes-servicos.json`.
 - 17/11/2026: os 10 artigos do blog ganharam a caixa "Falar com um especialista" no meio do texto (`cta_meio` em `../paginas_conteudo.py`). A mensagem do WhatsApp começa com "Olá, li o artigo sobre…": contar no GA4 pelo `linkUrl` do evento `click`/`contact_link_click` e comparar com antes (de 19/10 a 17/11, 1 contato veio do blog).
