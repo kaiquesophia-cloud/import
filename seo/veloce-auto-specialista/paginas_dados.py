@@ -267,7 +267,8 @@ PAGINAS = [
     marca(
         "oficina-porsche", "Porsche", "Porsche", "Manutenção, diagnóstico e reparo de veículos Porsche",
         "Oficina especializada em Porsche em São Paulo, com diagnóstico completo da eletrônica, peças genuínas e "
-        "relatório técnico em cada entrega. Macan, Cayenne, Panamera, 911 e 718 cuidados com o rigor que a marca exige.",
+        "relatório técnico em cada entrega. 911 (992), Cayenne, Macan, Panamera e 718, dos modelos atuais às gerações "
+        "anteriores, cuidados com o rigor que a marca exige.",
         "Um Porsche não pede só manutenção: pede critério. Câmbio PDK, suspensão ativa, motores de alto desempenho e uma "
         "eletrônica que registra tudo exigem diagnóstico preciso e peça certa. A Veloce trabalha exclusivamente com "
         "carros premium, com transparência total: você aprova cada item do orçamento e recebe um relatório técnico na "
@@ -277,8 +278,9 @@ PAGINAS = [
          ("Peças genuínas", "Usamos somente peças genuínas Porsche, com procedência informada antes da aprovação."),
          ("Relatório técnico", "O que foi feito, o que foi trocado e o que acompanhar, registrado a cada entrega."),
          ("Orçamento sem surpresa", "Aprovação item por item. Se aparecer algo novo, avisamos antes de fazer.")],
-        ["Macan / Macan S / GTS", "Cayenne / Cayenne Coupé", "Panamera", "911 (Carrera, Targa, Turbo)",
-         "718 Boxster", "718 Cayman", "Cayenne e 911 de gerações anteriores"],
+        ["911 geração 992 (Carrera, Targa, GTS, Turbo, GT3)", "Cayenne e Cayenne Coupé (3ª geração)",
+         "Macan, Macan T, S e GTS", "Panamera (2ª e 3ª geração)", "718 Boxster e 718 Cayman (GTS 4.0, GT4)",
+         "911 991 e 997, Cayenne e Panamera de gerações anteriores"],
         ["Atendemos a linha Porsche vendida no Brasil, atual e de gerações anteriores:",
          f"O Macan e o Cayenne dividem plataforma e componentes com modelos da {LINK['Audi']}, que também atendemos."],
         servicos_marca("Porsche",
@@ -303,6 +305,23 @@ PAGINAS = [
         ("Vocês atendem Porsche antigo ou clássico?",
          "Atendemos os modelos atuais e as gerações anteriores de Cayenne, 911, Boxster e Cayman. Para clássicos, fale "
          "com a gente pelo WhatsApp informando modelo e ano para avaliarmos o serviço."),
+        extra={"h2": "A linha Porsche atual", "p": [
+            "Cada Porsche atual tem câmbio, suspensão e eletrônica próprios. Saber o que o seu modelo pede é o que "
+            "separa uma revisão bem feita de uma troca de óleo comum."],
+            "cards": [
+                ("911 (geração 992)", "A geração atual do 911, lançada em 2019 e renovada em 2024. Motor boxer turbo e "
+                 "câmbio PDK de 8 marchas pedem óleo e fluido na especificação certa e leitura da central a cada revisão."),
+                ("Cayenne e Cayenne Coupé", "A 3ª geração, desde 2018 e atualizada em 2023. Câmbio Tiptronic S de 8 marchas, "
+                 "tração integral e suspensão a ar: diagnóstico completo das centrais em toda revisão."),
+                ("Macan", "O Macan a combustão (Macan, T, S e GTS) usa câmbio PDK de 7 marchas e divide vários "
+                 "componentes com a Audi, o que facilita encontrar a peça genuína certa."),
+                ("Panamera", "2ª geração (desde 2017) e 3ª geração (desde 2024), com PDK de 8 marchas e suspensão a ar, "
+                 "que pede atenção às bolsas e ao compressor."),
+                ("718 Boxster e Cayman", "Inclusive GTS 4.0 e GT4. Motor central e câmbio PDK de 7 marchas ou manual: "
+                 "revisão pelo plano da Porsche e atenção ao arrefecimento."),
+                ("Híbridos e elétricos", "Cayenne e Panamera E-Hybrid, Taycan e o novo Macan elétrico têm itens próprios de "
+                 "alta tensão. Fale com a gente pelo WhatsApp com o modelo e o ano para confirmarmos o serviço."),
+            ]},
     ),
     # ------------------------------------------------------------------ JAGUAR
     marca(
@@ -431,7 +450,7 @@ DESCRICOES = {
     "oficina-volvo": "Oficina especializada em Volvo na Casa Verde, Zona Norte de SP: diagnóstico, revisão, reparos e peças genuínas Volvo. Relatório técnico.",
     "oficina-mercedes-benz": "Oficina especializada em Mercedes-Benz na Zona Norte de SP: diagnóstico, Service A e B, AMG e peças genuínas. Relatório técnico.",
     "oficina-audi": "Oficina especializada em Audi na Casa Verde, Zona Norte de SP: diagnóstico, revisão, S tronic, remap e peças genuínas. Agende.",
-    "oficina-porsche": "Oficina especializada em Porsche em São Paulo: Macan, Cayenne, Panamera, 911 e 718. Diagnóstico, PDK, revisão e peças genuínas.",
+    "oficina-porsche": "Oficina especializada em Porsche em São Paulo: 911 (992), Cayenne, Macan, Panamera e 718. Diagnóstico, PDK, revisão e peças genuínas.",
     "oficina-jaguar": "Oficina especializada em Jaguar em São Paulo: F-Pace, E-Pace, XE, XF e F-Type. Diagnóstico, revisão e peças genuínas. Agende.",
     "oficina-mini": "Oficina especializada em MINI Cooper na Zona Norte de SP: diagnóstico, revisão, corrente de comando, remap e peças genuínas.",
     "oficina-lamborghini": "Manutenção de Lamborghini em São Paulo: Urus, Huracán e Aventador. Diagnóstico, revisão e peças genuínas com relatório técnico.",
