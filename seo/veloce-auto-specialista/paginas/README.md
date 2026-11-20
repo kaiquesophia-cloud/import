@@ -32,6 +32,9 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 606 | [/blog/cambio-automatico-dando-tranco/](https://veloceautospecialista.com.br/blog/cambio-automatico-dando-tranco/) | câmbio automático dando tranco |
 | 620 | [/blog/cambio-s-tronic/](https://veloceautospecialista.com.br/blog/cambio-s-tronic/) | câmbio s tronic |
 | 629 | [/blog/audi-q3-problemas-comuns/](https://veloceautospecialista.com.br/blog/audi-q3-problemas-comuns/) | audi q3 problemas |
+| 632 | [/blog/volvo-xc60-problemas-comuns/](https://veloceautospecialista.com.br/blog/volvo-xc60-problemas-comuns/) | volvo xc60 problemas |
+| 633 | [/blog/bmw-x1-problemas-comuns/](https://veloceautospecialista.com.br/blog/bmw-x1-problemas-comuns/) | bmw x1 problemas |
+| 634 | [/blog/bmw-320i-problemas-comuns/](https://veloceautospecialista.com.br/blog/bmw-320i-problemas-comuns/) | bmw 320i problemas |
 | 554 | [/blog/](https://veloceautospecialista.com.br/blog/) | (página que reúne os artigos) |
 | 555 | [/blog/o-que-e-remap/](https://veloceautospecialista.com.br/blog/o-que-e-remap/) | o que é remap |
 | 556 | [/blog/vistoria-cautelar-ou-inspecao-pre-compra/](https://veloceautospecialista.com.br/blog/vistoria-cautelar-ou-inspecao-pre-compra/) | vistoria cautelar |
@@ -88,3 +91,4 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 - 20/11/2026: Google Consent Mode v2 no ar pelo Elementor Pro → Código personalizado (ID 630, `<head>`), código em `consentimento/consent-mode.js`. Liga o CookieAdmin ao GA4 (Site Kit) e ao Google Ads (GTM): padrão "negado", vira "concedido" no aceite (o CookieAdmin chama `cookieadmin_update_gcm`). Conferido na home e na /oficina-porsche/. Medir as sessões "Unassigned" no GA4 por volta de 27/11.
 - 20/11/2026: aviso de cookies compacto no celular no ar (Elementor → Código personalizado, ID 631, CSS em `consentimento/banner-celular.css`). Altura no iPhone 473 → ~300px, acima do botão do WhatsApp, "Aceitar todos" sem nada por cima. Só celular (≤767px). O dono trocou o layout do CookieAdmin para "footer" no mesmo dia; o CSS vale para qualquer layout. Pendente: corrigir "Precisa de AJuda?" no plugin WhatsApp Chat (NinjaTeam).
 - 20/11/2026: pauta de novos artigos (Ubersuggest, Brasil): "bmw x1 problemas crônicos" 170/mês (SD 22); "volvo xc60 problemas comuns" 140 + "volvo xc60 problemas" 50 (SD 25); "bmw 320i problemas" 50 + variações "problemas crônicos bmw 320i 2013/2015" ~80 (SD 5–13). Porsche Cayenne/Macan e Evoque: sem volume para "problemas". Aguardando o dono escolher.
+- 20/11/2026: publicados 632 (Volvo XC60), 633 (BMW X1) e 634 (BMW 320i), com Rank Math (título, descrição, palavras-chave, imagem) e enviados ao Bing. Blog (554) com a seção "BMW e Volvo". Pendente: sitemap (truque do "Links por sitemap") e indexação no Search Console; links a partir das páginas /oficina-bmw/ e /oficina-volvo/; dono confirmar remap do 320i e híbridos/elétricos.
