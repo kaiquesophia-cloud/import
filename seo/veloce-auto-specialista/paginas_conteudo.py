@@ -1116,6 +1116,205 @@ ARTIGOS.append(art(
 ARTIGOS[-1]["publicado"] = "2026-11-18"
 BLOG_HUB["secoes"].insert(3, {"h2": "Audi", "cards": [(t, f'{d} <a href="{h}">Ler o artigo</a>.') for t, h, d in (L_Q3, L_STRONIC)]})
 
+# ------------------------------------------------------------------ BMW X1, VOLVO XC60, BMW 320i (preparado em 20/11/2026)
+# Ubersuggest BR: "bmw x1 problemas crônicos" 170; "volvo xc60 problemas comuns" 140 + "problemas" 50; "bmw 320i problemas" 50
+# + variações por ano ~80. Só pontos amplamente conhecidos, sem afirmar o câmbio exato de cada versão. Sem conserto de
+# câmbio, sem preços, sem registro de bateria. Híbridos/elétricos: "fale com a equipe" (pendente com o dono).
+L_X1 = ("BMW X1: problemas mais comuns", "/blog/bmw-x1-problemas-comuns/", "Os defeitos mais conhecidos do X1 em cada geração e como evitar.")
+L_XC60 = ("Volvo XC60: problemas mais comuns", "/blog/volvo-xc60-problemas-comuns/", "Os pontos de atenção do XC60 e a manutenção que evita cada um.")
+L_320 = ("BMW 320i: problemas mais comuns", "/blog/bmw-320i-problemas-comuns/", "Os defeitos mais conhecidos do 320i por geração e os sinais de alerta.")
+L_INSP = ("Inspeção pré-compra", "/inspecao-pre-compra/", "Avaliação completa antes de comprar um importado usado.")
+
+ARTIGOS.append(art(
+    "bmw-x1-problemas-comuns", "BMW X1: Problemas Mais Comuns e Como Evitar",
+    "BMW X1 dá problema? Veja os problemas mais comuns do X1 em cada geração, os sinais de alerta e a manutenção que evita cada um.",
+    "BMW X1: problemas mais comuns e como evitar",
+    "O BMW X1 é um dos SUVs premium mais vendidos no Brasil. Como todo carro, ele tem pontos que pedem atenção. Neste "
+    "guia você vê os problemas mais comuns do X1, os sinais de alerta e o que fazer para evitar cada um.",
+    "Blog · BMW", 6, FOTO_OFICINA,
+    [
+        {"h2": "O BMW X1 dá muito problema?", "p": [
+            "Não. O X1 é um carro bem construído, e os chamados problemas crônicos são, na maioria, pontos conhecidos dos "
+            "motores e do sistema de arrefecimento que aparecem quando a manutenção atrasa ou o carro roda muito no anda e para.",
+            "Conhecer esses pontos ajuda a cuidar do seu X1 e também a avaliar um X1 usado antes da compra.",
+        ]},
+        {"h2": "As gerações do X1 no Brasil", "table": [
+            ["Geração", "Período", "O que saber"],
+            ["1ª geração (E84)", "Até 2015", "Motores 2.0 aspirado e, depois, 2.0 turbo. É onde estão os pontos mais conhecidos"],
+            ["2ª geração (F48)", "2016 a 2022", "Motor 2.0 turbo, inclusive flex (ActiveFlex). Mais eletrônica"],
+            ["3ª geração (U11)", "Desde 2023", "Carro novo e cheio de eletrônica. Pede a revisão sempre no prazo"],
+        ], "p_depois": ["O câmbio e o motor mudam conforme o ano e a versão. Na avaliação confirmamos os do seu X1."]},
+        {"h2": "Os problemas mais comuns do X1", "cards": [
+            ("Vazamentos de óleo", "A junta da tampa de válvulas e a carcaça do filtro de óleo ressecam com o calor. Cheiro de queimado e manchas no chão são os sinais."),
+            ("Corrente de comando", "No 2.0 turbo da primeira geração, um ruído metálico logo depois da partida pode indicar desgaste das guias da corrente. Pede avaliação rápida."),
+            ("Arrefecimento", "Bomba d'água, termostato, mangueiras e reservatório de plástico sofrem com o calor. Nível de água baixando e aviso de temperatura são os alertas."),
+            ("Falhas de ignição", "Motor tremendo e luz de injeção acesa costumam ser bobinas ou velas. Nos motores com injeção direta, a carbonização também entra no diagnóstico."),
+            ("Ruídos na suspensão", "Buracos e lombadas de São Paulo cansam buchas, bieletas e amortecedores. Ruído seco em lombada é o primeiro aviso."),
+            ("Avisos elétricos", "Bateria fraca gera avisos em vários sistemas ao mesmo tempo. O diagnóstico separa defeito real de tensão baixa."),
+        ]},
+        {"h2": "Sinais de alerta no seu X1", "check": [
+            "Manchas de óleo onde o carro fica parado ou cheiro de queimado depois de rodar",
+            "Ruído metálico de corrente nos primeiros segundos depois da partida",
+            "Nível do reservatório de água baixando ou aviso de temperatura",
+            "Motor tremendo em marcha lenta ou luz de injeção acesa",
+            "Trancos nas trocas de marcha ou câmbio demorando para engatar",
+            "Vários avisos no painel ao mesmo tempo",
+        ]},
+        {"h2": "Como evitar os problemas", "steps": [
+            ("Óleo certo, no prazo.", "Use o óleo com a especificação BMW para o seu motor. No uso severo, não espere o aviso do painel."),
+            ("Câmbio também tem óleo.", 'Mesmo quando o manual fala em óleo "para a vida toda", ele envelhece. Veja <a href="/blog/quando-trocar-oleo-cambio-automatico/">quando trocar</a>.'),
+            ("Arrefecimento em dia.", "Confira o nível de água com o motor frio e troque as peças de plástico ressecadas antes de quebrarem."),
+            ("Leitura das centrais.", "Uma leitura com scanner na revisão mostra falhas antes de virarem defeito."),
+            ("Atenção aos ruídos.", "Ruído novo no motor ou na suspensão merece avaliação cedo. Quanto antes, mais simples o reparo."),
+        ]},
+        {"h2": "Vai comprar um X1 usado?", "p": [
+            "Peça o histórico de revisões, ouça o motor na partida a frio e faça uma avaliação antes de fechar negócio. A "
+            "leitura das centrais mostra falhas que não aparecem no test drive.",
+            'A Veloce faz a <a href="/inspecao-pre-compra/">inspeção pré-compra</a> de carros importados, com relatório técnico.',
+        ]},
+        {"h2": "O seu X1 na Veloce", "p": [
+            "Na Veloce o seu X1 passa por leitura completa das centrais, revisão pelo plano da BMW com peças genuínas e "
+            "relatório técnico de tudo o que foi feito.",
+            'Veja a <a href="/oficina-bmw/">oficina BMW da Veloce</a> e a <a href="/oficina-bmw/revisao/">revisão BMW</a>.',
+        ]},
+        leia(L_320, L_TRANCO, L_INSP),
+    ],
+    [("O BMW X1 é um carro confiável?", "É, com a manutenção no prazo. A maior parte dos problemas conhecidos aparece quando o óleo, o arrefecimento ou a revisão ficam para depois."),
+     ("Qual o problema mais comum do BMW X1?", "Entre os mais conhecidos estão os vazamentos de óleo pela junta da tampa de válvulas e pelo filtro, o desgaste da corrente no 2.0 turbo da primeira geração e peças do arrefecimento."),
+     ("O X1 flex tem os mesmos problemas?", "O X1 flex (ActiveFlex) é da segunda geração em diante. Os pontos mais conhecidos são da primeira geração; nas mais novas, o principal é manter a revisão no prazo."),
+     ("Vale a pena comprar um BMW X1 usado?", "Pode valer, com histórico de revisões e uma avaliação antes da compra. A inspeção pré-compra mostra o estado real do carro."),
+     ("A Veloce atende BMW X1?", 'Sim. Veja a <a href="/oficina-bmw/">oficina BMW</a>. Para as versões híbridas e elétricas, fale com a equipe antes de agendar.')],
+    "Tem um BMW X1?", "/oficina-bmw/", "Ver a oficina BMW",
+    "Olá, li o artigo sobre problemas do BMW X1 e quero avaliar o meu. Ano/km: "))
+ARTIGOS[-1]["publicado"] = "2026-11-20"
+
+ARTIGOS.append(art(
+    "volvo-xc60-problemas-comuns", "Volvo XC60: Problemas Mais Comuns e Como Evitar",
+    "Volvo XC60 dá problema? Veja os problemas mais comuns do XC60, os sinais de alerta e a manutenção que evita cada um deles.",
+    "Volvo XC60: problemas mais comuns e como evitar",
+    "O Volvo XC60 é conhecido pela segurança e pelo conforto. Como todo carro, ele tem pontos que pedem atenção. Neste "
+    "guia você vê os problemas mais comuns do XC60, os sinais de alerta e o que fazer para evitar cada um.",
+    "Blog · Volvo", 6, FOTO_OFICINA,
+    [
+        {"h2": "O Volvo XC60 dá muito problema?", "p": [
+            "Não. O XC60 é um carro robusto, e os problemas mais citados são pontos conhecidos de algumas gerações de motor "
+            "e do uso pesado no trânsito, que aparecem quando a manutenção atrasa.",
+            "Conhecer esses pontos ajuda a cuidar do seu XC60 e também a avaliar um XC60 usado antes da compra.",
+        ]},
+        {"h2": "As gerações do XC60 no Brasil", "table": [
+            ["Geração", "Período", "O que saber"],
+            ["1ª geração", "Até 2017", "Primeiro com motores de 5 e 6 cilindros e, a partir de 2015, com os 2.0 turbo da família Drive-E"],
+            ["2ª geração", "Desde 2018", "Motores 2.0 turbo, versões híbridas e muita eletrônica. Pede a revisão sempre no prazo"],
+        ], "p_depois": ["O motor e o câmbio mudam conforme o ano e a versão. Na avaliação confirmamos os do seu XC60. Para as versões híbridas, fale com a equipe antes de agendar."]},
+        {"h2": "Os problemas mais comuns do XC60", "cards": [
+            ("Consumo de óleo", "Alguns motores 2.0 Drive-E das primeiras safras ficaram conhecidos por consumir óleo. Medir o consumo vem antes de qualquer conclusão."),
+            ("Respiro do motor", "O separador de óleo (sistema de respiro) pode entupir ou rasgar a membrana. Assobio no motor e marcha lenta irregular são sinais comuns."),
+            ("Vazamentos de óleo", "Juntas e retentores ressecam com o tempo e o calor. Manchas no chão e cheiro de queimado depois de rodar são os alertas."),
+            ("Arrefecimento", "Mangueiras, reservatório e bomba d'água sofrem com o calor do anda e para. Nível de água baixando pede avaliação."),
+            ("Câmbio com trocas duras", 'Trancos e trocas lentas costumam aparecer com o óleo velho. Veja <a href="/blog/cambio-automatico-dando-tranco/">o que pode causar o tranco</a>.'),
+            ("Suspensão e avisos elétricos", "Buchas e bieletas cansam nas ruas de São Paulo. Bateria fraca gera avisos em vários sistemas ao mesmo tempo."),
+        ]},
+        {"h2": "Sinais de alerta no seu XC60", "check": [
+            "Aviso de nível de óleo acendendo entre as revisões",
+            "Assobio no motor ou marcha lenta oscilando",
+            "Manchas de óleo onde o carro fica parado",
+            "Nível do reservatório de água baixando",
+            "Trancos nas trocas de marcha ou demora para engatar",
+            "Ruído seco na suspensão ou vários avisos no painel ao mesmo tempo",
+        ]},
+        {"h2": "Como evitar os problemas", "steps": [
+            ("Óleo certo, no prazo.", "Use o óleo com a especificação Volvo para o seu motor e acompanhe o nível entre as trocas."),
+            ("Câmbio também tem óleo.", 'O óleo do câmbio envelhece mesmo quando o manual não pede troca. Veja <a href="/blog/quando-trocar-oleo-cambio-automatico/">quando trocar</a>.'),
+            ("Respiro e arrefecimento.", "Na revisão, confira o separador de óleo, as mangueiras e o reservatório de água."),
+            ("Leitura das centrais.", "Uma leitura com scanner na revisão mostra falhas antes de virarem defeito."),
+            ("Revisão no prazo.", 'Siga o plano da Volvo com peças genuínas. Veja a <a href="/oficina-volvo/revisao/">revisão Volvo</a>.'),
+        ]},
+        {"h2": "Vai comprar um XC60 usado?", "p": [
+            "Peça o histórico de revisões, pergunte sobre o consumo de óleo e faça uma avaliação antes de fechar negócio. A "
+            "leitura das centrais mostra falhas que não aparecem no test drive.",
+            'A Veloce faz a <a href="/inspecao-pre-compra/">inspeção pré-compra</a> de carros importados, com relatório técnico.',
+        ]},
+        {"h2": "O seu XC60 na Veloce", "p": [
+            "Na Veloce o seu XC60 passa por leitura completa das centrais, revisão pelo plano da Volvo com peças genuínas e "
+            "relatório técnico de tudo o que foi feito.",
+            'Veja a <a href="/oficina-volvo/">oficina Volvo da Veloce</a> e a <a href="/oficina-volvo/revisao/">revisão Volvo</a>.',
+        ]},
+        leia(L_QUANDO, L_TRANCO, L_INSP),
+    ],
+    [("O Volvo XC60 é um carro confiável?", "É, com a manutenção no prazo. Os problemas mais conhecidos aparecem quando o óleo, o arrefecimento ou a revisão ficam para depois."),
+     ("Qual o problema mais comum do Volvo XC60?", "Entre os mais citados estão o consumo de óleo em alguns motores 2.0 Drive-E das primeiras safras, o separador de óleo do respiro e vazamentos com o tempo."),
+     ("O XC60 da 2ª geração tem os mesmos problemas?", "Os pontos mais conhecidos são das gerações anteriores de motor. A 2ª geração tem mais eletrônica e pede a revisão sempre no prazo."),
+     ("Vale a pena comprar um Volvo XC60 usado?", "Pode valer, com histórico de revisões e uma avaliação antes da compra. A inspeção pré-compra mostra o estado real do carro."),
+     ("A Veloce atende Volvo XC60?", 'Sim. Veja a <a href="/oficina-volvo/">oficina Volvo</a>. Para as versões híbridas, fale com a equipe antes de agendar.')],
+    "Tem um Volvo XC60?", "/oficina-volvo/", "Ver a oficina Volvo",
+    "Olá, li o artigo sobre problemas do Volvo XC60 e quero avaliar o meu. Ano/km: "))
+ARTIGOS[-1]["publicado"] = "2026-11-20"
+
+ARTIGOS.append(art(
+    "bmw-320i-problemas-comuns", "BMW 320i: Problemas Mais Comuns e Como Evitar",
+    "BMW 320i dá problema? Veja os problemas mais comuns do 320i em cada geração, os sinais de alerta e a manutenção que evita cada um.",
+    "BMW 320i: problemas mais comuns e como evitar",
+    "O BMW 320i é o sedã esportivo mais conhecido da marca no Brasil. Como todo carro, ele tem pontos que pedem atenção. "
+    "Neste guia você vê os problemas mais comuns do 320i, os sinais de alerta e o que fazer para evitar cada um.",
+    "Blog · BMW", 6, FOTO_MOTOR,
+    [
+        {"h2": "O BMW 320i dá muito problema?", "p": [
+            "Não. O 320i é um carro bem construído, e os chamados problemas crônicos são, na maioria, pontos conhecidos de "
+            "cada geração de motor que aparecem quando a manutenção atrasa.",
+            "Conhecer esses pontos ajuda a cuidar do seu 320i e também a avaliar um 320i usado antes da compra.",
+        ]},
+        {"h2": "As gerações do 320i no Brasil", "table": [
+            ["Geração", "Período", "O que saber"],
+            ["E90", "Até 2012", "Motor 2.0 aspirado. Atenção a vazamentos de óleo e ao arrefecimento"],
+            ["F30", "2013 a 2019", "Motor 2.0 turbo e, depois, o 2.0 turbo flex (ActiveFlex). É a geração mais procurada usada"],
+            ["G20", "Desde 2019", "Motor 2.0 turbo flex e muita eletrônica. Pede a revisão sempre no prazo"],
+        ], "p_depois": ["O motor e o câmbio mudam conforme o ano. Na avaliação confirmamos os do seu 320i."]},
+        {"h2": "Os problemas mais comuns do 320i", "cards": [
+            ("Vazamentos de óleo", "A junta da tampa de válvulas e a carcaça do filtro de óleo ressecam com o calor. Óleo pingando no escapamento gera cheiro de queimado."),
+            ("Corrente de comando", "No 2.0 turbo do F30 das primeiras safras, um ruído metálico logo depois da partida pode indicar desgaste das guias da corrente."),
+            ("Arrefecimento", "Bomba d'água, termostato e peças de plástico do sistema sofrem com o calor. Aviso de temperatura e nível baixando pedem avaliação imediata."),
+            ("Falhas de ignição", "Motor tremendo e luz de injeção acesa costumam ser bobinas ou velas. Nos motores com injeção direta, a carbonização também entra no diagnóstico."),
+            ("Câmbio com trancos", 'Trancos e trocas lentas costumam aparecer com o óleo do câmbio velho. Veja <a href="/blog/cambio-automatico-dando-tranco/">o que pode causar o tranco</a>.'),
+            ("Suspensão e avisos elétricos", "Buchas e bieletas cansam nas ruas de São Paulo. Bateria fraca gera avisos em vários sistemas ao mesmo tempo."),
+        ]},
+        {"h2": "Sinais de alerta no seu 320i", "check": [
+            "Cheiro de óleo queimado depois de rodar ou manchas no chão",
+            "Ruído metálico de corrente nos primeiros segundos depois da partida",
+            "Aviso de temperatura ou nível de água baixando",
+            "Motor tremendo em marcha lenta ou luz de injeção acesa",
+            "Trancos nas trocas de marcha",
+            "Ruído seco na suspensão ao passar em lombadas",
+        ]},
+        {"h2": "Como evitar os problemas", "steps": [
+            ("Óleo certo, no prazo.", "Use o óleo com a especificação BMW para o seu motor. No uso severo, não espere o aviso do painel."),
+            ("Câmbio também tem óleo.", 'Mesmo quando o manual fala em óleo "para a vida toda", ele envelhece. Veja <a href="/blog/quando-trocar-oleo-cambio-automatico/">quando trocar</a>.'),
+            ("Arrefecimento em dia.", "Confira o nível de água com o motor frio e troque as peças de plástico ressecadas antes de quebrarem."),
+            ("Leitura das centrais.", "Uma leitura com scanner na revisão mostra falhas antes de virarem defeito."),
+            ("Atenção aos ruídos.", "Ruído novo na partida ou na suspensão merece avaliação cedo. Quanto antes, mais simples o reparo."),
+        ]},
+        {"h2": "Vai comprar um 320i usado?", "p": [
+            "Peça o histórico de revisões, ouça o motor na partida a frio e faça uma avaliação antes de fechar negócio. A "
+            "leitura das centrais mostra falhas que não aparecem no test drive.",
+            'A Veloce faz a <a href="/inspecao-pre-compra/">inspeção pré-compra</a> de carros importados, com relatório técnico.',
+        ]},
+        {"h2": "O seu 320i na Veloce", "p": [
+            "Na Veloce o seu 320i passa por leitura completa das centrais, revisão pelo plano da BMW com peças genuínas e "
+            "relatório técnico de tudo o que foi feito. Também fazemos remap do 320i, com backup do software original e "
+            'medição no nosso dinamômetro. Veja <a href="/remap/">remap</a>.',
+            'Veja a <a href="/oficina-bmw/">oficina BMW da Veloce</a> e a <a href="/oficina-bmw/revisao/">revisão BMW</a>.',
+        ]},
+        leia(L_X1, L_QUANDO, L_INSP),
+    ],
+    [("O BMW 320i é um carro confiável?", "É, com a manutenção no prazo. A maior parte dos problemas conhecidos aparece quando o óleo, o arrefecimento ou a revisão ficam para depois."),
+     ("Qual o problema mais comum do BMW 320i?", "Entre os mais conhecidos estão os vazamentos de óleo pela junta da tampa de válvulas e pelo filtro, peças do arrefecimento e, no 2.0 turbo das primeiras safras do F30, o desgaste das guias da corrente."),
+     ("Quais os problemas do 320i 2013 a 2015?", "São os anos do F30 com o primeiro 2.0 turbo. Atenção ao ruído de corrente na partida a frio, aos vazamentos de óleo e ao arrefecimento."),
+     ("Vale a pena comprar um BMW 320i usado?", "Pode valer, com histórico de revisões e uma avaliação antes da compra. A inspeção pré-compra mostra o estado real do carro."),
+     ("A Veloce atende BMW 320i?", 'Sim, de todas as gerações. Veja a <a href="/oficina-bmw/">oficina BMW</a>.')],
+    "Tem um BMW 320i?", "/oficina-bmw/", "Ver a oficina BMW",
+    "Olá, li o artigo sobre problemas do BMW 320i e quero avaliar o meu. Ano/km: "))
+ARTIGOS[-1]["publicado"] = "2026-11-20"
+BLOG_HUB["secoes"].insert(4, {"h2": "BMW e Volvo", "cards": [(t, f'{d} <a href="{h}">Ler o artigo</a>.') for t, h, d in (L_X1, L_320, L_XC60)]})
+
 # ------------------------------------------------------------------ CHAMADA NO MEIO DOS ARTIGOS (17/11/2026)
 # O GA4 mostrou que o blog atrai visitas e quase não gera contato. A mensagem começa com "li o artigo sobre…"
 # para separar, no WhatsApp e no GA4 (linkUrl), o contato que veio do blog.
@@ -1156,6 +1355,15 @@ CTA_MEIO = {
     "cambio-s-tronic": ("Tem um Audi com câmbio S tronic?",
         "Mande o modelo, o ano e a quilometragem. Dizemos qual é o seu S tronic e a manutenção que ele pede.",
         "Olá, li o artigo sobre o câmbio S tronic e quero avaliar o meu Audi. Modelo/ano/km: "),
+    "bmw-x1-problemas-comuns": ("O seu X1 está dando algum desses sinais?",
+        "Mande o ano, a quilometragem e o que está acontecendo. Um especialista BMW responde pelo WhatsApp.",
+        "Olá, li o artigo sobre problemas do BMW X1 e quero avaliar o meu. Ano/km e o que está acontecendo: "),
+    "volvo-xc60-problemas-comuns": ("O seu XC60 está dando algum desses sinais?",
+        "Mande o ano, a quilometragem e o que está acontecendo. Um especialista Volvo responde pelo WhatsApp.",
+        "Olá, li o artigo sobre problemas do Volvo XC60 e quero avaliar o meu. Ano/km e o que está acontecendo: "),
+    "bmw-320i-problemas-comuns": ("O seu 320i está dando algum desses sinais?",
+        "Mande o ano, a quilometragem e o que está acontecendo. Um especialista BMW responde pelo WhatsApp.",
+        "Olá, li o artigo sobre problemas do BMW 320i e quero avaliar o meu. Ano/km e o que está acontecendo: "),
 }
 for _a in ARTIGOS:
     _t, _x, _m = CTA_MEIO[_a["slug"]]
