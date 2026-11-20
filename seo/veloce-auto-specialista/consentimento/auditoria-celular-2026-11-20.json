@@ -1,0 +1,640 @@
+[
+ [
+  "/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "DIV.elementor-element elementor-element-e9de r=8477",
+    "DIV.elementor-element elementor-element-8ffd r=470",
+    "A. r=470",
+    "DIV.elementor-element elementor-element-ae48 r=671"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.7,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/audi-q3-problemas-comuns/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/cambio-automatico-dando-tranco/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=402"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/cambio-s-tronic/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/o-que-e-dinamometro/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/o-que-e-remap/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.7,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/oleo-de-cambio-automatico/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/quando-trocar-oleo-cambio-automatico/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/quanto-custa-um-remap/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/remap-estraga-o-motor/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.7,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/remap-perde-garantia/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=402"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/remap-stage-1-e-stage-2/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.7,
+   "tiny": 4
+  }
+ ],
+ [
+  "/blog/vistoria-cautelar-ou-inspecao-pre-compra/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=401",
+    "TABLE. r=399",
+    "THEAD. r=399",
+    "TR. r=399"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/contato/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/dinamometro/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/inspecao-pre-compra/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/manutencao-preventiva/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-audi/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-audi/revisao/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-bmw/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-bmw/revisao/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-importados-zona-norte/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403",
+    "TABLE. r=498",
+    "THEAD. r=498",
+    "TR. r=498"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-jaguar/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-lamborghini/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-land-rover/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-land-rover/revisao/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-mercedes-benz/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-mercedes-benz/revisao/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-mini/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-porsche/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-volvo/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/oficina-volvo/revisao/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=402"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/remap/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403",
+    "TABLE. r=433",
+    "THEAD. r=433",
+    "TR. r=433"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/remap/cambio/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/servicos/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "DIV.elementor-element elementor-element-c93f r=462",
+    "DIV.elementor-element elementor-element-82db r=462",
+    "DIV.elementor-element elementor-element-879d r=462",
+    "DIV.elementor-element elementor-element-8ae1 r=462"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 9,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/sobre/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 11,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/troca-de-oleo-cambio-automatico/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "IMG.hero-bg r=403"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 5,
+   "primeiroWa": 0.8,
+   "tiny": 4
+  }
+ ],
+ [
+  "/pvads/",
+  {
+   "over": false,
+   "sw": 390,
+   "wide": [
+    "DIV.elementor-element elementor-element-4cc0 r=430",
+    "SPAN.faq-icon r=397",
+    "A.i33dtf5p softlite-dynamic-list-item soft r=410",
+    "A.i33dtf5p softlite-dynamic-list-item soft r=476"
+   ],
+   "waFix": 1,
+   "banner": "473px",
+   "cobre": true,
+   "waLinks": 6,
+   "primeiroWa": 0.8,
+   "tiny": 8
+  }
+ ]
+]
