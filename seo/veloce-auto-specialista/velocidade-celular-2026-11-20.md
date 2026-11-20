@@ -18,3 +18,11 @@ CLS ~0 e TBT baixo em todas. Gargalos:
 3. CSS/JS que bloqueiam: jQuery, dashicons (34 KB, inútil para visitante), CSS do Elementor.
 4. Resposta do servidor ~450 ms (sem cache de página).
 5. http:// → https:// leva ~1,1 s (só afeta quem entra por link antigo com http).
+
+## Feito em 20/11/2026 (com o "pode" do dono)
+
+Home (Elementor 123): 7 fotos trocadas pela versão no tamanho certo que o WordPress já gera (1024 ou 768 px de largura),
+sem mudar o visual. Backup: `backup-elementor/123-antes-velocidade.json`. Resultado: nota 68 → 76, LCP 5,4 → 4,6 s,
+peso 1.548 → 1.172 KB. Os widgets do SoftLite não têm carregamento adiado (lazy), por isso as fotos de baixo continuam
+carregando na abertura. Design-sem-nome-6.jpg ficou no original (exibida a 632×686 no computador).
+Pendente com o dono: fontes locais + "swap" no Elementor (item A).
