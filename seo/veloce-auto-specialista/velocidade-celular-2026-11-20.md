@@ -1,0 +1,20 @@
+# Velocidade no celular — 20/11/2026
+
+Lighthouse 12.6.1 (celular simulado, rede 4G lenta). O GTM e o gtag.js não carregam neste ambiente, então os números reais
+ficam um pouco piores. Ubersuggest (PageSpeed, home): LCP 2,6 s, Speed Index 7,6 s, redirecionamento 601 ms.
+
+| Página | Nota | LCP | FCP | Peso |
+|---|---:|---:|---:|---:|
+| / (home, Elementor 123) | 68 | 5,4 s | 3,5 s | 1.548 KB |
+| /oficina-porsche/ | 82 | 4,0 s | 2,7 s | 630 KB |
+| /oficina-audi/ | 86 | 3,5 s | 2,7 s | 532 KB |
+| /pvads/ (anúncios) | 83 | 3,5 s | 3,3 s | 1.059 KB |
+| /blog/cambio-s-tronic/ | 84 | 3,7 s | 2,7 s | 516 KB |
+
+CLS ~0 e TBT baixo em todas. Gargalos:
+1. Home: ~950 KB de imagens fora da primeira tela carregam de início (porsche-911-dinamometro, golf-gti-dinamometro,
+   Design-sem-nome-6/7.jpg, car-repair…jpg) e em tamanho maior que o exibido (~900 KB de economia).
+2. Google Fonts: Chakra Petch e Mulish com 18 pesos cada, bloqueando a página (até 0,9 s).
+3. CSS/JS que bloqueiam: jQuery, dashicons (34 KB, inútil para visitante), CSS do Elementor.
+4. Resposta do servidor ~450 ms (sem cache de página).
+5. http:// → https:// leva ~1,1 s (só afeta quem entra por link antigo com http).
