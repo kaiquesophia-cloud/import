@@ -84,3 +84,5 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
   Títulos e Meta → Páginas → Schema padrão = **Nenhum**; Local SEO → tipo **Organização / AutoRepair**.
 - Nenhuma página nova está no menu (decisão do dono). Elas se ligam entre si por links internos.
 - Mandar indexar no Search Console (Inspeção de URL) e conferir o sitemap do Rank Math (`/sitemap_index.xml`).
+
+- 20/11/2026: Google Consent Mode v2 no ar pelo Elementor Pro → Código personalizado (ID 630, `<head>`), código em `consentimento/consent-mode.js`. Liga o CookieAdmin ao GA4 (Site Kit) e ao Google Ads (GTM): padrão "negado", vira "concedido" no aceite (o CookieAdmin chama `cookieadmin_update_gcm`). Conferido na home e na /oficina-porsche/. Medir as sessões "Unassigned" no GA4 por volta de 27/11.
