@@ -1,11 +1,11 @@
 @media (max-width:767px){
- .cookieadmin_law_container.cookieadmin_box{left:10px!important;right:10px!important;width:auto!important;max-width:none!important;bottom:96px!important;z-index:2147483000!important}
- .cookieadmin_law_container .cookieadmin_consent_inside{padding:12px 14px!important}
- .cookieadmin_law_container #cookieadmin_notice_title{font-size:15px!important;margin:0 0 4px!important;padding:0!important}
- .cookieadmin_law_container .cookieadmin_notice_con{padding:0!important}
- .cookieadmin_law_container #cookieadmin_notice{font-size:13px!important;line-height:1.4!important;margin:0 0 10px!important}
- .cookieadmin_law_container .cookieadmin_consent_btns{display:flex!important;flex-wrap:wrap!important;gap:6px!important}
- .cookieadmin_law_container .cookieadmin_btn{flex:1 1 40%!important;margin:0!important;padding:10px 6px!important;font-size:12px!important;min-height:42px!important}
- .cookieadmin_law_container .cookieadmin_accept_btn{flex-basis:100%!important;order:-1!important}
- .cookieadmin_law_container .cookieadmin-poweredby{display:none!important}
+ html body div.cookieadmin_law_container{left:10px!important;right:10px!important;width:auto!important;max-width:none!important;bottom:96px!important;z-index:2147483000!important}
+ html body div.cookieadmin_law_container .cookieadmin_consent_inside{padding:12px 14px!important}
+ html body div.cookieadmin_law_container #cookieadmin_notice_title{font-size:15px!important;margin:0 0 4px!important;padding:0!important}
+ html body div.cookieadmin_law_container .cookieadmin_notice_con{padding:0!important}
+ html body div.cookieadmin_law_container #cookieadmin_notice{font-size:13px!important;line-height:1.4!important;margin:0 0 10px!important}
+ html body div.cookieadmin_law_container .cookieadmin_consent_btns{display:flex!important;flex-wrap:wrap!important;gap:6px!important}
+ html body div.cookieadmin_law_container .cookieadmin_btn{flex:1 1 40%!important;margin:0!important;padding:10px 6px!important;font-size:12px!important;min-height:42px!important}
+ html body div.cookieadmin_law_container .cookieadmin_accept_btn{flex-basis:100%!important;order:-1!important}
+ html body div.cookieadmin_law_container .cookieadmin-poweredby{display:none!important}
 }
