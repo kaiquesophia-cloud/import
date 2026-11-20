@@ -26,3 +26,16 @@ sem mudar o visual. Backup: `backup-elementor/123-antes-velocidade.json`. Result
 peso 1.548 → 1.172 KB. Os widgets do SoftLite não têm carregamento adiado (lazy), por isso as fotos de baixo continuam
 carregando na abertura. Design-sem-nome-6.jpg ficou no original (exibida a 632×686 no computador).
 Pendente com o dono: fontes locais + "swap" no Elementor (item A).
+
+## Depois das fontes locais (20/11/2026, dono ativou no Elementor)
+
+| Página | Nota antes | Nota depois | LCP depois |
+|---|---:|---:|---:|
+| / | 68 | 88 | 3,1 s |
+| /oficina-porsche/ | 82 | 84 | 3,3 s |
+| /oficina-audi/ | 86 | 92 | 2,9 s |
+| /pvads/ | 83 | 80 | 4,3 s (oscilação de medição; conferir de novo) |
+| /blog/cambio-s-tronic/ | 84 | 92 | 2,9 s |
+
+Fontes servidas de `/wp-content/uploads/elementor/google-fonts/`, todas com 200 e aplicadas (Chakra Petch e Mulish).
+Próximo, se quiser: cache de página e tirar o dashicons para visitantes (exige plugin; testar cookies e WhatsApp).
