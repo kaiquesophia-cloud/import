@@ -539,3 +539,12 @@ _audi["faq"] += [
      'Sim, na própria oficina, com backup do software original e ganho medido no nosso dinamômetro. Veja o '
      '<a href="/remap/">remap</a>.'),
 ]
+
+# ------------------------------------------------------------------ LINKS PARA OS GUIAS DE MODELO (20/11/2026)
+# Liga a /oficina-volvo/ ao artigo 632 (XC60). A /oficina-bmw/ é o HTML feito à mão (paginas/oficina-bmw.html).
+_pg = next(p for p in PAGINAS if p["slug"] == "oficina-volvo")
+_sec = next(s for s in _pg["secoes"] if s["h2"].startswith("Problemas comuns"))
+_sec["chips"] = _sec.get("chips", []) + ['<a href="/blog/volvo-xc60-problemas-comuns/">Guia: problemas do Volvo XC60 →</a>']
+_pg["faq"].append(("Quais os problemas mais comuns do Volvo XC60?",
+    'Consumo de óleo em alguns motores 2.0 Drive-E das primeiras safras, o separador de óleo do respiro e vazamentos. Veja o '
+    '<a href="/blog/volvo-xc60-problemas-comuns/">guia do XC60</a>.'))

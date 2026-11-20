@@ -51,6 +51,7 @@ CSS = """<style>
 .vlc .card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:6px;padding:24px}
 .vlc .card p{font-size:16px;margin:0}
 .vlc .chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 16px;list-style:none}
+.vlc .grid+.chips{margin-top:24px}
 .vlc .chips li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px;margin:0}
 .vlc .chips li a{text-decoration:none}
 .vlc .steps{counter-reset:s;list-style:none;padding:0;margin:0}
