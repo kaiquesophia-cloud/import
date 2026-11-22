@@ -1369,4 +1369,32 @@ for _a in ARTIGOS:
     _t, _x, _m = CTA_MEIO[_a["slug"]]
     _a["cta_meio"] = {"titulo": _t, "texto": _x, "botao": "Falar com um especialista", "msg": _m}
 
+# ------------------------------------------------------------------ TÍTULOS NOVOS DOS ARTIGOS DE REMAP (22/11/2026)
+# Search Console: milhares de impressões na posição ~8 e quase nenhum clique. Título começa pela busca real.
+_TITULOS_REMAP = {
+ "remap-stage-1-e-stage-2": [
+  "Stage 1 e Stage 2: O que É no Carro e Qual a Diferença",
+  "Stage 1 é só software. Stage 2 pede peças como admissão e escapamento. Veja o ganho de cada um, os riscos e qual faz sentido no seu carro."
+ ],
+ "o-que-e-remap": [
+  "Remap: O que É, Como Funciona e Quando Vale a Pena",
+  "Remap é a reprogramação da central do motor. Entenda em poucos minutos o que muda no carro, o ganho de potência, os riscos e quando vale a pena."
+ ],
+ "quanto-custa-um-remap": [
+  "Quanto Custa um Remap? O que Define o Preço (Stage 1 e 2)",
+  "O preço do remap muda com o motor, o stage e o câmbio. Veja o que entra no valor, por que remap barato sai caro e como pedir o orçamento."
+ ],
+ "remap-estraga-o-motor": [
+  "Remap Estraga o Motor? O que É Mito e o que É Risco Real",
+  "Feito com critério, o remap não estraga o motor. Veja o que realmente causa problema, inclusive no stage 2, e como fazer um remap seguro."
+ ],
+ "remap-perde-garantia": [
+  "Fazer Remap Perde a Garantia? O que a Montadora Pode Recusar",
+  "Fazer remap pode afetar a garantia. Veja o que a montadora pode recusar, por que esconder a reprogramação não resolve e o melhor momento para fazer."
+ ]
+}
+for _a in ARTIGOS:
+    if _a["slug"] in _TITULOS_REMAP:
+        _a["title"], _a["description"] = _TITULOS_REMAP[_a["slug"]]
+
 CONTEUDO = ARTIGOS + [BLOG_HUB] + SUBPAGINAS
