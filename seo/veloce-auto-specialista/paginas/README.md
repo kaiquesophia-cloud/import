@@ -102,3 +102,4 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 - 22/11/2026: mensagens de avaliação no Google em `avaliacoes-google.md`.
 - 22/11/2026: artigos "o-que-e-intercooler" e "mercedes-c180-problemas-comuns" preparados (prévia, não publicados). Blog: card do intercooler em Remap; seção renomeada "BMW, Mercedes e Volvo".
 - 22/11/2026: publicados 645 (intercooler) e 646 (Mercedes C180) com Rank Math e Bing; blog 554 atualizado. Pendente: sitemap + indexação; link da /oficina-mercedes-benz/ para o 646.
+- 22/11/2026 — REGRA DO DONO: não escrever sobre carro antigo (ex.: Audi A3). Pauta só com modelos atuais/recentes de alto padrão, ou temas técnicos (downpipe, stage 3, intercooler).
