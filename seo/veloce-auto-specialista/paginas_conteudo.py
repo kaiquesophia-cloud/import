@@ -1315,6 +1315,141 @@ ARTIGOS.append(art(
 ARTIGOS[-1]["publicado"] = "2026-11-20"
 BLOG_HUB["secoes"].insert(4, {"h2": "BMW e Volvo", "cards": [(t, f'{d} <a href="{h}">Ler o artigo</a>.') for t, h, d in (L_X1, L_320, L_XC60)]})
 
+# ------------------------------------------------------------------ INTERCOOLER E MERCEDES C180 (preparado em 22/11/2026)
+# Ubersuggest BR: "o que é intercooler" 590/mês (SD 12); "mercedes c180 problemas crônicos" 90 + "c200" 20 (SD 5).
+# Intercooler: explicação técnica + papel no stage 2, sem prometer ganho. C180: só pontos amplamente conhecidos.
+L_INTER = ("O que é intercooler?", "/blog/o-que-e-intercooler/", "Para que serve, como funciona e quando vale trocar.")
+L_C180 = ("Mercedes C180: problemas mais comuns", "/blog/mercedes-c180-problemas-comuns/", "Os defeitos mais conhecidos do C180 e como evitar.")
+
+ARTIGOS.append(art(
+    "o-que-e-intercooler", "O que é Intercooler? Para que Serve e Como Funciona",
+    "Intercooler é o radiador que resfria o ar do turbo antes de entrar no motor. Veja para que serve, os tipos, os sinais de defeito e quando vale trocar.",
+    "O que é intercooler e para que serve",
+    "O intercooler é uma peça presente em quase todo carro turbo. Neste guia você entende para que ele serve, como "
+    "funciona, os sinais de problema e quando faz sentido trocar por um maior.",
+    "Blog · Remap", 5, FOTO_GTI,
+    [
+        {"h2": "O que é intercooler, em uma frase", "p": [
+            "<strong>Intercooler</strong> é um radiador que resfria o ar comprimido pelo turbo antes de ele entrar no motor. "
+            "Ar mais frio é mais denso: cabe mais oxigênio no cilindro, o motor queima melhor o combustível e trabalha "
+            "mais longe da detonação.",
+        ]},
+        {"h2": "Como o intercooler funciona", "steps": [
+            ("O turbo comprime o ar.", "Ao comprimir, o ar esquenta bastante."),
+            ("O ar passa pelo intercooler.", "As aletas trocam calor com o ar de fora (ou com água, em alguns carros)."),
+            ("Ar frio entra no motor.", "Mais denso, com mais oxigênio para a combustão."),
+            ("A central ajusta o motor.", "Sensores medem a temperatura e a pressão do ar e a ECU ajusta injeção e ignição."),
+        ]},
+        {"h2": "Tipos de intercooler", "table": [
+            ["", "Ar-ar", "Ar-água"],
+            ["Como resfria", "Com o vento que passa pela frente do carro", "Com um circuito de água e radiador próprio"],
+            ["Onde aparece", "A maioria dos carros turbo", "Vários motores premium, muitas vezes junto do coletor de admissão"],
+            ["Ponto de atenção", "Mangueiras e abraçadeiras", "Bomba e circuito de água do intercooler"],
+        ]},
+        {"h2": "Sinais de problema no intercooler", "check": [
+            "Perda de força, principalmente em subida ou retomada",
+            "Assobio ou chiado de ar ao acelerar",
+            "Luz de injeção acesa com falha de pressão do turbo",
+            "Óleo nas mangueiras ou no intercooler (pode indicar desgaste no turbo ou no respiro do motor)",
+            "Temperatura do ar de admissão alta na leitura do scanner",
+        ], "p_depois": ["Mangueira solta ou furada é a causa mais comum. Uma leitura com scanner e um teste de pressão mostram onde está o vazamento."]},
+        {"h2": "Intercooler e remap: quando vale trocar", "p": [
+            "No stage 1 o intercooler original costuma dar conta. No stage 2, com mais pressão de turbo, o ar sai mais quente "
+            "e o intercooler original pode virar o limite: o motor perde força depois de algumas acelerações seguidas, "
+            "porque a central reduz a potência para se proteger.",
+            'Por isso, em vários projetos de stage 2 o intercooler maior entra junto. Veja <a href="/blog/remap-stage-1-e-stage-2/">a diferença entre stage 1 e stage 2</a>.',
+        ]},
+        {"h2": "Cuidados com o intercooler", "check": [
+            "Conferir mangueiras e abraçadeiras na revisão",
+            "Manter a frente do intercooler livre de sujeira e folhas",
+            "Investigar a origem de qualquer óleo no sistema",
+            "Em carros com intercooler ar-água, revisar o circuito de água",
+        ]},
+        {"h2": "Intercooler na Veloce", "p": [
+            "Na Veloce o sistema de ar do turbo é avaliado com scanner e teste de pressão, e qualquer mudança de "
+            'performance é conferida no nosso <a href="/dinamometro/">dinamômetro</a>.',
+            'Veja o <a href="/remap/">serviço de remap</a>.',
+        ]},
+        leia(L_STAGE, L_OQUE, L_ESTRAGA),
+    ],
+    [("Para que serve o intercooler?", "Para resfriar o ar comprimido pelo turbo antes de ele entrar no motor. Ar mais frio é mais denso e o motor rende mais, com mais segurança."),
+     ("Carro aspirado tem intercooler?", "Não. O intercooler existe para resfriar o ar do turbo ou do compressor."),
+     ("Intercooler maior aumenta a potência?", "Sozinho, pouco. Ele ajuda o motor a manter a potência quando a pressão do turbo é aumentada, como no stage 2."),
+     ("Intercooler furado dá quais sinais?", "Perda de força, assobio ao acelerar e, muitas vezes, luz de injeção acesa. A leitura com scanner ajuda a confirmar."),
+     ("Precisa trocar o intercooler para fazer remap?", "No stage 1, normalmente não. No stage 2, depende do motor e do projeto. Avaliamos o carro antes de indicar.")],
+    "Quer avaliar o turbo e o intercooler do seu carro?", "/remap/", "Ver o serviço de remap",
+    "Olá, li o artigo sobre intercooler e quero tirar uma dúvida. Carro (modelo/ano/motor): "))
+ARTIGOS[-1]["publicado"] = "2026-11-22"
+
+ARTIGOS.append(art(
+    "mercedes-c180-problemas-comuns", "Mercedes C180: Problemas Mais Comuns e Como Evitar",
+    "Mercedes C180 dá problema? Veja os problemas mais comuns do C180 e do C200, os sinais de alerta e a manutenção que evita cada um.",
+    "Mercedes C180: problemas mais comuns e como evitar",
+    "O Mercedes-Benz C180 é a porta de entrada do Classe C no Brasil. Como todo carro, ele tem pontos que pedem atenção. "
+    "Neste guia você vê os problemas mais comuns do C180, os sinais de alerta e o que fazer para evitar cada um.",
+    "Blog · Mercedes-Benz", 6, FOTO_OFICINA,
+    [
+        {"h2": "O Mercedes C180 dá muito problema?", "p": [
+            "Não. O C180 é um carro bem construído, e os chamados problemas crônicos são, na maioria, pontos conhecidos dos "
+            "motores e do comando de válvulas que aparecem quando a manutenção atrasa.",
+            "Conhecer esses pontos ajuda a cuidar do seu C180 e também a avaliar um C180 usado antes da compra.",
+        ]},
+        {"h2": "As gerações do C180 no Brasil", "table": [
+            ["Geração", "Período", "O que saber"],
+            ["W204", "Até 2014", "Motores 1.8 com compressor e, depois, 1.8 turbo. Atenção à corrente de comando e ao variador de fase"],
+            ["W205", "2015 a 2021", "Motor 1.6 turbo, inclusive flex. Atenção a vazamentos de óleo no comando de válvulas"],
+            ["W206", "Desde 2022", "A linha atual do Classe C, com muita eletrônica. Pede a revisão sempre no prazo"],
+        ], "p_depois": ["O motor e o câmbio mudam conforme o ano e a versão. Na avaliação confirmamos os do seu C180. Os mesmos cuidados valem para o C200 da mesma geração."]},
+        {"h2": "Os problemas mais comuns do C180", "cards": [
+            ("Corrente de comando", "Nos motores 1.8 do W204, ruído metálico nos primeiros segundos depois da partida pode indicar corrente esticada ou desgaste no variador de fase."),
+            ("Óleo nos ímãs do comando", "Em alguns motores, o óleo pode vazar pelos ímãs do comando variável e chegar ao chicote elétrico. Luz de injeção e óleo no conector são os sinais."),
+            ("Vazamentos de óleo", "Juntas da tampa de válvulas e do suporte do filtro ressecam com o calor. Cheiro de queimado e manchas no chão são os alertas."),
+            ("Arrefecimento", "Termostato, bomba d'água e mangueiras sofrem com o anda e para. Aviso de temperatura pede parar e diagnosticar."),
+            ("Câmbio com trancos", 'Trancos e trocas lentas costumam aparecer com o óleo do câmbio velho. Veja <a href="/blog/cambio-automatico-dando-tranco/">o que pode causar o tranco</a>.'),
+            ("Suspensão e avisos elétricos", "Buchas e coxins cansam nas ruas de São Paulo. Bateria fraca gera avisos em vários sistemas ao mesmo tempo."),
+        ]},
+        {"h2": "Sinais de alerta no seu C180", "check": [
+            "Ruído metálico de corrente nos primeiros segundos depois da partida",
+            "Luz de injeção acesa ou óleo em conectores do motor",
+            "Manchas de óleo onde o carro fica parado ou cheiro de queimado",
+            "Aviso de temperatura ou nível de água baixando",
+            "Trancos nas trocas de marcha",
+            "Ruído seco na suspensão ao passar em lombadas",
+        ]},
+        {"h2": "Como evitar os problemas", "steps": [
+            ("Óleo certo, no prazo.", "Use o óleo com a especificação Mercedes-Benz para o seu motor. Óleo vencido acelera o desgaste da corrente."),
+            ("Câmbio também tem óleo.", 'O óleo do câmbio envelhece mesmo quando o manual não pede troca. Veja <a href="/blog/quando-trocar-oleo-cambio-automatico/">quando trocar</a>.'),
+            ("Arrefecimento em dia.", "Confira o nível de água com o motor frio e trate qualquer vazamento cedo."),
+            ("Leitura das centrais.", "Uma leitura com scanner na revisão mostra falhas antes de virarem defeito."),
+            ("Atenção aos ruídos.", "Ruído novo na partida merece avaliação cedo. Quanto antes, mais simples o reparo."),
+        ]},
+        {"h2": "Vai comprar um C180 usado?", "p": [
+            "Peça o histórico de revisões, ouça o motor na partida a frio e faça uma avaliação antes de fechar negócio. A "
+            "leitura das centrais mostra falhas que não aparecem no test drive.",
+            'A Veloce faz a <a href="/inspecao-pre-compra/">inspeção pré-compra</a> de carros importados, com relatório técnico.',
+        ]},
+        {"h2": "O seu C180 na Veloce", "p": [
+            "Na Veloce o seu C180 passa por leitura completa das centrais, revisão pelo plano da Mercedes-Benz com peças "
+            "genuínas e relatório técnico de tudo o que foi feito.",
+            'Veja a <a href="/oficina-mercedes-benz/">oficina Mercedes-Benz da Veloce</a> e a <a href="/oficina-mercedes-benz/revisao/">revisão Mercedes</a>.',
+        ]},
+        leia(L_QUANDO, L_TRANCO, L_INSP),
+    ],
+    [("O Mercedes C180 é um carro confiável?", "É, com a manutenção no prazo. A maior parte dos problemas conhecidos aparece quando o óleo, o arrefecimento ou a revisão ficam para depois."),
+     ("Qual o problema mais comum do Mercedes C180?", "Entre os mais conhecidos estão a corrente de comando e o variador de fase nos motores 1.8 do W204, óleo nos ímãs do comando variável e vazamentos de óleo."),
+     ("O C200 tem os mesmos problemas do C180?", "Na mesma geração, os cuidados são parecidos. Na avaliação confirmamos o motor do seu carro."),
+     ("Vale a pena comprar um Mercedes C180 usado?", "Pode valer, com histórico de revisões e uma avaliação antes da compra. A inspeção pré-compra mostra o estado real do carro."),
+     ("A Veloce atende Mercedes C180?", 'Sim, de todas as gerações. Veja a <a href="/oficina-mercedes-benz/">oficina Mercedes-Benz</a>.')],
+    "Tem um Mercedes C180?", "/oficina-mercedes-benz/", "Ver a oficina Mercedes-Benz",
+    "Olá, li o artigo sobre problemas do Mercedes C180 e quero avaliar o meu. Ano/km: "))
+ARTIGOS[-1]["publicado"] = "2026-11-22"
+for _s in BLOG_HUB["secoes"]:
+    if _s["h2"] == "Remap":
+        _s["cards"].append((L_INTER[0], f'{L_INTER[2]} <a href="{L_INTER[1]}">Ler o artigo</a>.'))
+    if _s["h2"] == "BMW e Volvo":
+        _s["h2"] = "BMW, Mercedes e Volvo"
+        _s["cards"].append((L_C180[0], f'{L_C180[2]} <a href="{L_C180[1]}">Ler o artigo</a>.'))
+
 # ------------------------------------------------------------------ CHAMADA NO MEIO DOS ARTIGOS (17/11/2026)
 # O GA4 mostrou que o blog atrai visitas e quase não gera contato. A mensagem começa com "li o artigo sobre…"
 # para separar, no WhatsApp e no GA4 (linkUrl), o contato que veio do blog.
@@ -1364,6 +1499,12 @@ CTA_MEIO = {
     "bmw-320i-problemas-comuns": ("O seu 320i está dando algum desses sinais?",
         "Mande o ano, a quilometragem e o que está acontecendo. Um especialista BMW responde pelo WhatsApp.",
         "Olá, li o artigo sobre problemas do BMW 320i e quero avaliar o meu. Ano/km e o que está acontecendo: "),
+    "o-que-e-intercooler": ("O seu carro turbo está perdendo força?",
+        "Mande o modelo, o ano e o que está acontecendo. Avaliamos o turbo, o intercooler e as mangueiras.",
+        "Olá, li o artigo sobre intercooler. Meu carro (modelo/ano/motor) e o que está acontecendo: "),
+    "mercedes-c180-problemas-comuns": ("O seu C180 está dando algum desses sinais?",
+        "Mande o ano, a quilometragem e o que está acontecendo. Um especialista Mercedes responde pelo WhatsApp.",
+        "Olá, li o artigo sobre problemas do Mercedes C180 e quero avaliar o meu. Ano/km e o que está acontecendo: "),
 }
 for _a in ARTIGOS:
     _t, _x, _m = CTA_MEIO[_a["slug"]]
