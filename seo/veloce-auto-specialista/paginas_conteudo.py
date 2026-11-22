@@ -1369,6 +1369,60 @@ for _a in ARTIGOS:
     _t, _x, _m = CTA_MEIO[_a["slug"]]
     _a["cta_meio"] = {"titulo": _t, "texto": _x, "botao": "Falar com um especialista", "msg": _m}
 
+# ------------------------------------------------------------------ REFORÇO STAGE E O QUE É REMAP (22/11/2026)
+# Search Console 25/10–21/11: "stage 2" 518, "stage 2 o que é" 421, "remap" 571, "o que é remap" 218 impressões na posição
+# ~8–9. Resposta direta logo no início (trecho em destaque do Google), faixas de ganho com ressalva, mais perguntas.
+_st = next(a for a in ARTIGOS if a["slug"] == "remap-stage-1-e-stage-2")
+_st["h1"] = "Stage 1 e stage 2: o que é e qual a diferença"
+_st["secoes"].insert(0, {"h2": "O que é stage 2 no carro? (e o stage 1)", "p": [
+    "<strong>Stage 2</strong> é o segundo nível de preparação de um carro turbo: a reprogramação da central (remap) feita "
+    "junto com peças de apoio, como downpipe, admissão e intercooler. As peças deixam o motor respirar melhor, e o software "
+    "é ajustado para elas.",
+    "<strong>Stage 1</strong> é o primeiro nível: só a reprogramação do software, com o carro original por fora e por baixo. "
+    "É o mais indicado para o uso no dia a dia.",
+]})
+_i = next(i for i, x in enumerate(_st["secoes"]) if x.get("h2", "").startswith("Qual escolher"))
+_st["secoes"].insert(_i, {"h2": "Quanto o carro ganha em cada stage", "table": [
+    ["", "Stage 1", "Stage 2"],
+    ["Motor turbo a gasolina", "Ganho moderado, sentido principalmente nas retomadas", "Ganho maior, com as peças de apoio"],
+    ["Motor aspirado", "Ganho pequeno", "Pouco usado: o projeto muda de figura"],
+    ["Onde mais aparece", "Torque em baixa e média rotação", "Potência em alta rotação e torque"],
+], "p_depois": ["O ganho real varia muito com o motor, o câmbio, o combustível e o estado do carro. Por isso não prometemos "
+    'um número: medimos no <a href="/dinamometro/">dinamômetro</a> antes e depois.']})
+_i = next(i for i, x in enumerate(_st["secoes"]) if x.get("h2", "").startswith("Antes de qualquer stage"))
+_st["secoes"].insert(_i + 1, {"h2": "Stage 2 estraga o carro?", "p": [
+    "Não, quando é um projeto completo: motor saudável, peças de apoio certas, software feito para elas, câmbio avaliado e "
+    "conferência no dinamômetro. O que estraga é stage 2 pela metade, como software de stage 2 sem as peças ou peças sem o "
+    "ajuste certo.",
+    'Veja <a href="/blog/remap-estraga-o-motor/">o que realmente causa problema no remap</a>.',
+]})
+_st["faq"] += [
+    ("O que é stage 2 no carro?", "É a reprogramação da central feita junto com peças de apoio, como downpipe, admissão e intercooler, para o motor render mais com segurança."),
+    ("Stage 2 estraga o carro?", "Não, quando é um projeto completo, com motor saudável, peças certas, câmbio avaliado e conferência no dinamômetro. O risco está no stage 2 feito pela metade."),
+    ("Stage 2 precisa de downpipe?", "Na maioria dos carros turbo, o downpipe é uma das peças principais do stage 2. As peças exatas dependem do motor."),
+]
+
+_oq = next(a for a in ARTIGOS if a["slug"] == "o-que-e-remap")
+_oq["h1"] = "O que é remap no carro e como funciona"
+_i = next(i for i, x in enumerate(_oq["secoes"]) if x.get("h2", "").startswith("Quando o remap vale"))
+_oq["secoes"].insert(_i, {"h2": "Vantagens e desvantagens do remap", "table": [
+    ["Vantagens", "Desvantagens"],
+    ["Mais torque e potência sem trocar peças", "Exige motor saudável e manutenção em dia"],
+    ["Retomadas mais fortes e resposta mais rápida", "Pode afetar a garantia de fábrica do motor e do câmbio"],
+    ["Reversível: o software original fica guardado", "Remap mal feito traz falhas e risco ao motor"],
+    ["Consumo parecido no uso normal", "Usando a potência extra o tempo todo, o consumo sobe"],
+], "p_depois": ['Veja <a href="/blog/remap-perde-garantia/">o que acontece com a garantia</a> e <a href="/blog/remap-estraga-o-motor/">se o remap estraga o motor</a>.']})
+_oq["secoes"].insert(_i + 1, {"h2": "Remap stage 1 e stage 2", "p": [
+    "O remap é dividido em níveis. No <strong>stage 1</strong> muda só o software, e o carro continua original. No "
+    "<strong>stage 2</strong> o software é feito junto com peças de apoio, como downpipe e admissão, para ir além.",
+    '<a href="/blog/remap-stage-1-e-stage-2/">Veja a diferença entre stage 1 e stage 2</a>.',
+]})
+_oq["faq"] += [
+    ("Remap aumenta o consumo?", "No uso normal, o consumo fica parecido com o original. Quem usa a potência extra o tempo todo gasta mais."),
+    ("Remap estraga o câmbio?", "Mais torque exige mais do câmbio. Por isso o câmbio é avaliado junto e, em alguns carros, também é reprogramado."),
+    ("Remap funciona em carro flex?", "Funciona. O ajuste é feito considerando o combustível que o carro usa, e o ganho é conferido no dinamômetro."),
+]
+
 # ------------------------------------------------------------------ TÍTULOS NOVOS DOS ARTIGOS DE REMAP (22/11/2026)
 # Search Console: milhares de impressões na posição ~8 e quase nenhum clique. Título começa pela busca real.
 _TITULOS_REMAP = {
