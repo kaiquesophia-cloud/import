@@ -35,6 +35,8 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 632 | [/blog/volvo-xc60-problemas-comuns/](https://veloceautospecialista.com.br/blog/volvo-xc60-problemas-comuns/) | volvo xc60 problemas |
 | 633 | [/blog/bmw-x1-problemas-comuns/](https://veloceautospecialista.com.br/blog/bmw-x1-problemas-comuns/) | bmw x1 problemas |
 | 634 | [/blog/bmw-320i-problemas-comuns/](https://veloceautospecialista.com.br/blog/bmw-320i-problemas-comuns/) | bmw 320i problemas |
+| 645 | [/blog/o-que-e-intercooler/](https://veloceautospecialista.com.br/blog/o-que-e-intercooler/) | o que é intercooler |
+| 646 | [/blog/mercedes-c180-problemas-comuns/](https://veloceautospecialista.com.br/blog/mercedes-c180-problemas-comuns/) | mercedes c180 problemas |
 | 554 | [/blog/](https://veloceautospecialista.com.br/blog/) | (página que reúne os artigos) |
 | 555 | [/blog/o-que-e-remap/](https://veloceautospecialista.com.br/blog/o-que-e-remap/) | o que é remap |
 | 556 | [/blog/vistoria-cautelar-ou-inspecao-pre-compra/](https://veloceautospecialista.com.br/blog/vistoria-cautelar-ou-inspecao-pre-compra/) | vistoria cautelar |
@@ -99,3 +101,4 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 - 22/11/2026: pauta seguinte (Ubersuggest BR): "o que é downpipe" 1.300 (SD 28; "downpipe" 12.100, SD 55) — confirmar com o dono se instalam e como tratam o catalisador; "stage 3" 1.000 (SD 24) — confirmar se fazem; "o que é intercooler" 590 (SD 12); "mercedes c180 problemas crônicos" 90 + c200 20; "volvo xc40 problemas" 30–50; "audi a3 problemas crônicos" 30–40. Sem volume: GLA, Evoque, Discovery Sport, MINI, 118i.
 - 22/11/2026: mensagens de avaliação no Google em `avaliacoes-google.md`.
 - 22/11/2026: artigos "o-que-e-intercooler" e "mercedes-c180-problemas-comuns" preparados (prévia, não publicados). Blog: card do intercooler em Remap; seção renomeada "BMW, Mercedes e Volvo".
+- 22/11/2026: publicados 645 (intercooler) e 646 (Mercedes C180) com Rank Math e Bing; blog 554 atualizado. Pendente: sitemap + indexação; link da /oficina-mercedes-benz/ para o 646.
