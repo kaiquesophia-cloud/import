@@ -548,3 +548,11 @@ _sec["chips"] = _sec.get("chips", []) + ['<a href="/blog/volvo-xc60-problemas-co
 _pg["faq"].append(("Quais os problemas mais comuns do Volvo XC60?",
     'Consumo de óleo em alguns motores 2.0 Drive-E das primeiras safras, o separador de óleo do respiro e vazamentos. Veja o '
     '<a href="/blog/volvo-xc60-problemas-comuns/">guia do XC60</a>.'))
+
+# Liga a /oficina-mercedes-benz/ ao artigo 646 (C180) — 24/11/2026.
+_pg = next(p for p in PAGINAS if p["slug"] == "oficina-mercedes-benz")
+_sec = next(s for s in _pg["secoes"] if s["h2"].startswith("Problemas comuns"))
+_sec["chips"] = _sec.get("chips", []) + ['<a href="/blog/mercedes-c180-problemas-comuns/">Guia: problemas do Mercedes C180 e C200 →</a>']
+_pg["faq"].append(("Quais os problemas mais comuns do Mercedes C180?",
+    'No 1.6 turbo, o óleo nos ímãs do comando variável, vazamentos de óleo e peças do arrefecimento. Veja o '
+    '<a href="/blog/mercedes-c180-problemas-comuns/">guia do C180</a>.'))

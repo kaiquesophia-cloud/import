@@ -1592,4 +1592,195 @@ for _a in ARTIGOS:
     if _a["slug"] in _TITULOS_REMAP:
         _a["title"], _a["description"] = _TITULOS_REMAP[_a["slug"]]
 
+# ------------------------------------------------------------------ FOCO NAS GERAÇÕES RECENTES (24/11/2026, pedido do dono)
+# O dono não quer carro antigo no site. Os artigos de modelo passam a tratar só das gerações recentes.
+def _sec(a, prefixo):
+    return next(s for s in a["secoes"] if s.get("h2", "").startswith(prefixo))
+
+def _foco(slug, lead=None, tabela=None, nota=None, cards=None, check=None, faq=None, p1=None):
+    a = next(x for x in ARTIGOS if x["slug"] == slug)
+    if lead: a["lead"] = lead
+    if p1: a["secoes"][0]["p"] = p1
+    if tabela:
+        s = next(s for s in a["secoes"] if "gerações" in s.get("h2", "") or "versões" in s.get("h2", ""))
+        s["h2"], s["table"] = tabela[0], tabela[1]
+        s["p_depois"] = [nota] if nota else s.get("p_depois", [])
+    if cards: _sec(a, "Os problemas mais comuns")["cards"] = cards
+    if check: _sec(a, "Sinais de alerta")["check"] = check
+    if faq:
+        for antiga, nova in faq.items():
+            i = next(i for i, (q, _) in enumerate(a["faq"]) if q == antiga)
+            a["faq"][i] = nova
+
+_CAMBIO = 'Trancos e trocas lentas costumam aparecer com o óleo do câmbio velho. Veja <a href="/blog/cambio-automatico-dando-tranco/">o que pode causar o tranco</a>.'
+_ELETRO = ("Eletrônica e bateria", "Os modelos recentes têm muitos módulos. Bateria fraca gera avisos em vários sistemas ao mesmo tempo, e o diagnóstico separa defeito real de tensão baixa.")
+_SUSP = ("Ruídos na suspensão", "Buracos e lombadas de São Paulo cansam buchas, bieletas e amortecedores. Ruído seco em lombada é o primeiro aviso.")
+
+_foco("bmw-x1-problemas-comuns",
+    p1=["Não. O X1 recente é um carro bem construído, e os pontos de atenção aparecem, na maioria, quando a manutenção "
+        "atrasa ou o carro roda muito no anda e para.", "Conhecer esses pontos ajuda a cuidar do seu X1 e também a avaliar um X1 seminovo antes da compra."],
+    tabela=("As gerações recentes do X1", [["Geração", "Período", "O que saber"],
+        ["2ª geração (F48)", "2016 a 2022", "Motor 2.0 turbo, inclusive flex (ActiveFlex). Câmbio automático"],
+        ["3ª geração (U11)", "Desde 2023", "Nova plataforma, câmbio de dupla embreagem e muita eletrônica. Versões híbridas e elétrica (iX1)"]]),
+    nota="O motor e o câmbio mudam conforme o ano e a versão. Na avaliação confirmamos os do seu X1. Para as versões híbridas e elétricas, fale com a equipe antes de agendar.",
+    cards=[("Vazamentos de óleo", "A junta da tampa de válvulas e o suporte do filtro de óleo ressecam com o calor. Cheiro de queimado e manchas no chão são os sinais."),
+        ("Arrefecimento", "Mangueiras, conexões e reservatório de plástico sofrem com o calor do anda e para. Nível de água baixando e aviso de temperatura são os alertas."),
+        ("Falhas de ignição", "Motor tremendo e luz de injeção acesa costumam ser bobinas ou velas. Na injeção direta, a carbonização também entra no diagnóstico."),
+        ("Câmbio com trancos", "No X1 mais novo, o câmbio de dupla embreagem pode dar pequenos trancos no anda e para. Na geração anterior, trocas duras costumam vir do óleo velho. " + _CAMBIO.split(". ", 1)[1]),
+        _ELETRO, _SUSP],
+    check=["Manchas de óleo onde o carro fica parado ou cheiro de queimado depois de rodar", "Nível do reservatório de água baixando ou aviso de temperatura",
+        "Motor tremendo em marcha lenta ou luz de injeção acesa", "Trancos nas trocas de marcha ou ao sair com o carro parado",
+        "Avisos no painel ou na central multimídia sem motivo aparente", "Ruído seco na suspensão ao passar em lombadas"],
+    faq={"Qual o problema mais comum do BMW X1?": ("Qual o problema mais comum do BMW X1?", "Nas gerações recentes, os pontos mais citados são vazamentos de óleo pela junta da tampa de válvulas e pelo filtro, peças do arrefecimento e avisos eletrônicos ligados à bateria."),
+         "O X1 flex tem os mesmos problemas?": ("O X1 novo (U11) tem os mesmos problemas?", "É um carro novo e com muita eletrônica. O principal é manter a revisão no prazo e ler as centrais a cada visita.")})
+
+_foco("bmw-320i-problemas-comuns",
+    p1=["Não. O 320i recente é um carro bem construído, e os pontos de atenção aparecem, na maioria, quando a manutenção atrasa.",
+        "Conhecer esses pontos ajuda a cuidar do seu 320i e também a avaliar um 320i seminovo antes da compra."],
+    tabela=("As gerações recentes do 320i", [["Geração", "Período", "O que saber"],
+        ["F30 (fase final)", "2016 a 2019", "Motor 2.0 turbo flex (ActiveFlex) e câmbio automático de 8 marchas"],
+        ["G20", "Desde 2019", "Motor 2.0 turbo flex, mais eletrônica e assistências. Pede a revisão sempre no prazo"]]),
+    nota="O motor e o câmbio mudam conforme o ano. Na avaliação confirmamos os do seu 320i. Para as versões híbridas, fale com a equipe antes de agendar.",
+    cards=[("Vazamentos de óleo", "A junta da tampa de válvulas e o suporte do filtro de óleo ressecam com o calor. Óleo pingando no escapamento gera cheiro de queimado."),
+        ("Arrefecimento", "Mangueiras, conexões e peças de plástico sofrem com o calor. Aviso de temperatura e nível baixando pedem avaliação imediata."),
+        ("Falhas de ignição", "Motor tremendo e luz de injeção acesa costumam ser bobinas ou velas. Na injeção direta, a carbonização também entra no diagnóstico."),
+        ("Câmbio com trancos", _CAMBIO), _ELETRO, _SUSP],
+    check=["Cheiro de óleo queimado depois de rodar ou manchas no chão", "Aviso de temperatura ou nível de água baixando",
+        "Motor tremendo em marcha lenta ou luz de injeção acesa", "Trancos nas trocas de marcha",
+        "Avisos no painel sem motivo aparente", "Ruído seco na suspensão ao passar em lombadas"],
+    faq={"Qual o problema mais comum do BMW 320i?": ("Qual o problema mais comum do BMW 320i?", "Nas gerações recentes, os mais citados são vazamentos de óleo pela junta da tampa de válvulas e pelo filtro, peças do arrefecimento e avisos eletrônicos ligados à bateria."),
+         "Quais os problemas do 320i 2013 a 2015?": ("O 320i G20 tem problemas crônicos?", "É uma geração recente e robusta. O principal é manter a revisão no prazo, com óleo na especificação BMW e leitura das centrais a cada visita.")})
+
+_foco("mercedes-c180-problemas-comuns",
+    p1=["Não. O C180 recente é um carro bem construído, e os pontos de atenção aparecem, na maioria, quando a manutenção atrasa.",
+        "Conhecer esses pontos ajuda a cuidar do seu C180 e também a avaliar um C180 seminovo antes da compra."],
+    tabela=("As versões recentes do Classe C", [["Geração", "Período", "O que saber"],
+        ["W205 (C180 e C200)", "2015 a 2021", "C180 com motor 1.6 turbo, inclusive flex. Atenção a vazamentos de óleo no comando de válvulas"],
+        ["W206 (C200 e C300)", "Desde 2022", "Linha atual, com motores turbo eletrificados e muita eletrônica. Pede a revisão sempre no prazo"]]),
+    nota="O motor e o câmbio mudam conforme o ano e a versão. Na avaliação confirmamos os do seu Classe C. Para os sistemas eletrificados, fale com a equipe antes de agendar.",
+    cards=[("Óleo nos ímãs do comando", "No 1.6 turbo, o óleo pode vazar pelos ímãs do comando variável e chegar ao chicote elétrico. Luz de injeção e óleo no conector são os sinais."),
+        ("Vazamentos de óleo", "Juntas e retentores ressecam com o calor. Cheiro de queimado e manchas no chão são os alertas."),
+        ("Arrefecimento", "Termostato, bomba d'água e mangueiras sofrem com o anda e para. Aviso de temperatura pede parar e diagnosticar."),
+        ("Câmbio com trancos", _CAMBIO), _ELETRO, ("Ruídos na suspensão", "Buchas e coxins cansam nas ruas de São Paulo. Ruído seco em lombada é o primeiro aviso.")],
+    check=["Luz de injeção acesa ou óleo em conectores do motor", "Manchas de óleo onde o carro fica parado ou cheiro de queimado",
+        "Aviso de temperatura ou nível de água baixando", "Trancos nas trocas de marcha",
+        "Avisos no painel sem motivo aparente", "Ruído seco na suspensão ao passar em lombadas"],
+    faq={"Qual o problema mais comum do Mercedes C180?": ("Qual o problema mais comum do Mercedes C180?", "No C180 1.6 turbo, os mais citados são o óleo nos ímãs do comando variável, vazamentos de óleo e peças do arrefecimento.")})
+_c = next(x for x in ARTIGOS if x["slug"] == "mercedes-c180-problemas-comuns")
+_c["lead"] = ("O Mercedes-Benz C180 é a porta de entrada do Classe C recente no Brasil. Como todo carro, ele tem pontos que pedem "
+              "atenção. Neste guia você vê os problemas mais comuns do C180 e do C200, os sinais de alerta e como evitar cada um.")
+for _s in _c["secoes"]:
+    if _s.get("h2", "").startswith("Como evitar"):
+        _s["steps"][0] = ("Óleo certo, no prazo.", "Use o óleo com a especificação Mercedes-Benz para o seu motor e não deixe a troca atrasar.")
+        _s["steps"][4] = ("Atenção aos sinais.", "Luz de injeção ou óleo em conectores merecem avaliação cedo. Quanto antes, mais simples o reparo.")
+
+_foco("volvo-xc60-problemas-comuns",
+    p1=["Não. O XC60 é um carro robusto, e os pontos de atenção aparecem, na maioria, quando a manutenção atrasa ou com o uso pesado no trânsito.",
+        "Conhecer esses pontos ajuda a cuidar do seu XC60 e também a avaliar um XC60 seminovo antes da compra."],
+    tabela=("O XC60 atual", [["Versão", "Desde", "O que saber"],
+        ["2ª geração, motores 2.0 turbo", "2018", "Câmbio automático de 8 marchas e muita eletrônica e assistência de condução"],
+        ["Versões híbridas (B5, T8 Recharge)", "2018 em diante", "Motor a combustão com sistema elétrico. Fale com a equipe antes de agendar"]]),
+    nota="O motor e o câmbio mudam conforme o ano e a versão. Na avaliação confirmamos os do seu XC60.",
+    cards=[("Respiro do motor", "O separador de óleo (sistema de respiro) pode entupir ou rasgar a membrana. Assobio no motor e marcha lenta irregular são sinais comuns."),
+        ("Consumo de óleo", "Alguns motores 2.0 das primeiras safras ficaram conhecidos por consumir óleo. Medir o consumo vem antes de qualquer conclusão."),
+        ("Vazamentos de óleo", "Juntas e retentores ressecam com o tempo e o calor. Manchas no chão e cheiro de queimado depois de rodar são os alertas."),
+        ("Arrefecimento", "Mangueiras, reservatório e bomba d'água sofrem com o calor do anda e para. Nível de água baixando pede avaliação."),
+        ("Câmbio com trocas duras", _CAMBIO),
+        ("Sensores e assistências", "Câmeras e radares das assistências de condução precisam de calibração depois de troca de para-brisa, batida ou alinhamento.")],
+    faq={"Qual o problema mais comum do Volvo XC60?": ("Qual o problema mais comum do Volvo XC60?", "Os mais citados são o separador de óleo do respiro, vazamentos com o tempo e, em algumas safras do motor 2.0, o consumo de óleo."),
+         "O XC60 da 2ª geração tem os mesmos problemas?": ("O XC60 híbrido tem os mesmos problemas?", "A parte a combustão pede os mesmos cuidados. O sistema elétrico tem manutenção própria: fale com a equipe antes de agendar.")})
+
+_foco("audi-q3-problemas-comuns",
+    p1=["Não. O Q3 atual é um carro bem construído, e os pontos de atenção aparecem, na maioria, quando a manutenção atrasa ou o carro roda muito no anda e para.",
+        "Conhecer esses pontos ajuda a cuidar do seu Q3 e também a avaliar um Q3 seminovo antes da compra."],
+    tabela=("O Q3 atual", [["Versão", "Desde", "O que saber"],
+        ["Q3 2ª geração", "2019", "Motores TFSI turbo e muita eletrônica e assistências"],
+        ["Q3 Sportback", "2020", "Mesma base do Q3, com carroceria cupê"]]),
+    nota="O câmbio muda conforme a versão: S tronic ou tiptronic. Na avaliação confirmamos qual é o do seu Q3.",
+    cards=[("Vazamento de água", "A carcaça plástica da bomba d'água e do termostato pode trincar com o calor. Cheiro adocicado e nível de água baixando são os sinais."),
+        ("Câmbio com trancos", 'Nas versões com S tronic, solavancos em baixa velocidade e trocas hesitantes são comuns no trânsito pesado. Veja o <a href="/blog/cambio-s-tronic/">guia do S tronic</a>.'),
+        ("Falhas de ignição", "Motor tremendo e luz de injeção piscando costumam ser bobinas ou velas. Na injeção direta, a carbonização também entra no diagnóstico."),
+        ("Vazamentos de óleo", "Juntas e retentores ressecam com o calor. Manchas no chão e cheiro de queimado depois de rodar são os alertas."),
+        _ELETRO, _SUSP],
+    check=["Nível do reservatório de água baixando ou cheiro adocicado depois de rodar", "Trancos ao sair com o carro parado ou nas trocas da 1ª para a 2ª",
+        "Motor tremendo em marcha lenta ou luz de injeção acesa", "Manchas de óleo onde o carro fica parado",
+        "Vários avisos no painel ao mesmo tempo", "Ruído seco na suspensão ao passar em lombadas"],
+    faq={"Qual o problema mais comum do Audi Q3?": ("Qual o problema mais comum do Audi Q3?", "No Q3 atual, os mais citados são vazamentos no sistema de arrefecimento, trancos no câmbio no trânsito pesado e falhas de ignição."),
+         "Q3 da 2ª geração tem os mesmos problemas?": ("O Q3 Sportback tem os mesmos problemas?", "Sim, os cuidados são os mesmos do Q3, porque a mecânica é a mesma.")})
+for _s in next(x for x in ARTIGOS if x["slug"] == "audi-q3-problemas-comuns")["secoes"]:
+    if _s.get("h2", "").startswith("Como evitar"):
+        _s["steps"][0] = ("Óleo certo, no prazo.", "Use o óleo com a especificação VW/Audi para o seu motor e não deixe a troca atrasar.")
+
+# ------------------------------------------------------------------ VOLVO XC40 (preparado em 24/11/2026)
+# Ubersuggest BR: "volvo xc40 problemas" 30–50/mês (SD 13). Modelo atual (desde 2018). Elétricos/híbridos: falar com a equipe.
+L_XC40 = ("Volvo XC40: problemas mais comuns", "/blog/volvo-xc40-problemas-comuns/", "Os pontos de atenção do XC40 e como evitar cada um.")
+ARTIGOS.append(art(
+    "volvo-xc40-problemas-comuns", "Volvo XC40: Problemas Mais Comuns e Como Evitar",
+    "Volvo XC40 dá problema? Veja os pontos de atenção mais comuns do XC40, os sinais de alerta e a manutenção que evita cada um.",
+    "Volvo XC40: problemas mais comuns e como evitar",
+    "O Volvo XC40 é o SUV compacto premium da Volvo, conhecido pela segurança e pelo design. Como todo carro, ele tem "
+    "pontos que pedem atenção. Neste guia você vê os mais comuns, os sinais de alerta e como evitar cada um.",
+    "Blog · Volvo", 5, FOTO_OFICINA,
+    [
+        {"h2": "O Volvo XC40 dá muito problema?", "p": [
+            "Não. O XC40 é um carro robusto e recente. Os pontos de atenção mais citados estão na eletrônica, no câmbio no "
+            "anda e para e em itens de desgaste, e quase sempre aparecem quando a revisão atrasa.",
+            "Conhecer esses pontos ajuda a cuidar do seu XC40 e também a avaliar um XC40 seminovo antes da compra.",
+        ]},
+        {"h2": "O XC40 no Brasil", "table": [
+            ["Versão", "Desde", "O que saber"],
+            ["Motor 2.0 turbo (T4, T5)", "2018", "Câmbio automático de 8 marchas, muita eletrônica e assistências de condução"],
+            ["Híbrido e elétrico (Recharge)", "2020 em diante", "Sistema elétrico com manutenção própria. Fale com a equipe antes de agendar"],
+        ], "p_depois": ["O motor e o câmbio mudam conforme o ano e a versão. Na avaliação confirmamos os do seu XC40."]},
+        {"h2": "Os problemas mais comuns do XC40", "cards": [
+            ("Eletrônica e multimídia", "Travamentos da central multimídia e avisos sem motivo aparente costumam ter relação com software ou com a bateria. O diagnóstico separa um do outro."),
+            ("Bateria fraca", "A bateria alimenta muitos módulos. Quando enfraquece, aparecem avisos em vários sistemas ao mesmo tempo."),
+            ("Câmbio com trancos", 'Trocas duras e trancos no anda e para costumam piorar com o óleo do câmbio velho. Veja <a href="/blog/cambio-automatico-dando-tranco/">o que pode causar o tranco</a>.'),
+            ("Respiro e vazamentos", "O separador de óleo do respiro e as juntas do motor 2.0 merecem atenção. Assobio no motor e manchas de óleo são sinais."),
+            ("Sensores e assistências", "Câmeras e radares precisam de calibração depois de troca de para-brisa, batida ou alinhamento."),
+            ("Suspensão e freios", "Ruas de São Paulo cansam buchas e bieletas. O desgaste de freios também pede acompanhamento a cada revisão."),
+        ]},
+        {"h2": "Sinais de alerta no seu XC40", "check": [
+            "Central multimídia travando ou reiniciando",
+            "Vários avisos no painel ao mesmo tempo",
+            "Trancos nas trocas de marcha ou ao sair com o carro parado",
+            "Assobio no motor ou manchas de óleo no chão",
+            "Aviso de falha nas assistências de condução",
+            "Ruído seco na suspensão ou chiado nos freios",
+        ]},
+        {"h2": "Como evitar os problemas", "steps": [
+            ("Revisão no prazo.", 'Siga o plano da Volvo com peças genuínas. Veja a <a href="/oficina-volvo/revisao/">revisão Volvo</a>.'),
+            ("Câmbio também tem óleo.", 'O óleo do câmbio envelhece mesmo quando o manual não pede troca. Veja <a href="/blog/quando-trocar-oleo-cambio-automatico/">quando trocar</a>.'),
+            ("Bateria em dia.", "Teste a bateria na revisão. Bateria fraca é a causa de muitos avisos falsos."),
+            ("Leitura das centrais.", "Uma leitura com scanner mostra falhas antes de virarem defeito."),
+            ("Calibração depois de reparos.", "Depois de troca de para-brisa ou batida, confira a calibração das câmeras e radares."),
+        ]},
+        {"h2": "Vai comprar um XC40 seminovo?", "p": [
+            "Peça o histórico de revisões, teste a central multimídia e as assistências e faça uma avaliação antes de fechar "
+            "negócio. A leitura das centrais mostra falhas que não aparecem no test drive.",
+            'A Veloce faz a <a href="/inspecao-pre-compra/">inspeção pré-compra</a> de carros importados, com relatório técnico.',
+        ]},
+        {"h2": "O seu XC40 na Veloce", "p": [
+            "Na Veloce o seu XC40 passa por leitura completa das centrais, revisão pelo plano da Volvo com peças genuínas e "
+            "relatório técnico de tudo o que foi feito.",
+            'Veja a <a href="/oficina-volvo/">oficina Volvo da Veloce</a> e o guia de <a href="/blog/volvo-xc60-problemas-comuns/">problemas do XC60</a>.',
+        ]},
+        leia(L_XC60, L_QUANDO, L_INSP),
+    ],
+    [("O Volvo XC40 é um carro confiável?", "É, com a revisão no prazo. Os pontos mais citados estão na eletrônica, na bateria e no câmbio no anda e para."),
+     ("Qual o problema mais comum do Volvo XC40?", "Os mais citados são avisos eletrônicos e travamentos da multimídia, muitas vezes ligados à bateria ou ao software, e trancos no câmbio no trânsito pesado."),
+     ("O XC40 elétrico tem os mesmos problemas?", "A parte eletrônica é parecida, mas o elétrico não tem motor a combustão nem câmbio automático. Fale com a equipe antes de agendar."),
+     ("Vale a pena comprar um Volvo XC40 seminovo?", "Pode valer, com histórico de revisões e uma avaliação antes da compra. A inspeção pré-compra mostra o estado real do carro."),
+     ("A Veloce atende Volvo XC40?", 'Sim, nas versões a combustão. Para as versões híbridas e elétricas, fale com a equipe. Veja a <a href="/oficina-volvo/">oficina Volvo</a>.')],
+    "Tem um Volvo XC40?", "/oficina-volvo/", "Ver a oficina Volvo",
+    "Olá, li o artigo sobre problemas do Volvo XC40 e quero avaliar o meu. Ano/km: "))
+ARTIGOS[-1]["publicado"] = "2026-11-24"
+ARTIGOS[-1]["cta_meio"] = {"titulo": "O seu XC40 está dando algum desses sinais?",
+    "texto": "Mande o ano, a quilometragem e o que está acontecendo. Um especialista Volvo responde pelo WhatsApp.",
+    "botao": "Falar com um especialista",
+    "msg": "Olá, li o artigo sobre problemas do Volvo XC40 e quero avaliar o meu. Ano/km e o que está acontecendo: "}
+for _s in BLOG_HUB["secoes"]:
+    if _s["h2"] == "BMW, Mercedes e Volvo":
+        _s["cards"].append((L_XC40[0], f'{L_XC40[2]} <a href="{L_XC40[1]}">Ler o artigo</a>.'))
+
 CONTEUDO = ARTIGOS + [BLOG_HUB] + SUBPAGINAS

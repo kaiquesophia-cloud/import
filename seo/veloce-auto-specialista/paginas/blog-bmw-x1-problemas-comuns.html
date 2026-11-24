@@ -30,6 +30,7 @@
 .vlc .card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:6px;padding:24px}
 .vlc .card p{font-size:16px;margin:0}
 .vlc .chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:0 0 16px;list-style:none}
+.vlc .grid+.chips{margin-top:24px}
 .vlc .chips li{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px;margin:0}
 .vlc .chips li a{text-decoration:none}
 .vlc .steps{counter-reset:s;list-style:none;padding:0;margin:0}
@@ -129,20 +130,19 @@
 <section>
   <div class="wrap">
     <h2>O BMW X1 dá muito problema?</h2>
-    <p>Não. O X1 é um carro bem construído, e os chamados problemas crônicos são, na maioria, pontos conhecidos dos motores e do sistema de arrefecimento que aparecem quando a manutenção atrasa ou o carro roda muito no anda e para.</p>
-    <p>Conhecer esses pontos ajuda a cuidar do seu X1 e também a avaliar um X1 usado antes da compra.</p>
+    <p>Não. O X1 recente é um carro bem construído, e os pontos de atenção aparecem, na maioria, quando a manutenção atrasa ou o carro roda muito no anda e para.</p>
+    <p>Conhecer esses pontos ajuda a cuidar do seu X1 e também a avaliar um X1 seminovo antes da compra.</p>
   </div>
 </section>
 
 <section class="alt-bg">
   <div class="wrap">
-    <h2>As gerações do X1 no Brasil</h2>
+    <h2>As gerações recentes do X1</h2>
     <div class="tbl"><table><thead><tr><th>Geração</th><th>Período</th><th>O que saber</th></tr></thead><tbody>
-      <tr><td>1ª geração (E84)</td><td>Até 2015</td><td>Motores 2.0 aspirado e, depois, 2.0 turbo. É onde estão os pontos mais conhecidos</td></tr>
-      <tr><td>2ª geração (F48)</td><td>2016 a 2022</td><td>Motor 2.0 turbo, inclusive flex (ActiveFlex). Mais eletrônica</td></tr>
-      <tr><td>3ª geração (U11)</td><td>Desde 2023</td><td>Carro novo e cheio de eletrônica. Pede a revisão sempre no prazo</td></tr>
+      <tr><td>2ª geração (F48)</td><td>2016 a 2022</td><td>Motor 2.0 turbo, inclusive flex (ActiveFlex). Câmbio automático</td></tr>
+      <tr><td>3ª geração (U11)</td><td>Desde 2023</td><td>Nova plataforma, câmbio de dupla embreagem e muita eletrônica. Versões híbridas e elétrica (iX1)</td></tr>
     </tbody></table></div>
-    <p>O câmbio e o motor mudam conforme o ano e a versão. Na avaliação confirmamos os do seu X1.</p>
+    <p>O motor e o câmbio mudam conforme o ano e a versão. Na avaliação confirmamos os do seu X1. Para as versões híbridas e elétricas, fale com a equipe antes de agendar.</p>
   </div>
 </section>
 
@@ -151,17 +151,17 @@
     <h2>Os problemas mais comuns do X1</h2>
     <div class="grid">
       <div class="card"><h3>Vazamentos de óleo</h3>
-        <p>A junta da tampa de válvulas e a carcaça do filtro de óleo ressecam com o calor. Cheiro de queimado e manchas no chão são os sinais.</p></div>
-      <div class="card"><h3>Corrente de comando</h3>
-        <p>No 2.0 turbo da primeira geração, um ruído metálico logo depois da partida pode indicar desgaste das guias da corrente. Pede avaliação rápida.</p></div>
+        <p>A junta da tampa de válvulas e o suporte do filtro de óleo ressecam com o calor. Cheiro de queimado e manchas no chão são os sinais.</p></div>
       <div class="card"><h3>Arrefecimento</h3>
-        <p>Bomba d'água, termostato, mangueiras e reservatório de plástico sofrem com o calor. Nível de água baixando e aviso de temperatura são os alertas.</p></div>
+        <p>Mangueiras, conexões e reservatório de plástico sofrem com o calor do anda e para. Nível de água baixando e aviso de temperatura são os alertas.</p></div>
       <div class="card"><h3>Falhas de ignição</h3>
-        <p>Motor tremendo e luz de injeção acesa costumam ser bobinas ou velas. Nos motores com injeção direta, a carbonização também entra no diagnóstico.</p></div>
+        <p>Motor tremendo e luz de injeção acesa costumam ser bobinas ou velas. Na injeção direta, a carbonização também entra no diagnóstico.</p></div>
+      <div class="card"><h3>Câmbio com trancos</h3>
+        <p>No X1 mais novo, o câmbio de dupla embreagem pode dar pequenos trancos no anda e para. Na geração anterior, trocas duras costumam vir do óleo velho. Veja <a href="/blog/cambio-automatico-dando-tranco/">o que pode causar o tranco</a>.</p></div>
+      <div class="card"><h3>Eletrônica e bateria</h3>
+        <p>Os modelos recentes têm muitos módulos. Bateria fraca gera avisos em vários sistemas ao mesmo tempo, e o diagnóstico separa defeito real de tensão baixa.</p></div>
       <div class="card"><h3>Ruídos na suspensão</h3>
         <p>Buracos e lombadas de São Paulo cansam buchas, bieletas e amortecedores. Ruído seco em lombada é o primeiro aviso.</p></div>
-      <div class="card"><h3>Avisos elétricos</h3>
-        <p>Bateria fraca gera avisos em vários sistemas ao mesmo tempo. O diagnóstico separa defeito real de tensão baixa.</p></div>
     </div>
   </div>
 </section>
@@ -169,7 +169,7 @@
 <section class="alt-bg">
   <div class="wrap">
     <h2>Sinais de alerta no seu X1</h2>
-    <ul class="check"><li>Manchas de óleo onde o carro fica parado ou cheiro de queimado depois de rodar</li><li>Ruído metálico de corrente nos primeiros segundos depois da partida</li><li>Nível do reservatório de água baixando ou aviso de temperatura</li><li>Motor tremendo em marcha lenta ou luz de injeção acesa</li><li>Trancos nas trocas de marcha ou câmbio demorando para engatar</li><li>Vários avisos no painel ao mesmo tempo</li></ul>
+    <ul class="check"><li>Manchas de óleo onde o carro fica parado ou cheiro de queimado depois de rodar</li><li>Nível do reservatório de água baixando ou aviso de temperatura</li><li>Motor tremendo em marcha lenta ou luz de injeção acesa</li><li>Trancos nas trocas de marcha ou ao sair com o carro parado</li><li>Avisos no painel ou na central multimídia sem motivo aparente</li><li>Ruído seco na suspensão ao passar em lombadas</li></ul>
     <div class="cta-meio"><div><strong>O seu X1 está dando algum desses sinais?</strong><p>Mande o ano, a quilometragem e o que está acontecendo. Um especialista BMW responde pelo WhatsApp.</p></div><a class="btn" href="https://wa.me/5511995552969?text=Ol%C3%A1%2C%20li%20o%20artigo%20sobre%20problemas%20do%20BMW%20X1%20e%20quero%20avaliar%20o%20meu.%20Ano/km%20e%20o%20que%20est%C3%A1%20acontecendo%3A%20" rel="nofollow">Falar com um especialista</a></div>
   </div>
 </section>
@@ -223,9 +223,9 @@
     <details><summary>O BMW X1 é um carro confiável?</summary>
       <p>É, com a manutenção no prazo. A maior parte dos problemas conhecidos aparece quando o óleo, o arrefecimento ou a revisão ficam para depois.</p></details>
     <details><summary>Qual o problema mais comum do BMW X1?</summary>
-      <p>Entre os mais conhecidos estão os vazamentos de óleo pela junta da tampa de válvulas e pelo filtro, o desgaste da corrente no 2.0 turbo da primeira geração e peças do arrefecimento.</p></details>
-    <details><summary>O X1 flex tem os mesmos problemas?</summary>
-      <p>O X1 flex (ActiveFlex) é da segunda geração em diante. Os pontos mais conhecidos são da primeira geração; nas mais novas, o principal é manter a revisão no prazo.</p></details>
+      <p>Nas gerações recentes, os pontos mais citados são vazamentos de óleo pela junta da tampa de válvulas e pelo filtro, peças do arrefecimento e avisos eletrônicos ligados à bateria.</p></details>
+    <details><summary>O X1 novo (U11) tem os mesmos problemas?</summary>
+      <p>É um carro novo e com muita eletrônica. O principal é manter a revisão no prazo e ler as centrais a cada visita.</p></details>
     <details><summary>Vale a pena comprar um BMW X1 usado?</summary>
       <p>Pode valer, com histórico de revisões e uma avaliação antes da compra. A inspeção pré-compra mostra o estado real do carro.</p></details>
     <details><summary>A Veloce atende BMW X1?</summary>
@@ -376,15 +376,15 @@ el.classList.add('rv');el.style.transitionDelay=Math.min(i,6)*70+'ms';io.observe
           "name": "Qual o problema mais comum do BMW X1?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Entre os mais conhecidos estão os vazamentos de óleo pela junta da tampa de válvulas e pelo filtro, o desgaste da corrente no 2.0 turbo da primeira geração e peças do arrefecimento."
+            "text": "Nas gerações recentes, os pontos mais citados são vazamentos de óleo pela junta da tampa de válvulas e pelo filtro, peças do arrefecimento e avisos eletrônicos ligados à bateria."
           }
         },
         {
           "@type": "Question",
-          "name": "O X1 flex tem os mesmos problemas?",
+          "name": "O X1 novo (U11) tem os mesmos problemas?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "O X1 flex (ActiveFlex) é da segunda geração em diante. Os pontos mais conhecidos são da primeira geração; nas mais novas, o principal é manter a revisão no prazo."
+            "text": "É um carro novo e com muita eletrônica. O principal é manter a revisão no prazo e ler as centrais a cada visita."
           }
         },
         {
