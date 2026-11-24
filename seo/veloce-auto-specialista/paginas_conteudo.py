@@ -1055,7 +1055,7 @@ for _s in BLOG_HUB["secoes"]:
 L_Q3 = ("Audi Q3: problemas mais comuns", "/blog/audi-q3-problemas-comuns/", "Os defeitos mais conhecidos do Q3 e como evitar cada um.")
 ARTIGOS.append(art(
     "audi-q3-problemas-comuns", "Audi Q3: Problemas Mais Comuns e Como Evitar",
-    "Audi Q3 dá problema? Veja os problemas mais comuns do Q3, das duas gerações, os sinais de alerta e a manutenção que evita cada um deles.",
+    "Audi Q3 dá problema? Veja os problemas mais comuns do Q3 atual e do Q3 Sportback, os sinais de alerta e a manutenção que evita cada um.",
     "Audi Q3: problemas mais comuns e como evitar",
     "O Audi Q3 é um dos SUVs premium mais vendidos no Brasil. Como todo carro, ele tem pontos que pedem atenção. Neste "
     "guia você vê os problemas mais comuns do Q3, os sinais de alerta e o que fazer para evitar cada um.",

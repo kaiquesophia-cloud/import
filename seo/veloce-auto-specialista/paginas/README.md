@@ -37,6 +37,7 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 | 634 | [/blog/bmw-320i-problemas-comuns/](https://veloceautospecialista.com.br/blog/bmw-320i-problemas-comuns/) | bmw 320i problemas |
 | 645 | [/blog/o-que-e-intercooler/](https://veloceautospecialista.com.br/blog/o-que-e-intercooler/) | o que é intercooler |
 | 646 | [/blog/mercedes-c180-problemas-comuns/](https://veloceautospecialista.com.br/blog/mercedes-c180-problemas-comuns/) | mercedes c180 problemas |
+| 653 | [/blog/volvo-xc40-problemas-comuns/](https://veloceautospecialista.com.br/blog/volvo-xc40-problemas-comuns/) | volvo xc40 problemas |
 | 554 | [/blog/](https://veloceautospecialista.com.br/blog/) | (página que reúne os artigos) |
 | 555 | [/blog/o-que-e-remap/](https://veloceautospecialista.com.br/blog/o-que-e-remap/) | o que é remap |
 | 556 | [/blog/vistoria-cautelar-ou-inspecao-pre-compra/](https://veloceautospecialista.com.br/blog/vistoria-cautelar-ou-inspecao-pre-compra/) | vistoria cautelar |
@@ -103,4 +104,4 @@ palavra-chave preenchidos no Rank Math. Publicadas em 06/10/2026.
 - 22/11/2026: artigos "o-que-e-intercooler" e "mercedes-c180-problemas-comuns" preparados (prévia, não publicados). Blog: card do intercooler em Remap; seção renomeada "BMW, Mercedes e Volvo".
 - 22/11/2026: publicados 645 (intercooler) e 646 (Mercedes C180) com Rank Math e Bing; blog 554 atualizado. Pendente: sitemap + indexação; link da /oficina-mercedes-benz/ para o 646.
 - 22/11/2026 — REGRA DO DONO: não escrever sobre carro antigo (ex.: Audi A3). Pauta só com modelos atuais/recentes de alto padrão, ou temas técnicos (downpipe, stage 3, intercooler).
-- 24/11/2026 — foco nas gerações recentes (pedido do dono): Q3 (só 2ª ger./Sportback), X1 (F48 e U11), 320i (F30 final 2016+ e G20), C180 (W205 e W206), XC60 (2ª ger.) reescritos: tabela, cards, sinais e FAQs sem gerações antigas. Novo artigo volvo-xc40-problemas-comuns. /oficina-mercedes-benz/ com link e FAQ do C180. Prévia; publicar com o "pode". Obs.: /oficina-bmw/ ainda cita "N20 ... gerações anteriores" no card da corrente.
+- 24/11/2026 — foco nas gerações recentes (pedido do dono): Q3 (só 2ª ger./Sportback), X1 (F48 e U11), 320i (F30 final 2016+ e G20), C180 (W205 e W206), XC60 (2ª ger.) reescritos: tabela, cards, sinais e FAQs sem gerações antigas. Novo artigo volvo-xc40-problemas-comuns. /oficina-mercedes-benz/ com link e FAQ do C180. Publicado em 24/11/2026 (629, 632, 633, 634, 646, 653 novo, 554, 465, 461) e enviado ao Bing. /oficina-bmw/: card "Corrente de comando" (N20) trocado por "Eletrônica e bateria".
