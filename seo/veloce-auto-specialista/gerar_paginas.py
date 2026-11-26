@@ -202,6 +202,10 @@ def bloco(sec, i):
         out.append("    </div>")
     for p in sec.get("p_depois", []):
         out.append(f"    <p>{texto(p)}</p>")
+    if "servico" in sec:  # caixa que leva do artigo para a página de serviço/marca (26/11/2026)
+        t, d, href, botao = sec["servico"]
+        out.append(f'    <div class="cta-meio servico"><div><strong>{t}</strong><p>{texto(d)}</p></div>'
+                   f'<a class="btn" href="{href}">{botao}</a></div>')
     out += ["  </div>", "</section>", ""]
     return "\n".join(out)
 

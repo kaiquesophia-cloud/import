@@ -1783,4 +1783,23 @@ for _s in BLOG_HUB["secoes"]:
     if _s["h2"] == "BMW, Mercedes e Volvo":
         _s["cards"].append((L_XC40[0], f'{L_XC40[2]} <a href="{L_XC40[1]}">Ler o artigo</a>.'))
 
+# ------------------------------------------------------------------ CAIXA "VER O SERVIÇO" NO INÍCIO DOS ARTIGOS (26/11/2026)
+# GA4: as páginas de serviço e de marca convertem; o blog traz visita e ainda não converte. Uma caixa logo depois da
+# primeira seção leva o leitor para a página que gera o contato.
+_REMAP = ("Quer fazer remap no seu carro?", "Fazemos na própria oficina, na Zona Norte de SP: diagnóstico antes, backup do software original e ganho medido no nosso dinamômetro.", "/remap/", "Ver o serviço de remap")
+_SERV = {
+    "remap-stage-1-e-stage-2": ("Stage 1 ou stage 2 no seu carro?", "Fazemos os dois na própria oficina: diagnóstico antes, peças certas no stage 2, backup do original e ganho medido no nosso dinamômetro.", "/remap/", "Ver o serviço de remap"),
+    "o-que-e-remap": _REMAP, "quanto-custa-um-remap": _REMAP, "remap-estraga-o-motor": _REMAP, "remap-perde-garantia": _REMAP,
+    "o-que-e-intercooler": ("Carro turbo perdendo força ou pensando em preparação?", "Avaliamos turbo, intercooler e mangueiras com scanner e teste de pressão, e conferimos tudo no nosso dinamômetro.", "/remap/", "Ver remap e preparação"),
+    "mercedes-c180-problemas-comuns": ("Oficina Mercedes-Benz na Zona Norte de SP", "Revisão pelo plano da Mercedes, peças genuínas, leitura completa das centrais e relatório técnico.", "/oficina-mercedes-benz/", "Ver a oficina Mercedes"),
+    "volvo-xc40-problemas-comuns": ("Oficina Volvo na Zona Norte de SP", "Revisão pelo plano da Volvo, peças genuínas, leitura completa das centrais e relatório técnico.", "/oficina-volvo/", "Ver a oficina Volvo"),
+    "volvo-xc60-problemas-comuns": ("Oficina Volvo na Zona Norte de SP", "Revisão pelo plano da Volvo, peças genuínas, leitura completa das centrais e relatório técnico.", "/oficina-volvo/", "Ver a oficina Volvo"),
+    "bmw-x1-problemas-comuns": ("Oficina BMW na Zona Norte de SP", "Revisão pelo plano da BMW, peças genuínas, leitura completa das centrais e relatório técnico.", "/oficina-bmw/", "Ver a oficina BMW"),
+    "bmw-320i-problemas-comuns": ("Oficina BMW na Zona Norte de SP", "Revisão pelo plano da BMW, peças genuínas, leitura completa das centrais e remap com dinamômetro próprio.", "/oficina-bmw/", "Ver a oficina BMW"),
+    "audi-q3-problemas-comuns": ("Oficina Audi na Zona Norte de SP", "Revisão pelo plano da Audi, peças genuínas, leitura completa das centrais e relatório técnico.", "/oficina-audi/", "Ver a oficina Audi"),
+}
+for _a in ARTIGOS:
+    if _a["slug"] in _SERV:
+        _a["secoes"][0]["servico"] = _SERV[_a["slug"]]
+
 CONTEUDO = ARTIGOS + [BLOG_HUB] + SUBPAGINAS
